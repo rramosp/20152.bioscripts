@@ -1,0 +1,39 @@
+#!/opt/anaconda/bin/python
+
+import numpy as np
+import pandas as pd
+import sys
+import os
+
+if not len(sys.argv) == 2:
+   sys.stderr.write("incorrect number of arguments\n")
+   exit(-1)
+
+fname = sys.argv[1]
+
+if not os.path.isfile(fname):
+   sys.stderr.write("file does not exist\n")
+   exit(-1)
+
+norm = "mult"
+if 'NORMALIZATION' in os.environ.keys():
+    norm = os.environ['NORMALIZATION']
+
+if norm!="mult" and norm!="div":
+   sys.stderr.write("NORMALIZATION must be 'mult' or 'div'\n")
+   exit(-1)
+
+try:
+   d = pd.read_csv(fname, header=None)
+   for i in d[9]:
+      a = int(i)
+except Exception, e:
+   sys.stderr.write("Error "+str(e)+"\n")
+   exit(-1)
+
+if norm=="mult":
+    d[9] = d[9]*10
+else:
+    d[9] = d[9]/10
+
+print d.to_csv(header=False, index=False)
