@@ -1,0 +1,1034 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Pairwise Sequence Alignment &mdash; Bioinformatics 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Bioinformatics 0.1 documentation" href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html" />
+    <link rel="next" title="Multiple Alignment and Phylogenetic trees" href="chapter5.html" />
+    <link rel="prev" title="REVISION EXERCISES 1" href="revisionexercises1.html" />
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/src/chapter4.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "a-little-book-of-r-for-bioinformatics",
+    version: "latest",
+    language: "en",
+    page: "src/chapter4",
+    builder: "sphinx",
+    theme: "sphinxdoc",
+    docroot: "/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "8cd107b180ed964fe7c8021e78ff0ab528d5ba74"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "a-little-book-of-r-for-bioinformatics";
+  var page_name = "src/chapter4";
+  var html_theme = "sphinxdoc";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  // User Analytics Code
+  _gaq.push(['user._setAccount', 'UA-36029021-1']);
+  _gaq.push(['user._trackPageview']);
+  // End User Analytics Code
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="chapter5.html" title="Multiple Alignment and Phylogenetic trees"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="revisionexercises1.html" title="REVISION EXERCISES 1"
+             accesskey="P">previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="chapter4.html#">Pairwise Sequence Alignment</a><ul>
+<li><a class="reference internal" href="chapter4.html#uniprot">UniProt</a></li>
+<li><a class="reference internal" href="chapter4.html#viewing-the-uniprot-webpage-for-a-protein-sequence">Viewing the UniProt webpage for a protein sequence</a></li>
+<li><a class="reference internal" href="chapter4.html#retrieving-a-uniprot-protein-sequence-via-the-uniprot-website">Retrieving a UniProt protein sequence via the UniProt website</a></li>
+<li><a class="reference internal" href="chapter4.html#retrieving-a-uniprot-protein-sequence-using-seqinr">Retrieving a UniProt protein sequence using SeqinR</a></li>
+<li><a class="reference internal" href="chapter4.html#comparing-two-sequences-using-a-dotplot">Comparing two sequences using a dotplot</a></li>
+<li><a class="reference internal" href="chapter4.html#pairwise-global-alignment-of-dna-sequences-using-the-needleman-wunsch-algorithm">Pairwise global alignment of DNA sequences using the Needleman-Wunsch algorithm</a></li>
+<li><a class="reference internal" href="chapter4.html#pairwise-global-alignment-of-protein-sequences-using-the-needleman-wunsch-algorithm">Pairwise global alignment of protein sequences using the Needleman-Wunsch algorithm</a></li>
+<li><a class="reference internal" href="chapter4.html#aligning-uniprot-sequences">Aligning UniProt sequences</a></li>
+<li><a class="reference internal" href="chapter4.html#viewing-a-long-pairwise-alignment">Viewing a long pairwise alignment</a></li>
+<li><a class="reference internal" href="chapter4.html#pairwise-local-alignment-of-protein-sequences-using-the-smith-waterman-algorithm">Pairwise local alignment of protein sequences using the Smith-Waterman algorithm</a></li>
+<li><a class="reference internal" href="chapter4.html#calculating-the-statistical-significance-of-a-pairwise-global-alignment">Calculating the statistical significance of a pairwise global alignment</a></li>
+<li><a class="reference internal" href="chapter4.html#summary">Summary</a></li>
+<li><a class="reference internal" href="chapter4.html#links-and-further-reading">Links and Further Reading</a></li>
+<li><a class="reference internal" href="chapter4.html#acknowledgements">Acknowledgements</a></li>
+<li><a class="reference internal" href="chapter4.html#contact">Contact</a></li>
+<li><a class="reference internal" href="chapter4.html#license">License</a></li>
+<li><a class="reference internal" href="chapter4.html#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="revisionexercises1.html"
+                        title="previous chapter">REVISION EXERCISES 1</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chapter5.html"
+                        title="next chapter">Multiple Alignment and Phylogenetic trees</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/_sources/src/chapter4.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="pairwise-sequence-alignment">
+<h1>Pairwise Sequence Alignment<a class="headerlink" href="chapter4.html#pairwise-sequence-alignment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="uniprot">
+<h2>UniProt<a class="headerlink" href="chapter4.html#uniprot" title="Permalink to this headline">¶</a></h2>
+<p>In <a class="reference external" href="chapter3.html">the previous chapter</a> you learnt how to retrieve DNA and protein
+sequences from the NCBI database. The NCBI database is a key database in bioinformatics
+because it contains essentially all DNA sequences ever sequenced.</p>
+<p>As mentioned in <a class="reference external" href="chapter3.html">the previous chapter</a>, a subsection of the NCBI
+database called <a class="reference external" href="chapter3.html#refseq">RefSeq</a> consists of high quality DNA and protein
+sequence data. Furthermore, the NCBI entries for the RefSeq
+sequences have been <em>manually curated</em>, which means that biologists
+employed by NCBI have added additional information to the NCBI
+entries for those sequences, such as details of scientific papers
+that describe the sequences.</p>
+<p>Another extremely important manually curated database is UniProt
+(<a class="reference external" href="http://www.uniprot.org">www.uniprot.org</a>), which focuses on
+protein sequences. UniProt aims to contains manually curated
+information on all known protein sequences. While many of the
+protein sequences in UniProt are also present in RefSeq, the amount
+and quality of manually curated information in UniProt is much
+higher than that in RefSeq.</p>
+<p>For each protein in UniProt, the UniProt curators read all the
+scientific papers that they can find about that protein, and add
+information from those papers to the protein&#8217;s UniProt entry. For
+example, for a human protein, the UniProt entry for the protein
+usually includes information about the biological function of the
+protein, in what human tissues it is expressed, whether it
+interacts with other human proteins, and much more. All this
+information has been manually gathered by the UniProt curators from
+scientific papers, and the papers in which the found the
+information are always listed in the UniProt entry for the
+protein.</p>
+<p>Just like NCBI, UniProt also assigns an <em>accession</em> to each
+sequence in the UniProt database. Although the same protein
+sequence may appear in both the NCBI database and the UniProt
+database, it will have different NCBI and UniProt accessions.
+However, there is usually a link on the NCBI entry for the protein
+sequence to the UniProt entry, and vice versa.</p>
+</div>
+<div class="section" id="viewing-the-uniprot-webpage-for-a-protein-sequence">
+<h2>Viewing the UniProt webpage for a protein sequence<a class="headerlink" href="chapter4.html#viewing-the-uniprot-webpage-for-a-protein-sequence" title="Permalink to this headline">¶</a></h2>
+<p>If you are given the UniProt accession for a protein, to find the
+UniProt entry for the protein, you first need to go the UniProt
+website, <a class="reference external" href="http://www.uniprot.org">www.uniprot.org</a>. At the top of
+the UniProt website, you will see a search box, and you can type
+the accession of the protein that you are looking for in this
+search box, and then click on the &#8220;Search&#8221; button to search for
+it.</p>
+<p>For example, if you want to find the sequence for the chorismate
+lyase protein from <em>Mycobacterium leprae</em> (the bacterium which
+causes <a class="reference external" href="http://apps.who.int/tdr/svc/diseases/leprosy">leprosy</a>), which has UniProt accession
+Q9CD83, you would type just &#8220;Q9CD83&#8221; in the search box and press &#8220;Search&#8221;:</p>
+<p><a class="reference internal" href="../_images/P4_image0.png"><img alt="image0" src="../_images/P4_image0.png" style="width: 700px;" /></a></p>
+<p>The UniProt entry for UniProt accession Q9CD83 will then appear in
+your web browser. The picture below shows the top part of the
+UniProt entry for accession Q9CD83. You can see there is a lot of
+information about the protein in its UniProt entry.</p>
+<p>Beside the heading &#8220;Organism&#8221; you can see the organism is given as
+<em>Mycobacterium leprae</em>. Beside the heading &#8220;Taxonomic
+lineage&#8221;, you can see &#8220;Bacteria &gt; Actinobacteria &gt; Actinobacteridae &gt; Actinomycetales &gt; Corynebacterineae &gt; Mycobacteriaceae &gt; Mycobacterium&#8221;.</p>
+<p>This tells us that <em>Mycobacterium</em> is a species of
+bacteria, which belongs to a group of related bacteria called the
+Mycobacteriaceae, which itself belongs to a larger group of
+related bacteria called the Corynebacterineae, which itself belongs
+to an even larger group of related bacteria called the
+Actinomycetales, which itself belongs to the Actinobacteridae,
+which itself belongs to a huge group of bacteria called the
+Actinobacteria.</p>
+<p>Beside the heading &#8220;Sequence length&#8221; we see that the sequence is
+210 amino acids long (210 letters long). Further down, beside the
+heading &#8220;Function&#8221;, it says that the function of this protein is
+that it &#8220;Removes the pyruvyl group from chorismate to provide 4-hydroxybenzoate (4HB)&#8221;.
+This tells us this protein is an
+enzyme (a protein that increases the rate of a specific biochemical
+reaction), and tells us what is the particular biochemical reaction
+that this enzyme is involved in.</p>
+<p>Further down the UniProt page for this protein, you will see a lot
+more information, as well as many links to webpages in other
+biological databases, such as NCBI. The huge amount of information
+about proteins in UniProt means that if you want to find out about
+a particular protein, the UniProt page for that protein is a great
+place to start.</p>
+<p><a class="reference internal" href="../_images/P4_image1.png"><img alt="image1" src="../_images/P4_image1.png" style="width: 700px;" /></a></p>
+</div>
+<div class="section" id="retrieving-a-uniprot-protein-sequence-via-the-uniprot-website">
+<h2>Retrieving a UniProt protein sequence via the UniProt website<a class="headerlink" href="chapter4.html#retrieving-a-uniprot-protein-sequence-via-the-uniprot-website" title="Permalink to this headline">¶</a></h2>
+<p>To retrieve a FASTA-format file containing the sequence for a
+particular protein, you need to look at the top right of the
+UniProt entry for the protein on the <a class="reference external" href="http://www.uniprot.org">UniProt website</a>.</p>
+<p>You will see a small orange button labelled &#8220;FASTA&#8221;, which you should click on:</p>
+<p><a class="reference internal" href="../_images/P4_image2.png"><img alt="image2" src="../_images/P4_image2.png" style="width: 700px;" /></a></p>
+<p>The FASTA-format sequence for the accession will now appear in your
+web browser. To save it as a file, go to the &#8220;File&#8221; menu of your
+web browser, choose &#8220;Save page as&#8221;, and save the file. Remember to
+give the file a sensible name (eg. &#8220;Q9CD83.fasta&#8221; for accession
+Q9CD83), and in a place that you will remember (eg. in the &#8220;My
+Documents&#8221; folder).</p>
+<p>For example, you can retrieve the protein sequences for the
+chorismate lyase protein from <em>Mycobacterium leprae</em> (which
+has UniProt accession Q9CD83) and for the chorismate lyase protein
+from <em>Mycobacterium ulcerans</em> (UniProt accession A0PQ23), and save them
+as FASTA-format files (eg. &#8220;Q9CD83.fasta&#8221; and &#8220;A0PQ23.fasta&#8221;, as
+described above.</p>
+<p>Note that <em>Mycobacterium leprae</em> is the bacterium which
+causes <a class="reference external" href="http://apps.who.int/tdr/svc/diseases/leprosy">leprosy</a>,
+while <em>Mycobacterium ulcerans</em> is a related bacterium which
+causes <a class="reference external" href="http://www.who.int/buruli/en/">Buruli ulcer</a>, both of which
+are classified by the WHO as neglected tropical diseases.</p>
+<p>Note that the <em>M. leprae</em> and <em>M. ulcerans</em> chorismate
+lyase proteins are an example of a pair of homologous (related)
+proteins in two related species of bacteria.</p>
+<p>Once you have downloaded the protein sequences for UniProt
+accessions Q9CD83 and A0PQ23 and saved them as FASTA-format files
+(eg. &#8220;Q9CD83.fasta&#8221; and &#8220;A0PQ23.fasta&#8221;), you can read them into R
+using the read.fasta() function in the SeqinR R package (as
+described in <a class="reference external" href="chapter1.html#reading-sequence-data-into-r">chapter 1</a>).</p>
+<p>Remember that the read.fasta() function expects that you have put
+your FASTA-format files in the &#8220;My Documents&#8221; folder on your
+computer.</p>
+<p>For example, the following commands will read the FASTA-format
+files Q9CD83.fasta and A0PQ23.fasta into R, and store the two
+protein sequences in two vectors <em>lepraeseq</em> and <em>ulceransseq</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> leprae <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;Q9CD83.fasta&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> ulcerans <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;A0PQ23.fasta&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> lepraeseq <span class="o">&lt;-</span> leprae<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="o">&gt;</span> ulceransseq <span class="o">&lt;-</span> ulcerans<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="o">&gt;</span> lepraeseq <span class="c1"># Display the contents of the vector &quot;lepraeseq&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;m&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;s&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;l&quot;</span>
+  <span class="p">[</span><span class="m">19</span><span class="p">]</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;a&quot;</span>
+  <span class="p">[</span><span class="m">37</span><span class="p">]</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;q&quot;</span> <span class="s">&quot;q&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;p&quot;</span>
+  <span class="p">[</span><span class="m">55</span><span class="p">]</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;p&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;q&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;i&quot;</span>
+  <span class="p">[</span><span class="m">73</span><span class="p">]</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;q&quot;</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;s&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;f&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;s&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;i&quot;</span>
+  <span class="p">[</span><span class="m">91</span><span class="p">]</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;p&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;y&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;h&quot;</span> <span class="s">&quot;h&quot;</span>
+  <span class="p">[</span><span class="m">109</span><span class="p">]</span> <span class="s">&quot;p&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;m&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;s&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;y&quot;</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;a&quot;</span>
+  <span class="p">[</span><span class="m">127</span><span class="p">]</span> <span class="s">&quot;q&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;w&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;p&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;w&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;y&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;y&quot;</span> <span class="s">&quot;w&quot;</span> <span class="s">&quot;d&quot;</span>
+  <span class="p">[</span><span class="m">145</span><span class="p">]</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;p&quot;</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;y&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;q&quot;</span> <span class="s">&quot;p&quot;</span>
+  <span class="p">[</span><span class="m">163</span><span class="p">]</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;y&quot;</span> <span class="s">&quot;f&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;s&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;f&quot;</span> <span class="s">&quot;q&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;p&quot;</span> <span class="s">&quot;r&quot;</span>
+  <span class="p">[</span><span class="m">181</span><span class="p">]</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;e&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;q&quot;</span> <span class="s">&quot;y&quot;</span> <span class="s">&quot;s&quot;</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;i&quot;</span> <span class="s">&quot;d&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;s&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;d&quot;</span>
+  <span class="p">[</span><span class="m">199</span><span class="p">]</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;f&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;l&quot;</span> <span class="s">&quot;h&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;r&quot;</span> <span class="s">&quot;v&quot;</span> <span class="s">&quot;f&quot;</span> <span class="s">&quot;k&quot;</span> <span class="s">&quot;n&quot;</span> <span class="s">&quot;l&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="retrieving-a-uniprot-protein-sequence-using-seqinr">
+<h2>Retrieving a UniProt protein sequence using SeqinR<a class="headerlink" href="chapter4.html#retrieving-a-uniprot-protein-sequence-using-seqinr" title="Permalink to this headline">¶</a></h2>
+<p>An alternative method of retrieving a UniProt protein sequence is to use the
+SeqinR package to query the ACNUC sub-database &#8220;swissprot&#8221;, which contains protein
+sequences from UniProt.</p>
+<p>We use the query() function from SeqinR to query this database, as described
+in <a class="reference external" href="chapter3.html">chapter3</a>.</p>
+<p>For example to retrieve the protein sequences for UniProt accessions Q9CD83
+and A0PQ23, we type in R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;swissprot&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;leprae&quot;</span><span class="p">,</span> <span class="s">&quot;AC=Q9CD83&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> lepraeseq <span class="o">&lt;-</span> getSequence<span class="p">(</span>leprae<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;ulcerans&quot;</span><span class="p">,</span> <span class="s">&quot;AC=A0PQ23&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> ulceransseq <span class="o">&lt;-</span> getSequence<span class="p">(</span>ulcerans<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+<span class="o">&gt;</span> lepraeseq <span class="c1"># Display the contents of &quot;lepraeseq&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;M&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;L&quot;</span>
+  <span class="p">[</span><span class="m">19</span><span class="p">]</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;A&quot;</span>
+  <span class="p">[</span><span class="m">37</span><span class="p">]</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;Q&quot;</span> <span class="s">&quot;Q&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;P&quot;</span>
+  <span class="p">[</span><span class="m">55</span><span class="p">]</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;P&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;Q&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;I&quot;</span>
+  <span class="p">[</span><span class="m">73</span><span class="p">]</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;Q&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;F&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;I&quot;</span>
+  <span class="p">[</span><span class="m">91</span><span class="p">]</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;P&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;Y&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;H&quot;</span> <span class="s">&quot;H&quot;</span>
+  <span class="p">[</span><span class="m">109</span><span class="p">]</span> <span class="s">&quot;P&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;M&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;Y&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;A&quot;</span>
+  <span class="p">[</span><span class="m">127</span><span class="p">]</span> <span class="s">&quot;Q&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;W&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;P&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;W&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;Y&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;Y&quot;</span> <span class="s">&quot;W&quot;</span> <span class="s">&quot;D&quot;</span>
+  <span class="p">[</span><span class="m">145</span><span class="p">]</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;P&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;Y&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;Q&quot;</span> <span class="s">&quot;P&quot;</span>
+  <span class="p">[</span><span class="m">163</span><span class="p">]</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;Y&quot;</span> <span class="s">&quot;F&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;F&quot;</span> <span class="s">&quot;Q&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;P&quot;</span> <span class="s">&quot;R&quot;</span>
+  <span class="p">[</span><span class="m">181</span><span class="p">]</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;Q&quot;</span> <span class="s">&quot;Y&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;D&quot;</span>
+  <span class="p">[</span><span class="m">199</span><span class="p">]</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;F&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;H&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;F&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;L&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comparing-two-sequences-using-a-dotplot">
+<h2>Comparing two sequences using a dotplot<a class="headerlink" href="chapter4.html#comparing-two-sequences-using-a-dotplot" title="Permalink to this headline">¶</a></h2>
+<p>As a first step in comparing two protein, RNA or DNA sequences, it is a good idea to make a <em>dotplot</em>.
+A dotplot is a graphical method that allows the comparison of two protein or DNA sequences and identify regions of close similarity between them. A dotplot is essentially a two-dimensional matrix (like a grid), which has the sequences of the proteins being compared along the vertical and horizontal axes.</p>
+<p>In order to make a simple dotplot to represent of the similarity between two sequences, individual cells in the matrix can be shaded black if residues are identical, so that matching sequence segments appear as runs of diagonal lines across the matrix. Identical proteins will have a line exactly on the main diagonal of the dotplot, that spans across the whole matrix.</p>
+<p>For proteins that are not identical, but share regions of similarity, the dotplot will have shorter lines that may be on the main diagonal, or off the main diagonal of the matrix.
+In essence, a dotplot will reveal if there are any regions
+that are clearly very similar in two protein (or DNA) sequences.</p>
+<p>We  can create a dotplot for two sequences using the &#8220;dotPlot()&#8221; function in the SeqinR R package.</p>
+<p>For example, if we want to create a dotplot of the sequences for the
+chorismate lyase proteins from <em>Mycobacterium leprae</em> and <em>Mycobacterium ulcerans</em>, we would
+type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> dotPlot<span class="p">(</span>lepraeseq<span class="p">,</span> ulceransseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../_images/P4_image5.png"><img alt="image5" src="../_images/P4_image5.png" style="width: 450px;" /></a></p>
+<p>In the dotplot above, the <em>M. leprae</em> sequence is plotted along the <em>x</em>-axis (horizontal axis), and
+the <em>M. ulcerans</em> sequence is plotted along the <em>y</em>-axis (vertical axis). The dotplot displays a dot
+at points where there is an identical amino acid in the two sequences.</p>
+<p>For example, if amino acid 53 in the <em>M. leprae</em> sequence is the same amino acid (eg. &#8220;W&#8221;)
+as amino acid 70 in the <em>M. ulcerans</em> sequence, then the dotplot will show a dot the position in
+the plot where <em>x</em> =50 and <em>y</em> =53.</p>
+<p>In this case you can see a lot of dots along a diagonal
+line, which indicates that the two protein sequences contain many identical amino acids at the
+same (or very similar) positions along their lengths. This is what you would expect,
+because we know that these two proteins are homologues (related proteins).</p>
+</div>
+<div class="section" id="pairwise-global-alignment-of-dna-sequences-using-the-needleman-wunsch-algorithm">
+<h2>Pairwise global alignment of DNA sequences using the Needleman-Wunsch algorithm<a class="headerlink" href="chapter4.html#pairwise-global-alignment-of-dna-sequences-using-the-needleman-wunsch-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>If you are studying a particular pair of genes or proteins, an
+important question is to what extent the two sequences are similar.</p>
+<p>To quantify similarity, it is necessary to <em>align</em> the two
+sequences, and then you can calculate a similarity score based on
+the alignment.</p>
+<p>There are two types of alignment in general. A <em>global</em> alignment
+is an alignment of the full length of two sequences, for example,
+of two protein sequences or of two DNA sequences. A <em>local</em>
+alignment is an alignment of part of one sequence to part of
+another sequence.</p>
+<p>The first step in computing a alignment (global or local) is to
+decide on a scoring system. For example, we may decide to give a
+score of +2 to a match and a penalty of -1 to a mismatch, and a
+penalty of -2 to a gap. Thus, for the alignment:</p>
+<div class="highlight-r"><div class="highlight"><pre>G A A <span class="bp">T</span> <span class="bp">T</span> C
+G A <span class="bp">T</span> <span class="bp">T</span> <span class="o">-</span> A
+</pre></div>
+</div>
+<p>we would compute a score of 2 + 2 -1 + 2 -2 - 1 = 2. Similarly, the
+score for the following alignment is 2 + 2 -2 + 2 + 2 -1 = 5:</p>
+<div class="highlight-r"><div class="highlight"><pre>G A A <span class="bp">T</span> <span class="bp">T</span> C
+G A <span class="o">-</span> <span class="bp">T</span> <span class="bp">T</span> A
+</pre></div>
+</div>
+<p>The scoring system above can be represented by a <em>scoring matrix</em>
+(also known as a <em>substitution matrix</em>). The scoring matrix
+has one row and one column for each possible
+letter in our alphabet of letters (eg. 4 rows and 4 columns for DNA
+sequences). The <em>(i,j)</em> element of the matrix has a value of +2
+in case of a match and -1 in case of a mismatch.</p>
+<p>We can make a scoring matrix in R by using the
+nucleotideSubstitutionMatrix() function in the Biostrings()
+package. The Biostrings package is part of a set of R packages for
+bioinformatics analysis known as Bioconductor
+(<a class="reference external" href="http://www.bioconductor.org/">www.bioconductor.org/</a>).</p>
+<p>To use the Biostrings package, you will first need to install the
+package (see the instructions <a class="reference external" href="installr.html#how-to-install-a-bioconductor-r-package">here</a>).</p>
+<p>The arguments (inputs) for the nucleotideSubstitutionMatrix() function
+are the score that we want to assign to a match and the score that
+we want to assign to a mismatch. We can also specify that we want
+to use only the four letters representing the four nucleotides (ie.
+A, C, G, T) by setting &#8216;baseOnly=TRUE&#8217;, or whether we also want to
+use the letters that represent ambiguous cases where we are not
+sure what the nucleotide is (eg. &#8216;N&#8217; = A/C/G/T).</p>
+<p>To make a scoring matrix which assigns a score of +2 to a match and
+-1 to a mismatch, and store it in the variable <em>sigma</em>, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span>Biostrings<span class="p">)</span>
+<span class="o">&gt;</span> sigma <span class="o">&lt;-</span> nucleotideSubstitutionMatrix<span class="p">(</span>match <span class="o">=</span> <span class="m">2</span><span class="p">,</span> mismatch <span class="o">=</span> <span class="m">-1</span><span class="p">,</span> baseOnly <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="o">&gt;</span> sigma <span class="c1"># Print out the matrix</span>
+   A  C  G  <span class="bp">T</span>
+A  <span class="m">2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span>
+C <span class="m">-1</span>  <span class="m">2</span> <span class="m">-1</span> <span class="m">-1</span>
+G <span class="m">-1</span> <span class="m">-1</span>  <span class="m">2</span> <span class="m">-1</span>
+<span class="bp">T</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span>  <span class="m">2</span>
+</pre></div>
+</div>
+<p>Instead of assigning the same penalty (eg. -8) to every gap
+position, it is common instead to assign a <em>gap opening penalty</em> to
+the first position in a gap (eg. -8), and a smaller
+<em>gap extension penalty</em> to every subsequent position in the same
+gap.</p>
+<p>The reason for doing this is that it is likely that adjacent
+gap positions were created by the same insertion or deletion event,
+rather than by several independent insertion or deletion events.
+Therefore, we don&#8217;t want to penalise a 3-letter gap as much as we
+would penalise three separate 1-letter gaps, as the 3-letter gap
+may have arisen due to just one insertion or deletion event, while
+the 3 separate 1-letter gaps probably arose due to three
+independent insertion or deletion events.</p>
+<p>For example, if we want to compute the score for a global alignment
+of two short DNA sequences &#8216;GAATTC&#8217; and &#8216;GATTA&#8217;, we can use the
+Needleman-Wunsch algorithm to calculate the highest-scoring
+alignment using a particular scoring function.</p>
+<p>The &#8220;pairwiseAlignment()&#8221; function in the Biostrings R package finds the
+score for the optimal global alignment between two sequences using
+the Needleman-Wunsch algorithm, given a particular scoring system.</p>
+<p>As arguments (inputs), the pairwiseAlignment() function takes the
+two sequences that you want to align, the scoring matrix, the gap
+opening penalty, and the gap extension penalty. You can also tell
+the function that you want to just have the optimal global
+alignment&#8217;s score by setting &#8220;scoreOnly = TRUE&#8221;, or that you want
+to have both the optimal global alignment and its score by setting
+&#8220;scoreOnly = FALSE&#8221;.</p>
+<p>For example, to find the score for the optimal
+global alignment between the sequences &#8216;GAATTC&#8217; and &#8216;GATTA&#8217;, we
+type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> s1 <span class="o">&lt;-</span> <span class="s">&quot;GAATTC&quot;</span>
+<span class="o">&gt;</span> s2 <span class="o">&lt;-</span> <span class="s">&quot;GATTA&quot;</span>
+<span class="o">&gt;</span> globalAligns1s2 <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>s1<span class="p">,</span> s2<span class="p">,</span> substitutionMatrix <span class="o">=</span> sigma<span class="p">,</span> gapOpening <span class="o">=</span> <span class="m">-2</span><span class="p">,</span>
+gapExtension <span class="o">=</span> <span class="m">-8</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="o">&gt;</span> globalAligns1s2 <span class="c1"># Print out the optimal alignment and its score</span>
+Global Pairwise Alignment <span class="p">(</span><span class="m">1</span> of <span class="m">1</span><span class="p">)</span>
+pattern<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> GAATTC
+subject<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> GA<span class="o">-</span>TTA
+score<span class="o">:</span> <span class="m">-3</span>
+</pre></div>
+</div>
+<p>The above commands print out the optimal global alignment for the
+two sequences and its score.</p>
+<p>Note that we set &#8220;gapOpening&#8221; to be -2 and &#8220;gapExtension&#8221; to be -8, which means that
+the first position of a gap is assigned a score of (-8-2=)-10, and every subsequent
+position in a gap is given a score of -8. Here the alignment contains four matches,
+one mismatch, and one gap of length 1, so its score is (4*2)+(1*-1)+(1*-10) = -3.</p>
+</div>
+<div class="section" id="pairwise-global-alignment-of-protein-sequences-using-the-needleman-wunsch-algorithm">
+<h2>Pairwise global alignment of protein sequences using the Needleman-Wunsch algorithm<a class="headerlink" href="chapter4.html#pairwise-global-alignment-of-protein-sequences-using-the-needleman-wunsch-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>As well as DNA alignments, it is also possible to make alignments
+of protein sequences. In this case it is necessary to use a scoring
+matrix for amino acids rather than for nucleotides.</p>
+<p>There are several well known scoring matrices that come with R, such as the
+BLOSUM series of matrices. Different BLOSUM matrices exist, named
+with different numbers. BLOSUM with high numbers are designed for
+comparing closely related sequences, while BLOSUM with low numbers
+are designed for comparing distantly related sequences. For
+example, BLOSUM62 is used for less divergent alignments (alignments
+of sequences that differ little), and BLOSUM30 is used for more
+divergent alignments (alignments of sequences that differ a lot).</p>
+<p>Many R packages come with example data sets or data files. The
+&#8220;data()&#8221; function is used to load these data files. You can use the
+data() function in R to load a data set of BLOSUM matrices that
+comes with R Biostrings() package.</p>
+<p>To load the BLOSUM50 matrix, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> data<span class="p">(</span>BLOSUM50<span class="p">)</span>
+<span class="o">&gt;</span> BLOSUM50 <span class="c1"># Print out the data</span>
+   A  R  N  D  C  Q  E  G  H  I  L  K  M  <span class="bp">F</span>  P  S  <span class="bp">T</span>  W  Y  V  B  Z  X  <span class="o">*</span>
+A  <span class="m">5</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-1</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">-3</span> <span class="m">-2</span>  <span class="m">0</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-5</span>
+R <span class="m">-2</span>  <span class="m">7</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-4</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">-3</span>  <span class="m">0</span> <span class="m">-4</span> <span class="m">-3</span>  <span class="m">3</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-5</span>
+N <span class="m">-1</span> <span class="m">-1</span>  <span class="m">7</span>  <span class="m">2</span> <span class="m">-2</span>  <span class="m">0</span>  <span class="m">0</span>  <span class="m">0</span>  <span class="m">1</span> <span class="m">-3</span> <span class="m">-4</span>  <span class="m">0</span> <span class="m">-2</span> <span class="m">-4</span> <span class="m">-2</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">-4</span> <span class="m">-2</span> <span class="m">-3</span>  <span class="m">4</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-5</span>
+D <span class="m">-2</span> <span class="m">-2</span>  <span class="m">2</span>  <span class="m">8</span> <span class="m">-4</span>  <span class="m">0</span>  <span class="m">2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-4</span> <span class="m">-4</span> <span class="m">-1</span> <span class="m">-4</span> <span class="m">-5</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-5</span> <span class="m">-3</span> <span class="m">-4</span>  <span class="m">5</span>  <span class="m">1</span> <span class="m">-1</span> <span class="m">-5</span>
+C <span class="m">-1</span> <span class="m">-4</span> <span class="m">-2</span> <span class="m">-4</span> <span class="m">13</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-4</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-5</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-5</span>
+Q <span class="m">-1</span>  <span class="m">1</span>  <span class="m">0</span>  <span class="m">0</span> <span class="m">-3</span>  <span class="m">7</span>  <span class="m">2</span> <span class="m">-2</span>  <span class="m">1</span> <span class="m">-3</span> <span class="m">-2</span>  <span class="m">2</span>  <span class="m">0</span> <span class="m">-4</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-3</span>  <span class="m">0</span>  <span class="m">4</span> <span class="m">-1</span> <span class="m">-5</span>
+E <span class="m">-1</span>  <span class="m">0</span>  <span class="m">0</span>  <span class="m">2</span> <span class="m">-3</span>  <span class="m">2</span>  <span class="m">6</span> <span class="m">-3</span>  <span class="m">0</span> <span class="m">-4</span> <span class="m">-3</span>  <span class="m">1</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-3</span>  <span class="m">1</span>  <span class="m">5</span> <span class="m">-1</span> <span class="m">-5</span>
+G  <span class="m">0</span> <span class="m">-3</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-3</span>  <span class="m">8</span> <span class="m">-2</span> <span class="m">-4</span> <span class="m">-4</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-2</span>  <span class="m">0</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-5</span>
+H <span class="m">-2</span>  <span class="m">0</span>  <span class="m">1</span> <span class="m">-1</span> <span class="m">-3</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">-2</span> <span class="m">10</span> <span class="m">-4</span> <span class="m">-3</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-3</span>  <span class="m">2</span> <span class="m">-4</span>  <span class="m">0</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-5</span>
+I <span class="m">-1</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-4</span> <span class="m">-4</span>  <span class="m">5</span>  <span class="m">2</span> <span class="m">-3</span>  <span class="m">2</span>  <span class="m">0</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-1</span>  <span class="m">4</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-5</span>
+L <span class="m">-2</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-4</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-3</span>  <span class="m">2</span>  <span class="m">5</span> <span class="m">-3</span>  <span class="m">3</span>  <span class="m">1</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-1</span>  <span class="m">1</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-5</span>
+K <span class="m">-1</span>  <span class="m">3</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-3</span>  <span class="m">2</span>  <span class="m">1</span> <span class="m">-2</span>  <span class="m">0</span> <span class="m">-3</span> <span class="m">-3</span>  <span class="m">6</span> <span class="m">-2</span> <span class="m">-4</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-3</span>  <span class="m">0</span>  <span class="m">1</span> <span class="m">-1</span> <span class="m">-5</span>
+M <span class="m">-1</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-4</span> <span class="m">-2</span>  <span class="m">0</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-1</span>  <span class="m">2</span>  <span class="m">3</span> <span class="m">-2</span>  <span class="m">7</span>  <span class="m">0</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-1</span>  <span class="m">0</span>  <span class="m">1</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-5</span>
+<span class="bp">F</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-5</span> <span class="m">-2</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-1</span>  <span class="m">0</span>  <span class="m">1</span> <span class="m">-4</span>  <span class="m">0</span>  <span class="m">8</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">-2</span>  <span class="m">1</span>  <span class="m">4</span> <span class="m">-1</span> <span class="m">-4</span> <span class="m">-4</span> <span class="m">-2</span> <span class="m">-5</span>
+P <span class="m">-1</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-4</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">10</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-5</span>
+S  <span class="m">1</span> <span class="m">-1</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-3</span>  <span class="m">0</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-1</span>  <span class="m">5</span>  <span class="m">2</span> <span class="m">-4</span> <span class="m">-2</span> <span class="m">-2</span>  <span class="m">0</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-5</span>
+<span class="bp">T</span>  <span class="m">0</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-1</span>  <span class="m">2</span>  <span class="m">5</span> <span class="m">-3</span> <span class="m">-2</span>  <span class="m">0</span>  <span class="m">0</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-5</span>
+W <span class="m">-3</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-1</span>  <span class="m">1</span> <span class="m">-4</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">15</span>  <span class="m">2</span> <span class="m">-3</span> <span class="m">-5</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-5</span>
+Y <span class="m">-2</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-3</span>  <span class="m">2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-2</span>  <span class="m">0</span>  <span class="m">4</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-2</span>  <span class="m">2</span>  <span class="m">8</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-5</span>
+V  <span class="m">0</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-4</span>  <span class="m">4</span>  <span class="m">1</span> <span class="m">-3</span>  <span class="m">1</span> <span class="m">-1</span> <span class="m">-3</span> <span class="m">-2</span>  <span class="m">0</span> <span class="m">-3</span> <span class="m">-1</span>  <span class="m">5</span> <span class="m">-4</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-5</span>
+B <span class="m">-2</span> <span class="m">-1</span>  <span class="m">4</span>  <span class="m">5</span> <span class="m">-3</span>  <span class="m">0</span>  <span class="m">1</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-4</span> <span class="m">-4</span>  <span class="m">0</span> <span class="m">-3</span> <span class="m">-4</span> <span class="m">-2</span>  <span class="m">0</span>  <span class="m">0</span> <span class="m">-5</span> <span class="m">-3</span> <span class="m">-4</span>  <span class="m">5</span>  <span class="m">2</span> <span class="m">-1</span> <span class="m">-5</span>
+Z <span class="m">-1</span>  <span class="m">0</span>  <span class="m">0</span>  <span class="m">1</span> <span class="m">-3</span>  <span class="m">4</span>  <span class="m">5</span> <span class="m">-2</span>  <span class="m">0</span> <span class="m">-3</span> <span class="m">-3</span>  <span class="m">1</span> <span class="m">-1</span> <span class="m">-4</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-3</span>  <span class="m">2</span>  <span class="m">5</span> <span class="m">-1</span> <span class="m">-5</span>
+X <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-2</span> <span class="m">-2</span> <span class="m">-1</span>  <span class="m">0</span> <span class="m">-3</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-5</span>
+<span class="o">*</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span> <span class="m">-5</span>  <span class="m">1</span>
+</pre></div>
+</div>
+<p>You can get a list of the available scoring matrices that come with
+the Biostrings package by using the data() function, which takes as
+an argument the name of the package for which you want to know the
+data sets that come with it:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> data<span class="p">(</span>package<span class="o">=</span><span class="s">&quot;Biostrings&quot;</span><span class="p">)</span>
+Data sets <span class="kr">in</span> package <span class="s">&#39;Biostring&#39;</span><span class="o">:</span>
+BLOSUM100                                 Scoring matrices
+BLOSUM45                                  Scoring matrices
+BLOSUM50                                  Scoring matrices
+BLOSUM62                                  Scoring matrices
+BLOSUM80                                  Scoring matrices
+</pre></div>
+</div>
+<p>To find the optimal global alignment between the protein sequences
+&#8220;PAWHEAE&#8221; and &#8220;HEAGAWGHEE&#8221; using the Needleman-Wunsch algorithm
+using the BLOSUM50 matrix, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> data<span class="p">(</span>BLOSUM50<span class="p">)</span>
+<span class="o">&gt;</span> s3 <span class="o">&lt;-</span> <span class="s">&quot;PAWHEAE&quot;</span>
+<span class="o">&gt;</span> s4 <span class="o">&lt;-</span> <span class="s">&quot;HEAGAWGHEE&quot;</span>
+<span class="o">&gt;</span> globalAligns3s4 <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>s3<span class="p">,</span> s4<span class="p">,</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM50&quot;</span><span class="p">,</span> gapOpening <span class="o">=</span> <span class="m">-2</span><span class="p">,</span>
+gapExtension <span class="o">=</span> <span class="m">-8</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="o">&gt;</span> globalAligns3s4 <span class="c1"># Print out the optimal global alignment and its score</span>
+Global Pairwise Alignment <span class="p">(</span><span class="m">1</span> of <span class="m">1</span><span class="p">)</span>
+pattern<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> P<span class="o">---</span>AWHEAE
+subject<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> HEAGAWGHEE
+score<span class="o">:</span> <span class="m">-5</span>
+</pre></div>
+</div>
+<p>We set &#8220;gapOpening&#8221; to be -2 and &#8220;gapExtension&#8221; to be -8, which means that
+the first position of a gap is assigned a score of (-8-2=)-10, and every subsequent
+position in a gap is given a score of -8. This means that the gap will be given
+a score of -10-8-8 = -26.</p>
+</div>
+<div class="section" id="aligning-uniprot-sequences">
+<h2>Aligning UniProt sequences<a class="headerlink" href="chapter4.html#aligning-uniprot-sequences" title="Permalink to this headline">¶</a></h2>
+<p>We discussed above how you can search for UniProt accessions and retrieve
+the corresponding protein sequences, either via the UniProt website or using the
+SeqinR R package.</p>
+<p>In the examples given above, you learnt how to retrieve the sequences for the
+chorismate lyase proteins from
+<em>Mycobacterium leprae</em> (UniProt Q9CD83) and
+<em>Mycobacterium ulcerans</em> (UniProt A0PQ23), and read them into R, and
+store them as vectors <em>lepraeseq</em> and <em>ulceransseq</em>.</p>
+<p>You can align these sequences using pairwiseAlignment() from the Biostrings package.</p>
+<p>As its input, the pairwiseAlignment() function requires that the
+sequences be in the form of a single string (eg. &#8220;ACGTA&#8221;), rather
+than as a vector of characters (eg. a vector with the first element
+as &#8220;A&#8221;, the second element as &#8220;C&#8221;, etc.). Therefore, to align the
+<em>M. leprae</em> and <em>M. ulcerans</em> chorismate lyase proteins, we first need
+to convert the vectors <em>lepraeeq</em> and <em>ulceransseq</em> into strings. We
+can do this using the c2s() function in the SeqinR package:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> lepraeseqstring <span class="o">&lt;-</span> c2s<span class="p">(</span>lepraeseq<span class="p">)</span>     <span class="c1"># Make a string that contains the sequence in &quot;lepraeseq&quot;</span>
+<span class="o">&gt;</span> ulceransseqstring <span class="o">&lt;-</span> c2s<span class="p">(</span>ulceransseq<span class="p">)</span> <span class="c1"># Make a string that contains the sequence in &quot;ulceransseq&quot;</span>
+</pre></div>
+</div>
+<p>Furthermore, pairwiseAlignment() requires that the sequences be
+stored as uppercase characters. Therefore, if they are not already in uppercase, we need to use the
+toupper() function to convert <em>lepraeseqstring</em> and <em>ulceransseqstring</em>
+to uppercase:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> lepraeseqstring <span class="o">&lt;-</span> <span class="kp">toupper</span><span class="p">(</span>lepraeseqstring<span class="p">)</span>
+<span class="o">&gt;</span> ulceransseqstring <span class="o">&lt;-</span> <span class="kp">toupper</span><span class="p">(</span>ulceransseqstring<span class="p">)</span>
+<span class="o">&gt;</span> lepraeseqstring <span class="c1"># Print out the content of &quot;lepraeseqstring&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MTNRTLSREEIRKLDRDLRILVATNGTLTRVLNVVANEEIVVDIINQQLLDVAPKIPELENLKIGRILQRDILLKGQKSGILFVAAESLIVIDLLPTAITTYLTKTHHPIGEIMAASRIETYKEDAQVWIGDLPCWLADYGYWDLPKRAVGRRYRIIAGGQPVIITTEYFLRSVFQDTPREELDRCQYSNDIDTRSGDRFVLHGRVFKNL&quot;</span>
+</pre></div>
+</div>
+<p>We can now align the the <em>M. leprae</em> and <em>M. ulcerans</em> chorismate lyase
+protein sequences using the pairwiseAlignment() function:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> globalAlignLepraeUlcerans <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>lepraeseqstring<span class="p">,</span> ulceransseqstring<span class="p">,</span>
+  substitutionMatrix <span class="o">=</span> BLOSUM50<span class="p">,</span> gapOpening <span class="o">=</span> <span class="m">-2</span><span class="p">,</span> gapExtension <span class="o">=</span> <span class="m">-8</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="o">&gt;</span> globalAlignLepraeUlcerans <span class="c1"># Print out the optimal global alignment and its score</span>
+  Global PairwiseAlignedFixedSubject <span class="p">(</span><span class="m">1</span> of <span class="m">1</span><span class="p">)</span>
+  pattern<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> MT<span class="o">-----</span>NR<span class="o">--</span><span class="bp">T</span><span class="o">---</span>LSREEIRKLDRDLRILVATN...QDTPREELDRCQYSNDIDTRSGDRFVLHGRVFKN
+  subject<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> MLAVLPEKREMTECHLSDEEIRKLNRDLRILIATN...EDNSREEPIRHQRS<span class="o">--</span>VGT<span class="o">-</span>SA<span class="o">-</span>R<span class="o">---</span>SGRSICT
+  score<span class="o">:</span> <span class="m">627</span>
+</pre></div>
+</div>
+<p>As the alignment is very long, when you type
+<em>globalAlignLepraeUlcerans</em>, you only see the start and the end of the
+alignment (see above). Therefore, we need to have a function to
+print out the whole alignment (see below).</p>
+</div>
+<div class="section" id="viewing-a-long-pairwise-alignment">
+<h2>Viewing a long pairwise alignment<a class="headerlink" href="chapter4.html#viewing-a-long-pairwise-alignment" title="Permalink to this headline">¶</a></h2>
+<p>If you want to view a long pairwise alignment such as that between
+the <em>M. leprae</em> and <em>M. ulerans</em> chorismate lyase proteins, it is
+convenient to print out the alignment in blocks.</p>
+<p>The R function &#8220;printPairwiseAlignment()&#8221; below will do this for you:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printPairwiseAlignment <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignment<span class="p">,</span> chunksize<span class="o">=</span><span class="m">60</span><span class="p">,</span> returnlist<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+  <span class="p">{</span>
+     <span class="kn">require</span><span class="p">(</span>Biostrings<span class="p">)</span>           <span class="c1"># This function requires the Biostrings package</span>
+     seq1aln <span class="o">&lt;-</span> pattern<span class="p">(</span>alignment<span class="p">)</span> <span class="c1"># Get the alignment for the first sequence</span>
+     seq2aln <span class="o">&lt;-</span> subject<span class="p">(</span>alignment<span class="p">)</span> <span class="c1"># Get the alignment for the second sequence</span>
+     alnlen  <span class="o">&lt;-</span> <span class="kp">nchar</span><span class="p">(</span>seq1aln<span class="p">)</span>     <span class="c1"># Find the number of columns in the alignment</span>
+     starts  <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> alnlen<span class="p">,</span> by<span class="o">=</span>chunksize<span class="p">)</span>
+     n       <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>starts<span class="p">)</span>
+     seq1alnresidues <span class="o">&lt;-</span> <span class="m">0</span>
+     seq2alnresidues <span class="o">&lt;-</span> <span class="m">0</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>n<span class="p">)</span> <span class="p">{</span>
+        chunkseq1aln <span class="o">&lt;-</span> <span class="kp">substring</span><span class="p">(</span>seq1aln<span class="p">,</span> starts<span class="p">[</span>i<span class="p">],</span> starts<span class="p">[</span>i<span class="p">]</span><span class="o">+</span>chunksize<span class="m">-1</span><span class="p">)</span>
+        chunkseq2aln <span class="o">&lt;-</span> <span class="kp">substring</span><span class="p">(</span>seq2aln<span class="p">,</span> starts<span class="p">[</span>i<span class="p">],</span> starts<span class="p">[</span>i<span class="p">]</span><span class="o">+</span>chunksize<span class="m">-1</span><span class="p">)</span>
+        <span class="c1"># Find out how many gaps there are in chunkseq1aln:</span>
+        gaps1 <span class="o">&lt;-</span> countPattern<span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">,</span>chunkseq1aln<span class="p">)</span> <span class="c1"># countPattern() is from Biostrings package</span>
+        <span class="c1"># Find out how many gaps there are in chunkseq2aln:</span>
+        gaps2 <span class="o">&lt;-</span> countPattern<span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">,</span>chunkseq2aln<span class="p">)</span> <span class="c1"># countPattern() is from Biostrings package</span>
+        <span class="c1"># Calculate how many residues of the first sequence we have printed so far in the alignment:</span>
+        seq1alnresidues <span class="o">&lt;-</span> seq1alnresidues <span class="o">+</span> chunksize <span class="o">-</span> gaps1
+        <span class="c1"># Calculate how many residues of the second sequence we have printed so far in the alignment:</span>
+        seq2alnresidues <span class="o">&lt;-</span> seq2alnresidues <span class="o">+</span> chunksize <span class="o">-</span> gaps2
+        <span class="kr">if</span> <span class="p">(</span>returnlist <span class="o">==</span> <span class="s">&#39;FALSE&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+           <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span>chunkseq1aln<span class="p">,</span>seq1alnresidues<span class="p">))</span>
+           <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span>chunkseq2aln<span class="p">,</span>seq2alnresidues<span class="p">))</span>
+           <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">))</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="kr">if</span> <span class="p">(</span>returnlist <span class="o">==</span> <span class="s">&#39;TRUE&#39;</span><span class="p">)</span>
+     <span class="p">{</span>
+        vector1 <span class="o">&lt;-</span> s2c<span class="p">(</span><span class="kp">substring</span><span class="p">(</span>seq1aln<span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kp">nchar</span><span class="p">(</span>seq1aln<span class="p">)))</span>
+        vector2 <span class="o">&lt;-</span> s2c<span class="p">(</span><span class="kp">substring</span><span class="p">(</span>seq2aln<span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kp">nchar</span><span class="p">(</span>seq2aln<span class="p">)))</span>
+        mylist <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>vector1<span class="p">,</span> vector2<span class="p">)</span>
+        <span class="kr">return</span><span class="p">(</span>mylist<span class="p">)</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To use this function you first need to copy and paste this function into R.
+You can then use our function printPairwiseAlignment() to print out
+the alignment between the <em>M. leprae</em> and <em>M. ulcerans</em> chorismate lyase
+proteins (we stored this alignment in the
+<em>globalAlignLepraeUlcerans</em> variable, see above), in blocks of 60
+alignment columns:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printPairwiseAlignment<span class="p">(</span>globalAlignLepraeUlcerans<span class="p">,</span> <span class="m">60</span><span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MT-----NR--T---LSREEIRKLDRDLRILVATNGTLTRVLNVVANEEIVVDIINQQLL 50&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MLAVLPEKREMTECHLSDEEIRKLNRDLRILIATNGTLTRILNVLANDEIVVEIVKQQIQ 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DVAPKIPELENLKIGRILQRDILLKGQKSGILFVAAESLIVIDLLPTAITTYLTKTHHPI 110&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DAAPEMDGCDHSSIGRVLRRDIVLKGRRSGIPFVAAESFIAIDLLPPEIVASLLETHRPI 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;GEIMAASRIETYKEDAQVWIGDLPCWLADYGYWDLPKRAVGRRYRIIAGGQPVIITTEYF 170&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;GEVMAASCIETFKEEAKVWAGESPAWLELDRRRNLPPKVVGRQYRVIAEGRPVIIITEYF 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LRSVFQDTPREELDRCQYSNDIDTRSGDRFVLHGRVFKN 230&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LRSVFEDNSREEPIRHQRS--VGT-SA-R---SGRSICT 233&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>The position in the protein of the amino acid that is at the end of
+each line of the printed alignment is shown after the end of the
+line. For example, the first line of the alignment above finishes
+at amino acid position 50 in the <em>M. leprae</em> protein and also at
+amino acid position 60 in the <em>M. ulcerans</em> protein.</p>
+<p>Since we are printing out an alignment that contained gaps in the
+first 60 alignment columns, the first 60 alignment columns ends
+before the 60th amino acid in the <em>M. leprae</em> sequence.</p>
+</div>
+<div class="section" id="pairwise-local-alignment-of-protein-sequences-using-the-smith-waterman-algorithm">
+<h2>Pairwise local alignment of protein sequences using the Smith-Waterman algorithm<a class="headerlink" href="chapter4.html#pairwise-local-alignment-of-protein-sequences-using-the-smith-waterman-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>You can use the pairwiseAlignment() function to find the optimal local alignment of two
+sequences, that is the best alignment of parts (subsequences) of those sequences, by using
+the &#8220;type=local&#8221; argument in pairwiseAlignment(). This uses the Smith-Waterman algorithm
+for local alignment, the classic bioinformatics algorithm for finding optimal local alignments.</p>
+<p>For example, to find the best local alignment between the <em>M. leprae</em> and <em>M. ulcerans</em>
+chorismate lyase proteins, we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> localAlignLepraeUlcerans <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>lepraeseqstring<span class="p">,</span> ulceransseqstring<span class="p">,</span>
+  substitutionMatrix <span class="o">=</span> BLOSUM50<span class="p">,</span> gapOpening <span class="o">=</span> <span class="m">-2</span><span class="p">,</span> gapExtension <span class="o">=</span> <span class="m">-8</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> type<span class="o">=</span><span class="s">&quot;local&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> localAlignLepraeUlcerans <span class="c1"># Print out the optimal local alignment and its score</span>
+  Local PairwiseAlignedFixedSubject <span class="p">(</span><span class="m">1</span> of <span class="m">1</span><span class="p">)</span>
+  pattern<span class="o">:</span>  <span class="p">[</span><span class="m">1</span><span class="p">]</span> MTNRTLSREEIRKLDRDLRILVATNGTLTRVLNVV...IITTEYFLRSVFQDTPREELDRCQYSNDIDTRSG
+  subject<span class="o">:</span> <span class="p">[</span><span class="m">11</span><span class="p">]</span> MTECHLSDEEIRKLNRDLRILIATNGTLTRILNVL...IIITEYFLRSVFEDNSREEPIRHQRSVGTSARSG
+  score<span class="o">:</span> <span class="m">761</span>
+<span class="o">&gt;</span> printPairwiseAlignment<span class="p">(</span>localAlignLepraeUlcerans<span class="p">,</span> <span class="m">60</span><span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MTNRTLSREEIRKLDRDLRILVATNGTLTRVLNVVANEEIVVDIINQQLLDVAPKIPELE 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MTECHLSDEEIRKLNRDLRILIATNGTLTRILNVLANDEIVVEIVKQQIQDAAPEMDGCD 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;NLKIGRILQRDILLKGQKSGILFVAAESLIVIDLLPTAITTYLTKTHHPIGEIMAASRIE 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;HSSIGRVLRRDIVLKGRRSGIPFVAAESFIAIDLLPPEIVASLLETHRPIGEVMAASCIE 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TYKEDAQVWIGDLPCWLADYGYWDLPKRAVGRRYRIIAGGQPVIITTEYFLRSVFQDTPR 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TFKEEAKVWAGESPAWLELDRRRNLPPKVVGRQYRVIAEGRPVIIITEYFLRSVFEDNSR 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;EELDRCQYSNDIDTRSG 240&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;EEPIRHQRSVGTSARSG 240&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>We see that the optimal local alignment is quite similar to the optimal global alignment in this case,
+except that it excludes a short region of poorly aligned sequence at the start and at the ends of the
+two proteins.</p>
+</div>
+<div class="section" id="calculating-the-statistical-significance-of-a-pairwise-global-alignment">
+<h2>Calculating the statistical significance of a pairwise global alignment<a class="headerlink" href="chapter4.html#calculating-the-statistical-significance-of-a-pairwise-global-alignment" title="Permalink to this headline">¶</a></h2>
+<p>We have seen that when we align the &#8216;PAWHEAE&#8217; and &#8216;HEAGAWGHEE&#8217;
+protein sequences, they have some similarity, and the score for
+their optimal global alignment is -5.</p>
+<p>But is this alignment
+<em>statistically significant</em>? In other words, is this alignment
+better than we would expect between any two random proteins?</p>
+<p>The Needleman-Wunsch alignment algorithm will produce a global
+alignment even if we give it two unrelated random protein
+sequences, although the alignment score would be low.</p>
+<p>Therefore, we
+should ask: is the score for our alignment better than expected
+between two random sequences of the same lengths and amino acid
+compositions?</p>
+<p>It is reasonable to expect that if the alignment score is
+statistically significant, then it will be higher than the scores
+obtained from aligning pairs of random protein sequences that have
+the same lengths and amino acid compositions as our original two
+sequences.</p>
+<p>Therefore, to assess if the score for our alignment
+between the &#8216;PAWHEAE&#8217; and &#8216;HEAGAWGHEE&#8217; protein sequence is
+statistically significant, a first step is to make some random
+sequences that have the same amino acid composition and length as
+one of our initial two sequences, for example, as the same amino
+acid composition and length as the sequence &#8216;PAWHEAE&#8217;.</p>
+<p>How can we obtain random sequences of the same amino acid
+composition and length as the sequence &#8216;PAWHEAE&#8217;? One way is to
+generate sequences using a
+<em>multinomial model for protein sequences</em> in which the
+probabilities of the different amino acids set to be equal to their
+frequencies in the sequence &#8216;PAWHEAE&#8217;.</p>
+<p>That is, we can generate
+sequences using a multinomial model for proteins, in which the
+probability of &#8216;P&#8217; is set to 0.1428571 (1/7); the
+probability of &#8216;A&#8217; is set to 0.2857143 (2/7); the
+probability of &#8216;W&#8217; is set to 0.1428571 (1/7); the
+probability of &#8216;H&#8217; is set to 0.1428571 (1/7); and
+the probabilty of &#8216;E&#8217; is set to 0.2857143 (2/7),
+and the probabilities of the other 15 amino acids are set to 0.</p>
+<p>To generate a sequence with this multinomial model, we choose the
+letter for each position in the sequence according to those
+probabilities. This is as if we have made a roulette wheel in which
+1/7*th* of the circle is taken up by a pie labelled &#8220;P&#8221;, 2/7*ths*
+by a pie labelled &#8220;A&#8221;, 1/7*th* by a pie labelled &#8220;W&#8221;, 1/7*th* by a
+pie labelled &#8220;H&#8221;, and 2/7*ths* by a pie labelled &#8220;E&#8221;:</p>
+<p><a class="reference internal" href="../_images/P4_image3.png"><img alt="image3" src="../_images/P4_image3.png" style="width: 350px;" /></a></p>
+<p>To generate a sequence using the multinomial model, we keep
+spinning the arrow in the centre of the roulette wheel, and write
+down the letter that the arrow stops on after each spin. To
+generate a sequence that is 7 letters long, we can spin the arrow 7
+times. To generate 1000 sequences that are each 7 letters long, we
+can spin the arrow 7000 times, where the letters chosen form 1000
+7-letter amino acid sequences.</p>
+<p>To generate a certain number (eg.1000) random amino acid sequences of a certain
+length using a multinomial model, you can use the function
+generateSeqsWithMultinomialModel() below:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> generateSeqsWithMultinomialModel <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>inputsequence<span class="p">,</span> X<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># Change the input sequence into a vector of letters</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span> <span class="c1"># This function requires the SeqinR package.</span>
+     inputsequencevector <span class="o">&lt;-</span> s2c<span class="p">(</span>inputsequence<span class="p">)</span>
+     <span class="c1"># Find the frequencies of the letters in the input sequence &quot;inputsequencevector&quot;:</span>
+     mylength <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>inputsequencevector<span class="p">)</span>
+     mytable <span class="o">&lt;-</span> <span class="kp">table</span><span class="p">(</span>inputsequencevector<span class="p">)</span>
+     <span class="c1"># Find the names of the letters in the sequence</span>
+     <span class="kc">letters</span> <span class="o">&lt;-</span> <span class="kp">rownames</span><span class="p">(</span>mytable<span class="p">)</span>
+     numletters <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span><span class="kc">letters</span><span class="p">)</span>
+     probabilities <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">()</span> <span class="c1"># Make a vector to store the probabilities of letters</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numletters<span class="p">)</span>
+     <span class="p">{</span>
+        letter <span class="o">&lt;-</span> <span class="kc">letters</span><span class="p">[</span>i<span class="p">]</span>
+        count <span class="o">&lt;-</span> mytable<span class="p">[[</span>i<span class="p">]]</span>
+        probabilities<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> count<span class="o">/</span>mylength
+     <span class="p">}</span>
+     <span class="c1"># Make X random sequences using the multinomial model with probabilities &quot;probabilities&quot;</span>
+     seqs <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">(</span>X<span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>X<span class="p">)</span>
+     <span class="p">{</span>
+        seq <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span><span class="kc">letters</span><span class="p">,</span> mylength<span class="p">,</span> rep<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> prob<span class="o">=</span>probabilities<span class="p">)</span> <span class="c1"># Sample with replacement</span>
+        seq <span class="o">&lt;-</span> c2s<span class="p">(</span><span class="kp">seq</span><span class="p">)</span>
+        seqs<span class="p">[</span>j<span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">seq</span>
+     <span class="p">}</span>
+     <span class="c1"># Return the vector of random sequences</span>
+     <span class="kr">return</span><span class="p">(</span>seqs<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>The function generateSeqsWithMultinomialModel() generates X random sequences with a
+multinomial model, where the probabilities of the different letters are set equal to their frequencies
+in an input sequence, which is passed to the function as a string of characters
+(eg. &#8216;PAWHEAE&#8217;).</p>
+<p>The function returns X random sequences in the form of a vector which has X elements, the first
+element of the vector contains the first sequence, the second element contains the second sequence,
+and so on.</p>
+<p>You will need to copy and paste this function into R before you can use it.</p>
+<p>We can use this function to generate 1000 7-letter amino acid sequences using a multinomial
+model in which the probabilities of the letters are set equal to their frequencies in &#8216;PAWHEAE&#8217;
+(ie. probabilities 1/7 for P, 2/7 for A, 1/7 for W, 1/7 for H and 2/7 for E), by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> randomseqs <span class="o">&lt;-</span> generateSeqsWithMultinomialModel<span class="p">(</span><span class="s">&#39;PAWHEAE&#39;</span><span class="p">,</span><span class="m">1000</span><span class="p">)</span>
+<span class="o">&gt;</span> randomseqs<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span> <span class="c1"># Print out the first 10 random sequences</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;EHHEWEA&quot;</span> <span class="s">&quot;EAEEEAH&quot;</span> <span class="s">&quot;WAHAWEP&quot;</span> <span class="s">&quot;PPAPAAW&quot;</span> <span class="s">&quot;HEPWWAA&quot;</span> <span class="s">&quot;APAAAAA&quot;</span> <span class="s">&quot;EAHAPHP&quot;</span>
+  <span class="p">[</span><span class="m">8</span><span class="p">]</span> <span class="s">&quot;AAPEEWE&quot;</span> <span class="s">&quot;HEAAAAP&quot;</span> <span class="s">&quot;EWAAPEP&quot;</span>
+</pre></div>
+</div>
+<p>The 1000 random sequences are stored in a vector <em>randomseqs</em> that has 1000 elements,
+each of which contains one of the random sequences.</p>
+<p>We can then use the Needleman-Wunsch algorithm to align the
+sequence &#8216;HEAGAWGHEE&#8217; to one of the 1000 random sequences generated
+using the multinomial model with probabilities 1/7 for P, 2/7 for A, 1/7 for W, 1/7 for H and 2/7 for E.</p>
+<p>For example, to align &#8216;HEAGAWGHEE&#8217; to the first of the 1000 random
+sequences (&#8216;EEHAAAE&#8217;), we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> s4 <span class="o">&lt;-</span> <span class="s">&quot;HEAGAWGHEE&quot;</span>
+<span class="o">&gt;</span> pairwiseAlignment<span class="p">(</span>s4<span class="p">,</span> randomseqs<span class="p">[</span><span class="m">1</span><span class="p">],</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM50&quot;</span><span class="p">,</span> gapOpening <span class="o">=</span> <span class="m">-2</span><span class="p">,</span>
+  gapExtension <span class="o">=</span> <span class="m">-8</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+  Global PairwiseAlignedFixedSubject <span class="p">(</span><span class="m">1</span> of <span class="m">1</span><span class="p">)</span>
+  pattern<span class="o">:</span> <span class="p">[</span><span class="m">2</span><span class="p">]</span> EAGAWGHEE
+  subject<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> EHHEW<span class="o">--</span>EA
+  score<span class="o">:</span> <span class="m">-7</span>
+</pre></div>
+</div>
+<p>If we use the pairwiseAlignment() function with the argument &#8216;scoreOnly=TRUE&#8217;, it will just give
+us the score for the alignment:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> pairwiseAlignment<span class="p">(</span>s4<span class="p">,</span> randomseqs<span class="p">[</span><span class="m">1</span><span class="p">],</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM50&quot;</span><span class="p">,</span> gapOpening <span class="o">=</span> <span class="m">-2</span><span class="p">,</span>
+  gapExtension <span class="o">=</span> <span class="m">-8</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">-7</span>
+</pre></div>
+</div>
+<p>If we repeat this 1000 times, that is, for each of the 1000 random
+sequences in vector <em>randomseqs</em>, we can get a distribution of
+alignment scores expected for aligning &#8216;HEAGAWGHEE&#8217; to random
+sequences of the same length and (approximately the same) amino
+acid composition as &#8216;PAWHEAE&#8217;.</p>
+<p>We can then compare the actual score for aligning &#8216;PAWHEAE&#8217; to &#8216;HEAGAWGHEE&#8217; (ie. -5) to the distribution
+of scores for aligning &#8216;HEAGAWGHEE&#8217; to the random sequences.</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> randomscores <span class="o">&lt;-</span> <span class="kt">double</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="c1"># Create a numeric vector with 1000 elements</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">)</span>
+  <span class="p">{</span>
+     score <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>s4<span class="p">,</span> randomseqs<span class="p">[</span>i<span class="p">],</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM50&quot;</span><span class="p">,</span>
+       gapOpening <span class="o">=</span> <span class="m">-2</span><span class="p">,</span> gapExtension <span class="o">=</span> <span class="m">-8</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+     randomscores<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> score
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>The code above first uses the double() function to create a numeric
+vector <em>randomscores</em> for storing real numbers (ie. not integers),
+with 1000 elements. This will be used to store the alignment scores
+for 1000 alignments between &#8216;HEAGAWGHEE&#8217; and the 1000 different
+random sequences generated using the multinomial model.</p>
+<p>The &#8216;for loop&#8217; takes each of the 1000 different random sequences, aligns
+each one to &#8216;HEAGAWGHEE&#8217;, and stores the 1000 alignment scores in
+the <em>randomscores</em> vector.</p>
+<p>Once we have run the &#8216;for loop&#8217;, we can make a histogram plot of the 1000 scores
+in vector <em>randomscores</em> by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> hist<span class="p">(</span>randomscores<span class="p">,</span> col<span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span> <span class="c1"># Draw a red histogram</span>
+</pre></div>
+</div>
+<p><img alt="image4" src="../_images/P4_image4.png" /></p>
+<p>We can see from the histogram that quite a lot of the random
+sequences seem to have higher alignment scores than -5 when aligned
+to &#8216;HEAGAWGHEE&#8217; (where -5 is the alignment score for &#8216;PAWHEAE&#8217; and
+&#8216;HEAGAWGHEE&#8217;).</p>
+<p>We can use the vector <em>randomscores</em> of scores for 1000 alignments
+of random sequences to &#8216;HEAGAWGHEE&#8217; to calculate the probability of
+getting a score as large as the real alignment score for &#8216;PAWHEAE&#8217;
+and &#8216;HEAGAWGHEE&#8217; (ie. -5) by chance.</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">sum</span><span class="p">(</span>randomscores <span class="o">&gt;=</span> <span class="m">-5</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">266</span>
+</pre></div>
+</div>
+<p>We see that 266 of the 1000 alignments of random sequences to
+&#8216;HEAGAWGHEE&#8217; had alignment scores that were equal to or greater
+than -5. Thus, we can estimate that the probability of getting a
+score as large as the real alignment score by chance is (266/1000
+=) 0.266. In other words, we can calculate a <em>P-value</em> of 0.266.
+This probability or <em>P</em>-value is quite high (almost 30%, or 1 in
+3), so we can conclude that it is quite probable that we could get
+an alignment score as high as -5 by chance alone. This indicates
+that the sequences &#8216;HEAGAWGHEE&#8217; and &#8216;PAWHEAE&#8217; are not more similar
+than any two random sequences, and so they are probably not related
+sequences.</p>
+<p>Another way of saying this is that the <em>P</em>-value that we calculated
+is high (0.266), and as a result we conclude that the alignment
+score for the sequences &#8216;HEAGAWGHEE&#8217; and &#8216;PAWHEAE&#8217; is not
+<em>statistically significant</em>. Generally, if the <em>P</em>-value that we
+calculate for an alignment of two sequences is &gt;0.05, we conclude
+that the alignment score is not statistically significant, and that
+the sequences are probably not related. On the other hand, if the
+<em>P</em>-value is less than or equal to 0.05, we conclude that the alignment score is
+statistically significant, and the sequences are very probably
+related (homologous).</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="chapter4.html#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this practical, you will have learnt to use the following R
+functions:</p>
+<ol class="arabic simple">
+<li>data() for reading in data that comes with an R package</li>
+<li>double() for creating a numeric vector for storing real
+(non-integer) numbers</li>
+<li>toupper() for converting a string of characters from lowercase
+to uppercase</li>
+</ol>
+<p>All of these functions belong to the standard installation of R.</p>
+<p>You have also learnt the following R functions that belong to the
+bioinformatics packages:</p>
+<ol class="arabic simple">
+<li>nucleotideSubstitutionMatrix() in the Biostrings package for
+making a nucleotide scoring matrix</li>
+<li>pairwiseAlignment() in the Biostrings package for making a
+global alignment between two sequences</li>
+<li>c2s() in the SeqinR package for converting a sequence stored in
+a vector to a string of characters</li>
+</ol>
+</div>
+<div class="section" id="links-and-further-reading">
+<h2>Links and Further Reading<a class="headerlink" href="chapter4.html#links-and-further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Some links are included here for further reading.</p>
+<p>For background reading on sequence alignment, it is recommended to
+read Chapter 3 of
+<em>Introduction to Computational Genomics: a case studies approach</em>
+by Cristianini and Hahn (Cambridge University Press;
+<a class="reference external" href="http://www.computational-genomics.net/book/">www.computational-genomics.net/book/</a>).</p>
+<p>For more in-depth information and more examples on using the SeqinR
+package for sequence analysis, look at the SeqinR documentation,
+<a class="reference external" href="http://pbil.univ-lyon1.fr/software/seqinr/doc.php?lang=eng">http://pbil.univ-lyon1.fr/software/seqinr/doc.php?lang=eng</a>.</p>
+<p>There is also a very nice chapter on &#8220;Analyzing Sequences&#8221;, which
+includes examples of using SeqinR and Biostrings for sequence analysis, as well as details
+on how to implement algorithms such as Needleman-Wunsch and Smith-Waterman in R yourself, in the
+book <em>Applied statistics for bioinformatics using R</em> by Krijnen
+(available online at
+<a class="reference external" href="http://cran.r-project.org/doc/contrib/Krijnen-IntroBioInfStatistics.pdf">cran.r-project.org/doc/contrib/Krijnen-IntroBioInfStatistics.pdf</a>).</p>
+<p>For a more in-depth introduction to R, a good online tutorial is
+available on the &#8220;Kickstarting R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/contrib/Lemon-kickstart/">cran.r-project.org/doc/contrib/Lemon-kickstart</a>.</p>
+<p>There is another nice (slightly more in-depth) tutorial to R
+available on the &#8220;Introduction to R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/manuals/R-intro.html">cran.r-project.org/doc/manuals/R-intro.html</a>.</p>
+<p>For more information on and examples using the Biostrings package,
+see the Biostrings documentation at
+<a class="reference external" href="http://www.bioconductor.org/packages/release/bioc/html/Biostrings.html">http://www.bioconductor.org/packages/release/bioc/html/Biostrings.html</a>.</p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="chapter4.html#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>Many of the ideas for the examples and exercises for this practical
+were inspired by the Matlab case study on the Eyeless protein
+(<a class="reference external" href="http://www.computational-genomics.net/case_studies/eyeless_demo.html">www.computational-genomics.net/case_studies/eyeless_demo.html</a>)
+from the website that accompanies the book
+<em>Introduction to Computational Genomics: a case studies approach</em>
+by Cristianini and Hahn (Cambridge University Press;
+<a class="reference external" href="http://www.computational-genomics.net/book/">www.computational-genomics.net/book/</a>).</p>
+<p>The examples of DNA sequences and protein sequences to align
+(&#8216;GAATTC&#8217; and &#8216;GATTA&#8217;, and sequences &#8216;PAWHEAE&#8217; and &#8216;HEAGAWGHEE&#8217;),
+as well as some ideas related to finding the statistical
+significance of a pairwise alignment, were inspired by the chapter
+on &#8220;Analyzing Sequences&#8221; in the book
+<em>Applied statistics for bioinformatics using R</em> by Krijnen
+(<a class="reference external" href="http://cran.r-project.org/doc/contrib/Krijnen-IntroBioInfStatistics.pdf">cran.r-project.org/doc/contrib/Krijnen-IntroBioInfStatistics.pdf</a>).</p>
+<p>Thank you to Jean Lobry and Simon Penel for helpful advice on using
+the SeqinR package.</p>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="chapter4.html#contact" title="Permalink to this headline">¶</a></h2>
+<p>I will be grateful if you will send me (<a class="reference external" href="http://www.sanger.ac.uk/research/projects/parasitegenomics/">Avril Coghlan</a>) corrections or suggestions for improvements to
+my email address <a class="reference external" href="mailto:alc&#37;&#52;&#48;sanger&#46;ac&#46;uk">alc<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="chapter4.html#license" title="Permalink to this headline">¶</a></h2>
+<p>The content in this book is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="chapter4.html#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Answer the following questions, using the R package. For each
+question, please record your answer, and what you typed into R to
+get this answer.</p>
+<p>Model answers to the exercises are given in
+<a class="reference external" href="chapter_answers.html#sequence-alignment">Answers to the exercises on Sequence Alignment</a>.</p>
+<dl class="docutils">
+<dt>Q1. Download FASTA-format files of the <em>Brugia malayi</em> Vab-3 protein (UniProt accession A8PZ80) and the <em>Loa loa</em> Vab-3 protein (UniProt accession E1FTG0) sequences from UniProt.</dt>
+<dd>Note: the <em>vab-3</em> gene of <em>Brugia malayi</em> and the <em>vab-3</em> gene of <em>Loa loa</em> are related genes that
+control eye development in these two species.
+<em>Brugia malayi</em> and <em>Loa loa</em> are both parasitic nematode worms, which both
+cause <a class="reference external" href="http://www.who.int/topics/filariasis/en/">filariasis</a>, which is classified
+by the WHO as a neglected tropical disease.</dd>
+<dt>Q2. What is the alignment score for the optimal global alignment between the <em>Brugia malayi</em> Vab-3 protein and the <em>Loa loa</em> Vab-3 protein, when you use the <em>BLOSUM50</em> scoring matrix, a gap opening penalty of -10 and a gap extension penalty of -0.5?</dt>
+<dd>Note: to specify a gap opening penalty of -10 and a gap extension penalty of -0.5,
+set the &#8220;gapOpening&#8221; argument to -9.5, and the &#8220;gapExtension&#8221; penalty to -0.5 in the
+pairwiseAlignment() function.</dd>
+<dt>Q3. Use the printPairwiseAlignment() function to view the optimal global alignment between <em>Brugia malayi</em> Vab-3 protein and the <em>Loa loa</em> Vab-3 protein, using the <em>BLOSUM50</em> scoring matrix, a gap opening penalty of -10 and a gap extension penalty of -0.5.</dt>
+<dd>Do you see any regions where the alignment is very good (lots of identities and few gaps)?</dd>
+<dt>Q4. What global alignment score do you get for the two Vab-3 proteins, when you use the <em>BLOSUM62</em> alignment matrix, a gap opening penalty of -10 and a gap extension penalty of -0.5?</dt>
+<dd>Which scoring matrix do you think is more appropriate for using for this pair of proteins: BLOSUM50 or BLOSUM62?</dd>
+<dt>Q5. What is the statistical significance of the optimal global alignment for the <em>Brugia malayi</em> and <em>Loa loa</em> Vab-3 proteins made using the <em>BLOSUM50</em> scoring matrix, with a gap opening penalty of -10 and a gap extension penalty of -0.5?</dt>
+<dd>In other words, what is the probability of getting a score as large
+as the real alignment score for Vab-3 by chance?</dd>
+<dt>Q6. What is the optimal global alignment score between the <em>Brugia malayi</em> Vab-6 protein and the <em>Mycobacterium leprae</em> chorismate lyase protein?</dt>
+<dd>Is the alignment score statistically significant (what is the <em>P-</em> value?)?
+Does this surprise you?</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="chapter5.html" title="Multiple Alignment and Phylogenetic trees"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="revisionexercises1.html" title="REVISION EXERCISES 1"
+             >previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright Avril Coghlan, Licence: Creative Commons Attribution 3.0 License.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

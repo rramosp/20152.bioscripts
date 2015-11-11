@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>REVISION EXERCISES 1 &mdash; Bioinformatics 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Bioinformatics 0.1 documentation" href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html" />
+    <link rel="next" title="Pairwise Sequence Alignment" href="chapter4.html" />
+    <link rel="prev" title="Sequence Databases" href="chapter3.html" />
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/src/revisionexercises1.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "a-little-book-of-r-for-bioinformatics",
+    version: "latest",
+    language: "en",
+    page: "src/revisionexercises1",
+    builder: "sphinx",
+    theme: "sphinxdoc",
+    docroot: "/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "8cd107b180ed964fe7c8021e78ff0ab528d5ba74"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "a-little-book-of-r-for-bioinformatics";
+  var page_name = "src/revisionexercises1";
+  var html_theme = "sphinxdoc";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  // User Analytics Code
+  _gaq.push(['user._setAccount', 'UA-36029021-1']);
+  _gaq.push(['user._trackPageview']);
+  // End User Analytics Code
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="chapter4.html" title="Pairwise Sequence Alignment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="chapter3.html" title="Sequence Databases"
+             accesskey="P">previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="revisionexercises1.html#">REVISION EXERCISES 1</a><ul>
+<li><a class="reference internal" href="revisionexercises1.html#exercises">Exercises</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#q1">Q1.</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#q2">Q2.</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#q3">Q3.</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#q4">Q4.</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#q5">Q5.</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#q6">Q6.</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#q7">Q7.</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#q8">Q8.</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#contact">Contact</a></li>
+<li><a class="reference internal" href="revisionexercises1.html#license">License</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="chapter3.html"
+                        title="previous chapter">Sequence Databases</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chapter4.html"
+                        title="next chapter">Pairwise Sequence Alignment</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/_sources/src/revisionexercises1.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="revision-exercises-1">
+<h1>REVISION EXERCISES 1<a class="headerlink" href="revisionexercises1.html#revision-exercises-1" title="Permalink to this headline">¶</a></h1>
+<p>These are some revision exercises on sequence statistics and sequence
+databases.</p>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="revisionexercises1.html#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Answer the following questions. For each question, please record
+your answer, and what you did/typed to get this answer.</p>
+<p>Model answers to the exercises are given in
+<a class="reference external" href="revisionexercises_answers.html#revision-exercises-1">Answers to Revision Exercises 1</a>.</p>
+</div>
+<div class="section" id="q1">
+<h2>Q1.<a class="headerlink" href="revisionexercises1.html#q1" title="Permalink to this headline">¶</a></h2>
+<p>What is the length of (total number of base-pairs in) the <em>Schistosoma mansoni</em> mitochondrial genome
+(NCBI accession NC_002545), and how many As, Cs, Gs and Ts does it contain?</p>
+<blockquote>
+<div>You must search for this sequence via the NCBI website, as it is not present in the ACNUC database.
+Note: <em>Schistmosoma mansoni</em> is a parasitic worm that is responsible for causing
+<a class="reference external" href="http://apps.who.int/tdr/svc/diseases/schistosomiasis">schistosomiasis</a>,
+which is classified by the WHO as a neglected tropical disease.</div></blockquote>
+</div>
+<div class="section" id="q2">
+<h2>Q2.<a class="headerlink" href="revisionexercises1.html#q2" title="Permalink to this headline">¶</a></h2>
+<p>What is the length of the <em>Brugia malayi</em> mitochondrial genome (NCBI accession NC_004298),
+and how many As, Cs, Gs and Ts does it contain?</p>
+<blockquote>
+<div>You must search for this sequence via the NCBI website, as it is not present in the ACNUC database.
+Note: <em>Brugia malayi</em> is a parasitic worm responsible for causing
+<a class="reference external" href="http://apps.who.int/tdr/svc/diseases/lymphatic-filariasis">lymphatic filariasis</a>,
+which is classified by the WHO as a neglected tropical disease.</div></blockquote>
+</div>
+<div class="section" id="q3">
+<h2>Q3.<a class="headerlink" href="revisionexercises1.html#q3" title="Permalink to this headline">¶</a></h2>
+<p>What is the probability of the <em>Brugia malayi</em> mitochondrial genome sequence (NCBI accession NC_004298),
+according to a multinomial model in which the probabilities of As, Cs, Gs and Ts (<em>pA</em>, <em>pC</em>, <em>pG</em>, and <em>pT</em>)
+are set equal to the fraction of As, Cs, Gs and Ts in the <em>Schistosoma mansoni</em> mitochondrial genome?</p>
+</div>
+<div class="section" id="q4">
+<h2>Q4.<a class="headerlink" href="revisionexercises1.html#q4" title="Permalink to this headline">¶</a></h2>
+<p>What are the top three most frequent 4-bp words (4-mers) in the genome of the
+bacterium <em>Chlamydia trachomatis</em> strain D/UW-3/CX (NCBI accession NC_000117), and
+how many times do they occur in its sequence?</p>
+<blockquote>
+<div>Note: <em>Chlamydia trachomatis</em> is a bacterium responsible for
+<a class="reference external" href="http://www.who.int/blindness/causes/priority/en/index2.html">trachoma</a>, which is
+classified by the WHO as a neglected tropical disease.</div></blockquote>
+</div>
+<div class="section" id="q5">
+<h2>Q5.<a class="headerlink" href="revisionexercises1.html#q5" title="Permalink to this headline">¶</a></h2>
+<p>Write an R function to generate a random DNA sequence that is <em>n</em> letters long (that is,
+<em>n</em> bases long) using a multinomial model in which the probabilities <em>pA</em>, <em>pC</em>, <em>pG</em>,
+and <em>pT</em> are set equal to the fraction of As, Cs, Gs and Ts in the <em>Schistosoma mansoni</em>
+mitochondrial genome (here <em>pA</em> stands for the probability of As, <em>pC</em> is the probability of Cs, etc.)</p>
+<blockquote>
+<div>Hint: look at the help page for the &#8220;sample()&#8221; function in R, as it might be useful to use within your R function.</div></blockquote>
+</div>
+<div class="section" id="q6">
+<h2>Q6.<a class="headerlink" href="revisionexercises1.html#q6" title="Permalink to this headline">¶</a></h2>
+<p>Give an example of using your function from Q5 to calculate a random sequence that is 20 letters
+long, using a multinomial model with <em>pA</em> =0.28, <em>pC</em> =0.21, <em>pG</em> =0.22, and <em>pT</em> =0.29.</p>
+</div>
+<div class="section" id="q7">
+<h2>Q7.<a class="headerlink" href="revisionexercises1.html#q7" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>How many protein sequences from rabies virus are there in the NCBI Protein database?</dt>
+<dd>You must search for these sequences via the NCBI website, as it&#8217;s not possible to do this search using SeqinR.
+Note: rabies virus is the virus responsible for
+<a class="reference external" href="http://www.who.int/rabies/en/">rabies</a>, which is classified by the WHO as a neglected
+tropical disease.</dd>
+</dl>
+</div>
+<div class="section" id="q8">
+<h2>Q8.<a class="headerlink" href="revisionexercises1.html#q8" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>What is the NCBI accession for the Mokola virus genome?</dt>
+<dd>Note: Mokola virus and rabies virus are closely related viruses that both belong to a group of
+viruses called the Lyssaviruses. Mokola virus causes a rabies-like infection in mammals including humans.</dd>
+</dl>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="revisionexercises1.html#contact" title="Permalink to this headline">¶</a></h2>
+<p>I will be grateful if you will send me (<a class="reference external" href="http://www.sanger.ac.uk/research/projects/parasitegenomics/">Avril Coghlan</a>) corrections or suggestions for improvements to
+my email address <a class="reference external" href="mailto:alc&#37;&#52;&#48;sanger&#46;ac&#46;uk">alc<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="revisionexercises1.html#license" title="Permalink to this headline">¶</a></h2>
+<p>The content in this book is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="chapter4.html" title="Pairwise Sequence Alignment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="chapter3.html" title="Sequence Databases"
+             >previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright Avril Coghlan, Licence: Creative Commons Attribution 3.0 License.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

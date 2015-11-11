@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DNA Sequence Statistics (2) &mdash; Bioinformatics 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Bioinformatics 0.1 documentation" href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html" />
+    <link rel="next" title="Sequence Databases" href="chapter3.html" />
+    <link rel="prev" title="DNA Sequence Statistics (1)" href="chapter1.html" />
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/src/chapter2.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "a-little-book-of-r-for-bioinformatics",
+    version: "latest",
+    language: "en",
+    page: "src/chapter2",
+    builder: "sphinx",
+    theme: "sphinxdoc",
+    docroot: "/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "8cd107b180ed964fe7c8021e78ff0ab528d5ba74"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "a-little-book-of-r-for-bioinformatics";
+  var page_name = "src/chapter2";
+  var html_theme = "sphinxdoc";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  // User Analytics Code
+  _gaq.push(['user._setAccount', 'UA-36029021-1']);
+  _gaq.push(['user._trackPageview']);
+  // End User Analytics Code
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="chapter3.html" title="Sequence Databases"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="chapter1.html" title="DNA Sequence Statistics (1)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="chapter2.html#">DNA Sequence Statistics (2)</a><ul>
+<li><a class="reference internal" href="chapter2.html#a-little-more-introduction-to-r">A little more introduction to R</a></li>
+<li><a class="reference internal" href="chapter2.html#reading-sequence-data-with-seqinr">Reading sequence data with SeqinR</a></li>
+<li><a class="reference internal" href="chapter2.html#local-variation-in-gc-content">Local variation in GC content</a></li>
+<li><a class="reference internal" href="chapter2.html#a-sliding-window-analysis-of-gc-content">A sliding window analysis of GC content</a></li>
+<li><a class="reference internal" href="chapter2.html#a-sliding-window-plot-of-gc-content">A sliding window plot of GC content</a></li>
+<li><a class="reference internal" href="chapter2.html#over-represented-and-under-represented-dna-words">Over-represented and under-represented DNA words</a></li>
+<li><a class="reference internal" href="chapter2.html#summary">Summary</a></li>
+<li><a class="reference internal" href="chapter2.html#links-and-further-reading">Links and Further Reading</a></li>
+<li><a class="reference internal" href="chapter2.html#acknowledgements">Acknowledgements</a></li>
+<li><a class="reference internal" href="chapter2.html#contact">Contact</a></li>
+<li><a class="reference internal" href="chapter2.html#license">License</a></li>
+<li><a class="reference internal" href="chapter2.html#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="chapter1.html"
+                        title="previous chapter">DNA Sequence Statistics (1)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chapter3.html"
+                        title="next chapter">Sequence Databases</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/_sources/src/chapter2.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dna-sequence-statistics-2">
+<h1>DNA Sequence Statistics (2)<a class="headerlink" href="chapter2.html#dna-sequence-statistics-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-little-more-introduction-to-r">
+<h2>A little more introduction to R<a class="headerlink" href="chapter2.html#a-little-more-introduction-to-r" title="Permalink to this headline">¶</a></h2>
+<p>In the chapter on <a class="reference external" href="installr.html">How to install R</a>,
+you learnt about variables in R, such as
+scalars, vectors, and lists. You also learnt how to use functions
+to carry out operations on variables, for example, using the
+log10() function to calculate the log to the base 10 of a scalar
+variable <em>x</em>, or using the mean() function to calculate the average
+of the values in a vector variable <em>myvector</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> x <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="o">&gt;</span> <span class="kp">log10</span><span class="p">(</span>x<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span>
+<span class="o">&gt;</span> myvector <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">30</span><span class="p">,</span><span class="m">16</span><span class="p">,</span><span class="m">303</span><span class="p">,</span><span class="m">99</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">111</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="kp">mean</span><span class="p">(</span>myvector<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">95</span>
+</pre></div>
+</div>
+<p>You also learnt that you can extract an element of a vector by
+typing the vector name with the index of that element given in
+square brackets. For example, to get the value of the 3rd element
+in the vector <em>myvector</em>, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myvector<span class="p">[</span><span class="m">3</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">303</span>
+</pre></div>
+</div>
+<p>A useful function in R is the seq() function, which can be used to
+create a sequence of numbers that run from a particular number to
+another particular number. For example, if we want to create the
+sequence of numbers from 1-100 in steps of 1 (ie. 1, 2, 3, 4, ...
+97, 98, 99, 100), we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> by <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+   <span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>   <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>  <span class="m">10</span>  <span class="m">11</span>  <span class="m">12</span>  <span class="m">13</span>  <span class="m">14</span>  <span class="m">15</span>  <span class="m">16</span>  <span class="m">17</span>  <span class="m">18</span>
+ <span class="p">[</span><span class="m">19</span><span class="p">]</span>  <span class="m">19</span>  <span class="m">20</span>  <span class="m">21</span>  <span class="m">22</span>  <span class="m">23</span>  <span class="m">24</span>  <span class="m">25</span>  <span class="m">26</span>  <span class="m">27</span>  <span class="m">28</span>  <span class="m">29</span>  <span class="m">30</span>  <span class="m">31</span>  <span class="m">32</span>  <span class="m">33</span>  <span class="m">34</span>  <span class="m">35</span>  <span class="m">36</span>
+ <span class="p">[</span><span class="m">37</span><span class="p">]</span>  <span class="m">37</span>  <span class="m">38</span>  <span class="m">39</span>  <span class="m">40</span>  <span class="m">41</span>  <span class="m">42</span>  <span class="m">43</span>  <span class="m">44</span>  <span class="m">45</span>  <span class="m">46</span>  <span class="m">47</span>  <span class="m">48</span>  <span class="m">49</span>  <span class="m">50</span>  <span class="m">51</span>  <span class="m">52</span>  <span class="m">53</span>  <span class="m">54</span>
+ <span class="p">[</span><span class="m">55</span><span class="p">]</span>  <span class="m">55</span>  <span class="m">56</span>  <span class="m">57</span>  <span class="m">58</span>  <span class="m">59</span>  <span class="m">60</span>  <span class="m">61</span>  <span class="m">62</span>  <span class="m">63</span>  <span class="m">64</span>  <span class="m">65</span>  <span class="m">66</span>  <span class="m">67</span>  <span class="m">68</span>  <span class="m">69</span>  <span class="m">70</span>  <span class="m">71</span>  <span class="m">72</span>
+ <span class="p">[</span><span class="m">73</span><span class="p">]</span>  <span class="m">73</span>  <span class="m">74</span>  <span class="m">75</span>  <span class="m">76</span>  <span class="m">77</span>  <span class="m">78</span>  <span class="m">79</span>  <span class="m">80</span>  <span class="m">81</span>  <span class="m">82</span>  <span class="m">83</span>  <span class="m">84</span>  <span class="m">85</span>  <span class="m">86</span>  <span class="m">87</span>  <span class="m">88</span>  <span class="m">89</span>  <span class="m">90</span>
+ <span class="p">[</span><span class="m">91</span><span class="p">]</span>  <span class="m">91</span>  <span class="m">92</span>  <span class="m">93</span>  <span class="m">94</span>  <span class="m">95</span>  <span class="m">96</span>  <span class="m">97</span>  <span class="m">98</span>  <span class="m">99</span> <span class="m">100</span>
+</pre></div>
+</div>
+<p>We can change the step size by altering the value of the &#8220;by&#8221;
+argument given to the function seq(). For example, if we want to
+create a sequence of numbers from 1-100 in steps of 2 (ie. 1, 3, 5,
+7, ... 97, 99), we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> by <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="m">1</span>  <span class="m">3</span>  <span class="m">5</span>  <span class="m">7</span>  <span class="m">9</span> <span class="m">11</span> <span class="m">13</span> <span class="m">15</span> <span class="m">17</span> <span class="m">19</span> <span class="m">21</span> <span class="m">23</span> <span class="m">25</span> <span class="m">27</span> <span class="m">29</span> <span class="m">31</span> <span class="m">33</span> <span class="m">35</span> <span class="m">37</span> <span class="m">39</span> <span class="m">41</span> <span class="m">43</span> <span class="m">45</span> <span class="m">47</span> <span class="m">49</span>
+<span class="p">[</span><span class="m">26</span><span class="p">]</span> <span class="m">51</span> <span class="m">53</span> <span class="m">55</span> <span class="m">57</span> <span class="m">59</span> <span class="m">61</span> <span class="m">63</span> <span class="m">65</span> <span class="m">67</span> <span class="m">69</span> <span class="m">71</span> <span class="m">73</span> <span class="m">75</span> <span class="m">77</span> <span class="m">79</span> <span class="m">81</span> <span class="m">83</span> <span class="m">85</span> <span class="m">87</span> <span class="m">89</span> <span class="m">91</span> <span class="m">93</span> <span class="m">95</span> <span class="m">97</span> <span class="m">99</span>
+</pre></div>
+</div>
+<p>In R, just as in programming languages such as Python, it is
+possible to write a <em>for loop</em> to carry out the same command
+several times. For example, if we want to print out the square of
+each number between 1 and 10, we can write the following for loop:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span> print <span class="p">(</span>i<span class="o">*</span>i<span class="p">)</span> <span class="p">}</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">4</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">9</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">16</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">25</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">36</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">49</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">64</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">81</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">100</span>
+</pre></div>
+</div>
+<p>In the <em>for loop</em> above, the variable <em>i</em> is a counter for the
+number of cycles through the loop. In the first cycle through the
+loop, the value of <em>i</em> is 1, and so <em>i</em> * <em>i</em> =1 is printed out. In
+the second cycle through the loop, the value of <em>i</em> is 2, and so
+<em>i</em> * <em>i</em> =4 is printed out. In the third cycle through the loop, the
+value of <em>i</em> is 3, and so <em>i</em> * <em>i</em> =9 is printed out. The loop
+continues until the value of <em>i</em> is 10. In the tenth cycle through
+the loop, the value of <em>i</em> is 10, and so <em>i</em> * <em>i</em> =100 is printed
+out.</p>
+<p>Note that the commands that are to be carried out at each cycle of
+the <em>for loop</em> must be enclosed within curly brackets (&#8220;{&#8221; and
+&#8220;}&#8221;).</p>
+<p>You can also give a <em>for loop</em> a vector of numbers containing the
+values that you want the counter <em>i</em> to take in subsequent cycles.
+For example, you can make a vector <em>avector</em> containing the numbers
+2, 9, 100, and 133, and write a <em>for loop</em> to print out the square
+of each number in vector <em>avector</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> avector <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">133</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> avector<span class="p">)</span> <span class="p">{</span> print <span class="p">(</span>i<span class="o">*</span>i<span class="p">)</span> <span class="p">}</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">4</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">81</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10000</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">17689</span>
+</pre></div>
+</div>
+<p>How can we use a <em>for loop</em> to print out the square of every second
+number between 1 and 10? The answer is to use the seq() function to
+tell the <em>for loop</em> to take every second number between 1 and 10:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> by <span class="o">=</span> <span class="m">2</span><span class="p">))</span> <span class="p">{</span> print <span class="p">(</span>i<span class="o">*</span>i<span class="p">)</span> <span class="p">}</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">9</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">25</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">49</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">81</span>
+</pre></div>
+</div>
+<p>In the first cycle of this loop, the value of <em>i</em> is 1, and so
+<em>i</em> * <em>i</em> =1 is printed out. In the second cycle through the loop,
+the value of <em>i</em> is 3, and so <em>i</em> * <em>i</em> =9 is printed out. The loop
+continues until the value of <em>i</em> is 9. In the fifth cycle through
+the loop, the value of <em>i</em> is 9, and so <em>i</em> * <em>i</em> =81 is printed
+out.</p>
+<p>R allows the production of a variety of plots, including
+scatterplots, histograms, piecharts, and boxplots. For example, if
+you have two vectors of numbers <em>myvector1</em> and <em>myvector2</em>, you
+can plot a scatterplot of the values in <em>myvector1</em> against the
+values in <em>myvector2</em> using the plot() function. If you want to
+label the axes on the plot, you can do this by giving the plot()
+function values for its optional arguments <em>xlab</em> and <em>ylab</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myvector1 <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">35</span><span class="p">,</span> <span class="m">43</span><span class="p">)</span>
+<span class="o">&gt;</span> myvector2 <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">3.2</span><span class="p">,</span> <span class="m">3.9</span><span class="p">,</span> <span class="m">4.1</span><span class="p">,</span> <span class="m">5.2</span><span class="p">)</span>
+<span class="o">&gt;</span> plot<span class="p">(</span>myvector1<span class="p">,</span> myvector2<span class="p">,</span> xlab<span class="o">=</span><span class="s">&quot;myvector1&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;myvector2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image0" src="../_images/P2_image1.png" /></p>
+<p>If you look at the help page for the plot() function, you
+will see that there are lots of optional arguments (inputs) that it
+can take that. For example, one optional argument is the <em>type</em>
+argument, that determines the type of the plot. By default, plot()
+will draw a dot at each data point, but if we set <em>type</em> to be &#8220;b&#8221;,
+then it will also draw a line between each subsequent data point:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> plot<span class="p">(</span>myvector1<span class="p">,</span> myvector2<span class="p">,</span> xlab<span class="o">=</span><span class="s">&quot;myvector1&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;myvector2&quot;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image1" src="../_images/P2_image2.png" /></p>
+<p>We have been using built-in R functions such as mean(),
+length(), print(), plot(), etc. We can also create our own
+functions in R to do calculations that you want to carry out very
+often on different input data sets. For example, we can create a
+function to calculate the value of 20 plus the square of some input
+number:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myfunction <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span> <span class="kr">return</span><span class="p">(</span><span class="m">20</span> <span class="o">+</span> <span class="p">(</span>x<span class="o">*</span>x<span class="p">))</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>This function will calculate the square of a number (<em>x</em>), and then
+add 20 to that value. The return() statement returns the calculated
+value. Once you have typed in this function, the function is then
+available for use. For example, we can use the function for
+different input numbers (eg. 10, 25):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myfunction<span class="p">(</span><span class="m">10</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">120</span>
+<span class="o">&gt;</span> myfunction<span class="p">(</span><span class="m">25</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">645</span>
+</pre></div>
+</div>
+<p>You can view the code that makes up a function by typing its name
+(without any parentheses). For example, we can try this by typing
+&#8220;myfunction&#8221;:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myfunction
+<span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span> <span class="kr">return</span><span class="p">(</span><span class="m">20</span> <span class="o">+</span> <span class="p">(</span>x<span class="o">*</span>x<span class="p">))</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>When you are typing R, if you want to, you can write comments by
+writing the comment text after the &#8220;#&#8221; sign. This can be useful if
+you want to write some R commands that other people need to read
+and understand. R will ignore the comments when it is executing the
+commands. For example, you may want to write a comment to explain
+what the function log10() does:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> x <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="o">&gt;</span> <span class="kp">log10</span><span class="p">(</span>x<span class="p">)</span> <span class="c1"># Finds the log to the base 10 of variable x.</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reading-sequence-data-with-seqinr">
+<h2>Reading sequence data with SeqinR<a class="headerlink" href="chapter2.html#reading-sequence-data-with-seqinr" title="Permalink to this headline">¶</a></h2>
+<p>In the
+<a class="reference external" href="chapter1.html">previous chapter</a>
+you learnt how to use to search for and download the sequence data
+for a given NCBI accession from the NCBI Sequence Database,
+either
+<a class="reference external" href="chapter1.html#retrieving-genome-sequence-data-via-the-ncbi-website">via the NCBI website</a>
+or <a class="reference external" href="chapter1.html#retrieving-genome-sequence-data-using-seqinr">using the getncbiseq() function in R</a>.</p>
+<p>For example, you could have downloaded the sequence data for a the
+DEN-1 Dengue virus sequence (NCBI accession NC_001477),
+and stored it on a file on your computer (eg. &#8220;den1.fasta&#8221;).</p>
+<p>Once you have downloaded the sequence data for a particular NCBI
+accession, and stored it on a file on your computer, you can then
+read it into R by using read.fasta function from the SeqinR R
+package. For example, if you have stored the DEN-1 Dengue virus
+sequence in a file &#8220;den1.fasta&#8221;, you can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                           <span class="c1"># Load the SeqinR package.</span>
+<span class="o">&gt;</span> dengue <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;den1.fasta&quot;</span><span class="p">)</span>   <span class="c1"># Read in the file &quot;den1.fasta&quot;.</span>
+<span class="o">&gt;</span> dengueseq <span class="o">&lt;-</span> dengue<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>                    <span class="c1"># Put the sequence in a vector called &quot;dengueseq&quot;.</span>
+</pre></div>
+</div>
+<p>Once you have retrieved a sequence from the NCBI Sequence Database
+and stored it in a vector variable such as <em>dengueseq</em> in the
+example above, it is possible to extract subsequence of the
+sequence by type the name of the vector (eg. <em>dengueseq</em>) followed
+by the square brackets containing the indices for those
+nucleotides. For example, to obtain nucleotides 452-535 of the
+DEN-1 Dengue virus genome, we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> dengueseq<span class="p">[</span><span class="m">452</span><span class="o">:</span><span class="m">535</span><span class="p">]</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span>
+<span class="p">[</span><span class="m">20</span><span class="p">]</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span>
+<span class="p">[</span><span class="m">39</span><span class="p">]</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;g&quot;</span>
+<span class="p">[</span><span class="m">58</span><span class="p">]</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;g&quot;</span>
+<span class="p">[</span><span class="m">77</span><span class="p">]</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;g&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-variation-in-gc-content">
+<h2>Local variation in GC content<a class="headerlink" href="chapter2.html#local-variation-in-gc-content" title="Permalink to this headline">¶</a></h2>
+<p>In the <a class="reference external" href="chapter1.html#gc-content-of-dna">previous chapter</a>,
+you learnt that to find out the GC
+content of a genome sequence (percentage of nucleotides in a genome
+sequence that are Gs or Cs), you can use the GC() function in the
+SeqinR package. For example, to find the GC content of the
+DEN-1 Dengue virus sequence that we have stored in the vector
+<em>dengueseq</em>, we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> GC<span class="p">(</span>dengueseq<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4666977</span>
+</pre></div>
+</div>
+<p>The output of the GC() is the fraction of nucleotides in a sequence
+that are Gs or Cs, so to convert it to a percentage we need to
+multiply by 100. Thus, the GC content of the DEN-1 Dengue virus
+genome is about 0.467 or 46.7%.</p>
+<p>Although the GC content of the whole DEN-1 Dengue virus genome
+sequence is about 46.7%, there is probably local variation in GC
+content within the genome. That is, some regions of the genome
+sequence may have GC contents quite a bit higher than 46.7%, while
+some regions of the genome sequence may have GC contents that are
+quite a big lower than 46.7%. Local fluctuations in GC content
+within the genome sequence can provide different interesting
+information, for example, they may reveal cases of horizontal
+transfer or reveal biases in mutation.</p>
+<p>If a chunk of DNA has moved by horizontal transfer from the genome
+of a species with low GC content to a species with high GC content,
+the chunk of horizontally transferred DNA could be detected as a
+region of unusually low GC content in the high-GC recipient
+genome.</p>
+<p>On the other hand, a region unusually low GC content in an
+otherwise high-GC content genome could also arise due to biases in
+mutation in that region of the genome, for example, if mutations
+from Gs/Cs to Ts/As are more common for some reason in that region
+of the genome than in the rest of the genome.</p>
+</div>
+<div class="section" id="a-sliding-window-analysis-of-gc-content">
+<h2>A sliding window analysis of GC content<a class="headerlink" href="chapter2.html#a-sliding-window-analysis-of-gc-content" title="Permalink to this headline">¶</a></h2>
+<p>In order to study local variation in GC content within a genome
+sequence, we could calculate the GC content for small chunks of the
+genome sequence. The DEN-1 Dengue virus genome sequence is 10735
+nucleotides long. To study variation in GC content within the
+genome sequence, we could calculate the GC content of chunks of the
+DEN-1 Dengue virus genome, for example, for each 2000-nucleotide chunk of the
+genome sequence:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> GC<span class="p">(</span>dengueseq<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2000</span><span class="p">])</span>      <span class="c1"># Calculate the GC content of nucleotides 1-2000 of the Dengue genome</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.465</span>
+<span class="o">&gt;</span> GC<span class="p">(</span>dengueseq<span class="p">[</span><span class="m">2001</span><span class="o">:</span><span class="m">4000</span><span class="p">])</span>   <span class="c1"># Calculate the GC content of nucleotides 2001-4000 of the Dengue genome</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4525</span>
+<span class="o">&gt;</span> GC<span class="p">(</span>dengueseq<span class="p">[</span><span class="m">4001</span><span class="o">:</span><span class="m">6000</span><span class="p">])</span>   <span class="c1"># Calculate the GC content of nucleotides 4001-6000 of the Dengue genome</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4705</span>
+<span class="o">&gt;</span> GC<span class="p">(</span>dengueseq<span class="p">[</span><span class="m">6001</span><span class="o">:</span><span class="m">8000</span><span class="p">])</span>   <span class="c1"># Calculate the GC content of nucleotides 6001-8000 of the Dengue genome</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.479</span>
+<span class="o">&gt;</span> GC<span class="p">(</span>dengueseq<span class="p">[</span><span class="m">8001</span><span class="o">:</span><span class="m">10000</span><span class="p">])</span>  <span class="c1"># Calculate the GC content of nucleotides 8001-10000 of the Dengue genome</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4545</span>
+<span class="o">&gt;</span> GC<span class="p">(</span>dengueseq<span class="p">[</span><span class="m">10001</span><span class="o">:</span><span class="m">10735</span><span class="p">])</span> <span class="c1"># Calculate the GC content of nucleotides 10001-10735 of the Dengue genome</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4993197</span>
+</pre></div>
+</div>
+<p>From the output of the above calculations, we see that the region
+of the DEN-1 Dengue virus genome from nucleotides 1-2000 has a GC content of
+46.5%, while the region of the Dengue genome from
+nucleotides 2001-4000 has a GC content of about 45.3%. Thus,
+there seems to be some local variation in GC content within
+the Dengue genome sequence.</p>
+<p>Instead of typing in the commands above to tell R to calculate the
+GC content for each 2000-nucleotide chunk of the DEN-1 Dengue
+genome, we can use a <em>for loop</em> to carry out the same
+calculations, but by typing far fewer commands. That is, we can use
+a <em>for loop</em> to take each 2000-nucleotide chunk of the
+DEN-1 Dengue virus genome, and to calculate the GC content of
+each 2000-nucleotide chunk. Below we will explain the following
+<em>for loop</em> that has been written for this purpose:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> starts <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>dengueseq<span class="p">)</span><span class="m">-2000</span><span class="p">,</span> by <span class="o">=</span> <span class="m">2000</span><span class="p">)</span>
+<span class="o">&gt;</span> starts
+<span class="p">[</span><span class="m">1</span><span class="p">]</span>    <span class="m">1</span> <span class="m">2001</span> <span class="m">4001</span> <span class="m">6001</span> <span class="m">8001</span>
+<span class="o">&gt;</span> n <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>starts<span class="p">)</span>    <span class="c1"># Find the length of the vector &quot;starts&quot;</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>n<span class="p">)</span> <span class="p">{</span>
+        chunk <span class="o">&lt;-</span> dengueseq<span class="p">[</span>starts<span class="p">[</span>i<span class="p">]</span><span class="o">:</span><span class="p">(</span>starts<span class="p">[</span>i<span class="p">]</span><span class="m">+1999</span><span class="p">)]</span>
+        chunkGC <span class="o">&lt;-</span> GC<span class="p">(</span>chunk<span class="p">)</span>
+        print <span class="p">(</span>chunkGC<span class="p">)</span>
+     <span class="p">}</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.465</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4525</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4705</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.479</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4545</span>
+</pre></div>
+</div>
+<p>The command &#8220;starts &lt;- seq(1, length(dengueseq)-2000, by = 2000)&#8221;
+stores the result of the seq() command in the vector <em>starts</em>,
+which contains the values 1, 2001, 4001, 6001, and 8001.</p>
+<p>We set the variable <em>n</em> to be equal to the number of elements in
+the vector <em>starts</em>, so it will be 5 here, since the vector
+<em>starts</em> contains the five elements 1, 2001, 4001, 6001 and 8001. The
+line &#8220;for (i in 1:n)&#8221; means that the counter <em>i</em> will take values of
+1-5 in subsequent cycles of the <em>for loop</em>. The <em>for loop</em> above is
+spread over several lines. However, R will not execute the commands
+within the <em>for loop</em> until you have typed the final &#8220;}&#8221; at the end
+of the <em>for loop</em> and pressed &#8220;Return&#8221;.</p>
+<p>Each of the three commands within the <em>for loop</em> are carried out in
+each cycle of the loop. In the first cycle of the loop, <em>i</em> is 1,
+the vector variable <em>chunk</em> is used to store the region from
+nucleotides 1-2000 of the Dengue virus sequence, the GC content of that
+region is calculated and stored in the variable <em>chunkGC</em>, and the
+value of <em>chunkGC</em> is printed out.</p>
+<p>In the second cycle of the loop, <em>i</em> is 2, the vector variable
+<em>chunk</em> is used to store the region from nucleotides 2001-4000 of
+the Dengue virus sequence, the GC content of that region is calculated
+and stored in the variable <em>chunkGC</em>, and the value of <em>chunkGC</em> is
+printed out. The loop continues until the value of <em>i</em> is 5. In the
+fifth cycle through the loop, the value of <em>i</em> is 5, and so the GC
+content of the region from nucleotides 8001-10000 is printed out.</p>
+<p>Note that we stop the loop when we are looking at the region from
+nucleotides 8001-10000, instead of continuing to another cycle of
+the loop where the region under examiniation would be from
+nucleotides 10001-12000. The reason for this is because the length
+of the Dengue virus genome sequence is just 10735 nucleotides, so there
+is not a full 2000-nucleotide region from nucleotide 10001 to the
+end of the sequence at nucleotide 10735.</p>
+<p>The above analysis of local variation in GC content is what is
+known as a <em>sliding window analysis of GC content</em>. By calculating
+the GC content in each 2000-nucleotide chunk of the Dengue virus
+genome, you are effectively sliding a 2000-nucleotide
+<em>window</em> along the DNA sequence from start to end, and calculating
+the GC content in each non-overlapping window (chunk of DNA).</p>
+<p>Note that this sliding window analysis of GC content is a slightly
+simplified version of the method usually carried out by
+bioinformaticians. In this simplified version, we have calculated
+the GC content in non-overlapping windows along a DNA sequence.
+However, it is more usual to calculate GC content in overlapping
+windows along a sequence, although that makes the code slightly
+more complicated.</p>
+</div>
+<div class="section" id="a-sliding-window-plot-of-gc-content">
+<h2>A sliding window plot of GC content<a class="headerlink" href="chapter2.html#a-sliding-window-plot-of-gc-content" title="Permalink to this headline">¶</a></h2>
+<p>It is common to use the data generated from a sliding window
+analysis to create a <em>sliding window plot of GC content</em>. To create
+a sliding window plot of GC content, you plot the local GC content
+in each window of the genome, versus the nucleotide position of the
+start of each window. We can create a sliding window plot of GC
+content by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> starts <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>dengueseq<span class="p">)</span><span class="m">-2000</span><span class="p">,</span> by <span class="o">=</span> <span class="m">2000</span><span class="p">)</span>
+<span class="o">&gt;</span> n <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>starts<span class="p">)</span>    <span class="c1"># Find the length of the vector &quot;starts&quot;</span>
+<span class="o">&gt;</span> chunkGCs <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">(</span>n<span class="p">)</span> <span class="c1"># Make a vector of the same length as vector &quot;starts&quot;, but just containing zeroes</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>n<span class="p">)</span> <span class="p">{</span>
+        chunk <span class="o">&lt;-</span> dengueseq<span class="p">[</span>starts<span class="p">[</span>i<span class="p">]</span><span class="o">:</span><span class="p">(</span>starts<span class="p">[</span>i<span class="p">]</span><span class="m">+1999</span><span class="p">)]</span>
+        chunkGC <span class="o">&lt;-</span> GC<span class="p">(</span>chunk<span class="p">)</span>
+        <span class="kp">print</span><span class="p">(</span>chunkGC<span class="p">)</span>
+        chunkGCs<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> chunkGC
+     <span class="p">}</span>
+<span class="o">&gt;</span> plot<span class="p">(</span>starts<span class="p">,</span>chunkGCs<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;Nucleotide start position&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;GC content&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image2" src="../_images/P2_image3.png" /></p>
+<p>In the code above, the line &#8220;chunkGCs &lt;- numeric(n)&#8221; makes a
+new vector <em>chunkGCs</em> which has the same number of elements as the
+vector <em>starts</em> (5 elements here). This vector <em>chunkGCs</em> is then
+used within the <em>for loop</em> for storing the GC content of each chunk
+of DNA.</p>
+<p>After the loop, the vector <em>starts</em> can be plotted against the
+vector <em>chunkGCs</em> using the plot() function, to get a plot of GC
+content against nucleotide position in the genome sequence. This is
+a <em>sliding window plot of GC content</em>.</p>
+<p>You may want to use the code above to create sliding window plots
+of GC content of different species&#8217; genomes, using different
+windowsizes. Therefore, it makes sense to write a function to do
+the sliding window plot, that can take the windowsize that the user
+wants to use and the sequence that the user wants to study as
+arguments (inputs):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>windowsize<span class="p">,</span> inputseq<span class="p">)</span>
+<span class="p">{</span>
+   starts <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>inputseq<span class="p">)</span><span class="o">-</span>windowsize<span class="p">,</span> by <span class="o">=</span> windowsize<span class="p">)</span>
+   n <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>starts<span class="p">)</span>    <span class="c1"># Find the length of the vector &quot;starts&quot;</span>
+   chunkGCs <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">(</span>n<span class="p">)</span> <span class="c1"># Make a vector of the same length as vector &quot;starts&quot;, but just containing zeroes</span>
+   <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>n<span class="p">)</span> <span class="p">{</span>
+        chunk <span class="o">&lt;-</span> inputseq<span class="p">[</span>starts<span class="p">[</span>i<span class="p">]</span><span class="o">:</span><span class="p">(</span>starts<span class="p">[</span>i<span class="p">]</span><span class="o">+</span>windowsize<span class="m">-1</span><span class="p">)]</span>
+        chunkGC <span class="o">&lt;-</span> GC<span class="p">(</span>chunk<span class="p">)</span>
+        <span class="kp">print</span><span class="p">(</span>chunkGC<span class="p">)</span>
+        chunkGCs<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> chunkGC
+   <span class="p">}</span>
+   plot<span class="p">(</span>starts<span class="p">,</span>chunkGCs<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;Nucleotide start position&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;GC content&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This function will make a sliding window plot of GC content for a
+particular input sequence <em>inputseq</em> specified by the user, using a
+particular windowsize <em>windowsize</em> specified by the user. Once you
+have typed in this function once, you can use it again and again to
+make sliding window plots of GC contents for different input DNA
+sequences, with different windowsizes. For example, you could
+create two different sliding window plots of the DEN-1 Dengue
+virus genome sequence, using windowsizes of 3000 and 300
+nucleotides, respectively:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot<span class="p">(</span><span class="m">3000</span><span class="p">,</span> dengueseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image3" src="../_images/P2_image4.png" /></p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot<span class="p">(</span><span class="m">300</span><span class="p">,</span> dengueseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image4" src="../_images/P2_image5.png" /></p>
+</div>
+<div class="section" id="over-represented-and-under-represented-dna-words">
+<h2>Over-represented and under-represented DNA words<a class="headerlink" href="chapter2.html#over-represented-and-under-represented-dna-words" title="Permalink to this headline">¶</a></h2>
+<p>In the <a class="reference external" href="chapter1.html#dna-words">previous chapter</a>, you learnt that the count() function in
+the SeqinR R package can calculate the frequency of all DNA words
+of a certain length in a DNA sequence. For example, if you want to
+know the frequency of all DNA words that are 2 nucleotides long in
+the Dengue virus genome sequence, you can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> count<span class="p">(</span>dengueseq<span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+ aa   ac   ag   at   ca   cc   cg   ct   ga   gc   gg   gt   ta   tc   tg   tt
+<span class="m">1108</span>  <span class="m">720</span>  <span class="m">890</span>  <span class="m">708</span>  <span class="m">901</span>  <span class="m">523</span>  <span class="m">261</span>  <span class="m">555</span>  <span class="m">976</span>  <span class="m">500</span>  <span class="m">787</span>  <span class="m">507</span>  <span class="m">440</span>  <span class="m">497</span>  <span class="m">832</span>  <span class="m">529</span>
+</pre></div>
+</div>
+<p>It is interesting to identify DNA words that are two nucleotides
+long (&#8220;dinucleotides&#8221;, ie. &#8220;AT&#8221;, &#8220;AC&#8221;, etc.) that are
+over-represented or under-represented in a DNA sequence. If a
+particular DNA word is <em>over-represented</em> in a sequence, it means
+that it occurs many more times in the sequence than you would have
+expected by chance. Similarly, if a particular DNA word is
+<em>under-represented</em> in a sequence, it means it occurs far fewer
+times in the sequence than you would have expected.</p>
+<p>A statistic called ρ (Rho) is used to measure how over- or
+under-represented a particular DNA word is. For a 2-nucleotide
+(dinucleotide) DNA word ρ is calculated as:</p>
+<p>ρ(xy) = f<sub>xy</sub>/(f<sub>x</sub>*f<sub>y</sub>),</p>
+<p>where f<sub>xy</sub> and f<sub>x</sub> are the frequencies of the DNA
+words <em>xy</em> and <em>x</em> in the DNA sequence under study. For example,
+the value of ρ for the DNA word &#8220;TA&#8221; can be calculated as:
+ρ(TA) = f<sub>TA</sub>/(f<sub>T</sub>* f<sub>A</sub>),
+where f<sub>TA</sub>, f<sub>T</sub> and f<sub>A</sub> are the
+frequencies of the DNA words &#8220;TA&#8221;, &#8220;T&#8221; and &#8220;A&#8221; in the DNA
+sequence.</p>
+<p>The idea behind the ρ statistic is that, if a DNA sequence had a
+frequency f<sub>x</sub> of a 1-nucleotide DNA word <em>x</em>, and a
+frequency f<sub>y</sub> of a 1-nucleotide DNA word <em>y</em>, then we
+expect the frequency of the 2-nucleotide DNA word <em>xy</em> to be
+f<sub>x</sub>* f<sub>y</sub>. That is, the frequencies of the
+2-nucleotide DNA words in a sequence are expected to be equal the
+products of the specific frequencies of the two nucleotides that
+compose them. If this were true, then ρ would be equal to 1. If
+we find that ρ is much greater than 1 for a particular
+2-nucleotide word in a sequence, it indicates that that
+2-nucleotide word is much more common in that sequence than
+expected (ie. it is <em>over-represented</em>).</p>
+<p>For example, say that your input sequence has only 5% Ts (ie.
+f<sub>T</sub> = 0.05). In a random DNA sequence with 5% Ts, you
+would expect to see the word &#8220;TT&#8221; very infrequently. In fact, we
+would only expect 0.05 * 0.05=0.0025 (0.25%) of 2-nucleotide words
+to be TTs (ie. we expect f<sub>TT</sub> =
+f<sub>T</sub>*  f<sub>T</sub>). This is because Ts are rare, so
+they are expected to be adjacent to each other very infrequently if
+the few Ts are randomly scattered throughout the DNA. Therefore, if
+you see lots of TT 2-nucleotide words in your real input sequence
+(eg. f<sub>TT</sub> = 0.3, so ρ = 0.3/0.0025 = 120), you would
+suspect that natural selection has acted to increase the number of
+occurrences of the TT word in the sequence (presumably because it
+has some beneficial biological function).</p>
+<p>To find over-represented and under-represented DNA words that are 2
+nucleotides long in the DEN-1 Dengue virus sequence, we can
+calculate the ρ statistic for each 2-nucleotide word in the
+sequence. For example, given the number of occurrences of the
+individual nucleotides A, C, G and T in the Dengue sequence, and
+the number of occurrences of the DNA word GC in the sequence (500,
+from above), we can calculate the value of ρ for the 2-nucleotide
+DNA word &#8220;GC&#8221;, using the formula ρ(GC) =
+f<sub>GC</sub>/(f<sub>G</sub> * f<sub>C</sub>), where
+f<sub>GC</sub>, f<sub>G</sub> and f<sub>C</sub> are the
+frequencies of the DNA words &#8220;GC&#8221;, &#8220;G&#8221; and &#8220;C&#8221; in the DNA
+sequence:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> count<span class="p">(</span>dengueseq<span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># Get the number of occurrences of 1-nucleotide DNA words</span>
+    a     <span class="kt">c</span>     g     <span class="kp">t</span>
+   <span class="m">3426</span> <span class="m">2240</span> <span class="m">2770</span> <span class="m">2299</span>
+<span class="o">&gt;</span> <span class="m">2770</span><span class="o">/</span><span class="p">(</span><span class="m">3426+2240+2770+2299</span><span class="p">)</span> <span class="c1"># Get fG</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.2580345</span>
+<span class="o">&gt;</span> <span class="m">2240</span><span class="o">/</span><span class="p">(</span><span class="m">3426+2240+2770+2299</span><span class="p">)</span> <span class="c1"># Get fC</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.2086633</span>
+<span class="o">&gt;</span> count<span class="p">(</span>dengueseq<span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="c1"># Get the number of occurrences of 2-nucleotide DNA words</span>
+  aa   ac   ag   at   ca   cc   cg   ct   ga   gc   gg   gt   ta   tc   tg   tt
+ <span class="m">1108</span>  <span class="m">720</span>  <span class="m">890</span>  <span class="m">708</span>  <span class="m">901</span>  <span class="m">523</span>  <span class="m">261</span>  <span class="m">555</span>  <span class="m">976</span>  <span class="m">500</span>  <span class="m">787</span>  <span class="m">507</span>  <span class="m">440</span>  <span class="m">497</span>  <span class="m">832</span>  <span class="m">529</span>
+<span class="o">&gt;</span> <span class="m">500</span><span class="o">/</span><span class="p">(</span><span class="m">1108+720+890+708+901+523+261+555+976+500+787+507+440+497+832+529</span><span class="p">)</span> <span class="c1"># Get fGC</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.04658096</span>
+<span class="o">&gt;</span> <span class="m">0.04658096</span><span class="o">/</span><span class="p">(</span><span class="m">0.2580345</span><span class="o">*</span><span class="m">0.2086633</span><span class="p">)</span> <span class="c1"># Get rho(GC)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.8651364</span>
+</pre></div>
+</div>
+<p>We calculate a value of ρ(GC) of approximately 0.865. This means
+that the DNA word &#8220;GC&#8221; is about 0.865 times as common in the
+DEN-1 Dengue virus sequence than expected. That is, it seems to be slightly under-represented.</p>
+<p>Note that if the ratio of the observed to expected frequency of a
+particular DNA word is very low or very high, then we would suspect
+that there is a statistical under-representation or
+over-representation of that DNA word. However, to be sure that this
+over- or under-representation is statistically significant, we
+would need to do a statistical test. We will not deal with the
+topic of how to carry out the statistical test here.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="chapter2.html#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter, you will have learnt to use the following R
+functions:</p>
+<ol class="arabic simple">
+<li>seq() for creating a sequence of numbers</li>
+<li>print() for printing out the value of a variable</li>
+<li>plot() for making a plot (eg. a scatterplot)</li>
+<li>numeric() for making a numeric vector of a particular length</li>
+<li>function() for making a function</li>
+</ol>
+<p>All of these functions belong to the standard installation of R.
+You also learnt how to use <em>for loops</em> to carry out the same
+operation again and again, each time on different inputs.</p>
+</div>
+<div class="section" id="links-and-further-reading">
+<h2>Links and Further Reading<a class="headerlink" href="chapter2.html#links-and-further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Some links are included here for further reading.</p>
+<p>For background reading on DNA sequence statistics, it is
+recommended to read Chapter 1 of
+<em>Introduction to Computational Genomics: a case studies approach</em>
+by Cristianini and Hahn (Cambridge University Press;
+<a class="reference external" href="http://www.computational-genomics.net/book/">www.computational-genomics.net/book/</a>).</p>
+<p>For more in-depth information and more examples on using the SeqinR
+package for sequence analysis, look at the SeqinR documentation,
+<a class="reference external" href="http://pbil.univ-lyon1.fr/software/seqinr/doc.php?lang=eng">http://pbil.univ-lyon1.fr/software/seqinr/doc.php?lang=eng</a>.</p>
+<p>There is also a very nice chapter on &#8220;Analyzing Sequences&#8221;, which
+includes examples of using SeqinR for sequence analysis, in the
+book <em>Applied statistics for bioinformatics using R</em> by Krijnen
+(available online at
+<a class="reference external" href="http://cran.r-project.org/doc/contrib/Krijnen-IntroBioInfStatistics.pdf">cran.r-project.org/doc/contrib/Krijnen-IntroBioInfStatistics.pdf</a>).</p>
+<p>For a more in-depth introduction to R, a good online tutorial is
+available on the &#8220;Kickstarting R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/contrib/Lemon-kickstart/">cran.r-project.org/doc/contrib/Lemon-kickstart</a>.</p>
+<p>There is another nice (slightly more in-depth) tutorial to R
+available on the &#8220;Introduction to R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/manuals/R-intro.html">cran.r-project.org/doc/manuals/R-intro.html</a>.</p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="chapter2.html#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>Thank you to Noel O&#8217;Boyle for helping in using Sphinx, <a class="reference external" href="http://sphinx.pocoo.org">http://sphinx.pocoo.org</a>, to create
+this document, and github, <a class="reference external" href="https://github.com/">https://github.com/</a>, to store different versions of the document
+as I was writing it, and readthedocs, <a class="reference external" href="http://readthedocs.org/">http://readthedocs.org/</a>, to build and distribute
+this document.</p>
+<p>Many of the ideas for the examples and exercises for this chapter
+were inspired by the Matlab case studies on
+<em>Haemophilus influenzae</em>
+(<a class="reference external" href="http://www.computational-genomics.net/case_studies/haemophilus_demo.html">www.computational-genomics.net/case_studies/haemophilus_demo.html</a>)
+and Bacteriophage lambda
+(<a class="reference external" href="http://www.computational-genomics.net/case_studies/lambdaphage_demo.html">http://www.computational-genomics.net/case_studies/lambdaphage_demo.html</a>)
+from the website that accompanies the book
+<em>Introduction to Computational Genomics: a case studies approach</em>
+by Cristianini and Hahn (Cambridge University Press;
+<a class="reference external" href="http://www.computational-genomics.net/book/">www.computational-genomics.net/book/</a>).</p>
+<p>Thank you to Jean Lobry and Simon Penel for helpful advice on using
+the SeqinR package.</p>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="chapter2.html#contact" title="Permalink to this headline">¶</a></h2>
+<p>I will be grateful if you will send me (<a class="reference external" href="http://www.sanger.ac.uk/research/projects/parasitegenomics/">Avril Coghlan</a>) corrections or suggestions for improvements to
+my email address <a class="reference external" href="mailto:alc&#37;&#52;&#48;sanger&#46;ac&#46;uk">alc<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="chapter2.html#license" title="Permalink to this headline">¶</a></h2>
+<p>The content in this book is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="chapter2.html#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Answer the following questions, using the R package. For each
+question, please record your answer, and what you typed into R to
+get this answer.</p>
+<p>Model answers to the exercises are given in
+<a class="reference external" href="chapter_answers.html#dna-sequence-statistics-2">Answers to the exercises on DNA Sequence Statistics (2)</a>.</p>
+<dl class="docutils">
+<dt>Q1. Draw a sliding window plot of GC content in the DEN-1 Dengue virus genome, using a window size of 200 nucleotides. Do you see any regions of unusual DNA content in the genome (eg. a high peak or low trough)?</dt>
+<dd>Make a sketch of each plot that you draw.
+At what position (in base-pairs) in the genome is there the largest
+change in local GC content (approximate position is fine here)?
+Compare the sliding window plots of GC content created using window
+sizes of 200 and 2000 nucleotides. How does window
+size affect your ability to detect differences within
+the Dengue virus genome?</dd>
+<dt>Q2. Draw a sliding window plot of GC content in the genome sequence for the bacterium <em>Mycobacterium leprae</em> strain TN (accession NC_002677) using a window size of 20000 nucleotides. Do you see any regions of unusual DNA content in the genome (eg. a high peak or low trough)?</dt>
+<dd>Make a sketch of each plot that you draw.
+Write down the approximate nucleotide position of the highest peak or lowest trough that you see.
+Why do you think a window size of 20000 nucleotides was chosen?
+What do you see if you use a much smaller windowsize (eg. 200 nucleotides) or a much larger windowsize (eg. 200,000 nucleotides)?</dd>
+<dt>Q3. Write a function to calculate the AT content of a DNA sequence (ie. the fraction of the nucleotides in the sequence that are As or Ts). What is the AT content of the <em>Mycobacterium leprae</em> TN genome?</dt>
+<dd>Hint: use the function count() to make a table containing the
+number of As, Gs, Ts and Cs in the sequence. Remember that function
+count() produces a table object, and you can access the elements of
+a table object using double square brackets.
+Do you notice a relationship between the AT content of the
+<em>Mycobacterium leprae</em> TN genome, and its GC content?</dd>
+<dt>Q4. Write a function to draw a sliding window plot of AT content. Use it to make a sliding window plot of AT content along the <em>Mycobacterium leprae</em> TN genome, using a windowsize of 20000 nucleotides. Do you notice any relationship between the sliding window plot of GC content along the <em>Mycobacterium leprae</em> genome, and the sliding window plot of AT content?</dt>
+<dd>Make a sketch of the plot that you draw.</dd>
+<dt>Q5. Is the 3-nucleotide word GAC GC over-represented or under-represented in the <em>Mycobacterium leprae</em> TN genome sequence?</dt>
+<dd>What is the frequency of this word in the sequence?
+What is the expected frequency of this word in the sequence?
+What is the ρ (Rho) value for this word?
+How would you figure out whether there is already an R function to calculate ρ (Rho)? Is there one that you could use?</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="chapter3.html" title="Sequence Databases"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="chapter1.html" title="DNA Sequence Statistics (1)"
+             >previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright Avril Coghlan, Licence: Creative Commons Attribution 3.0 License.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

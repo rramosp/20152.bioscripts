@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Answers to Revision Exercises &mdash; Bioinformatics 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Bioinformatics 0.1 documentation" href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html" />
+    <link rel="next" title="Protein-Protein Interaction Graphs" href="chapter11.html" />
+    <link rel="prev" title="Answers to the End-of-chapter Exercises" href="chapter_answers.html" />
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/src/revisionexercises_answers.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "a-little-book-of-r-for-bioinformatics",
+    version: "latest",
+    language: "en",
+    page: "src/revisionexercises_answers",
+    builder: "sphinx",
+    theme: "sphinxdoc",
+    docroot: "/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "8cd107b180ed964fe7c8021e78ff0ab528d5ba74"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "a-little-book-of-r-for-bioinformatics";
+  var page_name = "src/revisionexercises_answers";
+  var html_theme = "sphinxdoc";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  // User Analytics Code
+  _gaq.push(['user._setAccount', 'UA-36029021-1']);
+  _gaq.push(['user._trackPageview']);
+  // End User Analytics Code
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="chapter11.html" title="Protein-Protein Interaction Graphs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="chapter_answers.html" title="Answers to the End-of-chapter Exercises"
+             accesskey="P">previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="revisionexercises_answers.html#">Answers to Revision Exercises</a><ul>
+<li><a class="reference internal" href="revisionexercises_answers.html#revision-exercises-1">Revision Exercises 1</a><ul>
+<li><a class="reference internal" href="revisionexercises_answers.html#q1">Q1.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#q2">Q2.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#q3">Q3.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#q4">Q4.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#q5">Q5.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#q6">Q6.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#q7">Q7.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#q8">Q8.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="revisionexercises_answers.html#revision-exercises-2">Revision Exercises 2</a><ul>
+<li><a class="reference internal" href="revisionexercises_answers.html#id6">Q1.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#id7">Q2.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#id8">Q3.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#id9">Q4.</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#id10">Q5.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="revisionexercises_answers.html#contact">Contact</a></li>
+<li><a class="reference internal" href="revisionexercises_answers.html#license">License</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="chapter_answers.html"
+                        title="previous chapter">Answers to the End-of-chapter Exercises</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chapter11.html"
+                        title="next chapter">Protein-Protein Interaction Graphs</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/_sources/src/revisionexercises_answers.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="answers-to-revision-exercises">
+<h1>Answers to Revision Exercises<a class="headerlink" href="revisionexercises_answers.html#answers-to-revision-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="revision-exercises-1">
+<h2>Revision Exercises 1<a class="headerlink" href="revisionexercises_answers.html#revision-exercises-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q1">
+<h3>Q1.<a class="headerlink" href="revisionexercises_answers.html#q1" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the length of (total number of base-pairs in) the Schistosoma mansoni mitochondrial genome
+(NCBI accession NC_002545), and how many As, Cs, Gs and Ts does it contain?</em></p>
+<p>To do this, you need to go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a> website
+and type the <em>S. mansoni</em> mitochondrial genome (accession NC_002545) in the search box, and press &#8216;Search&#8217;.</p>
+<p>On the search results page, you should see &#8216;1&#8217; beside the word &#8216;Nucleotide&#8217;, meaning that there was one hit to a sequence record in the NCBI Nucleotide database, which contains DNA and RNA sequences. If you click on the word &#8216;Nucleotide&#8217;, it will bring you to the sequence record, which should be the NCBI sequence record for the <em>S.mansoni</em> mitochondrial genome (ie. for accession NC_002545).</p>
+<p>To save the sequence as FASTA-format file, click on &#8216;Send&#8217; at the top right of the page, and choose &#8216;File&#8217;,
+then select &#8216;FASTA&#8217; from the drop-down list labelled &#8216;Format&#8217;, then click &#8216;Create File&#8217;. Save the file
+with a name that you will remember (eg. &#8220;smansoni.fasta&#8221;) in your &#8220;My Documents&#8221; folder.</p>
+<p>You can then read the sequence into R by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                                 <span class="c1"># load the SeqinR R package</span>
+<span class="o">&gt;</span> smansoni <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;smansoni.fasta&quot;</span><span class="p">)</span>     <span class="c1"># read in the sequence file</span>
+<span class="o">&gt;</span> smansoniseq <span class="o">&lt;-</span> smansoni<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>                      <span class="c1"># get the sequence</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>smansoniseq<span class="p">)</span>                               <span class="c1"># get the length of the sequence</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">14415</span>
+<span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>smansoniseq<span class="p">)</span>                                <span class="c1"># get the number of As, Cs, Gs, Ts</span>
+  smansoniseq
+    a    <span class="kt">c</span>    g    <span class="kp">t</span>
+  <span class="m">3654</span> <span class="m">1228</span> <span class="m">3307</span> <span class="m">6226</span>
+</pre></div>
+</div>
+<p>Thus, the mitochondrial genome is 14415 bases long, and consists of 3654 As, 1228 Cs, 3307 Gs and 6226 Ts.</p>
+<p>Note that, as far as I know, it is not possible to retrieve the sequence for accession NC_002545 directly using
+the &#8220;query()&#8221; function in SeqinR, because the <em>S. mansoni</em> mitochondrial genome sequence does not seem to be
+stored in any of the ACNUC sub-databases.</p>
+</div>
+<div class="section" id="q2">
+<h3>Q2.<a class="headerlink" href="revisionexercises_answers.html#q2" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the length of the Brugia malayi mitochondrial genome (NCBI accession NC_004298),
+and how many As, Cs, Gs and Ts does it contain?</em></p>
+<p>To do this, you need to go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a> website
+and type the <em>B. malayi</em> mitochondrial genome (accession NC_004298) in the search box, and press &#8216;Search&#8217;.</p>
+<p>As in Q1, go to the NCBI record for the sequence, and save the sequence in a FASTA format file, for example,
+called &#8220;bmalayi.fasta&#8221;.</p>
+<p>Then read the sequence into R, and get its length and composition by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> bmalayi <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;bmalayi.fasta&quot;</span><span class="p">)</span>       <span class="c1"># read in the sequence file</span>
+<span class="o">&gt;</span> bmalayiseq <span class="o">&lt;-</span> bmalayi<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>                        <span class="c1"># get the sequence</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>bmalayiseq<span class="p">)</span>                                <span class="c1"># get the length of the sequence</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">13657</span>
+<span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>bmalayiseq<span class="p">)</span>                                 <span class="c1"># get the number of As, Cs, Gs, Ts</span>
+  bmalayiseq
+   a    <span class="kt">c</span>    g    <span class="kp">t</span>
+  <span class="m">2950</span> <span class="m">1054</span> <span class="m">2297</span> <span class="m">7356</span>
+</pre></div>
+</div>
+<p>The sequence is 13657 bases long, and consists of 2950 As, 1054 Cs, 2297 Gs and 7356 Ts.</p>
+<p>Note that, as far as I know, it is not possible to retrieve the sequence for accession NC_004298 directly using
+the &#8220;query()&#8221; function in SeqinR, because the <em>B. malayi</em> mitochondrial genome sequence does not seem to be
+stored in any of the ACNUC sub-databases.</p>
+</div>
+<div class="section" id="q3">
+<h3>Q3.<a class="headerlink" href="revisionexercises_answers.html#q3" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the probability of the Brugia malayi mitochondrial genome sequence (NCBI accession NC_004298),
+according to a multinomial model in which the probabilities of As, Cs, Gs and Ts (pA, pC, pG, and pT)
+are set equal to the fraction of As, Cs, Gs and Ts in the Schistosoma mansoni mitochondrial genome?</em></p>
+<p>First we can calculate the frequencies of A, C, G and T in the <em>S. mansoni</em> mitochondrial sequence. We
+can do this by making a table of the counts of As, Cs, Gs and Ts, and dividing the counts of the bases
+by the total sequence length to get frequencies:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> mytable <span class="o">&lt;-</span> <span class="kp">table</span><span class="p">(</span>smansoniseq<span class="p">)</span>
+<span class="o">&gt;</span> mytable
+    a    <span class="kt">c</span>    g    <span class="kp">t</span>
+  <span class="m">3654</span> <span class="m">1228</span> <span class="m">3307</span> <span class="m">6226</span>
+<span class="o">&gt;</span> mytable <span class="o">&lt;-</span> mytable<span class="o">/</span><span class="kp">length</span><span class="p">(</span>smansoniseq<span class="p">)</span> <span class="c1"># Divide the counts by the sequence length, to get frequencies</span>
+<span class="o">&gt;</span> mytable
+     a          <span class="kt">c</span>          g          <span class="kp">t</span>
+  <span class="m">0.25348595</span> <span class="m">0.08518904</span> <span class="m">0.22941381</span> <span class="m">0.43191120</span>
+<span class="o">&gt;</span> freqA <span class="o">&lt;-</span> mytable<span class="p">[[</span><span class="s">&quot;a&quot;</span><span class="p">]]</span>                <span class="c1"># Get the frequency of As</span>
+<span class="o">&gt;</span> freqC <span class="o">&lt;-</span> mytable<span class="p">[[</span><span class="s">&quot;c&quot;</span><span class="p">]]</span>                <span class="c1"># Get the frequency of Cs</span>
+<span class="o">&gt;</span> freqG <span class="o">&lt;-</span> mytable<span class="p">[[</span><span class="s">&quot;g&quot;</span><span class="p">]]</span>                <span class="c1"># Get the frequency of Gs</span>
+<span class="o">&gt;</span> freqT <span class="o">&lt;-</span> mytable<span class="p">[[</span><span class="s">&quot;t&quot;</span><span class="p">]]</span>                <span class="c1"># Get the frequency of Ts</span>
+<span class="o">&gt;</span> probabilities <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>freqA<span class="p">,</span>freqC<span class="p">,</span>freqG<span class="p">,</span>freqT<span class="p">)</span> <span class="c1"># Make a vector containing the frequencies of As,Cs,Gs,Ts</span>
+<span class="o">&gt;</span> probabilities
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.25348595</span> <span class="m">0.08518904</span> <span class="m">0.22941381</span> <span class="m">0.43191120</span>
+</pre></div>
+</div>
+<p>First we need to make a function to calculate the probability of a sequence, given
+a particular multinomial model (with a certain <em>pA</em>, <em>pC</em>, <em>pG</em>, <em>pT</em>). To do this, we can
+write the following R function &#8220;multinomialprob()&#8221;:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> multinomialprob <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>mysequence<span class="p">,</span> probabilities<span class="p">)</span>
+  <span class="p">{</span>
+      nucleotides   <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;G&quot;</span><span class="p">,</span> <span class="s">&quot;T&quot;</span><span class="p">)</span> <span class="c1"># Define the alphabet of nucleotides</span>
+      <span class="kp">names</span><span class="p">(</span>probabilities<span class="p">)</span> <span class="o">&lt;-</span> nucleotides
+      mysequence    <span class="o">&lt;-</span> <span class="kp">toupper</span><span class="p">(</span>mysequence<span class="p">)</span><span class="c1"># Convert the sequence to uppercase letters</span>
+      seqlength     <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>mysequence<span class="p">)</span> <span class="c1"># Get the length of the input sequence</span>
+      seqprob       <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">()</span>          <span class="c1"># Make a variable to hold to probability of the whole sequence</span>
+      <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>seqlength<span class="p">)</span>              <span class="c1"># For each letter in the input sequence</span>
+      <span class="p">{</span>
+         nucleotide <span class="o">&lt;-</span> mysequence<span class="p">[</span>i<span class="p">]</span>      <span class="c1"># Find the ith nucleotide in the sequence</span>
+         <span class="c1"># Calculate the probability of the ith nucleotide in the sequence</span>
+         nucleotideprob <span class="o">&lt;-</span> probabilities<span class="p">[</span>nucleotide<span class="p">]</span>
+         <span class="c1"># The probability of the whole sequence is calculated by multiplying together</span>
+         <span class="c1"># the probabilities of the nucleotides at each sequence position</span>
+         <span class="kr">if</span> <span class="p">(</span>i <span class="o">==</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span> seqprob <span class="o">&lt;-</span> nucleotideprob<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>           <span class="p">}</span>
+         <span class="kr">else</span>        <span class="p">{</span> seqprob <span class="o">&lt;-</span> seqprob <span class="o">*</span> nucleotideprob<span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="c1"># Return the value of the probability of the whole sequence</span>
+      <span class="kr">return</span><span class="p">(</span>seqprob<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>The function multinomialprob() takes as its arguments (inputs) a vector that
+contains the DNA sequence, and a vector containing the probabilities <em>pA</em>, <em>pC</em>, <em>pG</em>, and <em>pT</em>.</p>
+<p>You will need to copy and paste this function into R to use it. You can then use it to calculate the
+probability of the <em>B. malayi</em> mitochondrial sequence, using a multinomial model where <em>pA</em>, <em>pC</em>, <em>pG</em>, <em>pT</em>
+are set equal to the fraction of As, Cs, Gs, and Ts in the <em>S. mansoni</em> mitohondrial sequence (which we
+have already stored in the vector <em>probabilities</em>, see above):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> multinomialprob<span class="p">(</span>bmalayiseq<span class="p">,</span> probabilities<span class="p">)</span>
+  <span class="m">0</span>
+</pre></div>
+</div>
+<p>In this case, the probability is so small that it is effectively zero.</p>
+</div>
+<div class="section" id="q4">
+<h3>Q4.<a class="headerlink" href="revisionexercises_answers.html#q4" title="Permalink to this headline">¶</a></h3>
+<p><em>What are the top three most frequent 4-bp words (4-mers) in the genome of the
+bacterium Chlamydia trachomatis strain D/UW-3/CX (NCBI accession NC_000117), and
+how many times do they occur in its sequence?</em></p>
+<p>To do this, you need to go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a> website
+and type the <em>C. trachomatis</em> D/UW-3/CX genome (accession NC_000117) in the search box, and press &#8216;Search&#8217;.</p>
+<p>As in Q1, go to the NCBI record for the sequence, and save the sequence in a FASTA format file, for example,
+called &#8220;ctrachomatis.fasta&#8221;.</p>
+<p>Alternatively, you can retrieve the sequence using the SeqinR package. The sequence is a fully
+sequenced bacterial genome, so is in the ACNUC sub-database called &#8220;bacterial&#8221;. Thus, we type in R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;bacterial&quot;</span><span class="p">)</span>                                <span class="c1"># select the ACNUC sub-database to search</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;ctrachomatis&quot;</span><span class="p">,</span> <span class="s">&quot;AC=NC_000117&quot;</span><span class="p">)</span>                  <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> ctrachomatisseq <span class="o">&lt;-</span> getSequence<span class="p">(</span>ctrachomatis<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>  <span class="c1"># get the sequence</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>                                            <span class="c1"># close the connection to the ACNUC sub-database</span>
+</pre></div>
+</div>
+<p>We can now find the most frequent 4-bp words in the sequence by using the &#8220;count()&#8221; function from SeqinR:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> mytable <span class="o">&lt;-</span> count<span class="p">(</span>ctrachomatisseq<span class="p">,</span> <span class="m">4</span><span class="p">)</span>                   <span class="c1"># get the count for each 4-bp word</span>
+<span class="o">&gt;</span> <span class="kp">sort</span><span class="p">(</span>mytable<span class="p">)</span>                                          <span class="c1"># sort the 4-bp words, by the number of occurrences of each word</span>
+  ccgg  cggg  ggcc  cccg  cgcg  cggc  gccg  cgcc  ggcg  cggt  gccc  cacg  gggc
+  <span class="m">1180</span>  <span class="m">1198</span>  <span class="m">1206</span>  <span class="m">1215</span>  <span class="m">1287</span>  <span class="m">1321</span>  <span class="m">1334</span>  <span class="m">1407</span>  <span class="m">1435</span>  <span class="m">1481</span>  <span class="m">1512</span>  <span class="m">1520</span>  <span class="m">1537</span>
+  cgtg  accg  ggtc  gacc  cgac  gtcg  gcgg  ccgc  acgg  gacg  cgtc  ccgt  gtac
+  <span class="m">1541</span>  <span class="m">1545</span>  <span class="m">1558</span>  <span class="m">1567</span>  <span class="m">1606</span>  <span class="m">1647</span>  <span class="m">1658</span>  <span class="m">1678</span>  <span class="m">1716</span>  <span class="m">1750</span>  <span class="m">1786</span>  <span class="m">1802</span>  <span class="m">1802</span>
+  <span class="kc">...</span>
+  agag  agct  ctct  tatt  cttc  tttg  caaa  gaag  ttta  taaa  attt  aaat  tttc
+  <span class="m">6836</span>  <span class="m">6860</span>  <span class="m">6937</span>  <span class="m">6946</span>  <span class="m">7234</span>  <span class="m">7280</span>  <span class="m">7289</span>  <span class="m">7353</span>  <span class="m">7671</span>  <span class="m">7731</span>  <span class="m">8100</span>  <span class="m">8144</span>  <span class="m">8462</span>
+  gaaa  aaag  cttt  tctt  aaga  ttct  agaa  tttt  aaaa
+  <span class="m">8563</span>  <span class="m">9099</span>  <span class="m">9199</span> <span class="m">10060</span> <span class="m">10069</span> <span class="m">10492</span> <span class="m">10581</span> <span class="m">14021</span> <span class="m">14122</span>
+</pre></div>
+</div>
+<p>The three most frequent 4-bp words are &#8220;aaaa&#8221; (14122 occurrences), &#8220;tttt&#8221; (14021 occurrences) and &#8220;agaa&#8221; (10581 occurrences).</p>
+</div>
+<div class="section" id="q5">
+<h3>Q5.<a class="headerlink" href="revisionexercises_answers.html#q5" title="Permalink to this headline">¶</a></h3>
+<p><em>Write an R function to generate a random DNA sequence that is n letters long (that is,
+n bases long) using a multinomial model in which the probabilities pA, pC, pG,
+and pT are set equal to the fraction of As, Cs, Gs and Ts in the Schistosoma mansoni
+mitochondrial genome.</em></p>
+<p>In Q3 above, we stored the frequencies of A, C, G and T in the <em>S. mansoni</em> mitochondrial genome
+in a vector called <em>probabiltiies</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> probabilities
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.25348595</span> <span class="m">0.08518904</span> <span class="m">0.22941381</span> <span class="m">0.43191120</span>
+</pre></div>
+</div>
+<p>The R function &#8220;generateSeqWithMultinomialModel()&#8221; below is an R function for generating a
+random sequence with a multinomial model, where the probabilities of the different letters are
+set equal to the fraction of As, Cs, Gs, and Ts in the <em>S. mansoni</em> mitochondrial genome (ie.
+with vector <em>probabilities</em> as its input):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> generateSeqWithMultinomialModel <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>n<span class="p">,</span> probabilities<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># Define the letters in the alphabet</span>
+     <span class="kc">letters</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;G&quot;</span><span class="p">,</span> <span class="s">&quot;T&quot;</span><span class="p">)</span>
+     <span class="c1"># Make a random sequence of length n letters, using the multinomial model with probabilities &quot;probabilities&quot;</span>
+     seq <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span><span class="kc">letters</span><span class="p">,</span> n<span class="p">,</span> rep<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> prob<span class="o">=</span>probabilities<span class="p">)</span> <span class="c1"># Sample with replacement</span>
+     <span class="c1"># Return the sequence</span>
+     <span class="kr">return</span><span class="p">(</span><span class="kp">seq</span><span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>To use this function to generate a 10-bp random sequence, using vector <em>probabilities</em> as input, we would type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> generateSeqWithMultinomialModel<span class="p">(</span><span class="m">10</span><span class="p">,</span> probabilities<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;G&quot;</span>
+</pre></div>
+</div>
+<p>Each time we call the function, it will create a slightly different 10-bp sequence:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> generateSeqWithMultinomialModel<span class="p">(</span><span class="m">10</span><span class="p">,</span> probabilities<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;T&quot;</span>
+<span class="o">&gt;</span> generateSeqWithMultinomialModel<span class="p">(</span><span class="m">10</span><span class="p">,</span> probabilities<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;A&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="q6">
+<h3>Q6.<a class="headerlink" href="revisionexercises_answers.html#q6" title="Permalink to this headline">¶</a></h3>
+<p><em>Give an example of using your function from Q5 to calculate a random sequence that is 20 letters
+long, using a multinomial model with pA =0.28, pC =0.21, pG =0.22, and pT =0.29.</em></p>
+<p>First we need to define a vector <em>myprobabilities</em> containing the probabilities of A, C, G, and T:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myprobabilities <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">0.28</span><span class="p">,</span> <span class="m">0.21</span><span class="p">,</span> <span class="m">0.22</span><span class="p">,</span> <span class="m">0.29</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we can use the function &#8220;generateSeqWithMultinomialModel()&#8221; to calculate a 20-bp random
+sequence, using the vector <em>myprobabilities</em> as its input:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> generateSeqWithMultinomialModel<span class="p">(</span><span class="m">20</span><span class="p">,</span> myprobabilities<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;T&quot;</span> <span class="s">&quot;T&quot;</span>
+  <span class="p">[</span><span class="m">20</span><span class="p">]</span> <span class="s">&quot;C&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="q7">
+<h3>Q7.<a class="headerlink" href="revisionexercises_answers.html#q7" title="Permalink to this headline">¶</a></h3>
+<p><em>How many protein sequences from rabies virus are there in the NCBI Protein database?</em></p>
+<p>To do this, you need to go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a> website
+and select &#8216;Protein&#8217; from the drop-down box above the search box.</p>
+<p>Then type &#8220;rabies virus&#8221;[ORGN] in the search box, and press &#8216;Search&#8217;.</p>
+<p>On the results page, it should say &#8220;Results: 1 to 20 of 11768&#8221;, meaning that there are 11768 protein sequences from rabies virus in
+the database [as of 16-Jun-2011]. Note that if you carry out this search at a later date, you may find more sequences, as the database
+is growing all the time.</p>
+</div>
+<div class="section" id="q8">
+<h3>Q8.<a class="headerlink" href="revisionexercises_answers.html#q8" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the NCBI accession for the Mokola virus genome?</em></p>
+<p>To do this, you need to go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a> website
+and select &#8216;Genome&#8217; from the drop-down box above the search box.</p>
+<p>Then type &#8220;Mokola virus&#8221;[ORGN] in the search box, and press &#8216;Search&#8217;.</p>
+<p>You should get a hit to accession NC_006429, the Mokola virus genome sequence.</p>
+<p>Note that alternatively you can go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a> website, and
+type &#8220;Mokola virus&#8221;[ORGN] in the search box, and press &#8216;Search&#8217;. On the results page, you will see lots of hits
+to the Nucleotide and Protein databases, and 1 hit to the Genome database. If you click on the 1 hit beside
+&#8220;Genome&#8221;, it will bring you to accession NC_006429, the Mokola virus genome sequence.</p>
+</div>
+</div>
+<div class="section" id="revision-exercises-2">
+<h2>Revision Exercises 2<a class="headerlink" href="revisionexercises_answers.html#revision-exercises-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Q1.<a class="headerlink" href="revisionexercises_answers.html#id6" title="Permalink to this headline">¶</a></h3>
+<p><em>Use the dotPlot() function in the SeqinR R package to make a dotplot of the rabies virus phosphoprotein and Mokkola virus phosphoprotein, using a windowsize of 10 and threshold of 5.</em></p>
+<p>First we need to retrieve the rabies virus phosphoprotein (UniProt P06747) and Mokola virus phosphoprotein (UniProt P0C569) sequences from UniProt, which we can do using SeqinR:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                                      <span class="c1"># load the SeqinR package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;swissprot&quot;</span><span class="p">)</span>                                <span class="c1"># select the ACNUC sub-database to search</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;rabies&quot;</span><span class="p">,</span> <span class="s">&quot;AC=P06747&quot;</span><span class="p">)</span>                           <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> rabiesseq <span class="o">&lt;-</span> getSequence<span class="p">(</span>rabies<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>              <span class="c1"># get the sequence</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;mokola&quot;</span><span class="p">,</span> <span class="s">&quot;AC=P0C569&quot;</span><span class="p">)</span>                           <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> mokolaseq <span class="o">&lt;-</span> getSequence<span class="p">(</span>mokola<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>              <span class="c1"># get the sequence</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>                                            <span class="c1"># close the connection to the ACNUC sub-database</span>
+</pre></div>
+</div>
+<p>If you look at the help page of the dotPlot function (by typing &#8220;help(dotPlot)&#8221;), you will see that the
+windowsize can be specified using the &#8220;wsize&#8221; argument and the threshold can be specified using the &#8220;nmatch&#8221;
+argument.</p>
+<p>We can therefore use dotPlot() to make a dotplot of the two proteins, using a windowsize of 10 and a
+threshold of 5, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> dotPlot<span class="p">(</span>mokolaseq<span class="p">,</span>rabiesseq<span class="p">,</span>wsize<span class="o">=</span><span class="m">10</span><span class="p">,</span>nmatch<span class="o">=</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image7" src="../_images/A2_image7.png" /></p>
+<p>You can see that there is a region of similarity that covers about 60-70 amino acids at the start of the two proteins, then there is a region of similarity from about 210-280 in each of the two proteins. There is also a weak amount of similarity in a region from about 85-100 in the two proteins.</p>
+</div>
+<div class="section" id="id7">
+<h3>Q2.<a class="headerlink" href="revisionexercises_answers.html#id7" title="Permalink to this headline">¶</a></h3>
+<p><em>Use the function makeDotPlot1 to make a dotplot of the rabies virus phosphoprotein and the Mokola virus phosphoprotein, setting the argument &#8220;dotsize&#8221; to 0.1</em>.</p>
+<p>To use the function makeDotPlot1(), we first need to copy and paste it into R.</p>
+<p>We can then use it to make a dotplot, setting &#8220;dotsize&#8221; to 0.1, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> makeDotPlot1<span class="p">(</span>mokolaseq<span class="p">,</span>rabiesseq<span class="p">,</span>dotsize<span class="o">=</span><span class="m">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image8" src="../_images/A2_image8.png" /></p>
+<p>As in Q1, you can see that there is a region of similarity that covers about 60-70 amino acids at the start of the two proteins, then there is a region of similarity from about 210-280 in each of the two proteins.</p>
+<p>There are a lot of off-diagonal dots in this picture, because a dot is plotted at every position where the two sequences are identical in one letter (while in Q1, we only plotted a dot at the start of a 10-letter window, where 5 or more out of 10 positions in the window were identical).</p>
+<p>The fact that there are so many dots in the picture makes it hard to see the weak region of similarity seen in Q1, from about 85-100 in the two proteins.</p>
+</div>
+<div class="section" id="id8">
+<h3>Q3.<a class="headerlink" href="revisionexercises_answers.html#id8" title="Permalink to this headline">¶</a></h3>
+<p><em>Adapt the R code in Q2 to write a function that makes a dotplot using a window of size x letters, where a dot is plotted in the first  cell of the window if y or more letters compared in that window are identical in the two sequences.</em></p>
+<p>Here is an R function that will do this:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> makeDotPlot3 <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>seq1<span class="p">,</span>seq2<span class="p">,</span>windowsize<span class="p">,</span>threshold<span class="p">,</span>dotsize<span class="o">=</span><span class="m">1</span><span class="p">)</span>
+  <span class="p">{</span>
+     length1 <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>seq1<span class="p">)</span>
+     length2 <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>seq2<span class="p">)</span>
+     <span class="c1"># make a plot:</span>
+     x <span class="o">&lt;-</span> <span class="m">1</span>
+     y <span class="o">&lt;-</span> <span class="m">1</span>
+     plot<span class="p">(</span>x<span class="p">,</span>y<span class="p">,</span>ylim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span>length2<span class="p">),</span>xlim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span>length1<span class="p">),</span>col<span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="p">(</span>length1<span class="o">-</span>windowsize<span class="m">+1</span><span class="p">))</span>
+     <span class="p">{</span>
+        word1 <span class="o">&lt;-</span> seq1<span class="p">[</span>i<span class="o">:</span><span class="p">(</span>i<span class="o">+</span>windowsize<span class="p">)]</span>
+        word1b <span class="o">&lt;-</span> c2s<span class="p">(</span>word1<span class="p">)</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="p">(</span>length2<span class="o">-</span>windowsize<span class="m">+1</span><span class="p">))</span>
+        <span class="p">{</span>
+           word2 <span class="o">&lt;-</span> seq2<span class="p">[</span>j<span class="o">:</span><span class="p">(</span>j<span class="o">+</span>windowsize<span class="p">)]</span>
+           word2b <span class="o">&lt;-</span> c2s<span class="p">(</span>word2<span class="p">)</span>
+           <span class="c1"># count how many identities there are:</span>
+           identities <span class="o">&lt;-</span> <span class="m">0</span>
+           <span class="kr">for</span> <span class="p">(</span>k <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>windowsize<span class="p">)</span>
+           <span class="p">{</span>
+              letter1 <span class="o">&lt;-</span> seq1<span class="p">[(</span>i<span class="o">+</span>k<span class="m">-1</span><span class="p">)]</span>
+              letter2 <span class="o">&lt;-</span> seq2<span class="p">[(</span>j<span class="o">+</span>k<span class="m">-1</span><span class="p">)]</span>
+              <span class="kr">if</span> <span class="p">(</span>letter1 <span class="o">==</span> letter2<span class="p">)</span>
+              <span class="p">{</span>
+                 identities <span class="o">&lt;-</span> identities <span class="o">+</span> <span class="m">1</span>
+              <span class="p">}</span>
+           <span class="p">}</span>
+           <span class="kr">if</span> <span class="p">(</span>identities <span class="o">&gt;=</span> threshold<span class="p">)</span>
+           <span class="p">{</span>
+              <span class="c1"># add a point to the plot at the position</span>
+              <span class="kr">for</span> <span class="p">(</span>k <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1</span><span class="p">)</span>
+              <span class="p">{</span>
+                 points<span class="p">(</span>x<span class="o">=</span><span class="p">(</span>i<span class="o">+</span>k<span class="m">-1</span><span class="p">),(</span>y<span class="o">=</span>j<span class="o">+</span>k<span class="m">-1</span><span class="p">),</span>cex<span class="o">=</span>dotsize<span class="p">,</span>col<span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span>pch<span class="o">=</span><span class="m">7</span><span class="p">)</span>
+              <span class="p">}</span>
+           <span class="p">}</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;FINISHED NOW&quot;</span><span class="p">))</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>Q4.<a class="headerlink" href="revisionexercises_answers.html#id9" title="Permalink to this headline">¶</a></h3>
+<p><em>Use the dotPlot() function in the SeqinR R package to make a dotplot of rabies virus phosphoprotein and Mokola virus phosphoprotein, using a window size of 3 and a threshold of 3. Use your own R function from Q3 to make a dotplot of rabies virus phosphoprotein and Mokola virus phosphoprotein, using a windowsize (x) of 3 and a threshold (y) of 3. Are the two plots similar or different, and can you explain why?</em></p>
+<p>We can use the dotPlot() function from SeqinR to make a dotplot of the rabies and Mokola virus
+phosphoproteins, using a window size of 3 and a threshold of 3, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> dotPlot<span class="p">(</span>mokolaseq<span class="p">,</span>rabiesseq<span class="p">,</span>wsize<span class="o">=</span><span class="m">3</span><span class="p">,</span>nmatch<span class="o">=</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image9" src="../_images/A2_image9.png" /></p>
+<p>We can also use our function makeDotPlot3 to make a dotplot of the rabies and Mokola virus
+proteins, using a window size of 3 and a threshold of 3:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> makeDotPlot3<span class="p">(</span>mokolaseq<span class="p">,</span>rabiesseq<span class="p">,</span>windowsize<span class="o">=</span><span class="m">3</span><span class="p">,</span>threshold<span class="o">=</span><span class="m">3</span><span class="p">,</span>dotsize<span class="o">=</span><span class="m">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image10" src="../_images/A2_image10.png" /></p>
+<p>The two pictures are the same, as they should be, as both are plotting a dot in the first position of a 3-letter window if all 3 letters in that window are identical in the two sequences.</p>
+</div>
+<div class="section" id="id10">
+<h3>Q5.<a class="headerlink" href="revisionexercises_answers.html#id10" title="Permalink to this headline">¶</a></h3>
+<p><em>Write an R function to calculate an unrooted phylogenetic tree with bootstraps, using the minimum evolution method.</em></p>
+<p>We can adjust the function <a class="reference external" href="chapter5.html#building-an-unrooted-phylogenetic-tree-for-protein-sequences">unrootedNJtree</a>, which uses the neighbour-joining method, as it calls the function &#8220;nj()&#8221; to build a tree.</p>
+<p>You can search for R functions that build a tree using minimum evolution method by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> help.search<span class="p">(</span><span class="s">&quot;evolution&quot;</span><span class="p">)</span>
+  ape<span class="o">::</span>fastme                Tree Estimation Based on the Minimum Evolution
+                             Algorithm
+</pre></div>
+</div>
+<p>We find that there is a function &#8220;fastme()&#8221; in the Ape package to build a
+tree using the minimum evolution method.</p>
+<p>You can view the help page for this function
+by typing &#8216;help(&#8220;fastme&#8221;)&#8217;. If you do this, you will see that it can be run by
+typing fastme.bal() or fastme.ols(), which are two different versions of the minimum
+evolution function.</p>
+<p>Thus, we can adapt the <a class="reference external" href="chapter5.html#building-an-unrooted-phylogenetic-tree-for-protein-sequences">unrootedNJtree</a> to make a function that builds a tree using
+minimum evolution, by using &#8220;fastme.bal()&#8221; instead of &#8220;nj()&#8221;:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> unrootedMEtree <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignment<span class="p">,</span>type<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># load the ape and seqinR packages:</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;ape&quot;</span><span class="p">)</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>
+     <span class="c1"># define a function for making a tree:</span>
+     makemytree <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignmentmat<span class="p">)</span>
+     <span class="p">{</span>
+        alignment <span class="o">&lt;-</span> ape<span class="o">::</span>as.alignment<span class="p">(</span>alignmentmat<span class="p">)</span>
+        <span class="kr">if</span>      <span class="p">(</span>type <span class="o">==</span> <span class="s">&quot;protein&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+           mydist <span class="o">&lt;-</span> dist.alignment<span class="p">(</span>alignment<span class="p">)</span>
+        <span class="p">}</span>
+        <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>type <span class="o">==</span> <span class="s">&quot;DNA&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+           alignmentbin <span class="o">&lt;-</span> as.DNAbin<span class="p">(</span>alignment<span class="p">)</span>
+           mydist <span class="o">&lt;-</span> dist.dna<span class="p">(</span>alignmentbin<span class="p">)</span>
+        <span class="p">}</span>
+        mytree <span class="o">&lt;-</span> fastme.bal<span class="p">(</span>mydist<span class="p">)</span>
+        mytree <span class="o">&lt;-</span> makeLabel<span class="p">(</span>mytree<span class="p">,</span> space<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="c1"># get rid of spaces in tip names.</span>
+        <span class="kr">return</span><span class="p">(</span>mytree<span class="p">)</span>
+     <span class="p">}</span>
+     <span class="c1"># infer a tree</span>
+     mymat  <span class="o">&lt;-</span> as.matrix.alignment<span class="p">(</span>alignment<span class="p">)</span>
+     mytree <span class="o">&lt;-</span> makemytree<span class="p">(</span>mymat<span class="p">)</span>
+     <span class="c1"># bootstrap the tree</span>
+     myboot <span class="o">&lt;-</span> boot.phylo<span class="p">(</span>mytree<span class="p">,</span> mymat<span class="p">,</span> makemytree<span class="p">)</span>
+     <span class="c1"># plot the tree:</span>
+     plot.phylo<span class="p">(</span>mytree<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;u&quot;</span><span class="p">)</span>   <span class="c1"># plot the unrooted phylogenetic tree</span>
+     nodelabels<span class="p">(</span>myboot<span class="p">,</span>cex<span class="o">=</span><span class="m">0.7</span><span class="p">)</span>    <span class="c1"># plot the bootstrap values</span>
+     mytree<span class="o">$</span>node.label <span class="o">&lt;-</span> myboot   <span class="c1"># make the bootstrap values be the node labels</span>
+     <span class="kr">return</span><span class="p">(</span>mytree<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="revisionexercises_answers.html#contact" title="Permalink to this headline">¶</a></h2>
+<p>I will be grateful if you will send me (<a class="reference external" href="http://www.sanger.ac.uk/research/projects/parasitegenomics/">Avril Coghlan</a>) corrections or suggestions for improvements to
+my email address <a class="reference external" href="mailto:alc&#37;&#52;&#48;sanger&#46;ac&#46;uk">alc<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="revisionexercises_answers.html#license" title="Permalink to this headline">¶</a></h2>
+<p>The content in this book is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="chapter11.html" title="Protein-Protein Interaction Graphs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="chapter_answers.html" title="Answers to the End-of-chapter Exercises"
+             >previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright Avril Coghlan, Licence: Creative Commons Attribution 3.0 License.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,978 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Multiple Alignment and Phylogenetic trees &mdash; Bioinformatics 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Bioinformatics 0.1 documentation" href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html" />
+    <link rel="next" title="REVISION EXERCISES 2" href="revisionexercises2.html" />
+    <link rel="prev" title="Pairwise Sequence Alignment" href="chapter4.html" />
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/src/chapter5.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "a-little-book-of-r-for-bioinformatics",
+    version: "latest",
+    language: "en",
+    page: "src/chapter5",
+    builder: "sphinx",
+    theme: "sphinxdoc",
+    docroot: "/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "8cd107b180ed964fe7c8021e78ff0ab528d5ba74"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "a-little-book-of-r-for-bioinformatics";
+  var page_name = "src/chapter5";
+  var html_theme = "sphinxdoc";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  // User Analytics Code
+  _gaq.push(['user._setAccount', 'UA-36029021-1']);
+  _gaq.push(['user._trackPageview']);
+  // End User Analytics Code
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="revisionexercises2.html" title="REVISION EXERCISES 2"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="chapter4.html" title="Pairwise Sequence Alignment"
+             accesskey="P">previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="chapter5.html#">Multiple Alignment and Phylogenetic trees</a><ul>
+<li><a class="reference internal" href="chapter5.html#retrieving-a-list-of-sequences-from-uniprot">Retrieving a list of sequences from UniProt</a></li>
+<li><a class="reference internal" href="chapter5.html#installing-the-clustal-multiple-alignment-software">Installing the CLUSTAL multiple alignment software</a></li>
+<li><a class="reference internal" href="chapter5.html#creating-a-multiple-alignment-of-protein-dna-or-mrna-sequences-using-clustal">Creating a multiple alignment of protein, DNA or mRNA sequences using CLUSTAL</a></li>
+<li><a class="reference internal" href="chapter5.html#reading-a-multiple-alignment-file-into-r">Reading a multiple alignment file into R</a></li>
+<li><a class="reference internal" href="chapter5.html#viewing-a-long-multiple-alignment">Viewing a long multiple alignment</a></li>
+<li><a class="reference internal" href="chapter5.html#discarding-very-poorly-conserved-regions-from-an-alignment">Discarding very poorly conserved regions from an alignment</a></li>
+<li><a class="reference internal" href="chapter5.html#calculating-genetic-distances-between-protein-sequences">Calculating genetic distances between protein sequences</a></li>
+<li><a class="reference internal" href="chapter5.html#calculating-genetic-distances-between-dna-mrna-sequences">Calculating genetic distances between DNA/mRNA sequences</a></li>
+<li><a class="reference internal" href="chapter5.html#building-an-unrooted-phylogenetic-tree-for-protein-sequences">Building an unrooted phylogenetic tree for protein sequences</a></li>
+<li><a class="reference internal" href="chapter5.html#building-a-rooted-phylogenetic-tree-for-protein-sequences">Building a rooted phylogenetic tree for protein sequences</a></li>
+<li><a class="reference internal" href="chapter5.html#building-a-phylogenetic-tree-for-dna-or-mrna-sequences">Building a phylogenetic tree for DNA or mRNA sequences</a></li>
+<li><a class="reference internal" href="chapter5.html#saving-a-phylogenetic-tree-as-a-newick-format-tree-file">Saving a phylogenetic tree as a Newick-format tree file</a></li>
+<li><a class="reference internal" href="chapter5.html#summary">Summary</a></li>
+<li><a class="reference internal" href="chapter5.html#links-and-further-reading">Links and Further Reading</a></li>
+<li><a class="reference internal" href="chapter5.html#acknowledgements">Acknowledgements</a></li>
+<li><a class="reference internal" href="chapter5.html#contact">Contact</a></li>
+<li><a class="reference internal" href="chapter5.html#license">License</a></li>
+<li><a class="reference internal" href="chapter5.html#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="chapter4.html"
+                        title="previous chapter">Pairwise Sequence Alignment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="revisionexercises2.html"
+                        title="next chapter">REVISION EXERCISES 2</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/_sources/src/chapter5.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="multiple-alignment-and-phylogenetic-trees">
+<h1>Multiple Alignment and Phylogenetic trees<a class="headerlink" href="chapter5.html#multiple-alignment-and-phylogenetic-trees" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="retrieving-a-list-of-sequences-from-uniprot">
+<h2>Retrieving a list of sequences from UniProt<a class="headerlink" href="chapter5.html#retrieving-a-list-of-sequences-from-uniprot" title="Permalink to this headline">¶</a></h2>
+<p>In previous chapters, you learnt how to search for DNA or protein sequences
+in sequence databases such as the NCBI database and UniProt, using the
+SeqinR package (see <a class="reference external" href="chapter3.html">chapter3.html</a>).</p>
+<p>For example, in the <a class="reference external" href="chapter4.html#retrieving-a-uniprot-protein-sequence-via-the-uniprot-website">previous chapter</a>),
+you learnt how to retrieve a single sequence from UniProt.</p>
+<p>Oftentimes, it is useful to retrieve several sequences from UniProt at once
+if you have a list of UniProt accessions. The R function &#8220;retrieveseqs()&#8221;
+below is useful for this purpose:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> retrieveseqs <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>seqnames<span class="p">,</span>acnucdb<span class="p">)</span>
+  <span class="p">{</span>
+     myseqs <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>   <span class="c1"># Make a list to store the sequences</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>  <span class="c1"># This function requires the SeqinR R package</span>
+     choosebank<span class="p">(</span>acnucdb<span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>seqnames<span class="p">))</span>
+     <span class="p">{</span>
+        seqname <span class="o">&lt;-</span> seqnames<span class="p">[</span>i<span class="p">]</span>
+        <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;Retrieving sequence&quot;</span><span class="p">,</span>seqname<span class="p">,</span><span class="s">&quot;...&quot;</span><span class="p">))</span>
+        queryname <span class="o">&lt;-</span> <span class="s">&quot;query2&quot;</span>
+        query <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span><span class="s">&quot;AC=&quot;</span><span class="p">,</span>seqname<span class="p">,</span>sep<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+        query<span class="p">(</span><span class="sb">`queryname`</span><span class="p">,</span><span class="sb">`query`</span><span class="p">)</span>
+        seq <span class="o">&lt;-</span> getSequence<span class="p">(</span>query2<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span> <span class="c1"># Makes a vector &quot;seq&quot; containing the sequence</span>
+        myseqs<span class="p">[[</span>i<span class="p">]]</span> <span class="o">&lt;-</span> <span class="kp">seq</span>
+     <span class="p">}</span>
+     closebank<span class="p">()</span>
+     <span class="kr">return</span><span class="p">(</span>myseqs<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>You need to cut and paste this function into R to use it.
+As its input, you need to give it the function a vector containing
+the accessions for the sequences you wish to retrieve, as well as the name of the ACNUC
+sub-database that the sequences should be retrieved from. In this case, we want to
+retrieve sequences from UniProt, so the sequences should be in the &#8220;swissprot&#8221; ACNUC sub-database.</p>
+<p>The retrieveseqs() function returns a list variable, in which
+each element is a vector containing one of the sequences.</p>
+<p>For example, to retrieve the protein sequences for UniProt
+accessions P06747, P0C569, O56773 and Q5VKP1 (the accessions for rabies virus phosphoprotein,  Mokola
+virus phosphoprotein, Lagos bat virus phosphoprotein and Western Caucasian bat virus phosphoprotein,
+respectively), you can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> seqnames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;P06747&quot;</span><span class="p">,</span> <span class="s">&quot;P0C569&quot;</span><span class="p">,</span> <span class="s">&quot;O56773&quot;</span><span class="p">,</span> <span class="s">&quot;Q5VKP1&quot;</span><span class="p">)</span>  <span class="c1"># Make a vector containing the names of the sequences</span>
+<span class="o">&gt;</span> seqs <span class="o">&lt;-</span> retrieveseqs<span class="p">(</span>seqnames<span class="p">,</span><span class="s">&quot;swissprot&quot;</span><span class="p">)</span>             <span class="c1"># Retrieve the sequences and store them in list variable &quot;seqs&quot;</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>seqs<span class="p">)</span>                                 <span class="c1"># Print out the number of sequences retrieved</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">4</span>
+<span class="o">&gt;</span> seq1 <span class="o">&lt;-</span> seqs<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>                            <span class="c1"># Get the first sequence</span>
+<span class="o">&gt;</span> seq1<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span>                                   <span class="c1"># Print out the first 20 letters of the first sequence</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;M&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;F&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;N&quot;</span> <span class="s">&quot;P&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;E&quot;</span>
+ <span class="p">[</span><span class="m">20</span><span class="p">]</span> <span class="s">&quot;M&quot;</span>
+<span class="o">&gt;</span> seq2 <span class="o">&lt;-</span> seqs<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>                            <span class="c1"># Get the second sequence</span>
+<span class="o">&gt;</span> seq2<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span>                                   <span class="c1"># Print out the first 20 letters of the second sequence</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;M&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;K&quot;</span> <span class="s">&quot;D&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;H&quot;</span> <span class="s">&quot;P&quot;</span> <span class="s">&quot;S&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;R&quot;</span> <span class="s">&quot;A&quot;</span> <span class="s">&quot;G&quot;</span> <span class="s">&quot;I&quot;</span> <span class="s">&quot;V&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;L&quot;</span> <span class="s">&quot;E&quot;</span>
+ <span class="p">[</span><span class="m">20</span><span class="p">]</span> <span class="s">&quot;M&quot;</span>
+</pre></div>
+</div>
+<p>The commands above use the function retrieveseqs() to retrieve two UniProt sequences.
+The sequences are returned in a list variable <em>seqs</em>. To access the elements in an R list variable,
+you need to use double square brackets. Therefore, the second element of the list
+variable is accessed by typing <em>seqs[[2]]</em>. Each element of the list variable <em>seqs</em> contains a
+vector which stores one of the sequences.</p>
+<p>Rabies virus is the virus responsible for <a class="reference external" href="http://www.who.int/rabies/en/">rabies</a>, which is classified by the WHO as a neglected tropical disease. Mokola virus and rabies virus are closely related viruses that both belong to a group of viruses called the Lyssaviruses. Mokola virus causes a rabies-like infection in mammals including humans.</p>
+<p>Once you have retrieved the sequences using retrieveseqs(), you can then use the function
+write.fasta() from the SeqinR package to write the sequences to a FASTA-format file. As its arguments
+(inputs), the write.fasta() function takes the list variable containing the sequences, and a vector
+containing the names of the sequences, and the name that you want to give to the FASTA-format
+file. For example:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> write.fasta<span class="p">(</span>seqs<span class="p">,</span> seqnames<span class="p">,</span> file<span class="o">=</span><span class="s">&quot;phosphoproteins.fasta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The command above will write the sequences in list variable <em>seqs</em>
+to a FASTA-format file called &#8220;phosphoproteins.fasta&#8221; in the &#8220;My Documents&#8221;
+folder on your computer.</p>
+</div>
+<div class="section" id="installing-the-clustal-multiple-alignment-software">
+<h2>Installing the CLUSTAL multiple alignment software<a class="headerlink" href="chapter5.html#installing-the-clustal-multiple-alignment-software" title="Permalink to this headline">¶</a></h2>
+<p>A common task in bioinformatics is to download a set of related sequences from a database, and then
+to align those sequences using multiple alignment software. This is the first step in most phylogenetic analyses.</p>
+<p>One commonly used multiple alignment software package is CLUSTAL. In order to build an alignment
+using CLUSTAL, you first need to install the CLUSTAL program on your computer.</p>
+<p>To install CLUSTAL on your computer, you need to follow these steps:</p>
+<ul class="simple">
+<li>Go to the <a class="reference external" href="http://www.clustal.org/download/current/">http://www.clustal.org/download/current/</a> website.</li>
+<li>Right-click on the link to file clustalx-Z.Z.Z-win.msi (where Z represents some number)
+and choose &#8220;Save link as...&#8221; and then save the file in your &#8220;My Documents&#8221; folder.</li>
+<li>Once the file has downloaded, double-click on the icon for file clustalx-Z.Z.Z-win.msi (where Z is some number).</li>
+<li>You will be asked &#8220;Are you sure you want to run this software?&#8221; Press &#8220;Run&#8221;.</li>
+<li>You will then see &#8220;Welcome to the ClustalX2 setup wizard&#8221;. Press &#8220;Next&#8221;.</li>
+<li>You will be asked where to install ClustalX2. Select your &#8220;My Documents&#8221; folder.</li>
+<li>Keep pressing &#8216;yes&#8217; or &#8216;Next&#8217; until the screen says &#8220;Completing the ClustalX2 setup wizard&#8221;. Then press &#8220;Finish&#8221;.</li>
+</ul>
+<p>CLUSTAL should now be installed on your computer.</p>
+</div>
+<div class="section" id="creating-a-multiple-alignment-of-protein-dna-or-mrna-sequences-using-clustal">
+<h2>Creating a multiple alignment of protein, DNA or mRNA sequences using CLUSTAL<a class="headerlink" href="chapter5.html#creating-a-multiple-alignment-of-protein-dna-or-mrna-sequences-using-clustal" title="Permalink to this headline">¶</a></h2>
+<p>Once you have installed CLUSTAL, you can now align your sequences using CLUSTAL by following these steps:</p>
+<ul class="simple">
+<li>Go to the &#8220;Start&#8221; menu on the bottom left of your Windows screen. Select &#8220;All Programs&#8221; from the menu, then select
+&#8220;ClustalX2&#8221; from the menu that appears. This will start up CLUSTAL.</li>
+<li>The CLUSTAL window should appear. To load the DNA or protein sequences that you want to align into CLUSTAL, go to the
+CLUSTAL &#8220;File&#8221; menu, and choose &#8220;Load sequences&#8221;.</li>
+<li>Select the FASTA-format file containing your sequences (eg. phosphoproteins.fasta) to load it into CLUSTAL.</li>
+<li>This should read the sequences into CLUSTAL. They have not been aligned yet, but will be displayed in the CLUSTAL window.</li>
+<li>You can use the scrollbar on the right to scroll down and look at all the sequences. You can use the scrollbar on the
+bottom to scroll from left to right, and look along the length of the sequences.</li>
+<li>Before you align the sequences using CLUSTAL, you need to tell CLUSTAL to make the output alignment file in
+PHYLIP alignment format, so that you can read it into R. To do this, go to the &#8220;Alignment&#8221; menu in CLUSTAL, choose
+&#8220;Output Format Options&#8221;. A form will appear, and in this form you should select &#8220;PHYLIP format&#8221; and deselect &#8220;CLUSTAL format&#8221;,
+and then press &#8220;OK&#8221;.</li>
+<li>To now align the sequences using CLUSTAL, go to the CLUSTAL &#8220;Alignment&#8221; menu, and choose &#8220;Do Complete Alignment&#8221;.</li>
+<li>A menu box will pop up, asking you where to save the output guide-tree file (eg. &#8220;phosphoproteins.dnd&#8221;) and the output
+alignment file (called &#8220;phosphoproteins.phy&#8221;). You should choose to save them in your &#8220;My Documents&#8221; folder (so that you can
+easily read them into R from &#8220;My Documents&#8221; at a later stage).</li>
+<li>CLUSTAL will now align the sequences. This will take a couple of minutes (eg. 2-5 minutes). You will see that at the bottom
+of the CLUSTAL window, it tells you which pair of sequences it is aligning at a particular point in time. If the numbers
+keep changing, it means that CLUSTAL is still working away, and the alignment is not finished yet. Be patient!</li>
+</ul>
+<p>Once CLUSTAL has finished making the alignment, it will be displayed in the CLUSTAL window. For example, here
+is the CLUSTAL alignment for rabies virus phosphoprotein, Mokola
+virus phosphoprotein, and Lagos bat virus phosphoprotein:</p>
+<p><a class="reference internal" href="../_images/P5_image8.png"><img alt="image8" src="../_images/P5_image8.png" style="width: 700px;" /></a></p>
+<p>The alignment displayed in CLUSTAL has a row for each of your sequences. CLUSTAL colours sets of chemically similar amino acids
+in similar colours. For example, tyrosine (Y) is coloured blue-green, while the chemically similar amino acid phenylalanine
+(F) is coloured blue. You can scroll to the right and left along the alignment using the scrollbar at the bottom of the Jalview
+window.</p>
+<p>Below the alignment, you can see a grey plot, showing the level of conservation at each point of the sequence.
+This shows a high grey bar if the conservation in a region is high (there is high percent identity between the sequence),
+and a low grey bar if it is low (there is low percent identity). This can give you an idea of which are the best conserved
+regions of the alginment.</p>
+<p>For example, for the alignment of the four virus phosphoproteins, we can see that the region in alignment columns 35
+to 45 approximately is very well conserved, while the region in alignment columns 60 to 70 is poorly conserved.</p>
+<p>The CLUSTAL alignment will have been saved in a file in your &#8220;My Documents&#8221; folder called &#8220;something.phy&#8221; (eg. phosphoproteins.phy).
+This is a PHYLIP-format alignment file, which you can now read into R for further analysis.</p>
+</div>
+<div class="section" id="reading-a-multiple-alignment-file-into-r">
+<h2>Reading a multiple alignment file into R<a class="headerlink" href="chapter5.html#reading-a-multiple-alignment-file-into-r" title="Permalink to this headline">¶</a></h2>
+<p>To read a sequence alignment into R from a file, you can use the read.alignment() function in the SeqinR package. For
+example, to read in the multiple sequence alignment of the virus phosphoproteins into R, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> virusaln  <span class="o">&lt;-</span> read.alignment<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;phosphoproteins.phy&quot;</span><span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;phylip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <em>virusaln</em> variable is a list variable that stores the alignment.</p>
+<p>An R list variable can have named elements, and you can access the named elements of a list
+variable by typing the variable name, followed by &#8220;$&#8221;, followed by the name of the named element.</p>
+<p>The list variable <em>virusaln</em> has named elements &#8220;nb&#8221;, &#8220;nam&#8221;, &#8220;seq&#8221;, and &#8220;com&#8221;.</p>
+<p>In fact, the named element &#8220;seq&#8221; contains the alignment, which you can view by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> virusaln<span class="o">$</span><span class="kp">seq</span>
+  <span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;mskdlvhpsliragivelemaeettdlinrtiesnqahlqgeplyvdslpedmsrlriedksrrtk...</span>
+<span class="s">  [[2]]</span>
+<span class="s">  [1] &quot;</span>mskglihpsairsglvdlemaeetvdlvhknladsqahlqgeplnvdslpedmrkmrltnapsere...
+  <span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;mskifvnpsairagladlemaeetvdlinrniednqahlqgepievdnlpedmgrlhlddgkspnp...</span>
+<span class="s">  [[4]]</span>
+<span class="s">  [1] &quot;</span>mskslihpsdlragladiemadetvdlvyknlsegqahlqgepfdikdlpegvsklqisdnvrsdt...
+</pre></div>
+</div>
+<p>Only the first part of the alignment stored in <em>virusaln$seq</em> is shown here, as
+it is very long.</p>
+</div>
+<div class="section" id="viewing-a-long-multiple-alignment">
+<h2>Viewing a long multiple alignment<a class="headerlink" href="chapter5.html#viewing-a-long-multiple-alignment" title="Permalink to this headline">¶</a></h2>
+<p>If you want to view a long multiple alignment, it is convenient to view the multiple alignment in blocks.</p>
+<p>The R function &#8220;printMultipleAlignment()&#8221; below will do this for you:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printMultipleAlignment <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignment<span class="p">,</span> chunksize<span class="o">=</span><span class="m">60</span><span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># this function requires the Biostrings package</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;Biostrings&quot;</span><span class="p">)</span>
+     <span class="c1"># find the number of sequences in the alignment</span>
+     numseqs <span class="o">&lt;-</span> alignment<span class="o">$</span>nb
+     <span class="c1"># find the length of the alignment</span>
+     alignmentlen <span class="o">&lt;-</span> <span class="kp">nchar</span><span class="p">(</span>alignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+     starts <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> alignmentlen<span class="p">,</span> by<span class="o">=</span>chunksize<span class="p">)</span>
+     n <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>starts<span class="p">)</span>
+     <span class="c1"># get the alignment for each of the sequences:</span>
+     aln <span class="o">&lt;-</span> <span class="kt">vector</span><span class="p">()</span>
+     lettersprinted <span class="o">&lt;-</span> <span class="kt">vector</span><span class="p">()</span>
+     <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numseqs<span class="p">)</span>
+     <span class="p">{</span>
+        alignmentj <span class="o">&lt;-</span> alignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span>j<span class="p">]]</span>
+        aln<span class="p">[</span>j<span class="p">]</span> <span class="o">&lt;-</span> alignmentj
+        lettersprinted<span class="p">[</span>j<span class="p">]</span> <span class="o">&lt;-</span> <span class="m">0</span>
+     <span class="p">}</span>
+     <span class="c1"># print out the alignment in blocks of &#39;chunksize&#39; columns:</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>n<span class="p">)</span> <span class="p">{</span> <span class="c1"># for each of n chunks</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numseqs<span class="p">)</span>
+        <span class="p">{</span>
+           alnj <span class="o">&lt;-</span> aln<span class="p">[</span>j<span class="p">]</span>
+           chunkseqjaln <span class="o">&lt;-</span> <span class="kp">substring</span><span class="p">(</span>alnj<span class="p">,</span> starts<span class="p">[</span>i<span class="p">],</span> starts<span class="p">[</span>i<span class="p">]</span><span class="o">+</span>chunksize<span class="m">-1</span><span class="p">)</span>
+           chunkseqjaln <span class="o">&lt;-</span> <span class="kp">toupper</span><span class="p">(</span>chunkseqjaln<span class="p">)</span>
+           <span class="c1"># Find out how many gaps there are in chunkseqjaln:</span>
+           gapsj <span class="o">&lt;-</span> countPattern<span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">,</span>chunkseqjaln<span class="p">)</span> <span class="c1"># countPattern() is from Biostrings package</span>
+           <span class="c1"># Calculate how many residues of the first sequence we have printed so far in the alignment:</span>
+           lettersprinted<span class="p">[</span>j<span class="p">]</span> <span class="o">&lt;-</span> lettersprinted<span class="p">[</span>j<span class="p">]</span> <span class="o">+</span> chunksize <span class="o">-</span> gapsj
+           <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span>chunkseqjaln<span class="p">,</span>lettersprinted<span class="p">[</span>j<span class="p">]))</span>
+        <span class="p">}</span>
+        <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">))</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>As its inputs, the function &#8220;printMultipleAlignment()&#8221; takes the input alignment, and the number of columns
+to print out in each block.</p>
+<p>For example, to print out the multiple alignment of virus phosphoproteins (which we stored in variable
+<em>virusaln</em>, see above) in blocks of 60 columns, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printMultipleAlignment<span class="p">(</span>virusaln<span class="p">,</span> <span class="m">60</span><span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSKDLVHPSLIRAGIVELEMAEETTDLINRTIESNQAHLQGEPLYVDSLPEDMSRLRIED 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSKGLIHPSAIRSGLVDLEMAEETVDLVHKNLADSQAHLQGEPLNVDSLPEDMRKMRLTN 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSKIFVNPSAIRAGLADLEMAEETVDLINRNIEDNQAHLQGEPIEVDNLPEDMGRLHLDD 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSKSLIHPSDLRAGLADIEMADETVDLVYKNLSEGQAHLQGEPFDIKDLPEGVSKLQISD 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KSRRTKTEEEERDEGSSEEDNYLSEGQDPLIPFQNFLDEIGARAVKRLKTGEGFFRVWSA 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;APSEREIIEEDEEEYSSEDEYYLSQGQDPMVPFQNFLDELGTQIVRRMKSGDGFFKIWSA 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;GKSPNPGEMAKVGEGKYREDFQMDEGEDPSLLFQSYLDNVGVQIVRQIRSGERFLKIWSQ 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;NVRSDTSPNEYSDEDDEEGEDEYEEVYDPVSAFQDFLDETGSYLISKLKKGEKIKKTWSE 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LSDDIKGYVSTNIM-TSGERDTKSIQIQTEPTASVSSGNESRHDSESMHDPNDKKDHTPD 179&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;ASEDIKGYVLSTFM-KPETQATVSKPTQTDSLSVPRPSQGYTSVPRDKPSNSESQGGGVK 179&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TVEEIISYVAVNFP-NPPGKSSEDKSTQTTGRELKKETTPTPSQRESQSSKARMAAQTAS 179&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;VSRVIYSYVMSNFPPRPPKPTTKDIAVQADLKKPNEIQKISEHKSKSEPSPREPVVEMHK 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;HDVVPDIESSTDKGEIRDIEGEVAHQVAESFSKKYKFPSRSSGIFLWNFEQLKMNLDDIV 239&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;PKKVQKSEWTRDTDEISDIEGEVAHQVAESFSKKYKFPSRSSGIFLWNFEQLKMNLDDIV 239&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;GPPALEWSATNEEDDLS-VEAEIAHQIAESFSKKYKFPSRSSGILLYNFEQLKMNLDDIV 238&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;HATLE-----NPEDDEGALESEIAHQVAESYSKKYKFPSKSSGIFLWNFEQLKMNLDDIV 235&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KAAMNVPGVERIAEKGGKLPLRCILGFVALDSSKRFRLLADNDKVARLIQEDINSYMARL 299&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KTSMNVPGVDKIAEKGGKLPLRCILGFVSLDSSKRFRLLADTDKVARLMQDDIHNYMTRI 299&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KEAKNVPGVTRLARDGSKLPLRCVLGWVALANSKKFQLLVESNKLSKIMQDDLNRYTSC- 297&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;QVARGVPGISQIVERGGKLPLRCMLGYVGLETSKRFRSLVNQDKLCKLMQEDLNAYSVSS 295&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;EEAE-- 357&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;EEIDHN 359&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------ 351&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;NN---- 351&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="discarding-very-poorly-conserved-regions-from-an-alignment">
+<h2>Discarding very poorly conserved regions from an alignment<a class="headerlink" href="chapter5.html#discarding-very-poorly-conserved-regions-from-an-alignment" title="Permalink to this headline">¶</a></h2>
+<p>It is often a good idea to discard very poorly conserved regions from a mulitple
+alignment before building a phylogenetic tree, as the very poorly conserved regions are
+likely to be regions that are either not homologous between the sequences being considered
+(and so do not add any phylogenetic signal), or are homologous but are so diverged that
+they are very difficult to align accurately (and so may add noise to the phylogenetic analysis,
+and decrease the accuracy of the inferred tree).</p>
+<p>To discard very poorly conserved regions from a multiple alignment, you can use the following
+R function, &#8220;cleanAlignment()&#8221;:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> cleanAlignment <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignment<span class="p">,</span> minpcnongap<span class="p">,</span> minpcid<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># make a copy of the alignment to store the new alignment in:</span>
+     newalignment <span class="o">&lt;-</span> alignment
+     <span class="c1"># find the number of sequences in the alignment</span>
+     numseqs <span class="o">&lt;-</span> alignment<span class="o">$</span>nb
+     <span class="c1"># empty the alignment in &quot;newalignment&quot;)</span>
+     <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numseqs<span class="p">)</span> <span class="p">{</span> newalignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span>j<span class="p">]]</span> <span class="o">&lt;-</span> <span class="s">&quot;&quot;</span> <span class="p">}</span>
+     <span class="c1"># find the length of the alignment</span>
+     alignmentlen <span class="o">&lt;-</span> <span class="kp">nchar</span><span class="p">(</span>alignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+     <span class="c1"># look at each column of the alignment in turn:</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>alignmentlen<span class="p">)</span>
+     <span class="p">{</span>
+        <span class="c1"># see what percent of the letters in this column are non-gaps:</span>
+        nongap <span class="o">&lt;-</span> <span class="m">0</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numseqs<span class="p">)</span>
+        <span class="p">{</span>
+           seqj <span class="o">&lt;-</span> alignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span>j<span class="p">]]</span>
+           letterij <span class="o">&lt;-</span> <span class="kp">substr</span><span class="p">(</span>seqj<span class="p">,</span>i<span class="p">,</span>i<span class="p">)</span>
+           <span class="kr">if</span> <span class="p">(</span>letterij <span class="o">!=</span> <span class="s">&quot;-&quot;</span><span class="p">)</span> <span class="p">{</span> nongap <span class="o">&lt;-</span> nongap <span class="o">+</span> <span class="m">1</span><span class="p">}</span>
+        <span class="p">}</span>
+        pcnongap <span class="o">&lt;-</span> <span class="p">(</span>nongap<span class="o">*</span><span class="m">100</span><span class="p">)</span><span class="o">/</span>numseqs
+        <span class="c1"># Only consider this column if at least minpcnongap % of the letters are not gaps:</span>
+        <span class="kr">if</span> <span class="p">(</span>pcnongap <span class="o">&gt;=</span> minpcnongap<span class="p">)</span>
+        <span class="p">{</span>
+           <span class="c1"># see what percent of the pairs of letters in this column are identical:</span>
+           numpairs <span class="o">&lt;-</span> <span class="m">0</span><span class="p">;</span> numid <span class="o">&lt;-</span> <span class="m">0</span>
+           <span class="c1"># find the letters in all of the sequences in this column:</span>
+           <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="p">(</span>numseqs<span class="m">-1</span><span class="p">))</span>
+           <span class="p">{</span>
+              seqj <span class="o">&lt;-</span> alignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span>j<span class="p">]]</span>
+              letterij <span class="o">&lt;-</span> <span class="kp">substr</span><span class="p">(</span>seqj<span class="p">,</span>i<span class="p">,</span>i<span class="p">)</span>
+              <span class="kr">for</span> <span class="p">(</span>k <span class="kr">in</span> <span class="p">(</span>j<span class="m">+1</span><span class="p">)</span><span class="o">:</span>numseqs<span class="p">)</span>
+              <span class="p">{</span>
+                 seqk <span class="o">&lt;-</span> alignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span>k<span class="p">]]</span>
+                 letterkj <span class="o">&lt;-</span> <span class="kp">substr</span><span class="p">(</span>seqk<span class="p">,</span>i<span class="p">,</span>i<span class="p">)</span>
+                 <span class="kr">if</span> <span class="p">(</span>letterij <span class="o">!=</span> <span class="s">&quot;-&quot;</span> <span class="o">&amp;&amp;</span> letterkj <span class="o">!=</span> <span class="s">&quot;-&quot;</span><span class="p">)</span>
+                 <span class="p">{</span>
+                    numpairs <span class="o">&lt;-</span> numpairs <span class="o">+</span> <span class="m">1</span>
+                    <span class="kr">if</span> <span class="p">(</span>letterij <span class="o">==</span> letterkj<span class="p">)</span> <span class="p">{</span> numid <span class="o">&lt;-</span> numid <span class="o">+</span> <span class="m">1</span><span class="p">}</span>
+                 <span class="p">}</span>
+              <span class="p">}</span>
+           <span class="p">}</span>
+           pcid <span class="o">&lt;-</span> <span class="p">(</span>numid<span class="o">*</span><span class="m">100</span><span class="p">)</span><span class="o">/</span><span class="p">(</span>numpairs<span class="p">)</span>
+           <span class="c1"># Only consider this column if at least %minpcid of the pairs of letters are identical:</span>
+           <span class="kr">if</span> <span class="p">(</span>pcid <span class="o">&gt;=</span> minpcid<span class="p">)</span>
+           <span class="p">{</span>
+               <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numseqs<span class="p">)</span>
+               <span class="p">{</span>
+                  seqj <span class="o">&lt;-</span> alignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span>j<span class="p">]]</span>
+                  letterij <span class="o">&lt;-</span> <span class="kp">substr</span><span class="p">(</span>seqj<span class="p">,</span>i<span class="p">,</span>i<span class="p">)</span>
+                  newalignmentj <span class="o">&lt;-</span> newalignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span>j<span class="p">]]</span>
+                  newalignmentj <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>newalignmentj<span class="p">,</span>letterij<span class="p">,</span>sep<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                  newalignment<span class="o">$</span><span class="kp">seq</span><span class="p">[[</span>j<span class="p">]]</span> <span class="o">&lt;-</span> newalignmentj
+               <span class="p">}</span>
+           <span class="p">}</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="kr">return</span><span class="p">(</span>newalignment<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>The function cleanAlignment() takes three arguments (inputs): the input alignment; the minimum percent of
+letters in an alignment column that must be non-gap characters for the column to be kept; and the
+minimum percent of pairs of letters in an alignment column that must be identical for the column to be kept.</p>
+<p>For example, if we have a column with letters &#8220;T&#8221;, &#8220;A&#8221;, &#8220;T&#8221;, &#8220;-&#8221; (in four sequences), then 75% of the letters are
+non-gap characters; and the pairs of letters are &#8220;T,A&#8221;, &#8220;T,T&#8221;, and &#8220;A,T&#8221;, and 33% of the pairs of letters are identical.</p>
+<p>We can use the function cleanAlignment() to discard the very poorly aligned columns from a multiple alignment.</p>
+<p>For example, if you look at the multiple alignment for the virus phosphoprotein sequences (which we
+printed out using function printMultipleAlignment(), see above), we can see that the last few columns are
+poorly aligned (contain many gaps and mismatches), and probably add noise to the phylogenetic analysis.</p>
+<p>Therefore, to filter out the well conserved columns of the alignment, and discard the very poorly conserved
+columns, we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> cleanedvirusaln <span class="o">&lt;-</span> cleanAlignment<span class="p">(</span>virusaln<span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case, we required that at least 30% of letters in a column are not gap characters for that column to be kept,
+and that at least 30% of pairs of letters in an alignment column must be identical for the column to be kept.</p>
+<p>We can print out the filtered alignment by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printMultipleAlignment<span class="p">(</span>cleanedvirusaln<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSKLVHPSIRAGIVELEMAEETTDLIRTIQAHLQGEPVDLPEDMRLIDREEEDEGDPFQF 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSKLIHPSIRSGLVDLEMAEETVDLVKNLQAHLQGEPVDLPEDMKMLNSEEEEQGDPFQF 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSKFVNPSIRAGLADLEMAEETVDLIRNIQAHLQGEPVDLPEDMRLLDSAERDEGDPFQY 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSKLIHPSLRAGLADIEMADETVDLVKNLQAHLQGEPIKLPEGVKLIDREEEEEVDPFQF 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LDEGVKGEFRWSSIGYVNIMSTSIQTHSDESGEDEEVAHQVAESFSKKYKFPSRSSGIFL 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LDEGVKGDFKWSSIGYVTFMPTSKQTSDSETDEDEEVAHQVAESFSKKYKFPSRSSGIFL 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LDNGVRGEFKWSVISYVNFPPSDKQTSSSSTDD-EEIAHQIAESFSKKYKFPSRSSGILL 119&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LDEGIKGEIKWSSISYVNFPPTDIQAHSS--DDAEEIAHQVAESYSKKYKFPSKSSGIFL 118&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;WNFEQLKMNLDDIVKANVPGVIAEGGKLPLRCLGVLSKRFRLLADKVRLIQEDINYEE 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;WNFEQLKMNLDDIVKSNVPGVIAEGGKLPLRCLGVLSKRFRLLADKVRLMQDDIHYEE 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;YNFEQLKMNLDDIVKANVPGVLARGSKLPLRCLGVLSKKFQLLVNKLKIMQDDLNY-- 177&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;WNFEQLKMNLDDIVQAGVPGIIVEGGKLPLRCLGVLSKRFRSLVDKLKLMQEDLNYNN 178&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>The filtered alignment is shorter, but is missing some of the poorly conserved regions of the original
+alignment.</p>
+<p>Note that it is not a good idea to filter out too much of your alignment, as if you are
+left with few columns in your filtered alignment, you will be basing your phylogenetic tree
+upon a very short alignment (little data), and so the tree may be unreliable. Therefore, you
+need to achieve a balance between discarding the dodgy (poorly aligned) parts of your alignment,
+and retaining enough columns of the alignment that you will have enough data to based your tree upon.</p>
+</div>
+<div class="section" id="calculating-genetic-distances-between-protein-sequences">
+<h2>Calculating genetic distances between protein sequences<a class="headerlink" href="chapter5.html#calculating-genetic-distances-between-protein-sequences" title="Permalink to this headline">¶</a></h2>
+<p>A common first step in performing a phylogenetic analysis is to calculate the pairwise genetic distances between sequences. The
+genetic distance is an estimate of the divergence between two sequences, and is usually measured in quantity of evolutionary
+change (an estimate of the number of mutations that have occurred since the two sequences shared a common ancestor).</p>
+<p>We can calculate the genetic distances between protein sequences using the &#8220;dist.alignment()&#8221; function in the SeqinR package. The
+dist.alignment() function takes a multiple alignment as input. Based on the multiple alignment that you give it, dist.alignment()
+calculates the genetic distance between each pair of proteins in the multiple alignment. For example, to calculate genetic distances
+between the virus phosphoproteins based on the multiple sequence alignment stored in <em>virusaln</em>, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> virusdist <span class="o">&lt;-</span> dist.alignment<span class="p">(</span>virusaln<span class="p">)</span>                            <span class="c1"># Calculate the genetic distances</span>
+<span class="o">&gt;</span> virusdist                                                        <span class="c1"># Print out the genetic distance matrix</span>
+                P0C569     O56773     P06747
+  O56773      <span class="m">0.4142670</span>
+  P06747      <span class="m">0.4678196</span>  <span class="m">0.4714045</span>
+  Q5VKP1      <span class="m">0.4828127</span>  <span class="m">0.5067117</span>  <span class="m">0.5034130</span>
+</pre></div>
+</div>
+<p>The genetic distance matrix above shows the genetic distance between each pair of proteins.</p>
+<p>The sequences are referred to by their UniProt accessions. If you remember from above, P06747
+is rabies virus phosphoprotein, P0C569 is Mokola virus phosphoprotein, O56773 is Lagos bat
+virus phosphoprotein and Q5VKP1 is Western Caucasian bat virus phosphoprotein.</p>
+<p>Based on the genetic distance matrix above, we can see that the genetic distance between
+Lagos bat virus phosphoprotein (O56773) and Mokola virus phosphoprotein (P0C569) is smallest (about 0.414).</p>
+<p>Similarly, the genetic distance between Western Caucasian bat virus phosphoprotein (Q5VKP1) and
+Lagos bat virus phosphoprotein (O56773) is the biggest (about 0.507).</p>
+<p>The larger the genetic distance between two sequences, the more amino acid changes or indels that have occurred since
+they shared a common ancestor, and the longer ago their common ancestor probably lived.</p>
+</div>
+<div class="section" id="calculating-genetic-distances-between-dna-mrna-sequences">
+<h2>Calculating genetic distances between DNA/mRNA sequences<a class="headerlink" href="chapter5.html#calculating-genetic-distances-between-dna-mrna-sequences" title="Permalink to this headline">¶</a></h2>
+<p>Just like for protein sequences, you can calculate genetic distances between DNA (or mRNA) sequences
+based on an alignment of the sequences.</p>
+<p>For example, the NCBI accession AF049118 contains mRNA sequence for Mokola virus phosphoprotein,
+RefSeq AF049114 contains mRNA sequence for Mokola virus phosphoprotein, and AF049119 contains
+the mRNA sequence for Lagos bat virus phosphoprotein, while AF049115 contains the mRNA
+sequence for Duvenhage virus phosphoprotein.</p>
+<p>To retrieve these sequences from the NCBI database, we can search the ACNUC &#8220;genbank&#8221; sub-database
+(since these are nucleotide sequences), by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> seqnames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;AF049118&quot;</span><span class="p">,</span> <span class="s">&quot;AF049114&quot;</span><span class="p">,</span> <span class="s">&quot;AF049119&quot;</span><span class="p">,</span> <span class="s">&quot;AF049115&quot;</span><span class="p">)</span>  <span class="c1"># Make a vector containing the names of the sequences</span>
+<span class="o">&gt;</span> seqs <span class="o">&lt;-</span> retrieveseqs<span class="p">(</span>seqnames<span class="p">,</span><span class="s">&quot;genbank&quot;</span><span class="p">)</span>                       <span class="c1"># Retrieve the sequences and store them in list variable &quot;seqs&quot;</span>
+</pre></div>
+</div>
+<p>We can then write out the sequences to a FASTA-format file by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> write.fasta<span class="p">(</span>seqs<span class="p">,</span> seqnames<span class="p">,</span> file<span class="o">=</span><span class="s">&quot;virusmRNA.fasta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then use CLUSTAL to create a PHYLIP-format alignment of the sequences, and store it in the
+alignment file &#8220;virusmRNA.phy&#8221;. This picture shows part of the alignment:</p>
+<p><a class="reference internal" href="../_images/P5_image12.png"><img alt="image12" src="../_images/P5_image12.png" style="width: 700px;" /></a></p>
+<p>We can then read the alignment into R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> virusmRNAaln  <span class="o">&lt;-</span> read.alignment<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;virusmRNA.phy&quot;</span><span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;phylip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We saw above that the function dist.alignment() can be used to calculate a genetic
+distance matrix based on a protein sequence alignment.</p>
+<p>You can calculate a genetic distance for DNA or mRNA sequences
+using the dist.dna() function in the Ape R package.
+dist.dna()&lt;/tt&gt; takes a multiple alignment
+of DNA or mRNA sequences as its input, and calculates the genetic distance between each pair of DNA sequences
+in the multiple alignment.</p>
+<p>The dist.dna() function requires the input alignment to be in a
+special format known as &#8220;DNAbin&#8221; format, so we must use the as.DNAbin() function to convert
+our DNA alignment into this format before using the dist.dna() function.</p>
+<p>For example, to calculate the genetic distance between each pair of mRNA sequences for the virus
+phosphoproteins, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> virusmRNAalnbin <span class="o">&lt;-</span> as.DNAbin<span class="p">(</span>virusmRNAaln<span class="p">)</span> <span class="c1"># Convert the alignment to &quot;DNAbin&quot; format</span>
+<span class="o">&gt;</span> virusmRNAdist <span class="o">&lt;-</span> dist.dna<span class="p">(</span>virusmRNAalnbin<span class="p">)</span> <span class="c1"># Calculate the genetic distance matrix</span>
+<span class="o">&gt;</span> virusmRNAdist                              <span class="c1"># Print out the genetic distance matrix</span>
+            AF049114  AF049119  AF049118
+  AF049119 <span class="m">0.3400576</span>
+  AF049118 <span class="m">0.5235850</span> <span class="m">0.5637372</span>
+  AF049115 <span class="m">0.6854129</span> <span class="m">0.6852311</span> <span class="m">0.7656023</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-an-unrooted-phylogenetic-tree-for-protein-sequences">
+<h2>Building an unrooted phylogenetic tree for protein sequences<a class="headerlink" href="chapter5.html#building-an-unrooted-phylogenetic-tree-for-protein-sequences" title="Permalink to this headline">¶</a></h2>
+<p>Once we have a distance matrix that gives the pairwise distances between all our protein sequences,
+we can build a phylogenetic tree based on that distance matrix. One method for using this is the
+<em>neighbour-joining algorithm</em>.</p>
+<p>You can build a phylogenetic tree using the neighbour-joining algorithm with the the
+Ape R package. First you will need to install the &#8220;ape&#8221; package (see <a class="reference external" href="installr.html#how-to-install-an-r-package">instructions on how to
+install R packages</a>).</p>
+<p>The following R function &#8220;unrootedNJtree()&#8221; builds a phylogenetic tree based on an alignment of
+sequences, using the neighbour-joining algorithm, using functions from the &#8220;ape&#8221; package.</p>
+<p>The &#8220;unrootedNJtree()&#8221; function takes an alignment of sequences its
+input, calculates pairwise distances between the sequences based on the alignment, and then builds
+a phylogenetic tree based on the pairwise distances. It returns the phylogenetic tree, and also
+makes a picture of that tree:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> unrootedNJtree <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignment<span class="p">,</span>type<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># this function requires the ape and seqinR packages:</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;ape&quot;</span><span class="p">)</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>
+     <span class="c1"># define a function for making a tree:</span>
+     makemytree <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignmentmat<span class="p">)</span>
+     <span class="p">{</span>
+        alignment <span class="o">&lt;-</span> ape<span class="o">::</span>as.alignment<span class="p">(</span>alignmentmat<span class="p">)</span>
+        <span class="kr">if</span>      <span class="p">(</span>type <span class="o">==</span> <span class="s">&quot;protein&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+           mydist <span class="o">&lt;-</span> dist.alignment<span class="p">(</span>alignment<span class="p">)</span>
+        <span class="p">}</span>
+        <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>type <span class="o">==</span> <span class="s">&quot;DNA&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+           alignmentbin <span class="o">&lt;-</span> as.DNAbin<span class="p">(</span>alignment<span class="p">)</span>
+           mydist <span class="o">&lt;-</span> dist.dna<span class="p">(</span>alignmentbin<span class="p">)</span>
+        <span class="p">}</span>
+        mytree <span class="o">&lt;-</span> nj<span class="p">(</span>mydist<span class="p">)</span>
+        mytree <span class="o">&lt;-</span> makeLabel<span class="p">(</span>mytree<span class="p">,</span> space<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="c1"># get rid of spaces in tip names.</span>
+        <span class="kr">return</span><span class="p">(</span>mytree<span class="p">)</span>
+     <span class="p">}</span>
+     <span class="c1"># infer a tree</span>
+     mymat  <span class="o">&lt;-</span> as.matrix.alignment<span class="p">(</span>alignment<span class="p">)</span>
+     mytree <span class="o">&lt;-</span> makemytree<span class="p">(</span>mymat<span class="p">)</span>
+     <span class="c1"># bootstrap the tree</span>
+     myboot <span class="o">&lt;-</span> boot.phylo<span class="p">(</span>mytree<span class="p">,</span> mymat<span class="p">,</span> makemytree<span class="p">)</span>
+     <span class="c1"># plot the tree:</span>
+     plot.phylo<span class="p">(</span>mytree<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;u&quot;</span><span class="p">)</span>   <span class="c1"># plot the unrooted phylogenetic tree</span>
+     nodelabels<span class="p">(</span>myboot<span class="p">,</span>cex<span class="o">=</span><span class="m">0.7</span><span class="p">)</span>    <span class="c1"># plot the bootstrap values</span>
+     mytree<span class="o">$</span>node.label <span class="o">&lt;-</span> myboot   <span class="c1"># make the bootstrap values be the node labels</span>
+     <span class="kr">return</span><span class="p">(</span>mytree<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>To use the function to make a phylogenetic tree, you must first copy and paste the function into R.
+You can then use it to make a tree, for example of the virus phosphoproteins, based on the sequence
+alignment:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> virusalntree <span class="o">&lt;-</span> unrootedNJtree<span class="p">(</span>virusaln<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;protein&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../_images/P5_image9.png"><img alt="image9" src="../_images/P5_image9.png" style="width: 400px;" /></a></p>
+<p>Note that you need to specify that the type of sequences that you are using are protein sequences
+when you use unrootedNJtree(), by setting &#8220;type=protein&#8221;.</p>
+<p>We can see that Q5VKP1 (Western Caucasian bat virus phosphoprotein) and P06747
+(rabies virus phosphoprotein) have been grouped together in the tree, and that
+O56773 (Lagos bat virus phosphoprotein) and P0C569 (Mokola virus phosphoprotein) are grouped together in the tree.</p>
+<p>This is consistent with what we saw above in the genetic distance matrix, which showed that
+the genetic distance between Lagos bat virus phosphoprotein (O56773) and Mokola virus phosphoprotein
+(P0C569) is relatively small.</p>
+<p>The numbers in blue boxes are <em>bootstrap values</em> for the nodes in the tree.</p>
+<p>A bootstrap value for a particular node in the tree gives an idea of the confidence that we have
+in the clade (group) defined by that node in the tree. If a node has a high bootstrap value (near 100%) then we are
+very confident that the clade defined by the node is correct, while if it has a low bootstrap value (near 0%) then we
+are not so confident.</p>
+<p>Note that the fact that a bootstrap value for a node is high does not necessarily
+guarantee that the clade defined by the node is correct, but just tells us that it is quite likely that it is correct.</p>
+<p>The bootstrap values are calculated by making many (for example,
+100) random &#8220;resamples&#8221; of the alignment that the phylogenetic tree was based upon. Each &#8220;resample&#8221; of the alignment consists of a
+certain number <em>x</em> (eg. 200) of randomly sampled columns from the alignment. Each &#8220;resample&#8221; of the alignment (eg. 200 randomly
+sampled columns) forms a sort of fake alignment of its own, and a phylogenetic tree can be based upon the &#8220;resample&#8221;. We can make 100
+random resamples of the alignment, and build 100 phylogenetic trees based on the 100 resamples. These 100 trees are known as the
+&#8220;bootstrap trees&#8221;. For each clade (grouping) that we see in our original phylogenetic tree, we can count in how many of the 100 bootstrap
+trees it appears. This is known as the &#8220;bootstrap value&#8221; for the clade in our original phylogenetic tree.</p>
+<p>For example, if we calculate 100 random resamples of the virus phosphoprotein alignment, and build 100 phylogenetic trees based on these
+resamples, we can calculate the bootstrap values for each clade in the virus phosphoprotein phylogenetic tree.</p>
+<p>In this case, the bootstrap value for the node defining the clade containing Q5VKP1 (Western Caucasian bat virus phosphoprotein)
+and P06747 (rabies virus phosphoprotein) is 25%, while the bootstrap value for node defining the clade containg of
+Lagos bat virus phosphoprotein (O56773) and Mokola virus phosphoprotein
+(P0C569) is 100%. The bootstrap values for each of these clades is the percent of
+100 bootstrap trees that the clade appears in.</p>
+<p>Therefore, we are very confident that Lagos bat virus and Mokola virus phosphoproteins
+should be grouped together in the tree. However, we are not so confident that the Western Caucasian
+bat virus and rabies virus phosphoproteins should be grouped together.</p>
+<p>The lengths of the branches in the plot of the tree are proportional to the amount of evolutionary change
+(estimated number of mutations) along the branches.</p>
+<p>In this case, the branches leading to Lagos bat virus phosphoprotein (O56773) and Mokola virus phosphoprotein
+(P0C569) from the node representing their common ancestor are slightly shorter than the branches leading to the
+Western Caucasian bat virus (Q5VKP1) and rabies virus (P06747) phosphoproteins from the node representing their common ancestor.</p>
+<p>This suggests that there might have been more mutations in the Western Caucasian bat virus (Q5VKP1) and rabies virus (P06747)
+phosphoproteins since they shared a common ancestor, than in the  Lagos bat virus phosphoprotein (O56773) and Mokola
+virus phosphoprotein (P0C569) since they shared a common ancestor.</p>
+<p>The tree above of the virus phosphoproteins is an <em>unrooted</em> phylogenetic
+tree as it does not contain an <em>outgroup</em> sequence, that is a sequence of a protein that is known to be
+more distantly related to the other proteins in the tree than they are to each other.</p>
+<p>As a result, we cannot tell which direction evolutionary time ran in along the
+internal branches of the tree. For example, we cannot tell whether the node representing the common ancestor
+of (O56773, P0C569) was an ancestor of the node representing the common ancestor of (Q5VKP1, P06747), or the
+other way around.</p>
+<p>In order to build a <em>rooted</em> phylogenetic tree, we need to have an outgroup sequence in our tree.
+In the case of the virus phosphoproteins, this is unfortunately not possible, as (as far as I know) there
+is not any protein known that is more distantly related to the four proteins already in our tree than
+they are to each other.</p>
+<p>However, in many other cases, an outgroup - a sequence known to be more distantly relatd to the other
+sequences in the tree than they are to each other - is known, and so it is possible to build a rooted phylogenetic
+tree.</p>
+<p>We discussed above that it is a good idea to investigate whether discarding the poorly
+conserved regions of a multiple alignment has an effect on the phylogenetic analysis.
+In this case, we made a filtered copy of the multiple alignment and stored it in the variable
+<em>cleanedvirusaln</em> (see above). We can make a phylogenetic tree based this filtered alignment,
+and see if it agrees with the phylogenetic tree based on the original alignment:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> cleanedvirusalntree <span class="o">&lt;-</span> unrootedNJtree<span class="p">(</span>cleanedvirusaln<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;protein&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../_images/P5_image14.png"><img alt="image14" src="../_images/P5_image14.png" style="width: 400px;" /></a></p>
+<p>Here O56773 and P0C569 are grouped together, and Q5VKP1 and P06747 are grouped together, as in the
+phylogenetic tree based on the raw (unfiltered) multiple alignment (see above). Thus, filtering
+the multiple alignment does not have an effect on the tree.</p>
+<p>If we had found a difference in the trees made using the unfiltered and filtered multiple alignments,
+we would have to examine the multiple alignments closely, to see if the unfiltered multiple alignment
+contains a lot of very poorly aligned regions that might be adding noise to the phylogenetic analysis (if
+this is true, the tree based on the filtered alignment is likely to be more reliable).</p>
+</div>
+<div class="section" id="building-a-rooted-phylogenetic-tree-for-protein-sequences">
+<h2>Building a rooted phylogenetic tree for protein sequences<a class="headerlink" href="chapter5.html#building-a-rooted-phylogenetic-tree-for-protein-sequences" title="Permalink to this headline">¶</a></h2>
+<p>In order to convert the unrooted tree into a rooted tree, we need to add an outgroup sequence.
+Normally, the outgroup sequence is a sequence that we know from some prior knowledge to be more
+distantly related to the other sequences under study than they are to each other.</p>
+<p>For example, the protein Fox-1 is involved in determining the sex (gender) of an embryo in the
+nematode worm <em>Caenorhabditis elegans</em> (UniProt accession Q10572). Related proteins are found in
+other nematodes, including <em>Caenorhabditis remanei</em> (UniProt E3M2K8), <em>Caenorhabditis briggsae</em> (A8WS01),
+<em>Loa loa</em> (E1FUV2), and <em>Brugia malayi</em> (UniProt A8NSK3).</p>
+<p>Note that <em>Caenorhabditis elegans</em> is a model organism commonly studied in molecular biology.
+The nematodes <em>Loa loa</em>, and <em>Brugia malayi</em> are parasitic nematodes that cause
+<a class="reference external" href="http://www.who.int/topics/filariasis/en/">filariasis</a>, which is classified by the WHO as
+a neglected tropical disease.</p>
+<p>The UniProt database contains a distantly related sequence from the fruitfly <em>Drosophila melanogaster</em>
+(UniProt accession Q9VT99). If we were to build a phylogenetic tree of the nematode worm Fox-1 homologues,
+the distantly related sequence from fruitfly would probably be a good choice of outgroup, since the
+protein is from a different animal group (insects) than the nematode worms. Thus, it is likely that the
+fruitfly protein is more distantly related to all the nematode proteins than they are to each other.</p>
+<p>To retrieve the sequences from UniProt we can use the &#8220;retrieveseqs()&#8221; function (see above):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> seqnames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Q10572&quot;</span><span class="p">,</span><span class="s">&quot;E3M2K8&quot;</span><span class="p">,</span><span class="s">&quot;Q8WS01&quot;</span><span class="p">,</span><span class="s">&quot;E1FUV2&quot;</span><span class="p">,</span><span class="s">&quot;A8NSK3&quot;</span><span class="p">,</span><span class="s">&quot;Q9VT99&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> seqs <span class="o">&lt;-</span> retrieveseqs<span class="p">(</span>seqnames<span class="p">,</span><span class="s">&quot;swissprot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then write out the sequences to a FASTA file:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> write.fasta<span class="p">(</span>seqs<span class="p">,</span> seqnames<span class="p">,</span> file<span class="o">=</span><span class="s">&quot;fox1.fasta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then use CLUSTAL to create a PHYLIP-format alignment of the sequences, and store it in the
+alignment file &#8220;fox1.phy&#8221;. This picture shows part of the alignment (the alignment is quite long,
+so not all of it is shown):</p>
+<p><a class="reference internal" href="../_images/P5_image10.png"><img alt="image10" src="../_images/P5_image10.png" style="width: 700px;" /></a></p>
+<p>We can then read the alignment into R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> fox1aln  <span class="o">&lt;-</span> read.alignment<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;fox1.phy&quot;</span><span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;phylip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The next step is to build a phylogenetic tree of the proteins, which again we can do using
+the neighbour-joining algorithm.</p>
+<p>This time we have an outgroup in our set of sequences, so we can build a rooted tree. The function &#8220;rootedNJtree()&#8221;
+can be used to build a rooted tree. It returns the phylogenetic tree, and also makes a picture of the tree:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> rootedNJtree <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignment<span class="p">,</span> theoutgroup<span class="p">,</span> type<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># load the ape and seqinR packages:</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;ape&quot;</span><span class="p">)</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>
+     <span class="c1"># define a function for making a tree:</span>
+     makemytree <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>alignmentmat<span class="p">,</span> outgroup<span class="o">=</span><span class="sb">`theoutgroup`</span><span class="p">)</span>
+     <span class="p">{</span>
+        alignment <span class="o">&lt;-</span> ape<span class="o">::</span>as.alignment<span class="p">(</span>alignmentmat<span class="p">)</span>
+        <span class="kr">if</span>      <span class="p">(</span>type <span class="o">==</span> <span class="s">&quot;protein&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+           mydist <span class="o">&lt;-</span> dist.alignment<span class="p">(</span>alignment<span class="p">)</span>
+        <span class="p">}</span>
+        <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>type <span class="o">==</span> <span class="s">&quot;DNA&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+           alignmentbin <span class="o">&lt;-</span> as.DNAbin<span class="p">(</span>alignment<span class="p">)</span>
+           mydist <span class="o">&lt;-</span> dist.dna<span class="p">(</span>alignmentbin<span class="p">)</span>
+        <span class="p">}</span>
+        mytree <span class="o">&lt;-</span> nj<span class="p">(</span>mydist<span class="p">)</span>
+        mytree <span class="o">&lt;-</span> makeLabel<span class="p">(</span>mytree<span class="p">,</span> space<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="c1"># get rid of spaces in tip names.</span>
+        myrootedtree <span class="o">&lt;-</span> root<span class="p">(</span>mytree<span class="p">,</span> outgroup<span class="p">,</span> r<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+        <span class="kr">return</span><span class="p">(</span>myrootedtree<span class="p">)</span>
+     <span class="p">}</span>
+     <span class="c1"># infer a tree</span>
+     mymat  <span class="o">&lt;-</span> as.matrix.alignment<span class="p">(</span>alignment<span class="p">)</span>
+     myrootedtree <span class="o">&lt;-</span> makemytree<span class="p">(</span>mymat<span class="p">,</span> outgroup<span class="o">=</span>theoutgroup<span class="p">)</span>
+     <span class="c1"># bootstrap the tree</span>
+     myboot <span class="o">&lt;-</span> boot.phylo<span class="p">(</span>myrootedtree<span class="p">,</span> mymat<span class="p">,</span> makemytree<span class="p">)</span>
+     <span class="c1"># plot the tree:</span>
+     plot.phylo<span class="p">(</span>myrootedtree<span class="p">,</span> type<span class="o">=</span><span class="s">&quot;p&quot;</span><span class="p">)</span>  <span class="c1"># plot the rooted phylogenetic tree</span>
+     nodelabels<span class="p">(</span>myboot<span class="p">,</span>cex<span class="o">=</span><span class="m">0.7</span><span class="p">)</span>          <span class="c1"># plot the bootstrap values</span>
+     mytree<span class="o">$</span>node.label <span class="o">&lt;-</span> myboot   <span class="c1"># make the bootstrap values be the node labels</span>
+     <span class="kr">return</span><span class="p">(</span>mytree<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>The function takes the alignment and the name of the outgroup as its inputs.
+For example, to use it to make a phylogenetic tree of the <em>C. elegans</em> Fox-1
+protein and its homologues, using the fruitfly protein (UniProt Q9VT99) as the outgroup, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> fox1alntree <span class="o">&lt;-</span> rootedNJtree<span class="p">(</span>fox1aln<span class="p">,</span> <span class="s">&quot;Q9VT99&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;protein&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../_images/P5_image11.png"><img alt="image11" src="../_images/P5_image11.png" style="width: 400px;" /></a></p>
+<p>Here we can see that E3M2K8 (<em>C. remanei</em> Fox-1 homologue) and Q10572 (<em>C. elegans</em> Fox-1)
+have been grouped together with bootstrap 100%, and A8NSK3 (<em>Brugia malayi</em> Fox-1 homologue) and
+E1FUV2 (<em>Loa loa</em> Fox-1 homologue) have been grouped together with bootstrap 100%. These
+four proteins have also been grouped together in a larger clade with bootstrap 100%.</p>
+<p>Compared to these four proteins, the Q8WS01 (<em>C. briggsae</em> Fox-1 homologue) and Q9VT99 (fruitfly
+outgroup) seem to be relatively distantly related.</p>
+<p>As this is a rooted tree, we know the direction that evolutionary time ran.
+Say we call the ancestor of the four sequences (E3M2K8, Q10572, A8NSK3, E1FUV2) <em>ancestor1</em>,
+the ancestor of the two sequences (E3M2K8, Q10572) <em>ancestor2</em>, and the ancestor of the
+two sequences (A8NSK3, E1FUV2) <em>ancestor3</em>.</p>
+<p>Because it is a rooted tree, we know that time ran from left to right along the branches of the tree, so that <em>ancestor1</em> was the
+ancestor of <em>ancestor2</em>, and <em>ancestor1</em> was also the ancestor of <em>ancestor3</em>.
+In other words, <em>ancestor1</em> lived before <em>ancestor2</em> or <em>ancestor3</em>; <em>ancestor2</em>
+and <em>ancestor3</em> were descendants of <em>ancestor1</em>.</p>
+<p>Another way of saying this is that E3M2K8 and Q10572 shared a common ancestor
+with each other more recently than they did with A8NSK3 and E1FUV2.</p>
+<p>The lengths of branches in this tree are proportional to the amount
+of evolutionary change (estimated number of mutations) that occurred along the branches. The
+branches leading back from E3M2K8 and Q10572 to their
+last common ancestor are slightly longer than the
+branches leading back from A8NSK3 and E1FUV2 to
+their last common ancestor.</p>
+<p>This indicates that there has been more evolutionary change in E3M2K8 (<em>C. remanei</em> Fox-1 homologue) and Q10572 (<em>C. elegans</em> Fox-1)
+proteins since they diverged, than there has been in A8NSK3 (<em>Brugia malayi</em> Fox-1 homologue) and E1FUV2 (<em>Loa loa</em> Fox-1 homologue)
+since they diverged.</p>
+</div>
+<div class="section" id="building-a-phylogenetic-tree-for-dna-or-mrna-sequences">
+<h2>Building a phylogenetic tree for DNA or mRNA sequences<a class="headerlink" href="chapter5.html#building-a-phylogenetic-tree-for-dna-or-mrna-sequences" title="Permalink to this headline">¶</a></h2>
+<p>In the example above, a phylogenetic tree was built for protein sequences.
+The genomes of distantly related organisms such as vertebrates will have accumulated many
+mutations since they diverged. Sometimes, so many mutations have occurred since the organisms
+diverged that their DNA sequences are hard to align correctly and it is also hard to accurately
+estimate evolutionary distances from alignments of those DNA sequences.</p>
+<p>In contrast, as many mutations at the DNA level are synonymous at the protein level, protein sequences diverge at
+a slower rate than DNA sequences. This is why for reasonably distantly related organisms
+such as vertebrates, it is usually preferable to use protein sequences for phylogenetic analyses.</p>
+<p>If you are studying closely related organisms such as primates, few mutations will have occurred
+since they diverged. As a result, if you use protein sequences for a phylogenetic analysis,
+there may be too few amino acid substitutions to provide enough &#8216;signal&#8217; to use for the phylogenetic
+analysis. Therefore, it is often preferable to use DNA sequences for a phylogenetic analysis of
+closely related organisms such as primates.</p>
+<p>We can use the functions unrootedNJtree() and rootedNJtree() described above to build unrooted or rooted neighbour-joining
+phylogenetic trees based on an alignment of DNA or mRNA sequences. In this case, we need to use &#8220;type=DNA&#8221;
+as an argument in these functions, to tell them that we are making a tree of nucleotide sequences, not protein sequences.</p>
+<p>For example, to build an unrooted phylogenetic tree based on the alignment of the virus phosphoprotein mRNA sequences,
+we type in R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> virusmRNAaln  <span class="o">&lt;-</span> read.alignment<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;virusmRNA.phy&quot;</span><span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;phylip&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> virusmRNAalntree <span class="o">&lt;-</span> unrootedNJtree<span class="p">(</span>virusmRNAaln<span class="p">,</span> type<span class="o">=</span><span class="s">&quot;DNA&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../_images/P5_image13.png"><img alt="image13" src="../_images/P5_image13.png" style="width: 400px;" /></a></p>
+</div>
+<div class="section" id="saving-a-phylogenetic-tree-as-a-newick-format-tree-file">
+<h2>Saving a phylogenetic tree as a Newick-format tree file<a class="headerlink" href="chapter5.html#saving-a-phylogenetic-tree-as-a-newick-format-tree-file" title="Permalink to this headline">¶</a></h2>
+<p>A commonly used format for representing phylogenetic trees is the Newick format.
+Once you have built a phylogenetic tree using R, it is convenient to store it as
+a Newick-format tree file. This can be done using the &#8220;write.tree()&#8221; function
+in the Ape R package.</p>
+<p>For example, to save the unrooted phylogenetic tree of virus phosphoprotein mRNA sequences
+as a Newick-format tree file called &#8220;virusmRNA.tre&#8221;, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> write.tree<span class="p">(</span>virusmRNAalntree<span class="p">,</span> <span class="s">&quot;virusmRNA.tre&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The Newick-format file &#8220;virusmRNA.tre&#8221; should now appear in your &#8220;My Documents&#8221; folder.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="chapter5.html#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this practical, you have learnt the following R functions that
+belong to the bioinformatics packages:</p>
+<ol class="arabic simple">
+<li>read.alignment() from the SeqinR package for reading in a
+multiple alignment</li>
+<li>dist.alignment() from the SeqinR package for calculating genetic
+distances between protein sequences</li>
+<li>dist.dna() from the Ape package for calculating genetic
+distances between DNA or mRNA sequences</li>
+</ol>
+</div>
+<div class="section" id="links-and-further-reading">
+<h2>Links and Further Reading<a class="headerlink" href="chapter5.html#links-and-further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Some links are included here for further reading.</p>
+<p>For background reading on phylogenetic trees, it is recommended to
+read Chapter 7 of
+<em>Introduction to Computational Genomics: a case studies approach</em>
+by Cristianini and Hahn (Cambridge University Press;
+<a class="reference external" href="http://www.computational-genomics.net/book/">www.computational-genomics.net/book/</a>).</p>
+<p>Another more in-depth (but very accesssible) book on phylogenetics is
+<em>Molecular Evolution: A Phylogenetic Approach</em> by Roderic DM Page and
+Edward C Holmes.</p>
+<p>For more in-depth information and more examples on using the SeqinR
+package for sequence analysis, look at the SeqinR documentation,
+<a class="reference external" href="http://pbil.univ-lyon1.fr/software/seqinr/doc.php?lang=eng">http://pbil.univ-lyon1.fr/software/seqinr/doc.php?lang=eng</a>.</p>
+<p>For more in-depth information and more examples on the Ape package
+for phylogenetic analysis, look at the Ape documentation,
+<a class="reference external" href="http://ape.mpl.ird.fr/">ape.mpl.ird.fr/</a>.</p>
+<p>If you are using the Ape package for a phylogenetic analysis
+project, it would be worthwhile to obtain a copy of the book
+<em>Analysis of Phylogenetics and Evolution with R</em> by Emmanuel
+Paradis, published by Springer, which has many nice examples of
+using R for phylogenetic analyses.</p>
+<p>For a more in-depth introduction to R, a good online tutorial is
+available on the &#8220;Kickstarting R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/contrib/Lemon-kickstart/">cran.r-project.org/doc/contrib/Lemon-kickstart</a>.</p>
+<p>There is another nice (slightly more in-depth) tutorial to R
+available on the &#8220;Introduction to R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/manuals/R-intro.html">cran.r-project.org/doc/manuals/R-intro.html</a>.</p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="chapter5.html#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>Many of the ideas for the examples and exercises for this practical
+were inspired by the Matlab case study on SARS
+(<a class="reference external" href="http://www.computational-genomics.net/case_studies/sars_demo.html">www.computational-genomics.net/case_studies/sars_demo.html</a>)
+from the website that accompanies the book
+<em>Introduction to Computational Genomics: a case studies approach</em>
+by Cristianini and Hahn (Cambridge University Press;
+<a class="reference external" href="http://www.computational-genomics.net/book/">www.computational-genomics.net/book/</a>).</p>
+<p>Thank you to Jean Lobry and Simon Penel for helpful advice on using
+the SeqinR package.</p>
+<p>Thank you to Emmanuel Paradis and François Michonneau for help in
+using the Ape package.</p>
+<p>Thank you also to Klaus Schliep for helpful comments.</p>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="chapter5.html#contact" title="Permalink to this headline">¶</a></h2>
+<p>I will be grateful if you will send me (<a class="reference external" href="http://www.sanger.ac.uk/research/projects/parasitegenomics/">Avril Coghlan</a>) corrections or suggestions for improvements to
+my email address <a class="reference external" href="mailto:alc&#37;&#52;&#48;sanger&#46;ac&#46;uk">alc<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="chapter5.html#license" title="Permalink to this headline">¶</a></h2>
+<p>The content in this book is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="chapter5.html#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Answer the following questions, using the R package. For each
+question, please record your answer, and what you typed into R to
+get this answer.</p>
+<p>Model answers to the exercises are given in
+<a class="reference external" href="chapter_answers.html#multiple-alignment-and-phylogenetic-trees">Answers to the exercises on Multiple Alignment and Phylogenetic Trees</a>.</p>
+<dl class="docutils">
+<dt>Q1. Calculate the genetic distances between the following NS1 proteins from different Dengue virus strains: Dengue virus 1 NS1 protein (Uniprot Q9YRR4), Dengue virus 2 NS1 protein (UniProt Q9YP96), Dengue virus 3 NS1 protein (UniProt B0LSS3), and Dengue virus 4 NS1 protein (UniProt Q6TFL5). Which are the most closely related proteins, and which are the least closely related, based on the genetic distances?</dt>
+<dd>Note: Dengue virus causes <a class="reference external" href="http://www.who.int/topics/dengue/en/">Dengue fever</a>, which is classified by the WHO as a neglected
+tropical disease. There are four main types of Dengue virus, Dengue virus 1, Dengue virus 2, Dengue virus 3, and Dengue virus 4.</dd>
+</dl>
+<p>Q2. Build an unrooted phylogenetic tree of the NS1 proteins from Dengue virus 1, Dengue virus 2, Dengue virus 3 and Dengue virus 4,
+using the neighbour-joining algorithm. Which are the most closely related proteins, based on the tree? Based on the bootstrap values in the tree, how confident are you of this?</p>
+<p>Q3. Build an unrooted phylogenetic tree of the NS1 proteins from Dengue viruses 1-4, based on a filtered alignment of the four proteins (keeping alignment columns in which at least 30% of letters are not gaps, and in which at least 30% of pairs of letters are identical). Does this differ from the tree based on the unfiltered alignment (in Q2)? Can you explain why?</p>
+<p>Q4. The Zika virus is related to Dengue viruses, but is not a Dengue virus, and so therefore can be used as an outgroup in phylogenetic trees of Dengue virus sequences. UniProt accession Q32ZE1 consists of a sequence with similarity to the Dengue NS1 protein, so seems to be a related protein from Zika virus. Build a rooted phylogenetic tree of the Dengue NS1 proteins based on a filtered alignment (keeping alignment columns in which at least 30% of letters are not gaps, and in which at least 30% of pairs of letters are identical), using the Zika virus protein as the outgroup. Which are the most closely related Dengue virus proteins, based on the tree? What extra information does this tree tell you, compared to the unrooted tree in Q2?</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="revisionexercises2.html" title="REVISION EXERCISES 2"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="chapter4.html" title="Pairwise Sequence Alignment"
+             >previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright Avril Coghlan, Licence: Creative Commons Attribution 3.0 License.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

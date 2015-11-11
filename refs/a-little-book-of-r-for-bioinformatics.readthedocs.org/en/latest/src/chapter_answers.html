@@ -1,0 +1,1516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Answers to the End-of-chapter Exercises &mdash; Bioinformatics 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Bioinformatics 0.1 documentation" href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html" />
+    <link rel="next" title="Answers to Revision Exercises" href="revisionexercises_answers.html" />
+    <link rel="prev" title="Hidden Markov Models" href="chapter10.html" />
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/src/chapter_answers.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "a-little-book-of-r-for-bioinformatics",
+    version: "latest",
+    language: "en",
+    page: "src/chapter_answers",
+    builder: "sphinx",
+    theme: "sphinxdoc",
+    docroot: "/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "8cd107b180ed964fe7c8021e78ff0ab528d5ba74"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "a-little-book-of-r-for-bioinformatics";
+  var page_name = "src/chapter_answers";
+  var html_theme = "sphinxdoc";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  // User Analytics Code
+  _gaq.push(['user._setAccount', 'UA-36029021-1']);
+  _gaq.push(['user._trackPageview']);
+  // End User Analytics Code
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="revisionexercises_answers.html" title="Answers to Revision Exercises"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="chapter10.html" title="Hidden Markov Models"
+             accesskey="P">previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="chapter_answers.html#">Answers to the End-of-chapter Exercises</a><ul>
+<li><a class="reference internal" href="chapter_answers.html#dna-sequence-statistics-1">DNA Sequence Statistics (1)</a><ul>
+<li><a class="reference internal" href="chapter_answers.html#q1">Q1.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q2">Q2.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q3">Q3.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q4">Q4.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q5">Q5.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q6">Q6.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q7">Q7.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="chapter_answers.html#dna-sequence-statistics-2">DNA Sequence Statistics (2)</a><ul>
+<li><a class="reference internal" href="chapter_answers.html#id1">Q1.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id3">Q2.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id5">Q3.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id6">Q4.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id7">Q5.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="chapter_answers.html#sequence-databases">Sequence Databases</a><ul>
+<li><a class="reference internal" href="chapter_answers.html#id8">Q1.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id9">Q2.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id12">Q3.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id14">Q4.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id16">Q5.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id18">Q6.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id20">Q7.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q8">Q8.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q9">Q9.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#q10">Q10.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="chapter_answers.html#sequence-alignment">Sequence Alignment</a><ul>
+<li><a class="reference internal" href="chapter_answers.html#id25">Q1.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id26">Q2.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id27">Q3.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id28">Q4.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id29">Q5.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id30">Q6.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="chapter_answers.html#multiple-alignment-and-phylogenetic-trees">Multiple Alignment and Phylogenetic Trees</a><ul>
+<li><a class="reference internal" href="chapter_answers.html#id31">Q1.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id32">Q2.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id33">Q3.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="chapter_answers.html#computational-gene-finding">Computational Gene-finding</a><ul>
+<li><a class="reference internal" href="chapter_answers.html#id34">Q1.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id35">Q2.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id36">Q3.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id37">Q4.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id38">Q5.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id39">Q6.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id40">Q7.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id41">Q8.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id42">Q9.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="chapter_answers.html#comparative-genomics">Comparative Genomics</a><ul>
+<li><a class="reference internal" href="chapter_answers.html#id43">Q1.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id44">Q2.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id45">Q3.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id46">Q4.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id47">Q5.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id48">Q6.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id49">Q7.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id50">Q8.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id51">Q9.</a></li>
+<li><a class="reference internal" href="chapter_answers.html#id52">Q10.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="chapter_answers.html#contact">Contact</a></li>
+<li><a class="reference internal" href="chapter_answers.html#license">License</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="chapter10.html"
+                        title="previous chapter">Hidden Markov Models</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="revisionexercises_answers.html"
+                        title="next chapter">Answers to Revision Exercises</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/_sources/src/chapter_answers.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="answers-to-the-end-of-chapter-exercises">
+<h1>Answers to the End-of-chapter Exercises<a class="headerlink" href="chapter_answers.html#answers-to-the-end-of-chapter-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dna-sequence-statistics-1">
+<h2>DNA Sequence Statistics (1)<a class="headerlink" href="chapter_answers.html#dna-sequence-statistics-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q1">
+<h3>Q1.<a class="headerlink" href="chapter_answers.html#q1" title="Permalink to this headline">¶</a></h3>
+<p><em>What are the last twenty nucleotides of the DEN-1 Dengue virus genome sequence?</em></p>
+<p>To answer this, you first need to install the &#8220;SeqinR&#8221; R package, and download
+the DEN-1 Dengue genome sequence from the NCBI database and save it as
+a file &#8220;den1.fasta&#8221; in the &#8220;My Documents&#8221; folder.</p>
+<p>Then to find the length of the DEN-1 Dengue virus genome sequence, type in the R console:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> dengue <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;den1.fasta&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> dengueseq <span class="o">&lt;-</span> dengue<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>dengueseq<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10735</span>
+</pre></div>
+</div>
+<p>This tells us that the length of the sequence is 10735 nucleotides.
+Therefore, the last 20 nucleotides are from 10716 to 10735. You can
+extract the sequence of these nucleotides by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> dengueseq<span class="p">[</span><span class="m">10716</span><span class="o">:</span><span class="m">10735</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;c&quot;</span> <span class="s">&quot;a&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;g&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;t&quot;</span> <span class="s">&quot;c&quot;</span>
+<span class="p">[</span><span class="m">20</span><span class="p">]</span> <span class="s">&quot;t&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="q2">
+<h3>Q2.<a class="headerlink" href="chapter_answers.html#q2" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the length in nucleotides of the genome sequence for the bacterium Mycobacterium leprae strain TN (accession NC_002677)?</em></p>
+<p>To answer this question, you first need to retrieve the <em>Mycobacterium leprae</em> TN genome
+sequence from the NCBI database. You can use this by going to the NCBI website and searching
+for it via the NCBI website, or alternatively by using the getncbiseq() function in R.</p>
+<p>To get the <em>Mycobacterium leprae</em> TN genome via the NCBI website, it�s necessary to first go to the NCBI website (www.ncbi.nlm.nih.gov) and search for NC_002677 and download it as a fasta format file (eg. &#8220;leprae.fasta&#8221;) and save it in the &#8220;My Documents&#8221; folder. You can then read the sequence into
+R from the file by typing:</p>
+<p>Then in R type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leprae <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;leprae.fasta&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> lepraeseq <span class="o">&lt;-</span> leprae<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Alternatively, to get the <em>Mycobacterium leprae</em> TN genome using the getncbiseq() function in R,
+you first need to copy the getncbiseq() function and paste it into R, and then you can retrieve
+the sequence (accession <a href="chapter_answers.html#id53"><span class="problematic" id="id54">NC_</span></a>002677) by typing in R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> lepraeseq <span class="o">&lt;-</span>  getncbiseq<span class="p">(</span><span class="s">&quot;NC_002677&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we have the <em>Mycobacterium leprae</em> TN genome sequence stored in the vector <em>lepraseq</em> in R.
+We can get the length of the sequence by getting the length of the vector:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>lepraeseq<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3268203</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="q3">
+<h3>Q3.<a class="headerlink" href="chapter_answers.html#q3" title="Permalink to this headline">¶</a></h3>
+<p><em>How many of each of the four nucleotides A, C, T and G, and any other symbols, are there in the Mycobacterium leprae TN genome sequence?</em></p>
+<p>Type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>lepraeseq<span class="p">)</span>
+lepraeseq
+     a      <span class="kt">c</span>      g      <span class="kp">t</span>
+<span class="m">687041</span> <span class="m">938713</span> <span class="m">950202</span> <span class="m">692247</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="q4">
+<h3>Q4.<a class="headerlink" href="chapter_answers.html#q4" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the GC content of the Mycobacterium leprae TN genome sequence, when (i) all non-A/C/T/G nucleotides are included, (ii) non-A/C/T/G nucleotides are discarded?</em></p>
+<p>Find out how the GC function deals with non-A/C/T/G nucleotides, type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> help<span class="p">(</span><span class="s">&quot;GC&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> GC<span class="p">(</span>lepraeseq<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.5779675</span>
+<span class="o">&gt;</span> GC<span class="p">(</span>lepraeseq<span class="p">,</span> exact<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.5779675</span>
+</pre></div>
+</div>
+<p>This gives 0.5779675 or 57.79675%. This is the GC content when non-A/C/T/G nucleotides are not taken into account.</p>
+<p>The length of the <em>M. leprae</em> sequence is 3268203 bp, and it has 938713 Cs and 950202 Gs, and 687041 As and 692247 Ts. So to calculating the GC content when only considering As, Cs, Ts and Gs, we can also
+type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">(</span><span class="m">938713+950202</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="m">938713+950202+687041+692247</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.5779675</span>
+</pre></div>
+</div>
+<p>To take non-A/C/T/G nucleotides into account when calculating GC, type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> GC<span class="p">(</span>lepraeseq<span class="p">,</span> exact<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.5779675</span>
+</pre></div>
+</div>
+<p>We get the same answer as when we ignored non-A/C/G/T nucleotides. This is actually because the <em>M. leprae</em> TN sequence does not have any non-A/C/G/T nucleotides.</p>
+<p>However, many other genome sequences do contain non-A/C/G/T nucleotides. Note that under &#8216;Details&#8217; in the box that appears when you type &#8216;help(&#8216;GC&#8217;)&#8217;, it says : &#8220;When exact is set to TRUE the G+C content is estimated with ambiguous bases taken into account. Note that this is time expensive. A first pass is made on non-ambiguous bases to estimate the probabilities of the four bases in the sequence. They are then used to weight the contributions of ambiguous bases to the G+C content.&#8221;</p>
+</div>
+<div class="section" id="q5">
+<h3>Q5.<a class="headerlink" href="chapter_answers.html#q5" title="Permalink to this headline">¶</a></h3>
+<p><em>How many of each of the four nucleotides A, C, T and G are there in the complement of the Mycobacterium leprae TN genome sequence?</em></p>
+<p>First you need to search for a function to calculate reverse complement, eg. by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> help.search<span class="p">(</span><span class="s">&quot;complement&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will find that there is a function seqinr::comp that complements a nucleic acid sequence. This means it is a function in the SeqinR package.</p>
+<p>Find out how to use this function by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> help<span class="p">(</span><span class="s">&quot;comp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The help says &#8220;Undefined values are returned as NA&#8221;. This means that the complement of non-A/C/T/G symbols will be returned as NA.</p>
+<p>To find the number of A, C, T, and G in the reverse complement type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> complepraeseq <span class="o">&lt;-</span> comp<span class="p">(</span>lepraeseq<span class="p">)</span>
+<span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>complepraeseq<span class="p">)</span>
+ complepraeseq
+      a      <span class="kt">c</span>      g      <span class="kp">t</span>
+ <span class="m">692247</span> <span class="m">950202</span> <span class="m">938713</span> <span class="m">687041</span>
+</pre></div>
+</div>
+<p>Note that in the <em>M. leprae</em> sequence we had 687041 As, in the complement have 687041 Ts.
+In the <em>M. leprae</em> sequence we had 938713 Cs, in the complement have 938713 Gs.
+In the <em>M. leprae</em> sequence we had 950202 Gs, in the complement have 950202 Cs.
+In the <em>M. leprae</em> sequence we had 692247 Ts, in the complement have 692247 As.</p>
+</div>
+<div class="section" id="q6">
+<h3>Q6.<a class="headerlink" href="chapter_answers.html#q6" title="Permalink to this headline">¶</a></h3>
+<p><em>How many occurrences of the DNA words CC, CG and GC occur in the Mycobacterium leprae TN genome sequence?</em></p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> count<span class="p">(</span>lepraeseq<span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+    aa     ac     ag     at     ca     cc     cg     ct     ga     gc     gg
+ <span class="m">149718</span> <span class="m">206961</span> <span class="m">170846</span> <span class="m">159516</span> <span class="m">224666</span> <span class="m">236971</span> <span class="m">306986</span> <span class="m">170089</span> <span class="m">203397</span> <span class="m">293261</span> <span class="m">243071</span>
+    gt     ta     tc     tg     tt
+ <span class="m">210473</span> <span class="m">109259</span> <span class="m">201520</span> <span class="m">229299</span> <span class="m">152169</span>
+</pre></div>
+</div>
+<p>Get count for CC is 236,971; count for CG is 306,986; count for GC is 293,261.</p>
+</div>
+<div class="section" id="q7">
+<h3>Q7.<a class="headerlink" href="chapter_answers.html#q7" title="Permalink to this headline">¶</a></h3>
+<p><em>How many occurrences of the DNA words CC, CG and GC occur in the (i) first 1000 and (ii) last 1000 nucleotides of the Mycobacterium leprae TN genome sequence?</em></p>
+<p>Type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>lepraeseq<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3268203</span>
+</pre></div>
+</div>
+<p>to find the length of the <em>M. leprae</em> genome sequence.  It is 3,268,203 bp. Therefore the first 1000 nucleotides will have indices 1-1000, and the last thousand nucleotides will have indices 3267204-3268203. We find the count of DNA words of length 2 by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> count<span class="p">(</span>lepraeseq<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">],</span><span class="m">2</span><span class="p">)</span>
+ aa ac ag at ca cc cg ct ga gc gg gt ta tc tg tt
+ <span class="m">78</span> <span class="m">95</span> <span class="m">51</span> <span class="m">49</span> <span class="m">85</span> <span class="m">82</span> <span class="m">92</span> <span class="m">54</span> <span class="m">68</span> <span class="m">63</span> <span class="m">39</span> <span class="m">43</span> <span class="m">42</span> <span class="m">73</span> <span class="m">31</span> <span class="m">54</span>
+<span class="o">&gt;</span> count<span class="p">(</span>lepraeseq<span class="p">[</span><span class="m">3267204</span><span class="o">:</span><span class="m">3268203</span><span class="p">],</span><span class="m">2</span><span class="p">)</span>
+ aa ac ag at ca cc cg ct ga gc gg gt ta tc tg tt
+ <span class="m">70</span> <span class="m">85</span> <span class="m">44</span> <span class="m">55</span> <span class="m">94</span> <span class="m">81</span> <span class="m">87</span> <span class="m">50</span> <span class="m">53</span> <span class="m">75</span> <span class="m">49</span> <span class="m">51</span> <span class="m">36</span> <span class="m">72</span> <span class="m">48</span> <span class="m">49</span>
+</pre></div>
+</div>
+<p>To check that the subsequences that you looked at are 1000 nucleotides long, you can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>lepraeseq<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">])</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1000</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>lepraeseq<span class="p">[</span><span class="m">3267204</span><span class="o">:</span><span class="m">3268203</span><span class="p">])</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dna-sequence-statistics-2">
+<h2>DNA Sequence Statistics (2)<a class="headerlink" href="chapter_answers.html#dna-sequence-statistics-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Q1.<a class="headerlink" href="chapter_answers.html#id1" title="Permalink to this headline">¶</a></h3>
+<p><em>Draw a sliding window plot of GC content in the DEN-1 Dengue virus genome, using a window size of 200 nucleotides. Do you see any regions of unusual DNA content in the genome (eg. a high peak or low trough)?</em></p>
+<p>To do this, you first need to download the DEN-1 Dengue virus sequence from the NCBI database.
+To do this follow the steps in the chapter <a class="reference external" href="chapter1.html">DNA Sequence Statistics (1)</a>.</p>
+<p>Then read the sequence into R using the SeqinR package:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> dengue <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;den1.fasta&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> dengueseq <span class="o">&lt;-</span> dengue<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Then write a function to make a sliding window plot:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>windowsize<span class="p">,</span> inputseq<span class="p">)</span>
+  <span class="p">{</span>
+     starts <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>inputseq<span class="p">)</span><span class="o">-</span>windowsize<span class="p">,</span> by <span class="o">=</span> windowsize<span class="p">)</span>
+     n <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>starts<span class="p">)</span>
+     chunkGCs <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">(</span>n<span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>n<span class="p">)</span> <span class="p">{</span>
+        chunk <span class="o">&lt;-</span> inputseq<span class="p">[</span>starts<span class="p">[</span>i<span class="p">]</span><span class="o">:</span><span class="p">(</span>starts<span class="p">[</span>i<span class="p">]</span><span class="o">+</span>windowsize<span class="m">-1</span><span class="p">)]</span>
+        chunkGC <span class="o">&lt;-</span> GC<span class="p">(</span>chunk<span class="p">)</span>
+        chunkGCs<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> chunkGC
+     <span class="p">}</span>
+     plot<span class="p">(</span>starts<span class="p">,</span>chunkGCs<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;Nucleotide start position&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;GC content&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>Then make a sliding window plot with a window size of 200 nucleotides:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot<span class="p">(</span><span class="m">200</span><span class="p">,</span> dengueseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image0" src="../_images/A2_image0.png" /></p>
+<p>The GC content varies from about 45% to about 50% throughout the DEN-1 Dengue virus genome, with
+some noticeable troughs at about 2500 bases and at about 4000 bases along the sequence, where the
+GC content drops to about 40%. There is no strong difference between the start and end of the
+genome, although from around bases 4000-7000 the GC content is quite high (about 50%), and from
+about 2500-3500 and 7000-9000 bases the GC content is relatively low (about 43-47%).</p>
+<p>We can also make a sliding window plot of GC content using a window size of 2000 nucleotides:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot<span class="p">(</span><span class="m">2000</span><span class="p">,</span> dengueseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image1" src="../_images/A2_image1.png" /></p>
+<p>In this picture it is much more noticeable that the GC content is relatively high from around
+4000-7000 bases, and lower on either side (from 2500-3500 and 7000-9000 bases).</p>
+</div>
+<div class="section" id="id3">
+<h3>Q2.<a class="headerlink" href="chapter_answers.html#id3" title="Permalink to this headline">¶</a></h3>
+<p><em>Draw a sliding window plot of GC content in the genome sequence for the bacterium Mycobacterium leprae strain TN (accession NC_002677) using a window size of 20000 nucleotides. Do you see any regions of unusual DNA content in the genome (eg. a high peak or low trough)?</em></p>
+<p>To do this, you first need to download the <em>Mycobacterium leprae</em> sequence from the NCBI
+database.
+To do this follow the steps in the chapter <a class="reference external" href="chapter1.html">DNA Sequence Statistics (1)</a>.</p>
+<p>Then read the sequence into R using the SeqinR package:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leprae <span class="o">&lt;-</span> read.fasta<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;leprae.fasta&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> lepraeseq <span class="o">&lt;-</span> leprae<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Then make a sliding window plot with a window size of 20000 nucleotides:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot<span class="p">(</span><span class="m">20000</span><span class="p">,</span> lepraeseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image2" src="../_images/A2_image2.png" /></p>
+<p>We see the highest peak in GC content at about 1 Mb into the <em>M. leprae</em> genome. We also
+see troughs in GC content at about 1.1 Mb, and at about 2.6 Mb.</p>
+<p>With a window size of 200 nucleotides, the plot is very messy, and we cannot see the peaks and troughs
+in GC content so easily:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot<span class="p">(</span><span class="m">200</span><span class="p">,</span> lepraeseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image3" src="../_images/A2_image3.png" /></p>
+<p>With a window size of 200,000 nucleotides, the plot is very smooth, and we cannot see the peaks and troughs
+in GC content very easily:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot<span class="p">(</span><span class="m">200000</span><span class="p">,</span> lepraeseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image4" src="../_images/A2_image4.png" /></p>
+</div>
+<div class="section" id="id5">
+<h3>Q3.<a class="headerlink" href="chapter_answers.html#id5" title="Permalink to this headline">¶</a></h3>
+<p><em>Write a function to calculate the AT content of a DNA sequence (ie. the fraction of the nucleotides in the sequence that are As or Ts). What is the AT content of the Mycobacterium leprae TN genome?</em></p>
+<p>Here is a function to calculate the AT content of a genome sequence:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> AT <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>inputseq<span class="p">)</span>
+  <span class="p">{</span>
+     mytable <span class="o">&lt;-</span> count<span class="p">(</span>inputseq<span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># make a table with the count of As, Cs, Ts, and Gs</span>
+     mylength <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>inputseq<span class="p">)</span> <span class="c1"># find the length of the whole sequence</span>
+     myAs <span class="o">&lt;-</span> mytable<span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># number of As in the sequence</span>
+     myTs <span class="o">&lt;-</span> mytable<span class="p">[[</span><span class="m">4</span><span class="p">]]</span> <span class="c1"># number of Ts in the sequence</span>
+     myAT <span class="o">&lt;-</span> <span class="p">(</span>myAs <span class="o">+</span> myTs<span class="p">)</span><span class="o">/</span>mylength
+     <span class="kr">return</span><span class="p">(</span>myAT<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>We can then use the function to calculate the AT content of the <em>M. leprae</em> genome:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> AT<span class="p">(</span>lepraeseq<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.4220325</span>
+</pre></div>
+</div>
+<p>You should notice that the AT content is (1 minus GC content), ie. (AT content + GC content = 1):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> GC<span class="p">(</span>lepraeseq<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.5779675</span>
+<span class="o">&gt;</span> <span class="m">0.4220325</span> <span class="o">+</span> <span class="m">0.5779675</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Q4.<a class="headerlink" href="chapter_answers.html#id6" title="Permalink to this headline">¶</a></h3>
+<p><em>Write a function to draw a sliding window plot of AT content. Use it to make a sliding window plot of AT content along the Mycobacterium leprae TN genome, using a windowsize of 20000 nucleotides. Do you notice any relationship between the sliding window plot of GC content along the Mycobacterium leprae genome, and the sliding window plot of AT content?</em></p>
+<p>We can write a function to write a sliding window plot of AT content:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplotAT <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>windowsize<span class="p">,</span> inputseq<span class="p">)</span>
+  <span class="p">{</span>
+     starts <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>inputseq<span class="p">)</span><span class="o">-</span>windowsize<span class="p">,</span> by <span class="o">=</span> windowsize<span class="p">)</span>
+     n <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>starts<span class="p">)</span>
+     chunkATs <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">(</span>n<span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>n<span class="p">)</span> <span class="p">{</span>
+        chunk <span class="o">&lt;-</span> inputseq<span class="p">[</span>starts<span class="p">[</span>i<span class="p">]</span><span class="o">:</span><span class="p">(</span>starts<span class="p">[</span>i<span class="p">]</span><span class="o">+</span>windowsize<span class="m">-1</span><span class="p">)]</span>
+        chunkAT <span class="o">&lt;-</span> AT<span class="p">(</span>chunk<span class="p">)</span>
+        chunkATs<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> chunkAT
+     <span class="p">}</span>
+     plot<span class="p">(</span>starts<span class="p">,</span>chunkATs<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;Nucleotide start position&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;AT content&quot;</span><span class="p">)</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>We can then use this function to make a sliding window plot with a window size of 20000 nucleotides:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplotAT<span class="p">(</span><span class="m">20000</span><span class="p">,</span> lepraeseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image5" src="../_images/A2_image5.png" /></p>
+<p>This is the mirror image of the plot of GC content (because AT equals 1 minus GC):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> slidingwindowplot<span class="p">(</span><span class="m">20000</span><span class="p">,</span> lepraeseq<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image6" src="../_images/A2_image6.png" /></p>
+</div>
+<div class="section" id="id7">
+<h3>Q5.<a class="headerlink" href="chapter_answers.html#id7" title="Permalink to this headline">¶</a></h3>
+<p><em>Is the 3-nucleotide word GAC GC over-represented or under-represented in the Mycobacterium leprae TN genome sequence?</em></p>
+<p>We can get the number of counts of each of the 3-nucleotide words by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> count<span class="p">(</span>lepraeseq<span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+   aaa   aac   aag   aat   aca   acc   acg   act   aga   agc   agg   agt   ata   atc   atg
+ <span class="m">32093</span> <span class="m">48714</span> <span class="m">36319</span> <span class="m">32592</span> <span class="m">44777</span> <span class="m">67449</span> <span class="m">57326</span> <span class="m">37409</span> <span class="m">31957</span> <span class="m">62473</span> <span class="m">38946</span> <span class="m">37470</span> <span class="m">25030</span> <span class="m">57245</span> <span class="m">44268</span>
+   att   caa   cac   cag   cat   cca   ccc   ccg   cct   cga   cgc   cgg   cgt   cta   ctc
+ <span class="m">32973</span> <span class="m">52381</span> <span class="m">64102</span> <span class="m">64345</span> <span class="m">43838</span> <span class="m">64869</span> <span class="m">46037</span> <span class="m">87560</span> <span class="m">38504</span> <span class="m">78120</span> <span class="m">82057</span> <span class="m">89358</span> <span class="m">57451</span> <span class="m">29004</span> <span class="m">39954</span>
+   ctg   ctt   gaa   gac   gag   gat   gca   gcc   gcg   gct   gga   ggc   ggg   ggt   gta
+ <span class="m">64730</span> <span class="m">36401</span> <span class="m">43486</span> <span class="m">61174</span> <span class="m">40728</span> <span class="m">58009</span> <span class="m">66775</span> <span class="m">80319</span> <span class="m">83415</span> <span class="m">62752</span> <span class="m">44002</span> <span class="m">81461</span> <span class="m">47651</span> <span class="m">69957</span> <span class="m">33139</span>
+   gtc   gtg   gtt   taa   tac   tag   tat   tca   tcc   tcg   tct   tga   tgc   tgg   tgt
+ <span class="m">60958</span> <span class="m">65955</span> <span class="m">50421</span> <span class="m">21758</span> <span class="m">32971</span> <span class="m">29454</span> <span class="m">25076</span> <span class="m">48245</span> <span class="m">43166</span> <span class="m">78685</span> <span class="m">31424</span> <span class="m">49318</span> <span class="m">67270</span> <span class="m">67116</span> <span class="m">45595</span>
+   tta   ttc   ttg   ttt
+ <span class="m">22086</span> <span class="m">43363</span> <span class="m">54346</span> <span class="m">32374</span>
+</pre></div>
+</div>
+<p>There are 61,174 GACs in the sequence.</p>
+<p>The total number of 3-nucleotide words is calculated by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">sum</span><span class="p">(</span>count<span class="p">(</span>lepraeseq<span class="p">,</span><span class="m">3</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3268201</span>
+</pre></div>
+</div>
+<p>Therefore, the observed frequency of GAC is 61174/3268201 = 0.01871794.</p>
+<p>To calculate the expected frequency of GAC, first we need to get the number of counts of 1-nucleotide words by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> count<span class="p">(</span>lepraeseq<span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+    a      <span class="kt">c</span>      g      <span class="kp">t</span>
+ <span class="m">687041</span> <span class="m">938713</span> <span class="m">950202</span> <span class="m">692247</span>
+</pre></div>
+</div>
+<p>The sequence length is 3268203 bp.
+The frequency of G is 950202/3268203 = 0.2907414.
+The frequency of A is 687041/3268203 = 0.2102198.
+The frequency of C is 938713/3268203 = 0.2872260.
+The expected frequency of GAC is therefore 0.2907414*0.2102198*0.2872260 = 0.01755514.</p>
+<p>The value of Rho is therefore the observed frequency/expected frequency = 0.01871794/0.01755514 = 1.066237.
+That, is there are about 1.1 times as many GACs as expected. This means that GAC is slightly over-represented in this sequence.
+The difference from 1 is so little however that it might not be statistically significant.</p>
+<p>We can search for a function to calculate rho by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> help.search<span class="p">(</span><span class="s">&quot;rho&quot;</span><span class="p">)</span>
+  base<span class="o">::</span>getHook                          Functions to Get and Set Hooks <span class="kr">for</span> Load<span class="p">,</span> Attach<span class="p">,</span> Detach and Unload
+  seqinr<span class="o">::</span>rho                            Statistical over<span class="o">-</span> and under<span class="o">-</span> representation of dinucleotides <span class="kr">in</span> a <span class="kp">sequence</span>
+  stats<span class="o">::</span>cor.test                        Test <span class="kr">for</span> Association<span class="o">/</span>Correlation Between Paired Samples
+  survival<span class="o">::</span>pbc                          Mayo Clinic Primary Biliary Cirrhosis Dat
+</pre></div>
+</div>
+<p>There is a function rho in the SeqinR package. For example, we can use it to calculate Rho for
+words of length 3 in the <em>M. leprae</em> genome by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> rho<span class="p">(</span>lepraeseq<span class="p">,</span> wordsize<span class="o">=</span><span class="m">3</span><span class="p">)</span>
+       aaa       aac       aag       aat       aca       acc       acg       act       aga
+  <span class="m">1.0570138</span> <span class="m">1.1742862</span> <span class="m">0.8649101</span> <span class="m">1.0653761</span> <span class="m">1.0793820</span> <span class="m">1.1899960</span> <span class="m">0.9991680</span> <span class="m">0.8949893</span> <span class="m">0.7610323</span>
+       agc       agg       agt       ata       atc       atg       att       caa       cac
+  <span class="m">1.0888781</span> <span class="m">0.6706048</span> <span class="m">0.8856096</span> <span class="m">0.8181874</span> <span class="m">1.3695545</span> <span class="m">1.0462815</span> <span class="m">1.0697245</span> <span class="m">1.2626819</span> <span class="m">1.1309452</span>
+       cag       cat       cca       ccc       ccg       cct       cga       cgc       cgg
+  <span class="m">1.1215062</span> <span class="m">1.0487995</span> <span class="m">1.1444773</span> <span class="m">0.5944657</span> <span class="m">1.1169725</span> <span class="m">0.6742135</span> <span class="m">1.3615987</span> <span class="m">1.0467726</span> <span class="m">1.1261261</span>
+       cgt       cta       ctc       ctg       ctt       gaa       gac       gag       gat
+  <span class="m">0.9938162</span> <span class="m">0.6939044</span> <span class="m">0.6996033</span> <span class="m">1.1197319</span> <span class="m">0.8643241</span> <span class="m">1.0355868</span> <span class="m">1.0662370</span> <span class="m">0.7012887</span> <span class="m">1.3710523</span>
+       gca       gcc       gcg       gct       gga       ggc       ggg       ggt       gta
+  <span class="m">1.1638601</span> <span class="m">1.0246015</span> <span class="m">1.0512300</span> <span class="m">1.0855155</span> <span class="m">0.7576632</span> <span class="m">1.0266049</span> <span class="m">0.5932565</span> <span class="m">1.1955191</span> <span class="m">0.7832457</span>
+       gtc       gtg       gtt       taa       tac       tag       tat       tca       tcc
+  <span class="m">1.0544820</span> <span class="m">1.1271276</span> <span class="m">1.1827465</span> <span class="m">0.7112314</span> <span class="m">0.7888126</span> <span class="m">0.6961501</span> <span class="m">0.8135266</span> <span class="m">1.1542345</span> <span class="m">0.7558461</span>
+       tcg       tct       tga       tgc       tgg       tgt       tta       ttc       ttg
+  <span class="m">1.3611325</span> <span class="m">0.7461477</span> <span class="m">1.1656391</span> <span class="m">1.1636701</span> <span class="m">1.1469683</span> <span class="m">1.0695410</span> <span class="m">0.7165237</span> <span class="m">1.0296334</span> <span class="m">1.2748168</span>
+       ttt
+  <span class="m">1.0423929</span>
+</pre></div>
+</div>
+<p>The Rho value for GAC is given as 1.0662370, in agreement with our calculation above.</p>
+</div>
+</div>
+<div class="section" id="sequence-databases">
+<h2>Sequence Databases<a class="headerlink" href="chapter_answers.html#sequence-databases" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Q1.<a class="headerlink" href="chapter_answers.html#id8" title="Permalink to this headline">¶</a></h3>
+<p><em>What information about the rabies virus sequence (NCBI accession NC_001542) can you obtain from its annotations in the NCBI Sequence Database?</em></p>
+<p>To do this, you need to go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a> website
+and type the rabies virus genome sequence accession (NC_001542) in the search box, and press &#8216;Search&#8217;.</p>
+<p>On the search results page, you should see &#8216;1&#8217; beside the word &#8216;Nucleotide&#8217;, meaning that there was one hit to a sequence record in the NCBI Nucleotide database, which contains DNA and RNA sequences. If you click on the word &#8216;Nucleotide&#8217;, it will bring you to the sequence record, which should be the NCBI sequence record for the rabies virus&#8217; genome (ie. for accession NC_001542):</p>
+<p><img alt="image7" src="../_images/P3_image7.png" /></p>
+<p>On the webpage (above), you can see the DEFINITION, ORGANISM and REFERENCE fields of the NCBI record:</p>
+<p>DEFINITION: Rabies virus, complete genome.</p>
+<p>ORGANISM: Rabies virus</p>
+<p>REFERENCE: There are several papers (the first is):
+AUTHORS: Tordo,N., Poch,O., Ermine,A., Keith,G. and Rougeon,F.</p>
+<p>TITLE: Completion of the rabies virus genome sequence determination: highly conserved domains among the L (polymerase) proteins of unsegmented negative-strand RNA viruses</p>
+<p>JOURNAL: Virology 165 (2), 565-576 (1988)</p>
+<p>There are also some other references, for papers published about the rabies virus genome sequence.</p>
+<p>An alternative way of retrieving the annotations for the rabies virus sequence is to use the SeqinR R package.
+As the rabies virus is a virus, its genome sequence should be in the &#8220;refseqViruses&#8221; ACNUC sub-database.
+Therefore, we can perform the following query to retrieve the annotations for the rabies virus
+genome sequence (accession NC_001542):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                                 <span class="c1"># load the SeqinR R package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;refseqViruses&quot;</span><span class="p">)</span>                       <span class="c1"># select the ACNUC sub-database to be searched</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;rabies&quot;</span><span class="p">,</span> <span class="s">&quot;AC=NC_001542&quot;</span><span class="p">)</span>                   <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> annots <span class="o">&lt;-</span> getAnnot<span class="p">(</span>rabies<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>               <span class="c1"># retrieve the annotations</span>
+<span class="o">&gt;</span> annots<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span>                                      <span class="c1"># print out the first 20 lines of the annotations</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LOCUS       NC_001542              11932 bp ss-RNA     linear   VRL 08-DEC-2008&quot;</span>
+  <span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="s">&quot;DEFINITION  Rabies virus, complete genome.&quot;</span>
+  <span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="s">&quot;ACCESSION   NC_001542&quot;</span>
+  <span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s">&quot;VERSION     NC_001542.1  GI:9627197&quot;</span>
+  <span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="s">&quot;DBLINK      Project: 15144&quot;</span>
+  <span class="p">[</span><span class="m">6</span><span class="p">]</span> <span class="s">&quot;KEYWORDS    .&quot;</span>
+  <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s">&quot;SOURCE      Rabies virus&quot;</span>
+  <span class="p">[</span><span class="m">8</span><span class="p">]</span> <span class="s">&quot;  ORGANISM  Rabies virus&quot;</span>
+  <span class="p">[</span><span class="m">9</span><span class="p">]</span> <span class="s">&quot;            Viruses; ssRNA negative-strand viruses; Mononegavirales;&quot;</span>
+  <span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="s">&quot;            Rhabdoviridae; Lyssavirus.&quot;</span>
+  <span class="p">[</span><span class="m">11</span><span class="p">]</span> <span class="s">&quot;REFERENCE   1  (bases 5388 to 11932)&quot;</span>
+  <span class="p">[</span><span class="m">12</span><span class="p">]</span> <span class="s">&quot;  AUTHORS   Tordo,N., Poch,O., Ermine,A., Keith,G. and Rougeon,F.&quot;</span>
+  <span class="p">[</span><span class="m">13</span><span class="p">]</span> <span class="s">&quot;  TITLE     Completion of the rabies virus genome sequence determination:&quot;</span>
+  <span class="p">[</span><span class="m">14</span><span class="p">]</span> <span class="s">&quot;            highly conserved domains among the L (polymerase) proteins of&quot;</span>
+  <span class="p">[</span><span class="m">15</span><span class="p">]</span> <span class="s">&quot;            unsegmented negative-strand RNA viruses&quot;</span>
+  <span class="p">[</span><span class="m">16</span><span class="p">]</span> <span class="s">&quot;  JOURNAL   Virology 165 (2), 565-576 (1988)&quot;</span>
+  <span class="p">[</span><span class="m">17</span><span class="p">]</span> <span class="s">&quot;   PUBMED   3407152&quot;</span>
+  <span class="p">[</span><span class="m">18</span><span class="p">]</span> <span class="s">&quot;REFERENCE   2  (bases 1 to 5500)&quot;</span>
+  <span class="p">[</span><span class="m">19</span><span class="p">]</span> <span class="s">&quot;  AUTHORS   Tordo,N., Poch,O., Ermine,A., Keith,G. and Rougeon,F.&quot;</span>
+  <span class="p">[</span><span class="m">20</span><span class="p">]</span> <span class="s">&quot;  TITLE     Walking along the rabies genome: is the large G-L intergenic region&quot;</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>Q2.<a class="headerlink" href="chapter_answers.html#id9" title="Permalink to this headline">¶</a></h3>
+<p><em>How many nucleotide sequences are there from the bacterium Chlamydia trachomatis in the NCBI Sequence Database?</em></p>
+<p>To answer this, you need to go to <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a>
+and select &#8220;Nucleotide&#8221; from the drop-down list at the top
+of the webpage, as you want to search for nucleotide (DNA or RNA) sequences.</p>
+<p>Then in the search box, type &#8220;Chlamydia trachomatis&#8221;[ORGN] and press &#8216;Search&#8217;:</p>
+<p><a class="reference internal" href="../_images/P3_image8.png"><img alt="image8" src="../_images/P3_image8.png" style="width: 600px;" /></a></p>
+<p>Here [ORGN] specifies the organism you are interested in, that is, the species name in Latin.</p>
+<p>The results page should give you a list of the hits to sequence records in the NCBI Nucleotide database:</p>
+<p><a class="reference internal" href="../_images/P3_image9.png"><img alt="image9" src="../_images/P3_image9.png" style="width: 700px;" /></a></p>
+<p>It will say &#8220;Found 35577 nucleotide sequences.   Nucleotide (35429)   GSS (148)&#8221;.
+This means that 35,577 sequences were found, of which 35429 are DNA or RNA sequences, and
+148 are DNA sequences from the Genome Sequence Surveys (GSS), that is, from
+genome sequencing projects [as of 15-Jun-2011]. Note that there are new sequences
+being added to the database continuously, so if you check this again in a couple of months, you will
+probably find a higher number of sequences (eg. 36,000 sequences).</p>
+<p>Note: if you just go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a> database,
+and search for &#8220;Chlamydia trachomatis&#8221;[ORGN]
+(without choosing &#8220;Nucleotide&#8221; from the drop-down list), you will see 35429 hits to the Nucleotide
+database and 148 to the GSS (Genome Sequence Survey) database:</p>
+<p><a class="reference internal" href="../_images/P3_image10.png"><img alt="image10" src="../_images/P3_image10.png" style="width: 700px;" /></a></p>
+<p>Note also that if you search for &#8220;Chlamydia trachomatis&#8221;, without using [ORGN] to specify the organism,
+you will get 56032 hits to the Nucleotide database and 149 to the GSS database, but some of these might
+not be <em>Chlamydia trachomatis</em> sequences - some could be sequences from other species for which the NCBI sequence
+record contains the phrase &#8220;Chlamydia trachomatis&#8221; somewhere.</p>
+<p>An alternative way to search for nucleotide sequences from the bacterium <em>Chlamydia trachomatis</em> is to
+use the SeqinR package. We want to find nucleotide sequences, so the correct ACNUC sub-database to search
+is the &#8220;genbank&#8221; sub-database. Thus, we can carry out our search by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                                 <span class="c1"># load the SeqinR R package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;genbank&quot;</span><span class="p">)</span>                             <span class="c1"># select the ACNUC sub-database to be searched</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;Ctrachomatis&quot;</span><span class="p">,</span> <span class="s">&quot;SP=Chlamydia trachomatis&quot;</span><span class="p">)</span> <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> Ctrachomatis<span class="o">$</span>nelem                                <span class="c1"># print out the number of matching sequences</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">35471</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+</pre></div>
+</div>
+<p>We find 35,471 nucleotide sequences from <em>Chlamydia trachomatis</em>. We do not get exactly the same number
+of sequences as we got when we searched via the NCBI website (35,577 sequences), but the numbers are very close.
+The likely reasons for the differences could be that the ACNUC &#8220;genbank&#8221; sub-database excludes some sequences from
+whole genome sequencing projects from the NCBI Nucleotide database, and in addition, the ACNUC databases
+are updated very regularly, but may be missing a few sequences that were added to the NCBI database
+in the last day or two.</p>
+</div>
+<div class="section" id="id12">
+<h3>Q3.<a class="headerlink" href="chapter_answers.html#id12" title="Permalink to this headline">¶</a></h3>
+<p><em>How many nucleotide sequences are there from the bacterium Chlamydia trachomatis in the RefSeq part of the NCBI Sequence Database?</em></p>
+<p>To answer this, you need to go to <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a>
+and select &#8220;Nucleotide&#8221; from the drop-down list
+at the top of the webpage, as you want to search for nucleotide sequences.</p>
+<p>Then in the search box, type &#8220;Chlamydia trachomatis&#8221;[ORGN] AND srcdb_refseq[PROP] and press &#8216;Search&#8217;:</p>
+<p><a class="reference internal" href="../_images/P3_image11.png"><img alt="image11" src="../_images/P3_image11.png" style="width: 600px;" /></a></p>
+<p>Here [ORGN] specifies the organism, and [PROP] specifies a property of the sequences (in this case that
+they belong to the RefSeq subsection of the NCBI database).</p>
+<p>At the top of the results page, it should say &#8220;Results: 1 to 20 of 29 sequences&#8221;, so there were
+29 matching sequences [as of 15-Jun-2011].
+As for Q2, if you try this again in a couple of months, the number will probably be higher, due to extra
+sequences added to the database.</p>
+<p>Note that the sequences in Q2 are all <em>Chlamydia trachomatis</em> DNA and RNA sequences in the NCBI database.
+The sequences in Q3 gives the <em>Chlamydia trachomatis</em> DNA and RNA sequences in the RefSeq part of the NCBI
+database, which is a subsection of the database for high-quality manually-curated data.</p>
+<p>The number of sequences in RefSeq is much fewer than the total number of <em>C. trachomatis</em> sequences,
+partly because low quality sequences are never added to RefSeq, but also because RefSeq curators have
+probably not had time to add all high-quality sequences to RefSeq (this is a time-consuming process,
+as the curators add additional information to the NCBI Sequence records in RefSeq, such as references to
+papers that discuss a particular sequence).</p>
+<p>An alternative way to search for nucleotide sequences from the bacterium <em>Chlamydia trachomatis</em> in RefSeq
+use the SeqinR package. We want to find RefSeq sequences, so the correct ACNUC sub-database to search
+is the &#8220;refseq&#8221; sub-database. Thus, we can carry out our search by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                                  <span class="c1"># load the SeqinR R package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;refseq&quot;</span><span class="p">)</span>                               <span class="c1"># select the ACNUC sub-database to be searched</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;Ctrachomatis2&quot;</span><span class="p">,</span> <span class="s">&quot;SP=Chlamydia trachomatis&quot;</span><span class="p">)</span> <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> Ctrachomatis2<span class="o">$</span>nelem                                <span class="c1"># print out the number of matching sequences</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+</pre></div>
+</div>
+<p>We find 1 RefSeq sequence from <em>Chlamydia trachomatis</em>. We do not get exactly the same number
+of sequences as we got when we searched via the NCBI website (29 sequences). This is because the
+29 sequences found via the NCBI website include whole genome sequences, but the whole genome sequences
+from bacteria are stored in the ACNUC &#8220;bacterial&#8221; sub-database, and so are not in the ACNUC &#8220;refseq&#8221;
+sub-database.</p>
+</div>
+<div class="section" id="id14">
+<h3>Q4.<a class="headerlink" href="chapter_answers.html#id14" title="Permalink to this headline">¶</a></h3>
+<p><em>How many nucleotide sequences were submitted to NCBI by Matthew Berriman?</em></p>
+<p>To answer this, you need to go to <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a>,
+and select &#8220;Nucleotide&#8221; from the drop-down list,
+as you want to search for nucleotide sequences.</p>
+<p>Then in the search box, type &#8220;Berriman M&#8221;[AU] and press &#8216;Search&#8217;.</p>
+<p>Here [AU] specifies the name of the person who either submitted the sequence to the NCBI database,
+or wrote a paper describing the sequence.</p>
+<p>The results page should look like this:</p>
+<p><a class="reference internal" href="../_images/P3_image12.png"><img alt="image12" src="../_images/P3_image12.png" style="width: 700px;" /></a></p>
+<p>On the top of the results page, it says [as of 15-Jun-2011]: &#8220;Found 487270 nucleotide sequences.   Nucleotide (277546)   EST (121075)   GSS (88649)&#8221;. This means that 487270 DNA/RNA sequences were either submitted to the NCBI database by someone called M. Berriman, or were described in a paper by someone called M. Berriman. Of these, 277546 were DNA/RNA sequences, 121075 were EST sequences (part of mRNAs), and 88649 were DNA sequences from genome sequencing projects (GSS or Genome Sequence Survey sequences).</p>
+<p>Note that unfortunately the NCBI website does not allow us to search for &#8220;Berriman Matthew&#8221;[AU] so we
+cannot be sure that all of these sequences were submitted by Matthew Berriman.</p>
+<p>Note also that the search above will find sequences that were either submitted to the NCBI database
+by M. Berriman, or described in a paper on which M. Berriman was an author. Therefore, not all of the
+sequences found were necessarily submitted by M. Berriman.</p>
+<p>An alternative way to search for nucleotide sequences submitted by M. Berriman is to use the SeqinR
+package. We want to find nucleotide sequences, so the appropriate ACNUC sub-database to search is
+&#8220;genbank&#8221;. Therefore, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                  <span class="c1"># load the SeqinR R package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;genbank&quot;</span><span class="p">)</span>              <span class="c1"># select the ACNUC sub-database to be searched</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;mberriman&quot;</span><span class="p">,</span> <span class="s">&quot;AU=Berriman&quot;</span><span class="p">)</span>  <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> mberriman<span class="o">$</span>nelem                    <span class="c1"># print out the number of matching sequences</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">169701</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+</pre></div>
+</div>
+<p>We find 169,701 matching sequences. This is less than the number found by searching via the NCBI
+website (487,270 sequences). The difference is probably due to the fact that the &#8220;genbank&#8221; ACNUC
+sub-database excludes some sequences from the NCBI Nucleotide database (eg. short sequences from
+genome sequencing projects).</p>
+<p>Note that the &#8220;AU=Berriman&#8221; query will find sequences submitted or published by someone called Berriman.
+We are not able to specify the initial of the first name of this person using the &#8220;query()&#8221; command, so
+we cannot specify that the person is called &#8220;M. Berriman&#8221;.</p>
+</div>
+<div class="section" id="id16">
+<h3>Q5.<a class="headerlink" href="chapter_answers.html#id16" title="Permalink to this headline">¶</a></h3>
+<p><em>How many nucleotide sequences from the nematode worms are there in the RefSeq Database?</em></p>
+<p>To answer this, you need to go to <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a>
+and select &#8220;Nucleotide&#8221; from the drop-down list, as you want to search for nucleotide sequences.</p>
+<p>Then in the search box, type Nematoda[ORGN] AND srcdb_refseq[PROP] and press &#8216;Search&#8217;.</p>
+<p>Here [ORGN] specifies the group of species that you want to search for sequences from.
+In Q3, [ORGN] was used to specify the name of one organism (<em>Chlamydia trachomatis</em>).
+However, you can also use [ORGN] to specify the name of a group of
+organisms, for example, Fungi[ORGN] would search for fungal sequences or Mammalia[ORGN]
+would search for mammalian sequences. The name of the group of species that you want to
+search for must be given in Latin, so to search for sequences
+from nematode worms we use the Latin name Nematoda.</p>
+<p>The search page should say at the top &#8216;Results: 1 to 20 of 145355&#8217; [as of 15-Jun-2011].
+This means that 145,355 DNA or RNA sequences were found from nematode worm species in the RefSeq database.
+These sequences are probably from a wide range of nematode worm species, including the model nematode worm
+<em>Caenorhabditis elegans</em>, as well as parasitic nematode species.</p>
+<p>An alternative way to search for RefSeq nucleotide sequences from nematode worms is to use the SeqinR package.
+We want to find nucleotide sequences that are in RefSeq, so the appropriate ACNUC sub-database to search is
+&#8220;refseq&#8221;. Therefore, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                  <span class="c1"># load the SeqinR R package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;refseq&quot;</span><span class="p">)</span>               <span class="c1"># select the ACNUC sub-database to be searched</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;nematodes&quot;</span><span class="p">,</span> <span class="s">&quot;SP=Nematoda&quot;</span><span class="p">)</span>  <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> nematodes<span class="o">$</span>nelem                    <span class="c1"># print out the number of matching sequences</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">55241</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+</pre></div>
+</div>
+<p>That is, using SeqinR, we find 55,241 DNA or RNA sequences from nematode worms in the RefSeq database.
+This is less than the number of sequences found by searching via the NCBI website (145,355 sequences).
+This is because the &#8220;refseq&#8221; ACNUC sub-database does not contain all of the sequences in the NCBI
+RefSeq database, for various reasons, for example, some of the sequences in the NCBI RefSeq database
+(eg. whole genome sequences) are in other ACNUC sub-databases.</p>
+</div>
+<div class="section" id="id18">
+<h3>Q6.<a class="headerlink" href="chapter_answers.html#id18" title="Permalink to this headline">¶</a></h3>
+<p><em>How many nucleotide sequences for collagen genes from nematode worms are there in the NCBI Database?</em></p>
+<p>To answer this, you need to go to <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a>
+and select &#8220;Nucleotide&#8221; from the drop-down list, as you want to search for nucleotide sequences.</p>
+<p>Then in the search box, type Nematoda[ORGN] AND collagen.</p>
+<p>Here [ORGN] specifies that we want sequences from nematode worms. The phrase &#8220;AND collagen&#8221; means that the word collagen
+must appear somewhere in the NCBI entries for those sequences, for example, in the sequence name, or in a description
+of the sequence, or in the title of a paper describing the sequence, etc.</p>
+<p>On the results page, you should see &#8216;Found 8437 nucleotide sequences.   Nucleotide (1642)   EST (6795)&#8217; [as of 15-Jun-2011].
+This means that 8437 DNA or RNA sequences for collagen genes from nematode worms were found, of which 6795 are EST sequences
+(parts of mRNAs). Note that these 8437 nucleotide sequences may not all necessarily be for collagen genes, as some of the
+NCBI records found may be for other genes but contain the word &#8220;collagen&#8221; somewhere in the NCBI record (for example, in
+the title of a cited paper). However, a good number of them are probably collagen sequences from nematodes.</p>
+<p>An alternative way to search for collagen nucleotide sequences from nematode worms is to use the SeqinR package.
+We want to find nucleotide sequences, so the appropriate ACNUC sub-database to search is &#8220;genbank&#8221;.
+To search for collagen genes, we can specify &#8220;collagen&#8221; as a keyword by using &#8220;K=collagen&#8221; in our query.
+Therefore, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                                <span class="c1"># load the SeqinR R package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;genbank&quot;</span><span class="p">)</span>                            <span class="c1"># select the ACNUC sub-database to be searched</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;collagen&quot;</span><span class="p">,</span> <span class="s">&quot;SP=Nematoda AND K=collagen&quot;</span><span class="p">)</span>  <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> collagen<span class="o">$</span>nelem                                   <span class="c1"># print out the number of matching sequences</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">60</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+</pre></div>
+</div>
+<p>That is, using SeqinR, we find 60 DNA or RNA sequences with the keyword &#8220;collagen&#8221; from nematode worms.
+This is less than the number of sequences found by searching via the NCBI website (8437 sequences).
+This is probably partly because the ACNUC &#8220;genbank&#8221; sub-database excludes some sequences that are in the NCBI
+Nucleotide database (eg. short sequences from genome sequencing projects), but also partly because
+the method used to assign keywords to sequences in ACNUC is quite conservative and relatively few
+sequences seem to be assigned the keyword &#8220;collagen&#8221;. However, presumably most of the sequences tagged
+with the keyword &#8220;collagen&#8221; are collagen genes (while the search via the NCBI website may have picked
+up many non-collagen genes, as explained above).</p>
+</div>
+<div class="section" id="id20">
+<h3>Q7.<a class="headerlink" href="chapter_answers.html#id20" title="Permalink to this headline">¶</a></h3>
+<p><em>How many mRNA sequences for collagen genes from nematode worms are there in the NCBI Database?</em></p>
+<p>To answer this, you need to go to <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a>,
+and select &#8220;Nucleotide&#8221; from the drop-down sequences, as you want to search for nucleotide sequences
+(nucleotide sequences include DNA sequences and RNA sequences, such as mRNAs).</p>
+<p>Then in the search box, type Nematoda[ORGN] AND collagen AND &#8220;biomol mRNA&#8221;[PROP].</p>
+<p>Here [ORGN] specifies the name of the group of species, collagen specifies that we want to find NCBI entries
+that include the word collagen, and [PROP] specifies a property of those sequences (that they are mRNAs, in this case).</p>
+<p>The search page should say &#8216;Found 7751 nucleotide sequences.   Nucleotide (956)   EST (6795)&#8217; [as of 15-Jun-2011].
+This means that 7751 mRNA sequences from nematodes were found that contain the word &#8216;collagen&#8217; in the NCBI record. Of the
+7751, 6795 are EST sequences (parts of mRNAs).</p>
+<p>Note that in Q6 we found 8437 nucleotide (DNA or RNA) sequences from nematode worms. In this question, we found out that
+only 7751 of those sequences are mRNA sequences. This means that the other (8437-7751=) 686 sequences must be DNA sequences,
+or other types of RNA sequences (not mRNAs) such as tRNAs or rRNAs.</p>
+<p>An alternative way to search for collagen mRNA sequences from nematode worms is to use the SeqinR package.
+mRNA sequences are nucleotide sequences, so the appropriate ACNUC sub-database to search is &#8220;genbank&#8221;.
+To search for mRNAs, we can specify &#8220;M=mRNA&#8221; in our query. Therefore, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                                            <span class="c1"># load the SeqinR R package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;genbank&quot;</span><span class="p">)</span>                                        <span class="c1"># select the ACNUC sub-database to be searched</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;collagen2&quot;</span><span class="p">,</span> <span class="s">&quot;SP=Nematoda AND K=collagen AND M=mRNA&quot;</span><span class="p">)</span>  <span class="c1"># specify the query</span>
+<span class="o">&gt;</span> collagen2<span class="o">$</span>nelem                                              <span class="c1"># print out the number of matching sequences</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">14</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+</pre></div>
+</div>
+<p>We find 14 nematode mRNA sequences labelled with the keyword &#8220;collagen&#8221;. Again, we find less sequences than found
+when searching via the NCBI website (7751 sequences), but as in Q6, the search using the keyword &#8220;collagen&#8221; in the
+SeqinR package may be more likely to pick up true collagen sequences (rather than other sequences that just happen
+to contain the word &#8220;collagen&#8221; somewhere in their NCBI entries).</p>
+</div>
+<div class="section" id="q8">
+<h3>Q8.<a class="headerlink" href="chapter_answers.html#q8" title="Permalink to this headline">¶</a></h3>
+<p><em>How many protein sequences for collagen proteins from nematode worms are there in the NCBI database?</em></p>
+<p>To answer this, you need to go to <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a>,
+and select &#8220;Protein&#8221; from the drop-down list, as you want to search for protein sequences.</p>
+<p>Then type in the search box: Nematoda[ORGN] AND collagen and press &#8216;Search&#8217;:</p>
+<p><a class="reference internal" href="../_images/P3_image13.png"><img alt="image13" src="../_images/P3_image13.png" style="width: 600px;" /></a></p>
+<p>On the results page, you should see &#8216;1 to 20 of 1982&#8217;. This means that 1982 protein sequences from nematode
+worms were found that include the word collagen in the NCBI sequence entries [as of 15-Jun-2011].</p>
+<p>As far as I know, there is not an ACNUC sub-database that contains all the protein sequences from the
+NCBI Protein database, and therefore it is not currently possible to carry out the same query using SeqinR.</p>
+</div>
+<div class="section" id="q9">
+<h3>Q9.<a class="headerlink" href="chapter_answers.html#q9" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the accession number for the Trypanosoma cruzi genome in NCBI?</em></p>
+<p>There are two ways that you can answer this.</p>
+<p>The first method is to go to <a class="reference external" href="http://www.ncbi.nlm.nih.gov">www.ncbi.nlm.nih.gov</a>
+and select &#8220;Genome&#8221; from the drop-down list, as you want to search for genome sequences.</p>
+<p>Then type in the search box: &#8220;Trypanosoma cruzi&#8221;[ORGN] and press &#8216;Search&#8217;:</p>
+<p><a class="reference internal" href="../_images/P3_image14.png"><img alt="image14" src="../_images/P3_image14.png" style="width: 600px;" /></a></p>
+<p>This will search the NCBI Genome database, which contains fully sequenced genome sequences.</p>
+<p>The results page says &#8216;All:1&#8217;, and lists just one NCBI record, the genome sequence for <em>Trypanosoma cruzi</em>
+strain CL Brener, which has accession NZ_AAHK00000000:</p>
+<p><a class="reference internal" href="../_images/P3_image15.png"><img alt="image15" src="../_images/P3_image15.png" style="width: 600px;" /></a></p>
+<p>The second method of answering the question is to go directly to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=Genome">NCBI Genomes webpage</a>.</p>
+<p>Click on the &#8216;Eukaryota&#8217; link at the middle the page, as <em>Trypanosoma cruzi</em> is a eukaryotic species.</p>
+<p>This will give you a complete list of all the eukaryotic genomes that have been fully sequenced.</p>
+<p>Go to the &#8216;Edit&#8217; menu of your web browser, and choose &#8216;Find&#8217;, and search for &#8216;Trypanosoma cruzi&#8217;:</p>
+<p><a class="reference internal" href="../_images/P3_image16.png"><img alt="image16" src="../_images/P3_image16.png" style="width: 700px;" /></a></p>
+<p>You should find <em>Trypanosoma cruzi</em> strain CL Brener.
+You will also find that there are several ongoing genome sequencing projects listed for other strains of
+<em>Trypanosoma cruzi</em>: strains JR cl. 4, Sylvio X10/1, Y, and Esmeraldo Esmeraldo cl. 3.</p>
+<p>If you look 7th column of the table, you will see that it says &#8220;Assembly&#8221; for strains CL Brener and Sylvio X10/1,
+meaning that genome assemblies are available for these two strains. Presumably the other strains are still being
+sequenced, and genome assemblies are not yet available.</p>
+<p>The link &#8216;GB&#8217; (in green) at the far right of the webpage gives a link to the NCBI record for the sequence.
+In this case, the link for <em>Trypanosoma cruzi</em> strain CL Brener leads us to the NCBI record for accession
+AAHK01000000. This is actually an accession for the <em>T. cruzi</em> strain CL Brener sequencing project, rather than
+for the genome sequence itself. On the top right of the page, you will see a link &#8220;Genome&#8221;, and if you click
+on it, it will bring you to the NCBI accession NZ_AAHK00000000, the genome sequence for <em>Trypanosoma cruzi</em> strain CL Brener.</p>
+<p>Of the other <em>T. cruzi</em> strains listed, there is only a &#8216;GB&#8217; link for one other strain, Sylvio X10/1.
+If you click on the link for <em>Trypanosoma cruzi</em> strain Sylvio X10/1, it will bring you to the
+NCBI record for accession ADWP01000000, the accession for the <em>T. cruzi</em> strain Sylvio X10/1 sequencing
+project.</p>
+<p>Note that the answer is slightly different for the answer from the first method above, which
+did not find the information on the genome projects for strains JR cl. 4, Sylvio X10/1, Y, and Esmeraldo Esmeraldo cl. 3,
+because the sequencing projects for these species are still ongoing.</p>
+</div>
+<div class="section" id="q10">
+<h3>Q10.<a class="headerlink" href="chapter_answers.html#q10" title="Permalink to this headline">¶</a></h3>
+<p><em>How many fully sequenced nematode worm species are represented in the NCBI Genome database?</em></p>
+<p>To answer this question, you need to go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=Genome">NCBI Genome webpage</a>.</p>
+<p>In the search box at the top of the page, type Nematoda[ORGN] to search for genome sequences from nematode
+worms, using the Latin name for the nematode worms.</p>
+<p>On the results page, you will see &#8216;Items 1 - 20 of 63&#8217;, indicating that 63 genome sequences from nematode worms
+have been found. If you look down the page, you will see however that many of these are mitochondrial genome
+sequences, rather than chromosomal genome sequences.</p>
+<p>If you are just interested in chromosomal genome sequences, you can type &#8216;Nematoda[ORGN] NOT mitochondrion&#8217; in the
+search box, to search for non-mitochondrial sequences. This should give you 16 sequences, which are all chromosomal
+genome sequences for nematode worms, including the species <em>Caenorhabditis elegans</em>, <em>Caenorhabditis remanei</em>,
+<em>Caenorhabditis briggsae</em>, <em>Loa loa</em> (which causes subcutaneous filariasis), and <em>Brugia malayi</em>
+(which causes <a class="reference external" href="http://www.who.int/lymphatic_filariasis/en/">lymphatic filariasis</a>).</p>
+<p>Thus, there are nematode genome sequences from five different
+species that have been fully sequenced (as of 15-Jun-2011). Because nematode worms are multi-chromosomal species,
+there may be several chromosomal sequences for each species.</p>
+<p>Note that when you search the <a class="reference external" href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=Genome">NCBI Genome database</a>, you will
+find the NCBI records for completely sequenced genomes (completely sequenced nematode genomes in this case).</p>
+<p>If you are interested in partially sequenced genomes, that is sequences from genome sequencing projects that are
+still in progress, you can go to the <a class="reference external" href="http://www.ncbi.nlm.nih.gov/genomeprj">NCBI Genome Projects website</a>. If you
+search the NCBI Genome Projects database for Nematoda[ORGN], you will find that genome
+sequencing projects for many other nematode species are ongoing, including for the species <em>Onchocerca volvulus</em>
+(which causes <a class="reference external" href="http://www.who.int/topics/onchocerciasis/en/">onchocerciasis</a>),
+<em>Wuchereria bancrofti</em> (which causes <a class="reference external" href="http://www.who.int/lymphatic_filariasis/en/">lymphatic filariasis</a>), and
+<em>Necator americanus</em> (which causes <a class="reference external" href="http://www.who.int/intestinal_worms/en/">soil-transmitted helminthiasis</a>).</p>
+</div>
+</div>
+<div class="section" id="sequence-alignment">
+<h2>Sequence Alignment<a class="headerlink" href="chapter_answers.html#sequence-alignment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id25">
+<h3>Q1.<a class="headerlink" href="chapter_answers.html#id25" title="Permalink to this headline">¶</a></h3>
+<p><em>Download FASTA-format files of the Brugia malayi Vab-3 protein (UniProt accession A8PZ80) and the Loa loa Vab-3 protein (UniProt accession E1FTG0) sequences from UniProt.</em></p>
+<p>We can use SeqinR to retrieve these sequences by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                           <span class="c1"># load the SeqinR package</span>
+<span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;swissprot&quot;</span><span class="p">)</span>                     <span class="c1"># select the ACNUC sub-database to be searched</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;brugia&quot;</span><span class="p">,</span> <span class="s">&quot;AC=A8PZ80&quot;</span><span class="p">)</span>                <span class="c1"># search for the Brugia sequence</span>
+<span class="o">&gt;</span> brugiaseq <span class="o">&lt;-</span> getSequence<span class="p">(</span>brugia<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>   <span class="c1"># get the Brugia sequence</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;loa&quot;</span><span class="p">,</span> <span class="s">&quot;AC=E1FTG0&quot;</span><span class="p">)</span>                   <span class="c1"># search for the Loa sequence</span>
+<span class="o">&gt;</span> loaseq <span class="o">&lt;-</span> getSequence<span class="p">(</span>loa<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>         <span class="c1"># get the Loa sequence</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>                                 <span class="c1"># close the connection to the ACNUC sub-database</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id26">
+<h3>Q2.<a class="headerlink" href="chapter_answers.html#id26" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the alignment score for the optimal global alignment between the Brugia malayi Vab-3 protein and the Loa loa Vab-3 protein, when you use the BLOSUM50 scoring matrix, a gap opening penalty of -10 and a gap extension penalty of -0.5?</em></p>
+<p>We can use the Biostrings R package to answer this, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;Biostrings&quot;</span><span class="p">)</span>                       <span class="c1"># load the Biostrings package</span>
+<span class="o">&gt;</span> data<span class="p">(</span>BLOSUM50<span class="p">)</span>                              <span class="c1"># load the BLOSUM50 scoring matrix</span>
+<span class="o">&gt;</span> brugiaseqstring <span class="o">&lt;-</span> c2s<span class="p">(</span>brugiaseq<span class="p">)</span>           <span class="c1"># convert the Brugia sequence to a string</span>
+<span class="o">&gt;</span> loaseqstring <span class="o">&lt;-</span> c2s<span class="p">(</span>loaseq<span class="p">)</span>                 <span class="c1"># convert the Loa sequence to a string</span>
+<span class="o">&gt;</span> brugiaseqstring <span class="o">&lt;-</span> <span class="kp">toupper</span><span class="p">(</span>brugiaseqstring<span class="p">)</span> <span class="c1"># convert the Brugia sequence to uppercase</span>
+<span class="o">&gt;</span> loaseqstring <span class="o">&lt;-</span> <span class="kp">toupper</span><span class="p">(</span>loaseqstring<span class="p">)</span>       <span class="c1"># convert the Loa sequence to a string</span>
+<span class="o">&gt;</span> myglobalAlign <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>brugiaseqstring<span class="p">,</span> loaseqstring<span class="p">,</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM50&quot;</span><span class="p">,</span>
+  gapOpening <span class="o">=</span> <span class="m">-9.5</span><span class="p">,</span> gapExtension <span class="o">=</span> <span class="m">-0.5</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span> <span class="c1"># align the two sequences</span>
+<span class="o">&gt;</span> myglobalAlign
+  Global PairwiseAlignedFixedSubject <span class="p">(</span><span class="m">1</span> of <span class="m">1</span><span class="p">)</span>
+  pattern<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> MK<span class="o">--</span>LIVDSGHTGVNQLGGVFVNGRPLPDSTRQKI...IESYKREQPSIFAWEIRDKLLHEKVCSPDTIPSA
+  subject<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> SSSNLFADSGHTGVNQLGGVFVNGRPLPDSTRQKI...IESYKREQPSIFAWEIRDKLLHEKVCSPDTIPSV
+  score<span class="o">:</span> <span class="m">777.5</span>
+</pre></div>
+</div>
+<p>The alignment score is 777.5.</p>
+</div>
+<div class="section" id="id27">
+<h3>Q3.<a class="headerlink" href="chapter_answers.html#id27" title="Permalink to this headline">¶</a></h3>
+<p><em>Use the printPairwiseAlignment() function to view the optimal global alignment between Brugia malayi Vab-3 protein and the Loa loa Vab-3 protein, using the BLOSUM50 scoring matrix, a gap opening penalty of -10 and a gap extension penalty of -0.5.</em></p>
+<p>To do this, first you must copy and paste the printPairwiseAlignment() function into R.</p>
+<p>Then you can use it to view the alignment that you obtained in Q2:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printPairwiseAlignment<span class="p">(</span>myglobalAlign<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MK--LIVDSGHTGVNQLGGVFVNGRPLPDSTRQKIVDLAHQGARPCDISRILQVSNGCVS 58&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;SSSNLFADSGHTGVNQLGGVFVNGRPLPDSTRQKIVDLAHQGARPCDISRILQVSNGCVS 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KILCRYYESGTIRPRAIGGSKPRVATVSVCDKIESYKREQPSIFAWEIRDKLLHEKVCSP 118&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KILCRYYESGTIRPRAIGGSKPRVATVSVCDKIESYKREQPSIFAWEIRDKLLHEKVCSP 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DTIPSA 178&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DTIPSV 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>The two proteins are very similar over their whole lengths, with few gaps and mostly identities (few mismatches).</p>
+</div>
+<div class="section" id="id28">
+<h3>Q4.<a class="headerlink" href="chapter_answers.html#id28" title="Permalink to this headline">¶</a></h3>
+<p><em>What global alignment score do you get for the two Vab-3 proteins, when you use the BLOSUM62 alignment matrix, a gap opening penalty of -10 and a gap extension penalty of -0.5?</em></p>
+<p>Again, we can use the Biostrings R package to answer this, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> data<span class="p">(</span>BLOSUM62<span class="p">)</span>                              <span class="c1"># load the BLOSUM62 scoring matrix</span>
+<span class="o">&gt;</span> myglobalAlign2 <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>brugiaseqstring<span class="p">,</span> loaseqstring<span class="p">,</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM62&quot;</span><span class="p">,</span>
+  gapOpening <span class="o">=</span> <span class="m">-9.5</span><span class="p">,</span> gapExtension <span class="o">=</span> <span class="m">-0.5</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span> <span class="c1"># align the two sequences</span>
+<span class="o">&gt;</span> myglobalAlign2
+  Global PairwiseAlignedFixedSubject <span class="p">(</span><span class="m">1</span> of <span class="m">1</span><span class="p">)</span>
+  pattern<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> MK<span class="o">--</span>LIVDSGHTGVNQLGGVFVNGRPLPDSTRQKI...IESYKREQPSIFAWEIRDKLLHEKVCSPDTIPSA
+  subject<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> SSSNLFADSGHTGVNQLGGVFVNGRPLPDSTRQKI...IESYKREQPSIFAWEIRDKLLHEKVCSPDTIPSV
+  score<span class="o">:</span> <span class="m">593.5</span>
+</pre></div>
+</div>
+<p>The alignment score when BLOSUM62 is used is 593.5, while the score when BLOSUM50 is used is 777.5 (from Q2).</p>
+<p>We can print out the alignment and see if the alignment made using BLOSUM62 is different from that
+when BLOSUM50 is used:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printPairwiseAlignment<span class="p">(</span>myglobalAlign2<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MK--LIVDSGHTGVNQLGGVFVNGRPLPDSTRQKIVDLAHQGARPCDISRILQVSNGCVS 58&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;SSSNLFADSGHTGVNQLGGVFVNGRPLPDSTRQKIVDLAHQGARPCDISRILQVSNGCVS 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KILCRYYESGTIRPRAIGGSKPRVATVSVCDKIESYKREQPSIFAWEIRDKLLHEKVCSP 118&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KILCRYYESGTIRPRAIGGSKPRVATVSVCDKIESYKREQPSIFAWEIRDKLLHEKVCSP 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DTIPSA 178&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DTIPSV 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>The alignment made using BLOSUM62 is actually the same as that made using BLOSUM50, so it doesn&#8217;t
+matter which scoring matrix we use in this case.</p>
+</div>
+<div class="section" id="id29">
+<h3>Q5.<a class="headerlink" href="chapter_answers.html#id29" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the statistical significance of the optimal global alignment for the Brugia malayi and Loa loa Vab-3 proteins made using the BLOSUM50 scoring matrix, with a gap opening penalty of -10 and a gap extension penalty of -0.5?</em></p>
+<p>To answer this, we can first make 1000 random sequences using a multinomial model in which the probabilities
+of the 20 amino acids are set equal to their frequencies in the <em>Brugia malayi</em> Vab-3 protein.</p>
+<p>First you need to first copy and paste the generateSeqsWithMultinomialModel() function into R,
+and then you can use it as follows:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> randomseqs <span class="o">&lt;-</span> generateSeqsWithMultinomialModel<span class="p">(</span>brugiaseqstring<span class="p">,</span><span class="m">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This makes a vector <em>randomseqs</em>, containing 1000 random sequences, each of
+the same length as the <em>Brugia malayi</em> Vab-3 protein.</p>
+<p>We can then align each of the 1000 random sequences to the <em>Loa loa</em> Vab-3 protein, and store
+the scores for each of the 1000 alignments in a vector <em>randomscores</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> randomscores <span class="o">&lt;-</span> <span class="kt">double</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="c1"># Create a numeric vector with 1000 elements</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">)</span>
+  <span class="p">{</span>
+     score <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>loaseqstring<span class="p">,</span> randomseqs<span class="p">[</span>i<span class="p">],</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM50&quot;</span><span class="p">,</span>
+       gapOpening <span class="o">=</span> <span class="m">-9.5</span><span class="p">,</span> gapExtension <span class="o">=</span> <span class="m">-0.5</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+     randomscores<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> score
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>The score for aligning the <em>Brugia malayi</em> and <em>Loa loa</em> Vab-3 proteins using BLOSUM50 with a
+gap opening penalty of -10 and gap extension penalty of -0.5 was 777.5 (from Q2).</p>
+<p>We can see what fraction of the 1000 alignments between the random sequences (of the same
+composition as <em>Brugia malayi</em> Vab-3) and <em>Loa loa</em> Vab-3 had scores equal to or higher than 777.5:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">sum</span><span class="p">(</span>randomscores <span class="o">&gt;=</span> <span class="m">777.5</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0</span>
+</pre></div>
+</div>
+<p>We see that none of the 1000 alignments had scores equal to or higher than 777.5.</p>
+<p>Thus, the <em>p</em>-value for the alignment of <em>Brugia malayi</em> and <em>Loa loa</em> Vab-3 proteins is 0, and
+we can therefore conclude that the alignment score is statistically significant (as it is less than 0.05).
+Therefore, it is very likely that the <em>Brugia malayi</em> Vab-3 and <em>Loa loa</em> Vab-3 proteins are
+homologous (related).</p>
+</div>
+<div class="section" id="id30">
+<h3>Q6.<a class="headerlink" href="chapter_answers.html#id30" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the optimal global alignment score between the Brugia malayi Vab-6 protein and the Mycobacterium leprae chorismate lyase protein?</em></p>
+<p>To calculate the optimal global alignment score, we must first retrieve the <em>M. leprae</em>
+chorismate lyase sequence:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> choosebank<span class="p">(</span><span class="s">&quot;swissprot&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> query<span class="p">(</span><span class="s">&quot;leprae&quot;</span><span class="p">,</span> <span class="s">&quot;AC=Q9CD83&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> lepraeseq <span class="o">&lt;-</span> getSequence<span class="p">(</span>leprae<span class="o">$</span>req<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+<span class="o">&gt;</span> closebank<span class="p">()</span>
+<span class="o">&gt;</span> lepraeseqstring <span class="o">&lt;-</span> c2s<span class="p">(</span>lepraeseq<span class="p">)</span>
+<span class="o">&gt;</span> lepraeseqstring <span class="o">&lt;-</span> <span class="kp">toupper</span><span class="p">(</span>lepraeseqstring<span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then align the <em>Brugia malayi</em> Vab-3 protein sequence to the <em>M. leprae</em> chorismate
+lyase sequence:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myglobalAlign3 <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>brugiaseqstring<span class="p">,</span> lepraeseqstring<span class="p">,</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM50&quot;</span><span class="p">,</span>
+  gapOpening <span class="o">=</span> <span class="m">-9.5</span><span class="p">,</span> gapExtension <span class="o">=</span> <span class="m">-0.5</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span> <span class="c1"># align the two sequences</span>
+<span class="o">&gt;</span> myglobalAlign3
+  Global PairwiseAlignedFixedSubject <span class="p">(</span><span class="m">1</span> of <span class="m">1</span><span class="p">)</span>
+  pattern<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> M<span class="o">-----------------</span>KLIVDSGHTGVNQLGGV...<span class="o">------</span>INYAKQNNNLL<span class="o">----</span>DRFILP<span class="o">---</span>FSKL
+  subject<span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> MTNRTLSREEIRKLDRDLRILVATNGT<span class="o">-</span>LTRVLNV...DTPREELDRCQYSNDIDTRSGDRFVLHGRVFKNL
+  score<span class="o">:</span> <span class="m">67.5</span>
+</pre></div>
+</div>
+<p>The alignment score is 67.5.</p>
+<p>We can print out the alignment as follows:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printPairwiseAlignment<span class="p">(</span>myglobalAlign3<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;M-----------------KLIVDSGHTGVNQLGGVFVNGRPLPDSTRQKIVDLAHQGARP 43&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MTNRTLSREEIRKLDRDLRILVATNGT-LTRVLNVVANEEIVVDIINQQLLDVA-----P 54&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;-------CDISRILQ---VSNGCVSKILCRYYESGTI---RPRAIGG-----SKPRVATV 85&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;KIPELENLKIGRILQRDILLKGQKSGILFVAAESLIVIDLLPTAITTYLTKTHHP-IGEI 113&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;SVCDKIESYKREQ-------PSIFA----WEIRDKLLHEKVCSPDTIPSAVV-------- 126&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MAASRIETYKEDAQVWIGDLPCWLADYGYWDL---------------PKRAVGRRYRIIA 158&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;--EAIIV-----------------INYAKQNNNLL----DRFILP---FSKL 160&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;GGQPVIITTEYFLRSVFQDTPREELDRCQYSNDIDTRSGDRFVLHGRVFKNL 218&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>The alignment does not look very good, it contains many gaps and mismatches and few matches.</p>
+<p>In Q5, we made a vector <em>randomseqs</em> that contains 1000 random sequences generated using a multinomial
+model in which the probabilities of the 20 amino acids are set equal to their frequencies in
+the <em>Brugia malayi</em> Vab-3 protein.</p>
+<p>To calculate a statistical significance for the alignment between <em>Brugia malayi</em> Vab-3 and
+<em>M. leprae</em> chorismate lyase, we can calculate the alignment scores for the 1000 random sequences
+to <em>M. leprae</em> chorismate lyase:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> randomscores <span class="o">&lt;-</span> <span class="kt">double</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="c1"># Create a numeric vector with 1000 elements</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">)</span>
+  <span class="p">{</span>
+     score <span class="o">&lt;-</span> pairwiseAlignment<span class="p">(</span>lepraeseqstring<span class="p">,</span> randomseqs<span class="p">[</span>i<span class="p">],</span> substitutionMatrix <span class="o">=</span> <span class="s">&quot;BLOSUM50&quot;</span><span class="p">,</span>
+       gapOpening <span class="o">=</span> <span class="m">-9.5</span><span class="p">,</span> gapExtension <span class="o">=</span> <span class="m">-0.5</span><span class="p">,</span> scoreOnly <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+     randomscores<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> score
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>We can then see how many of the 1000 alignment score exceed the actual alignment score for
+<em>B. malayi</em> Vab-3 and <em>M. leprae</em> chorismate lyase (67.5):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">sum</span><span class="p">(</span>randomscores <span class="o">&gt;=</span> <span class="m">67.5</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">22</span>
+</pre></div>
+</div>
+<p>We see that 22 of the 1000 scores for the 1000 random sequences to <em>M. leprae</em> chorismate lyase
+are higher than the actual alignment score of 67.5. Therefore the <em>P-value</em> for the alignment score
+is 22/1000 = 0.022. This is just under 0.05, and so is quite near to the general cutoff for statistical
+significance (0.05). However, in fact it is close enough to 0.05 that we should have some doubt
+about whether the alignment is statistically significant.</p>
+<p>In fact, the <em>B. malayi</em> Vab-3 and <em>M. leprae</em> chorismate lyase proteins are not known to be
+homologous (related), and so it is likely that the relatively high alignment score (67.5) is
+just due to chance alone.</p>
+</div>
+</div>
+<div class="section" id="multiple-alignment-and-phylogenetic-trees">
+<h2>Multiple Alignment and Phylogenetic Trees<a class="headerlink" href="chapter_answers.html#multiple-alignment-and-phylogenetic-trees" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id31">
+<h3>Q1.<a class="headerlink" href="chapter_answers.html#id31" title="Permalink to this headline">¶</a></h3>
+<p><em>Calculate the genetic distances between the following NS1 proteins from different Dengue virus strains: Dengue virus 1 NS1 protein (Uniprot Q9YRR4), Dengue virus 2 NS1 protein (UniProt Q9YP96), Dengue virus 3 NS1 protein (UniProt B0LSS3), and Dengue virus 4 NS1 protein (UniProt Q6TFL5). Which are the most closely related proteins, and which are the least closely related, based on the genetic distances?</em></p>
+<p>To retrieve the sequences of the four proteins, we can use the retrieveseqs() function in R, to retrieve
+the sequences from the &#8220;swissprot&#8221; ACNUC sub-database:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;seqinr&quot;</span><span class="p">)</span>                                      <span class="c1"># Load the SeqinR package</span>
+<span class="o">&gt;</span> seqnames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Q9YRR4&quot;</span><span class="p">,</span> <span class="s">&quot;Q9YP96&quot;</span><span class="p">,</span> <span class="s">&quot;B0LSS3&quot;</span><span class="p">,</span> <span class="s">&quot;Q6TFL5&quot;</span><span class="p">)</span>  <span class="c1"># Make a vector containing the names of the sequences</span>
+<span class="o">&gt;</span> seqs <span class="o">&lt;-</span> retrieveseqs<span class="p">(</span>seqnames<span class="p">,</span><span class="s">&quot;swissprot&quot;</span><span class="p">)</span>             <span class="c1"># Retrieve the sequences and store them in list variable &quot;seqs&quot;</span>
+</pre></div>
+</div>
+<p>We then can write out the sequences to a FASTA-format file called &#8220;NS1.fasta&#8221;, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> write.fasta<span class="p">(</span>seqs<span class="p">,</span> seqnames<span class="p">,</span> file<span class="o">=</span><span class="s">&quot;NS1.fasta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then use the CLUSTAL software to make a multiple alignment of the protein sequences
+in NS1.fasta, and store it in a PHYLIP-format alignment file called &#8220;NS1.phy&#8221;,
+as <a class="reference external" href="chapter5.html#creating-a-multiple-alignment-of-protein-dna-or-mrna-sequences-using-clustal">described in the chapter</a>.</p>
+<p>The next step is to read the PHYLIP-format alignment into R, and calculate the genetic distances
+between the protein sequences, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> NS1aln  <span class="o">&lt;-</span> read.alignment<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;NS1.phy&quot;</span><span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;phylip&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> NS1dist <span class="o">&lt;-</span> dist.alignment<span class="p">(</span>NS1aln<span class="p">)</span>
+<span class="o">&gt;</span> NS1dist
+                Q9YRR4     Q9YP96     B0LSS3
+  Q9YP96      <span class="m">0.2544567</span>
+  B0LSS3      <span class="m">0.2302831</span>  <span class="m">0.2268713</span>
+  Q6TFL5      <span class="m">0.3058189</span>  <span class="m">0.3328595</span>  <span class="m">0.2970443</span>
+</pre></div>
+</div>
+<p>We see that the two sequences with the greatest genetic distance are Q6TFL5 (Dengue virus 4 NS1) and Q9YP96 (Dengue virus 2 NS1), which
+have a genetic distance of about 0.33. The two sequences with the smallest genetic distance are
+Q9YRR4 (Dengue virus 1 NS1) and B0LSS3 (Dengue virus 3 NS1), which have a genetic distance of about 0.23.</p>
+</div>
+<div class="section" id="id32">
+<h3>Q2.<a class="headerlink" href="chapter_answers.html#id32" title="Permalink to this headline">¶</a></h3>
+<p><em>Build an unrooted phylogenetic tree of the NS1 proteins from Dengue virus 1, Dengue virus 2, Dengue virus 3 and Dengue virus 4,
+using the neighbour-joining algorithm. Which are the most closely related proteins, based on the tree? Based on the bootstrap values in the tree, how confident are you of this?</em></p>
+<p>We can build an unrooted phylogenetic tree of the NS1 proteins using the neighbour-joining algorithm by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> NS1alntree <span class="o">&lt;-</span> unrootedNJtree<span class="p">(</span>NS1aln<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;protein&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../_images/P3_image17.png"><img alt="image17" src="../_images/P3_image17.png" style="width: 500px;" /></a></p>
+<p>We see in the tree that Q6TFL5 (Dengue virus 4 NS1) and Q9YRR4 (Dengue virus 1 NS1) are grouped together, with
+a bootstrap value of 100%, which is a high bootstrap value, so we are reasonably confident of this grouping.</p>
+<p>The other two proteins, B0LSS3 (Dengue virus 3 NS1) and Q9YP96 (Dengue virus 2 NS1) are grouped together, but
+the bootstrap value for the node representing the ancestor of this clade is just 19%.</p>
+<p>One thing that is surprising is that Q6TFL5 and Q9YRR4 were not the two closest proteins when we calculated
+the genetic distance (in Q1), and we should bear this in mind, as it should make us a little bit cautious in
+trusting this phylogenetic tree.</p>
+</div>
+<div class="section" id="id33">
+<h3>Q3.<a class="headerlink" href="chapter_answers.html#id33" title="Permalink to this headline">¶</a></h3>
+<p><em>Build an unrooted phylogenetic tree of the NS1 proteins from Dengue viruses 1-4, based on a filtered alignment of the four proteins (keeping alignment columns in which at least 30% of letters are not gaps, and in which at least 30% of pairs of letters are identical). Does this differ from the tree based on the unfiltered alignment (in Q2)? Can you explain why?</em></p>
+<p>To filter the alignment of the NS1 proteins, we can use the &#8220;cleanAlignment()&#8221; function:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> cleanedNS1aln <span class="o">&lt;-</span> cleanAlignment<span class="p">(</span>NS1aln<span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then build an unrooted tree based on the filtered alignment:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> cleanedNS1alntree <span class="o">&lt;-</span> unrootedNJtree<span class="p">(</span>cleanedNS1aln<span class="p">,</span>type<span class="o">=</span><span class="s">&quot;protein&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../_images/P3_image18.png"><img alt="image18" src="../_images/P3_image18.png" style="width: 500px;" /></a></p>
+<p>We find that B0LSS3 (Dengue virus 3 NS1) and Q9YRR4 (Dengue virus 1 NS1) are grouped together with bootstrap of 100%.
+This disagrees with what we found in the phylogenetic tree based on the unfiltered alignment (in Q2), in which
+B0LSS3 was grouped with Q9YP96. However, it agrees with what we found when we calculated the genetic distance matrix
+(in Q1), which suggested that B0LSS3 is most closely related to Q9YRR4.</p>
+<p>Why do the filtered and unfiltered alignments disagree? To find out, it is a good idea to print out both
+alignments:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printMultipleAlignment<span class="p">(</span>NS1aln<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DSGCVVSWKNKELKCGSGIFITDNVHTWTEQYKFQPESPSKLASAIQKAQEEGICGIRSV 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DMGCVVSWNGKELKCGSGIFVIDNVHTRTEQYKFQPESPARLASAILNAHKDGVCGVRST 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TRLENLMWKQITPELNHILSENEVKLTIMTGDIKGIMQAGKRSLRPQPTELKYSWKAWGK 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TRLENVMWKQITNELNYVLWEGGHDLTVVAGDVKGVLTEGKRALTPPVNDLKYSWKTWGK 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;AKMLSTESHNQTFLIDGPETAECPNTNRAWNSLEVEDYGFGVFTTNIWLKLKEKQDAFCD 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;AKIFTLEARNSTFLIDGPDTSECPNERRAWNFLEVEDYGFGMFTTNIWMKFREGSSEVCD 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;----------------DMGYWIESEKNETWKLARASFIEVKTCIWPKSHTLWSNGVWESE 44&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;SKLMSAAIKDNRAVHADMGYWIESALNDTWKIEKASFIEVKNCHWPKSHTLWSNGVLESE 240&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------ASHADMGYWIESQKNGSWKLEKASLIEVKTCTWPKSHTLWSNGVLESD 48&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;HRLMSAAIKDQKAVHADMGYWIESSKNQTWQIEKASLIEVKTCLWPKTHTLWSNGVLESQ 240&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MIIPKIYGGPISQHNYRPGYFTQTAGPWHLGKLELDFDLCEGTTVVVDEHCGNRGPSLRT 104&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MIIPKNFAGPVSQHNYRPGYHTQIAGPWHLGKLEMDFDFCDGTTVVVTEDCGNRGPSLRT 300&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MIIPKSLAGPISQHNYRPGYHTQTAGPWHLGKLELDFNYCEGTTVVITENCGTRGPSLRT 108&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MLIPRSYAGPFSQHNYRQGYATQTMGPWHLGKLEINFGECPGTTVAIQEDCGHRGPSLRT 300&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TTVTGKIIHEWCCRFCTLPPLRFRGEDGCWYGMEI----------------- 147&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TTASGKLITEWCCRSCTLPPLRYRGEDGCWYGMEIRPLKEKEENLVNSLVTA 360&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TTVSGKLIHEWCCRSCTLPPLRYMGEDG------------------------ 144&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;TTASGKLVTQWCCRSCAMPPLRFLGEDGCWYGMEIRPLSEKEENMVKSQVTA 360&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>We can see that the unfiltered (original) alignment (above) contains a lot of columns with gaps in them.
+This could possibly be adding noise to the phylogenetic analysis.</p>
+<p>Let&#8217;s print out the filtered alignment now:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> printMultipleAlignment<span class="p">(</span>cleanedNS1aln<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DGCVVSWKELKCGSGIFDNVHTTEQYKFQPESPLASAIAGCGRSTRLENMWKQITELNLE 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;DGCVVSWKELKCGSGIFDNVHTTEQYKFQPESPLASAIAGCGRSTRLENMWKQITELNLE 60&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LTGDKGGKRLPLKYSWKWGKAKENTFLIDGPTECPNRAWNLEVEDYGFGFTTNIWKECDL 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;------------------------------------------------------------ 0&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LTGDKGGKRLPLKYSWKWGKAKENTFLIDGPTECPNRAWNLEVEDYGFGFTTNIWKECDL 120&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;-----------DMGYWIESKNTWKLARASFIEVKTCWPKSHTLWSNGVWESMIIPKGGPS 49&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSAAIKDAVHADMGYWIESLNTWKIEKASFIEVKNCWPKSHTLWSNGVLESMIIPKAGPS 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;-------ASHADMGYWIESKNSWKLEKASLIEVKTCWPKSHTLWSNGVLESMIIPKAGPS 53&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;MSAAIKDAVHADMGYWIESKNTWQIEKASLIEVKTCWPKTHTLWSNGVLESMLIPRAGPS 180&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;QHNYRPGYTQTAGPWHLGKLEDFCGTTVVVECGRGPSLRTTTVTGKIIHEWCCRFCTLPP 109&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;QHNYRPGYTQIAGPWHLGKLEDFCGTTVVVECGRGPSLRTTTASGKLITEWCCRSCTLPP 240&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;QHNYRPGYTQTAGPWHLGKLEDFCGTTVVIECGRGPSLRTTTVSGKLIHEWCCRSCTLPP 113&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;QHNYRQGYTQTMGPWHLGKLENFCGTTVAIECGRGPSLRTTTASGKLVTQWCCRSCAMPP 240&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LRFGEDGCWYGMEI------------- 156&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LRYGEDGCWYGMEIRPLEKEENVSVTA 300&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LRYGEDG-------------------- 153&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LRFGEDGCWYGMEIRPLEKEENVSVTA 300&quot;</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>The unfiltered alignment contains far fewer &#8220;gappy&#8221; columns (columns where two
+or more sequences have gaps) compared to the original unfiltered alignment. It is
+likely that the gappy columns in the original unfiltered alignment were adding noise
+to the phylogenetic analysis, and that the phylogenetic tree based on the filtered
+alignment is more reliable in this case.</p>
+<p>Q4.
+<em>Build a rooted phylogenetic tree of the Dengue NS1 proteins based on a filtered alignment, using the Zika virus protein as the outgroup. Which are the most closely related Dengue virus proteins, based on the tree? What extra information does this tree tell you, compared to the unrooted tree in Q2?</em></p>
+<p>First we need to obtain the Zika virus protein (UniProt accession Q32ZE1):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> seqnames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Q9YRR4&quot;</span><span class="p">,</span> <span class="s">&quot;Q9YP96&quot;</span><span class="p">,</span> <span class="s">&quot;B0LSS3&quot;</span><span class="p">,</span> <span class="s">&quot;Q6TFL5&quot;</span><span class="p">,</span> <span class="s">&quot;Q32ZE1&quot;</span><span class="p">)</span>  <span class="c1"># Make a vector containing the names of the sequences</span>
+<span class="o">&gt;</span> seqs <span class="o">&lt;-</span> retrieveseqs<span class="p">(</span>seqnames<span class="p">,</span><span class="s">&quot;swissprot&quot;</span><span class="p">)</span>                       <span class="c1"># Retrieve the sequences and store them in list variable &quot;seqs&quot;</span>
+</pre></div>
+</div>
+<p>We then write out the sequences to a FASTA-format file called &#8220;NS1b.fasta&#8221;:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> write.fasta<span class="p">(</span>seqs<span class="p">,</span> seqnames<span class="p">,</span> file<span class="o">=</span><span class="s">&quot;NS1b.fasta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We then use CLUSTAL to make a PHYLIP-format alignment, and save it as &#8220;NS1b.phy&#8221;.</p>
+<p>We then read the alignment into R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> NS1baln  <span class="o">&lt;-</span> read.alignment<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;NS1b.phy&quot;</span><span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;phylip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We then discard unreliable columns from the alignment:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> cleanedNS1baln <span class="o">&lt;-</span> cleanAlignment<span class="p">(</span>NS1baln<span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We then can build a rooted phylogenetic tree using the Zika virus protein (accession Q32ZE1) as the outgroup, by
+using the rootedNJtree() function:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> cleanedNS1balntree <span class="o">&lt;-</span> rootedNJtree<span class="p">(</span>cleanedNS1baln<span class="p">,</span> <span class="s">&quot;Q32ZE1&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;protein&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../_images/P3_image19.png"><img alt="image19" src="../_images/P3_image19.png" style="width: 500px;" /></a></p>
+<p>We see in this tree that Q9YP96 (Dengue virus 2 NS1) and Q6TFL5 (Dengue virus 4 NS1) are grouped
+together with bootstrap 47%. The next closest sequence is B0LSS3 (Dengue virus 3 NS1). The Q9YRR4
+sequence (Dengue virus 1 NS1) diverged earliest of the four Dengue virus NS1 proteins, as it is grouped with the outgroup.</p>
+<p>Note that in Q3, we found that B0LSS3 (Dengue virus 3 NS1) and Q9YRR4 (Dengue virus 1 NS1) were grouped together in
+an unrooted tree. The current rooted tree is consistent with this; it has B0LSS3 and Q9YRR4 as the two earliest diverging
+Dengue NS1 proteins, as they are nearest to the outgroup in the tree.</p>
+<p>Thus, the rooted tree tells you which of the Dengue virus NS1 proteins branched off the earliest from the ancestors of the
+other proteins, and which branched off next, and so on... We were not able to tell this from the unrooted tree.</p>
+</div>
+</div>
+<div class="section" id="computational-gene-finding">
+<h2>Computational Gene-finding<a class="headerlink" href="chapter_answers.html#computational-gene-finding" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id34">
+<h3>Q1.<a class="headerlink" href="chapter_answers.html#id34" title="Permalink to this headline">¶</a></h3>
+<p><em>How many ORFs are there on the forward strand of the DEN-1 Dengue virus genome (NCBI accession NC_001477)?</em></p>
+<p>To answer this, we can use the findORFsinSeq() function to find ORFs on the forward strand of the
+DEN-1 Dengue virus sequence. This function requires a string of characters as its input, so we first
+use &#8220;c2s()&#8221; to convert the Dengue virus sequence to a string of characters:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> dengueseqstring <span class="o">&lt;-</span> c2s<span class="p">(</span>dengueseq<span class="p">)</span>           <span class="c1"># Convert the Dengue sequence to a string of characters</span>
+<span class="o">&gt;</span> mylist <span class="o">&lt;-</span> findORFsinSeq<span class="p">(</span>dengueseqstring<span class="p">)</span>    <span class="c1"># Find ORFs in &quot;dengueseqstring&quot;</span>
+<span class="o">&gt;</span> orflengths <span class="o">&lt;-</span> mylist<span class="p">[[</span><span class="m">3</span><span class="p">]]</span>                   <span class="c1"># Find the lengths of ORFs in &quot;dengueseqstring&quot;</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>orflengths<span class="p">)</span>                          <span class="c1"># Find the number of ORFs that were found</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">116</span>
+</pre></div>
+</div>
+<p>We find that there are 116 ORFs on the forward strand of the DEN-1 Dengue virus genome.</p>
+</div>
+<div class="section" id="id35">
+<h3>Q2.<a class="headerlink" href="chapter_answers.html#id35" title="Permalink to this headline">¶</a></h3>
+<p><em>What are the coordinates of the rightmost (most 3&#8217;, or last) ORF in the forward strand of the DEN-1 Dengue virus genome?</em></p>
+<p>To answer this, we need to get the coordinates of the ORFs in the DEN-1 Dengue virus genome, as follows:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> dengueseqstring <span class="o">&lt;-</span> c2s<span class="p">(</span>dengueseq<span class="p">)</span>           <span class="c1"># Convert the Dengue sequence to a string of characters</span>
+<span class="o">&gt;</span> mylist <span class="o">&lt;-</span> findORFsinSeq<span class="p">(</span>dengueseqstring<span class="p">)</span>    <span class="c1"># Find ORFs in &quot;dengueseqstring&quot;</span>
+<span class="o">&gt;</span> starts <span class="o">&lt;-</span> mylist<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>                       <span class="c1"># Start positions of ORFs</span>
+<span class="o">&gt;</span> stops <span class="o">&lt;-</span> mylist<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>                        <span class="c1"># Stop positions of ORFs</span>
+</pre></div>
+</div>
+<p>The vector <em>starts</em> contains the start coordinates of the predicted start codons, and the vector
+<em>stops</em> contains the end coordinates of the predicted stop codons. We know there are 116 ORFs
+on the forward strand (from Q1), and we want the coordinates of the 116th ORF. Thus, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> starts<span class="p">[</span><span class="m">116</span><span class="p">]</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10705</span>
+<span class="o">&gt;</span> stops<span class="p">[</span><span class="m">116</span><span class="p">]</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">10722</span>
+</pre></div>
+</div>
+<p>This tells us that the most 3&#8217; ORF has a predicted start codon from 10705-10707 and a
+predicted stop codon from 10720-10722. Thus, the coordinates of the 3&#8217;-most ORF are 10705-10722.</p>
+</div>
+<div class="section" id="id36">
+<h3>Q3.<a class="headerlink" href="chapter_answers.html#id36" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the predicted protein sequence for the rightmost (most 3&#8217;, or last) ORF in the forward strand of the DEN-1 Dengue virus genome?</em></p>
+<p>To get the predicted protein sequence of the 5&#8217;-most ORF (from 10705-10722), we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myorfvector <span class="o">&lt;-</span> dengueseq<span class="p">[</span><span class="m">10705</span><span class="o">:</span><span class="m">10722</span><span class="p">]</span> <span class="c1"># Get the DNA sequence of the ORF</span>
+<span class="o">&gt;</span> seqinr<span class="o">::</span>translate<span class="p">(</span>myorfvector<span class="p">)</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;M&quot;</span> <span class="s">&quot;E&quot;</span> <span class="s">&quot;W&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;C&quot;</span> <span class="s">&quot;*&quot;</span>
+</pre></div>
+</div>
+<p>The sequence of the ORF is &#8220;MEWCC&#8221;.</p>
+</div>
+<div class="section" id="id37">
+<h3>Q4.<a class="headerlink" href="chapter_answers.html#id37" title="Permalink to this headline">¶</a></h3>
+<p><em>How many ORFs are there of 30 nucleotides or longer in the forward strand of the DEN-1 Dengue virus genome sequence?</em></p>
+<p>The findORFsinSeq() function returns a list variable, the third element of which is a vector containing
+the lengths of the ORFs found. Thus we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre>&gt; dengueseqstring &lt;- c2s(dengueseq)           # Convert the Dengue sequence to a string of characters
+&gt; mylist &lt;- findORFsinSeq(dengueseqstring)    # Find ORFs in &quot;dengueseqstring&quot;
+&gt; orflengths &lt;- mylist[[3]]                   # Find the lengths of ORFs in &quot;dengueseqstring&quot;
+&gt; summary(orflengths &gt;= 30)
+      Mode   FALSE    TRUE    NA&#39;s
+  logical      54      62       0
+</pre></div>
+</div>
+<p>This tells us that 62 ORFs on the forward strand of the DEN-1 Dengue virus are 30 nucleotides or longer.</p>
+</div>
+<div class="section" id="id38">
+<h3>Q5.<a class="headerlink" href="chapter_answers.html#id38" title="Permalink to this headline">¶</a></h3>
+<p><em>How many ORFs longer than 248 nucleotides are there in the forward strand of the DEN-1 Dengue genome sequence?</em></p>
+<p>To answer this, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre>&gt; summary(orflengths &gt;= 248)
+      Mode   FALSE    TRUE    NA&#39;s
+  logical     114       2       0
+</pre></div>
+</div>
+<p>This tells us that there are 2 ORFs of 248 nucleotides or longer on the forward strand.</p>
+</div>
+<div class="section" id="id39">
+<h3>Q6.<a class="headerlink" href="chapter_answers.html#id39" title="Permalink to this headline">¶</a></h3>
+<p><em>If an ORF is 248 nucleotides long, what length in amino acids will its predicted protein sequence be?</em></p>
+<p>If we include the predicted stop codon in the length of the ORF, it means that the last three
+bases of the ORF are not coding for any amino acid. Therefore, the length of the ORF that is
+coding for amino acids is 245 bp. Each amino acid is coded for by 3 bp, so there can be
+245/3 = 81 amino acids. Thus, the predicted protein sequence will be 81 amino acids long.</p>
+</div>
+<div class="section" id="id40">
+<h3>Q7.<a class="headerlink" href="chapter_answers.html#id40" title="Permalink to this headline">¶</a></h3>
+<p><em>How many ORFs are there on the forward strand of the rabies virus genome (NCBI accession NC_001542)?</em></p>
+<p>We first retrieve the rabies virus sequence by copying and pasting the &#8220;getncbiseq()&#8221; function into R,
+and then typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> rabiesseq <span class="o">&lt;-</span> getncbiseq<span class="p">(</span><span class="s">&quot;NC_001542&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We then find the ORFs in the forward strand by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> rabiesseqstring <span class="o">&lt;-</span> c2s<span class="p">(</span>rabiesseq<span class="p">)</span>           <span class="c1"># Convert the rabies sequence to a string of characters</span>
+<span class="o">&gt;</span> rabieslist <span class="o">&lt;-</span> findORFsinSeq<span class="p">(</span>rabiesseqstring<span class="p">)</span><span class="c1"># Find ORFs in &quot;rabiesseqstring&quot;</span>
+<span class="o">&gt;</span> rabiesorflengths <span class="o">&lt;-</span> rabieslist<span class="p">[[</span><span class="m">3</span><span class="p">]]</span>         <span class="c1"># Find the lengths of ORFs in &quot;rabiesseqstring&quot;</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>rabiesorflengths<span class="p">)</span>                    <span class="c1"># Find the number of ORFs that were found</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">111</span>
+</pre></div>
+</div>
+<p>There were 111 ORFs on the forward strand.</p>
+</div>
+<div class="section" id="id41">
+<h3>Q8.<a class="headerlink" href="chapter_answers.html#id41" title="Permalink to this headline">¶</a></h3>
+<p><em>What is the length of the longest ORF among the 99% of longest ORFs in 10 random sequences of the same lengths and composition as the rabies virus genome sequence?</em></p>
+<p>We generate 10 random sequences using a multinomial model in which the probabilities of the 4 bases are set equal to their frequencies in the rabies sequence:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> randseqs <span class="o">&lt;-</span> generateSeqsWithMultinomialModel<span class="p">(</span>rabiesseqstring<span class="p">,</span> <span class="m">10</span><span class="p">)</span> <span class="c1"># Generate 10 random sequences using the multinomial model</span>
+<span class="o">&gt;</span> randseqorflengths <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">()</span>              <span class="c1"># Tell R that we want to make a new vector of numbers</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kp">print</span><span class="p">(</span>i<span class="p">)</span>
+    randseq <span class="o">&lt;-</span> randseqs<span class="p">[</span>i<span class="p">]</span>                    <span class="c1"># Get the ith random sequence</span>
+    mylist <span class="o">&lt;-</span> findORFsinSeq<span class="p">(</span>randseq<span class="p">)</span>          <span class="c1"># Find ORFs in &quot;randseq&quot;</span>
+    lengths <span class="o">&lt;-</span> mylist<span class="p">[[</span><span class="m">3</span><span class="p">]]</span>                    <span class="c1"># Find the lengths of ORFs in &quot;randseq&quot;</span>
+    randseqorflengths <span class="o">&lt;-</span> <span class="kp">append</span><span class="p">(</span>randseqorflengths<span class="p">,</span> lengths<span class="p">,</span> after<span class="o">=</span><span class="kp">length</span><span class="p">(</span>randseqorflengths<span class="p">))</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>To find the length of the longest ORF among the 99% of the longest ORFs in the 10 random sequences, we
+find the 99th quantile of <em>randomseqorflengths</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> quantile<span class="p">(</span>randseqorflengths<span class="p">,</span> probs<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0.99</span><span class="p">))</span>
+  <span class="m">99</span>%
+  <span class="m">259.83</span>
+</pre></div>
+</div>
+<p>That is, the longest of the longest 99% of ORFs in the random sequences is 260 nucleotides.</p>
+</div>
+<div class="section" id="id42">
+<h3>Q9.<a class="headerlink" href="chapter_answers.html#id42" title="Permalink to this headline">¶</a></h3>
+<p><em>How many ORFs are there in the rabies virus genome that are longer than the threshold length that you found in Q8?</em></p>
+<p>To answer this, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre>&gt; summary(rabiesorflengths &gt; 260)
+      Mode   FALSE    TRUE    NA&#39;s
+  logical     105       6       0
+</pre></div>
+</div>
+<p>There are 6 ORFs in the rabies virus genome that are longer than the threshold length found in Q8 (260
+nucleotides).</p>
+</div>
+</div>
+<div class="section" id="comparative-genomics">
+<h2>Comparative Genomics<a class="headerlink" href="chapter_answers.html#comparative-genomics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id43">
+<h3>Q1.<a class="headerlink" href="chapter_answers.html#id43" title="Permalink to this headline">¶</a></h3>
+<p><em>How many Mycobacterium ulcerans genes are there in the current version of the Ensembl Bacteria database?</em></p>
+</div>
+<div class="section" id="id44">
+<h3>Q2.<a class="headerlink" href="chapter_answers.html#id44" title="Permalink to this headline">¶</a></h3>
+<p><em>How many of the Mycobacterium ulcerans Ensembl genes are protein-coding genes?</em></p>
+</div>
+<div class="section" id="id45">
+<h3>Q3.<a class="headerlink" href="chapter_answers.html#id45" title="Permalink to this headline">¶</a></h3>
+<p><em>How many Mycobacterium ulcerans protein-coding genes have Mycobacterium leprae orthologues?</em></p>
+</div>
+<div class="section" id="id46">
+<h3>Q4.<a class="headerlink" href="chapter_answers.html#id46" title="Permalink to this headline">¶</a></h3>
+<p><em>How many of theMycobacterium ulcerans protein-coding genes have one-to-one orthologues in Mycobacterium leprae?</em></p>
+</div>
+<div class="section" id="id47">
+<h3>Q5.<a class="headerlink" href="chapter_answers.html#id47" title="Permalink to this headline">¶</a></h3>
+<p><em>How many Mycobacterium ulcerans genes have Pfam domains?</em></p>
+</div>
+<div class="section" id="id48">
+<h3>Q6.<a class="headerlink" href="chapter_answers.html#id48" title="Permalink to this headline">¶</a></h3>
+<p><em>What are the top 5 most common Pfam domains in Mycobacterium ulcerans genes?</em></p>
+</div>
+<div class="section" id="id49">
+<h3>Q7.<a class="headerlink" href="chapter_answers.html#id49" title="Permalink to this headline">¶</a></h3>
+<p><em>How many copies of each of the top 5 domains found in Q6 are there in the Mycobacterium ulcerans protein set?</em></p>
+</div>
+<div class="section" id="id50">
+<h3>Q8.<a class="headerlink" href="chapter_answers.html#id50" title="Permalink to this headline">¶</a></h3>
+<p><em>How many of copies are there in the Mycobacterium lepraae protein set, of each of the top 5 Mycobacterium ulcerans Pfam protein domains?</em></p>
+</div>
+<div class="section" id="id51">
+<h3>Q9.<a class="headerlink" href="chapter_answers.html#id51" title="Permalink to this headline">¶</a></h3>
+<p><em>Are the numbers of copies of some domains different in the two species?</em></p>
+</div>
+<div class="section" id="id52">
+<h3>Q10.<a class="headerlink" href="chapter_answers.html#id52" title="Permalink to this headline">¶</a></h3>
+<p><em>Of the differences found in Q9, are any of the differencess statistically significant?</em></p>
+</div>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="chapter_answers.html#contact" title="Permalink to this headline">¶</a></h2>
+<p>I will be grateful if you will send me (<a class="reference external" href="http://www.sanger.ac.uk/research/projects/parasitegenomics/">Avril Coghlan</a>) corrections or suggestions for improvements to
+my email address <a class="reference external" href="mailto:alc&#37;&#52;&#48;sanger&#46;ac&#46;uk">alc<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="chapter_answers.html#license" title="Permalink to this headline">¶</a></h2>
+<p>The content in this book is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="revisionexercises_answers.html" title="Answers to Revision Exercises"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="chapter10.html" title="Hidden Markov Models"
+             >previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright Avril Coghlan, Licence: Creative Commons Attribution 3.0 License.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

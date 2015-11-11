@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Comparative Genomics &mdash; Bioinformatics 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Bioinformatics 0.1 documentation" href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html" />
+    <link rel="next" title="Hidden Markov Models" href="chapter10.html" />
+    <link rel="prev" title="Computational Gene-finding" href="chapter7.html" />
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/src/chapter9.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "a-little-book-of-r-for-bioinformatics",
+    version: "latest",
+    language: "en",
+    page: "src/chapter9",
+    builder: "sphinx",
+    theme: "sphinxdoc",
+    docroot: "/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "8cd107b180ed964fe7c8021e78ff0ab528d5ba74"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "a-little-book-of-r-for-bioinformatics";
+  var page_name = "src/chapter9";
+  var html_theme = "sphinxdoc";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  // User Analytics Code
+  _gaq.push(['user._setAccount', 'UA-36029021-1']);
+  _gaq.push(['user._trackPageview']);
+  // End User Analytics Code
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="chapter10.html" title="Hidden Markov Models"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="chapter7.html" title="Computational Gene-finding"
+             accesskey="P">previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="chapter9.html#">Comparative Genomics</a><ul>
+<li><a class="reference internal" href="chapter9.html#introduction">Introduction</a></li>
+<li><a class="reference internal" href="chapter9.html#using-the-biomart-r-library-to-query-the-ensembl-database">Using the biomaRt R Library to Query the Ensembl Database</a></li>
+<li><a class="reference internal" href="chapter9.html#comparing-the-number-of-genes-in-two-species">Comparing the number of genes in two species</a></li>
+<li><a class="reference internal" href="chapter9.html#identifying-homologous-genes-between-two-species">Identifying homologous genes between two species</a></li>
+<li><a class="reference internal" href="chapter9.html#summary">Summary</a></li>
+<li><a class="reference internal" href="chapter9.html#links-and-further-reading">Links and Further Reading</a></li>
+<li><a class="reference internal" href="chapter9.html#acknowledgements">Acknowledgements</a></li>
+<li><a class="reference internal" href="chapter9.html#contact">Contact</a></li>
+<li><a class="reference internal" href="chapter9.html#license">License</a></li>
+<li><a class="reference internal" href="chapter9.html#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="chapter7.html"
+                        title="previous chapter">Computational Gene-finding</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chapter10.html"
+                        title="next chapter">Hidden Markov Models</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/_sources/src/chapter9.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="comparative-genomics">
+<h1>Comparative Genomics<a class="headerlink" href="chapter9.html#comparative-genomics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="chapter9.html#introduction" title="Permalink to this headline">¶</a></h2>
+<p><em>Comparative genomics</em> is the field of bioinformatics that involves
+comparing the genomes of two different species, or of two different
+strains of the same species.</p>
+<p>One of the first questions to ask when comparing the genomes of two
+species is: do the two species have the same number of genes (ie.
+the same <em>gene content</em>)? Since all life on earth shared a common
+ancestor at some point, any two species, for example, human and a
+fruitfly, must have descended from a common ancestor species.</p>
+<p>Since the time of the common ancestor of two species (eg. of human and
+mouse), some of the genes that were present in the common ancestor
+species may have been lost from either of the two descendant
+lineages. Furthermore, the two descendant lineages may have gained
+genes that were not present in the common ancestor species.</p>
+</div>
+<div class="section" id="using-the-biomart-r-library-to-query-the-ensembl-database">
+<h2>Using the biomaRt R Library to Query the Ensembl Database<a class="headerlink" href="chapter9.html#using-the-biomart-r-library-to-query-the-ensembl-database" title="Permalink to this headline">¶</a></h2>
+<p>To carry out comparative genomic analyses of two animal species whose
+genomes have been fully sequenced (eg. human and mouse), it is useful to
+analyse the data in the Ensembl database (<a class="reference external" href="http://www.ensembl.org">www.ensembl.org</a>).</p>
+<p>The main Ensembl database which you can browse on the
+<a class="reference external" href="http://www.ensembl.org">main Ensembl webpage</a>
+contains genes from fully sequenced vertebrates, as
+well as <em>Saccharomyces cerevisiae</em> (yeast) and a small number of
+additional model organism animals (eg. the nematode worm <em>Caenorhabditis elegans</em>
+and the fruit-fly <em>Drosophila melanogaster</em>).</p>
+<p>There are also Ensembl databases for other groups of organisms,
+for example <a class="reference external" href="http://protists.ensembl.org/index.html">Ensembl Protists</a> for
+Protists, <a class="reference external" href="http://metazoa.ensembl.org/index.html">Ensembl Metazoa</a> for
+Metazoans, <a class="reference external" href="http://bacteria.ensembl.org/index.html">Ensembl Bacteria</a> for Bacteria,
+<a class="reference external" href="http://plants.ensembl.org/index.html">Ensembl Plants</a> for Plants, and
+<a class="reference external" href="http://fungi.ensembl.org/index.html">Ensembl Fungi</a> for Fungi.</p>
+<p>It is possible to carry out analyses of the Ensembl database using
+R, with the &#8220;biomaRt&#8221; R package. The &#8220;biomaRt&#8221; package can connect
+to the Ensembl database, and perform queries on the data.</p>
+<p>The &#8220;biomaRt&#8221; R package is part of the Bioconductor set of R packages,
+and so can be installed as explained <a class="reference external" href="installr.html#how-to-install-a-bioconductor-r-package">here</a>.</p>
+<p>Once you have installed the &#8220;biomaRt&#8221; package, you can get a list
+of databases that can be queried using this package by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;biomaRt&quot;</span><span class="p">)</span> <span class="c1"># Load the biomaRt package in R</span>
+<span class="o">&gt;</span> listMarts<span class="p">()</span>        <span class="c1"># List all databases that can be queried</span>
+                                   biomart
+  <span class="m">1</span>                                ensembl
+  <span class="m">2</span>                                    snp
+  <span class="m">3</span>                    functional_genomics
+  <span class="m">4</span>                                   vega
+  <span class="m">5</span>                       bacterial_mart_9
+  <span class="m">6</span>                          fungal_mart_9
+  <span class="m">7</span>                    fungal_variations_9
+  <span class="m">8</span>                         metazoa_mart_9
+  <span class="m">9</span>                   metazoa_variations_9
+  <span class="m">10</span>                          plant_mart_9
+  <span class="m">11</span>                    plant_variations_9
+  <span class="m">12</span>                        protist_mart_9
+  <span class="m">13</span>                  protist_variations_9
+  <span class="m">14</span>                                   msd
+  <span class="m">15</span>                                  htgt
+  <span class="m">16</span>                              REACTOME
+  <span class="m">17</span>                         WS220<span class="o">-</span>testing
+  <span class="kc">...</span>
+                                                      <span class="kp">version</span>
+  <span class="m">1</span>                              ENSEMBL GENES <span class="m">62</span> <span class="p">(</span>SANGER UK<span class="p">)</span>
+  <span class="m">2</span>                         ENSEMBL  VARIATION <span class="m">62</span> <span class="p">(</span>SANGER UK<span class="p">)</span>
+  <span class="m">3</span>                ENSEMBL FUNCTIONAL GENOMICS <span class="m">62</span> <span class="p">(</span>SANGER UK<span class="p">)</span>
+  <span class="m">4</span>                                      VEGA <span class="m">42</span>  <span class="p">(</span>SANGER UK<span class="p">)</span>
+  <span class="m">5</span>                               ENSEMBL BACTERIA <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">6</span>                                  ENSEMBL FUNGI <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">7</span>                        ENSEMBL FUNGI VARIATION <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">8</span>                                ENSEMBL METAZOA <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">9</span>                      ENSEMBL METAZOA VARIATION <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">10</span>                                ENSEMBL PLANTS <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">11</span>                      ENSEMBL PLANTS VARIATION <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">12</span>                              ENSEMBL PROTISTS <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">13</span>                    ENSEMBL PROTISTS VARIATION <span class="m">9</span> <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">14</span>                                             MSD <span class="p">(</span>EBI UK<span class="p">)</span>
+  <span class="m">15</span>                  WTSI MOUSE GENETICS PROJECT <span class="p">(</span>SANGER UK<span class="p">)</span>
+  <span class="m">16</span>                                       REACTOME <span class="p">(</span>CSHL US<span class="p">)</span>
+  <span class="m">17</span>                                   WORMBASE <span class="m">220</span> <span class="p">(</span>CSHL US<span class="p">)</span>
+  <span class="kc">...</span>
+</pre></div>
+</div>
+<p>The names of the databases are listed, and then an explanation of what each
+database is, and what is the version of the database.</p>
+<p>You will see that the &#8220;biomaRt&#8221; R package can actually be used to
+query many different databases including WormBase, UniProt,
+Ensembl, etc.</p>
+<p>Here, we will discuss using the
+&#8220;biomaRt&#8221; package to query the Ensembl database, but it is worth
+remembering that it also be used to perform queries on other
+databases such as UniProt.</p>
+<p>You can see above that &#8220;biomaRt&#8221; tells
+you which version of each database can be searched, for example,
+the version of the main Ensembl database that can be searched is Ensembl 62 (the current
+release), while the version of the Ensembl Protists database that can be searched is
+Ensembl Protists 9.</p>
+<p>If you want to perform a query on the Ensembl database using
+&#8220;biomaRt&#8221;, you first need to specify that this is the database that
+you want to query. You can do this using the useMart() function
+from the &#8220;biomaRt&#8221; package:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> ensemblprotists <span class="o">&lt;-</span> useMart<span class="p">(</span><span class="s">&quot;protist_mart_9&quot;</span><span class="p">)</span> <span class="c1"># Specify that we want to query the Ensembl Protists database</span>
+</pre></div>
+</div>
+<p>This tells &#8220;biomaRt&#8221; that you want to query the Ensembl Protists database.
+The Ensembl Protists database contains data sets of genomic information for
+different protist species whose genomes have been fully sequenced.</p>
+<p>To see which data sets you can
+query in the database that you have selected (using useMart()), you
+can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> listDatasets<span class="p">(</span>ensemblprotists<span class="p">)</span>         <span class="c1"># List the data sets in the Ensembl Protists database</span>
+            dataset                                   description
+  <span class="m">1</span>      pramorum_eg_gene         Phytophthora ramorum genes <span class="p">(</span>Phyra1_1<span class="p">)</span>
+  <span class="m">2</span>        pvivax_eg_gene                Plasmodium vivax genes <span class="p">(</span>EPr <span class="m">2</span><span class="p">)</span>
+  <span class="m">3</span>   pfalciparum_eg_gene           Plasmodium falciparum genes <span class="p">(</span><span class="m">2.1.4</span><span class="p">)</span>
+  <span class="m">4</span>  ptricornutum_eg_gene      Phaeodactylum tricornutum genes <span class="p">(</span>Phatr2<span class="p">)</span>
+  <span class="m">5</span>     pchabaudi_eg_gene          Plasmodium chabaudi genes <span class="p">(</span>May_2010<span class="p">)</span>
+  <span class="m">6</span>   ddiscoideum_eg_gene Dictyostelium discoideum genes <span class="p">(</span>dictybase.01<span class="p">)</span>
+  <span class="m">7</span>        lmajor_eg_gene    Leishmania major strain Friedlin genes <span class="p">(</span><span class="m">1</span><span class="p">)</span>
+  <span class="kc">...</span>
+    <span class="kp">version</span>
+  <span class="m">1</span>      Phyra1_1
+  <span class="m">2</span>         EPr <span class="m">2</span>
+  <span class="m">3</span>         <span class="m">2.1.4</span>
+  <span class="m">4</span>        Phatr2
+  <span class="m">5</span>      May_2010
+  <span class="m">6</span>  dictybase.01
+  <span class="m">7</span>             <span class="m">1</span>
+  <span class="kc">...</span>
+</pre></div>
+</div>
+<p>You will see a long list of the organisms for which the Ensembl Protists
+database has genome data, including <em>Plasmodium vivax</em> and <em>Plasmodium falciparium</em> (which cause malaria),
+and <em>Leishmania major</em>, which causes <a class="reference external" href="http://www.who.int/leishmaniasis/en/">leishmaniasis</a>, which is
+classified by the WHO as a neglected tropical disease.</p>
+<p>To perform a query on the Ensembl database using the &#8220;biomaRt&#8221; R
+package, you first need to specify which Ensembl data set your
+query relates to. You can do this using the useDataset() function
+from the &#8220;biomaRt&#8221; package. For example, to specify that you want
+to perform a query on the Ensembl Leishmania major data set, you would type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> ensemblleishmania <span class="o">&lt;-</span> useDataset<span class="p">(</span><span class="s">&quot;lmajor_eg_gene&quot;</span><span class="p">,</span>mart<span class="o">=</span>ensemblprotists<span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the name of the <em>Leishmania major</em> Ensembl data set is
+&#8220;lmajor_eg_gene&#8221;; this is the data set listed for <em>Leishmania major</em>
+genomic information when we typed listDatasets(ensemblprotists) above.</p>
+<p>Once you have specified the particular Ensembl data set that you
+want to perform a query on, you can perform the query using the
+getBM() function from the &#8220;biomaRt&#8221; package.</p>
+<p>Usually, you will want to perform a query to a particular set of features from the <em>Leishmania major</em>
+Ensembl data set. What types of features can you search for? You
+can find this out by using the listAttributes() function from the
+&#8220;biomaRt&#8221; package:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniaattributes <span class="o">&lt;-</span> listAttributes<span class="p">(</span>ensemblleishmania<span class="p">)</span>
+</pre></div>
+</div>
+<p>The listAttributes() function returns a list object, the first
+element of which is a vector of all possible features that you can
+select, and the second element of which is a vector containing
+explanations of all those features:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> attributenames <span class="o">&lt;-</span> leishmaniaattributes<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="o">&gt;</span> attributedescriptions <span class="o">&lt;-</span> leishmaniaattributes<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>attributenames<span class="p">)</span>                     <span class="c1"># Find the length of vector &quot;attributenames&quot;</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">292</span>
+<span class="o">&gt;</span> attributenames<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>                       <span class="c1"># Print out the first 10 entries in vector &quot;attributenames&quot;</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;ensembl_gene_id&quot;</span>                <span class="s">&quot;ensembl_transcript_id&quot;</span>
+ <span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="s">&quot;ensembl_peptide_id&quot;</span>             <span class="s">&quot;canonical_transcript_stable_id&quot;</span>
+ <span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="s">&quot;description&quot;</span>                    <span class="s">&quot;chromosome_name&quot;</span>
+ <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s">&quot;start_position&quot;</span>                 <span class="s">&quot;end_position&quot;</span>
+ <span class="p">[</span><span class="m">9</span><span class="p">]</span> <span class="s">&quot;strand&quot;</span>                         <span class="s">&quot;band&quot;</span>
+<span class="o">&gt;</span> attributedescriptions<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>                <span class="c1"># Print out the first 10 entries in vector &quot;attributedescriptions&quot;</span>
+<span class="o">&gt;</span> attributedescriptions<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;Ensembl Gene ID&quot;</span>                   <span class="s">&quot;Ensembl Transcript ID&quot;</span>
+ <span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="s">&quot;Ensembl Protein ID&quot;</span>                <span class="s">&quot;Canonical transcript stable ID(s)&quot;</span>
+ <span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="s">&quot;Description&quot;</span>                       <span class="s">&quot;Chromosome Name&quot;</span>
+ <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s">&quot;Gene Start (bp)&quot;</span>                   <span class="s">&quot;Gene End (bp)&quot;</span>
+ <span class="p">[</span><span class="m">9</span><span class="p">]</span> <span class="s">&quot;Strand&quot;</span>                            <span class="s">&quot;Band&quot;</span>
+</pre></div>
+</div>
+<p>This gives us a very long list of 292 features in the <em>Leishmania major</em> Ensembl
+data set that we can search for by querying the database, such as
+genes, transcripts (mRNAs), peptides (proteins), chromosomes, GO (Gene Ontology) terms, and so on.</p>
+<p>When you are performing a query on the Ensembl <em>Leishmania major</em> data set using
+getBM(), you have to specify which of these features you want to
+retrieve. For example, you can see from the output of
+listAttributes() (see above) that one possible type of feature we
+can search for are <em>Leishmania major</em> genes. To retrieve a list of all <em>Leishmania major</em>
+genes from the <em>Leishmania major</em> Ensembl data set, we just need to type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenes <span class="o">&lt;-</span> getBM<span class="p">(</span>attributes <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ensembl_gene_id&quot;</span><span class="p">),</span> mart<span class="o">=</span>ensemblleishmania<span class="p">)</span>
+</pre></div>
+</div>
+<p>This returns a list variable <em>leishmaniagenes</em>, the first element of which
+is a vector containing the names of all <em>Leishmania major</em> genes. Thus, to find
+the number of genes, and print out the names of the first ten genes
+stored in the vector, we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenenames <span class="o">&lt;-</span> leishmaniagenes<span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># Get the vector of the names of all L. major genes</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>leishmaniagenenames<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">9379</span>
+<span class="o">&gt;</span> leishmaniagenenames<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LmjF.01.0010&quot;</span> <span class="s">&quot;LmjF.01.0020&quot;</span> <span class="s">&quot;LmjF.01.0030&quot;</span> <span class="s">&quot;LmjF.01.0040&quot;</span> <span class="s">&quot;LmjF.01.0050&quot;</span>
+<span class="p">[</span><span class="m">6</span><span class="p">]</span> <span class="s">&quot;LmjF.01.0060&quot;</span> <span class="s">&quot;LmjF.01.0070&quot;</span> <span class="s">&quot;LmjF.01.0080&quot;</span> <span class="s">&quot;LmjF.01.0090&quot;</span> <span class="s">&quot;LmjF.01.0100&quot;</span>
+</pre></div>
+</div>
+<p>This tells us that there are 9379 different <em>Leishmania major</em> genes in the
+<em>L. major</em> Ensembl data set. Note that this includes various types of
+genes including protein-coding genes (both &#8220;known&#8221; and &#8220;novel&#8221;
+genes, where the &#8220;novel&#8221; genes are gene predictions that don&#8217;t have
+sequence similarity to any sequences in sequence databases), RNA
+genes, and pseudogenes.</p>
+<p>What if we are only interested in protein-coding genes? If you look at the output
+of listAttributes(ensemblleishmania), you will see that one of the features
+is &#8220;gene_biotype&#8221;, which is tells us what sort of gene each gene
+is (eg. protein-coding, pseudogene, etc.):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenes2 <span class="o">&lt;-</span> getBM<span class="p">(</span>attributes <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ensembl_gene_id&quot;</span><span class="p">,</span> <span class="s">&quot;gene_biotype&quot;</span><span class="p">),</span> mart<span class="o">=</span>ensemblleishmania<span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case, the getBM() function will return a list variable
+<em>leishmaniagenes2</em>, the first element of which is a vector containing the
+names of all <em>Leishmania major</em> genes, and the second of which is a vector
+containing the types of those genes:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenenames2 <span class="o">&lt;-</span> leishmaniagenes2<span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># Get the vector of the names of all L. major genes</span>
+<span class="o">&gt;</span> leishmaniagenebiotypes2 <span class="o">&lt;-</span> leishmaniagenes2<span class="p">[[</span><span class="m">2</span><span class="p">]]</span> <span class="c1"># Get the vector of the biotypes of all genes</span>
+</pre></div>
+</div>
+<p>We can make a table of all the different types of genes using the
+table() function:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>leishmaniagenebiotypes2<span class="p">)</span>
+  leishmaniagenebiotypes2
+         ncRNA nontranslating_cds     protein_coding         pseudogene
+            <span class="m">84</span>                  <span class="m">2</span>               <span class="m">8310</span>                 <span class="m">90</span>
+          rRNA             snoRNA              snRNA               tRNA
+            <span class="m">63</span>                <span class="m">741</span>                  <span class="m">6</span>                 <span class="m">83</span>
+</pre></div>
+</div>
+<p>This tells us that there are 8310 protein-coding genes, 90
+pseudogenes, and various types of RNA genes (tRNA genes, rRNA
+genes, snRNA genes, etc.). Thus, there are 8310 human
+protein-coding genes.</p>
+</div>
+<div class="section" id="comparing-the-number-of-genes-in-two-species">
+<h2>Comparing the number of genes in two species<a class="headerlink" href="chapter9.html#comparing-the-number-of-genes-in-two-species" title="Permalink to this headline">¶</a></h2>
+<p>Ensembl is a very useful resource for comparing the gene content of
+different species. For example, one simple question that we can ask
+by analysing the Ensembl data is: how many protein-coding genes are
+there in <em>Leishmania major</em>, and how many in <em>Plasmodium falciparum</em>?</p>
+<p>We know how many protein-coding genes are in <em>Leishmania major</em> (8310; see above), but what
+about <em>Plasmodium falciparum</em>? To answer this question, we first need to tell the
+&#8220;biomaRt&#8221; package that we want to make a query on the Ensembl <em>Plasmodium falciparum</em>
+data set.</p>
+<p>We can do this using the useDataset() function to select
+the <em>Plasmodium falciparum</em> Ensembl data set.</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> ensemblpfalciparum <span class="o">&lt;-</span> useDataset<span class="p">(</span><span class="s">&quot;pfalciparum_eg_gene&quot;</span><span class="p">,</span>mart<span class="o">=</span>ensemblprotists<span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the name of the <em>Plasmodium falciparum</em> Ensembl data set is
+&#8220;pfalciparum_eg_gene&#8221;; this is the data set listed for <em>Plasmodium falciparum</em>
+genomic information when we typed listDatasets(ensemblprotists) above.</p>
+<p>We can then use getBM() as above to retrieve the names of all <em>Plasmodium falciparum</em>
+protein-coding genes. This time we have to set the &#8220;mart&#8221; option in
+the getBM() function to &#8220;ensemblpfalciparum&#8221;, to specify that we want to
+query the <em>Plasmodium falciparum</em> Ensembl data set rather than the <em>Leishmania major</em> Ensembl data
+set:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> pfalciparumgenes <span class="o">&lt;-</span> getBM<span class="p">(</span>attributes <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ensembl_gene_id&quot;</span><span class="p">,</span> <span class="s">&quot;gene_biotype&quot;</span><span class="p">),</span> mart<span class="o">=</span>ensemblpfalciparum<span class="p">)</span>
+<span class="o">&gt;</span> pfalciparumgenenames <span class="o">&lt;-</span> pfalciparumgenes<span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># Get the names of the P. falciparum genes</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>pfalciparumgenenames<span class="p">)</span>                  <span class="c1"># Get the number of P. falciparum genes</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">6213</span>
+<span class="o">&gt;</span> pfalciparumgenebiotypes <span class="o">&lt;-</span> pfalciparumgenes<span class="p">[[</span><span class="m">2</span><span class="p">]]</span> <span class="c1"># Get the types of the P. falciparum genes</span>
+<span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>pfalciparumgenebiotypes<span class="p">)</span>
+  pfalciparumgenebiotypes
+          ncRNA non_translating_cds      protein_coding                rRNA
+            <span class="m">712</span>                   <span class="m">1</span>                <span class="m">5428</span>                  <span class="m">24</span>
+          snRNA                tRNA
+              <span class="m">3</span>                  <span class="m">45</span>
+</pre></div>
+</div>
+<p>This tells us that there are 5428 <em>Plasmodium falciparum</em> protein-coding genes in
+Ensembl. That is, <em>Plasmodium falciparum</em> seems to have less protein-coding
+genes than <em>Leishmania major</em> (8310 protein-coding genes; see above).</p>
+<p>It is interesting to ask: why does <em>Plasmodium falciparum</em> have less protein-coding
+genes than <em>Leishmania major</em>? There are several possible explanations: (i) that
+there have been gene duplications in the <em>Leishmania major</em> lineage since <em>Leishmania</em>
+and <em>Plasmodium</em> shared a common ancestor, which gave rise to new <em>Leishmania major</em>
+genes; (ii) that completely new genes (that are not related to any
+other <em>Leishmania major</em> gene) have arisen in the <em>Leishmania major</em> lineage since <em>Leishmania</em> and
+<em>Plasmodium</em> shared a common ancestor; or (iii) that there have been genes
+lost from the <em>Plasmodium falciparum</em> genome since <em>Leishmania</em> and <em>Plasmodium</em> shared a common
+ancestor.</p>
+<p>To investigate which of these explanations is most likely to be
+correct, we need to figure out how the <em>Leishmania major</em> protein-coding genes
+are related to <em>Plasmodium falciparum</em> protein-coding genes.</p>
+</div>
+<div class="section" id="identifying-homologous-genes-between-two-species">
+<h2>Identifying homologous genes between two species<a class="headerlink" href="chapter9.html#identifying-homologous-genes-between-two-species" title="Permalink to this headline">¶</a></h2>
+<p>The Ensembl database groups homologous (related) genes together
+into gene families. If a gene from <em>Leishmania major</em> and a gene from <em>Plasmodium falciparum</em> are
+related, they should be placed together into the same Ensembl gene
+family in the Ensembl Protists database. In fact, if a <em>Leishmania major</em> gene has any
+homologues (related genes) in other protists, it should be placed into some Ensembl gene family
+in the Ensembl Protists database.</p>
+<p>For all <em>Leishmania major</em> and <em>Plasmodium falciparum</em> genes that are placed together in a gene
+family, Ensembl classifies the relationship between each pair of
+<em>Leishmania major</em> and <em>Plasmodium falciparum</em> genes as <em>orthologues</em> (related genes that shared a
+common ancestor in the ancestor of <em>Leishmania</em> and <em>Plasmodium</em>, and arose due
+to the <em>Leishmania</em> - <em>Plasmodium</em> speciation event) or <em>paralogues</em> (related genes
+that arose due to a duplication event within a species, for
+example, due to a duplication event in <em>Leishmania major</em>, or a duplication
+event in the <em>Leishmania</em> - <em>Plasmodium</em> ancestor).</p>
+<p>If you type listAttributes(ensemblleishmania) again, you will see that one
+possible feature that you can search for is &#8220;pfalciparum_eg_gene&#8221;,
+which is the <em>Plasmodium falciparum</em> orthologue of a <em>Leishmania major</em> gene.</p>
+<p>Another possible feature that you can search for is
+&#8220;pfalciparum_eg_orthology_type&#8221;, which describes the type of orthology
+relationship between a particular <em>Leishmania major</em> gene and its <em>Plasmodium falciparum</em>
+orthologue. For example, if a particular <em>Leishmania major</em> gene has two <em>Plasmodium falciparum</em>
+orthologues, the relationship between the <em>Leishmania major</em> gene and each of
+the <em>Plasmodium falciparum</em> orthologues will be &#8220;ortholog_one2many&#8221;
+(one-to-many orthology).</p>
+<p>This can arise in the case
+where there was a duplication in the <em>Plasmodium falciparum</em> lineage after <em>Plasmodium</em> and
+<em>Leishmania</em> diverged, which means that two different <em>Plasmodium falciparum</em> genes (which
+are paralogues of each other) are both orthologues of the same
+<em>Leishmania major</em> gene.</p>
+<p>Therefore, we can retrive the Ensembl identifiers of the <em>Plasmodium falciparum</em>
+orthologues of all <em>Leishmania major</em> genes by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenes <span class="o">&lt;-</span> getBM<span class="p">(</span>attributes <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ensembl_gene_id&quot;</span><span class="p">,</span> <span class="s">&quot;pfalciparum_eg_gene&quot;</span><span class="p">,</span>
+   <span class="s">&quot;pfalciparum_eg_orthology_type&quot;</span><span class="p">),</span> mart<span class="o">=</span>ensemblleishmania<span class="p">)</span>
+</pre></div>
+</div>
+<p>This will return an R list variable <em>leishmaniagenes</em>, the first element
+of which is a vector of Ensembl identifiers for all <em>Leishmania major</em>
+coding genes, and the second element of which is a vector
+of Ensembl identifiers for their <em>Plasmodium falciparum</em> orthologues, and the third
+element of which is a vector with information on the orthology
+types.</p>
+<p>We can print out the names of the first 10 <em>Leishmania major</em> genes and their
+<em>Plasmodium falciparum</em> orthologues, and their orthology types, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenenames <span class="o">&lt;-</span> leishmaniagenes<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>      <span class="c1"># Get the names of all Leishmania major genes</span>
+<span class="o">&gt;</span> leishmaniaPforthologues <span class="o">&lt;-</span> leishmaniagenes<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>  <span class="c1"># Get the P. falciparum orthologues of all L. major genes</span>
+<span class="o">&gt;</span> leishmaniaPforthologuetypes <span class="o">&lt;-</span> leishmaniagenes<span class="p">[[</span><span class="m">3</span><span class="p">]]</span> <span class="c1"># Get the orthology relationship type</span>
+<span class="o">&gt;</span> leishmaniagenenames<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;LmjF.34.2510&quot;</span> <span class="s">&quot;LmjF.14.0650&quot;</span> <span class="s">&quot;LmjF.14.0650&quot;</span> <span class="s">&quot;LmjF.14.0670&quot;</span> <span class="s">&quot;LmjF.14.0670&quot;</span>
+  <span class="p">[</span><span class="m">6</span><span class="p">]</span> <span class="s">&quot;LmjF.14.0680&quot;</span> <span class="s">&quot;LmjF.14.0680&quot;</span> <span class="s">&quot;LmjF.14.0710&quot;</span> <span class="s">&quot;LmjF.14.0710&quot;</span> <span class="s">&quot;LmjF.36.2350&quot;</span>
+<span class="o">&gt;</span> leishmaniaPforthologues<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;&quot;</span>         <span class="s">&quot;PFA0455c&quot;</span> <span class="s">&quot;PFI0980w&quot;</span> <span class="s">&quot;PFA0455c&quot;</span> <span class="s">&quot;PFI0980w&quot;</span> <span class="s">&quot;PFA0455c&quot;</span>
+  <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s">&quot;PFI0980w&quot;</span> <span class="s">&quot;PFA0455c&quot;</span> <span class="s">&quot;PFI0980w&quot;</span> <span class="s">&quot;&quot;</span>
+<span class="o">&gt;</span> leishmaniaPforthologuetypes<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;&quot;</span>                   <span class="s">&quot;ortholog_many2many&quot;</span> <span class="s">&quot;ortholog_many2many&quot;</span>
+  <span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="s">&quot;ortholog_many2many&quot;</span> <span class="s">&quot;ortholog_many2many&quot;</span> <span class="s">&quot;ortholog_many2many&quot;</span>
+  <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s">&quot;ortholog_many2many&quot;</span> <span class="s">&quot;ortholog_many2many&quot;</span> <span class="s">&quot;ortholog_many2many&quot;</span>
+  <span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Not all <em>Leishmania major</em> genes have <em>Plasmodium falciparum</em> orthologues; this is why
+when we print out the first 10 elements of the vector <em>leishmaniaPforthologues</em>, some of the
+elements are empty.</p>
+<p>To find out how many <em>Leishmania major</em> genes have orthologues in <em>Plasmodium falciparum</em>,
+we can first find the indices of the elements of the vector <em>leishmaniaPforthologues</em> that are empty:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myindex <span class="o">&lt;-</span> leishmaniaPforthologues<span class="o">==</span><span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>We can then find out the names of the <em>Leishmania gene</em> genes corresponding to
+those indices:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenenames2 <span class="o">&lt;-</span> leishmaniagenenames<span class="p">[</span>myindex<span class="p">]</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>leishmaniagenenames2<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">7723</span>
+</pre></div>
+</div>
+<p>This tells us that 7723 <em>Leishmania major</em> genes do not have <em>Plasmodium falciparum</em>
+orthologues.</p>
+<p>How many of the 7723 <em>Leishmania major</em> genes that do not have <em>Plasmodium falaciparum</em>
+orthologues are protein-coding genes? To answer this question, we
+can merge together the information in the R list variable
+<em>leishmaniagenes2</em> (which contains information on the name of each <em>Leishmania major</em>
+gene and its type; see above), and the R list variable <em>leishmaniagenes</em> (which contains
+information on the name of each <em>L. major</em> gene and its <em>Plasmodium falciparum</em> orthologues).</p>
+<p>Remember that <em>leishmaniagenes2</em> was created by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenes2 <span class="o">&lt;-</span> getBM<span class="p">(</span>attributes <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ensembl_gene_id&quot;</span><span class="p">,</span> <span class="s">&quot;gene_biotype&quot;</span><span class="p">),</span> mart<span class="o">=</span>ensemblleishmania<span class="p">)</span>
+</pre></div>
+</div>
+<p>To combine <em>leishmaniagenes</em> and <em>leishmaniagenes2</em>, we can use
+the merge() function in R, which can merge together
+two list variables that contain some named elements in common (in
+this case, both list variables contain a vector that has the names
+of <em>Leishmania major</em> genes):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenes3 <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>leishmaniagenes2<span class="p">,</span> leishmaniagenes<span class="p">)</span>
+</pre></div>
+</div>
+<p>The first element of the merged list variable <em>leishmaniagenes3</em> contains
+a vector of the <em>Leishmania major</em> gene names, the second has a vector of the
+types of those genes (eg. protein-coding, pseudogene etc.), and the
+third element has a vector of the <em>Plasmodium falciparum</em> orthologues&#8217; names. We can
+therefore find out how many protein-coding <em>Leishmania major</em> genes lack <em>Plasmodium falciparum</em>
+orthologues by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> leishmaniagenenames <span class="o">&lt;-</span> leishmaniagenes3<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="o">&gt;</span> leishmaniagenebiotypes <span class="o">&lt;-</span> leishmaniagenes3<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+<span class="o">&gt;</span> leishmaniaPforthologues <span class="o">&lt;-</span> leishmaniagenes3<span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+<span class="o">&gt;</span> myindex <span class="o">&lt;-</span> leishmaniaPforthologues<span class="o">==</span><span class="s">&quot;&quot;</span> <span class="o">&amp;</span> leishmaniagenebiotypes<span class="o">==</span><span class="s">&quot;protein_coding&quot;</span>
+<span class="o">&gt;</span> leishmaniagenenames2 <span class="o">&lt;-</span> leishmaniagenenames<span class="p">[</span>myindex<span class="p">]</span>
+<span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>leishmaniagenenames2<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">6654</span>
+</pre></div>
+</div>
+<p>This tells us that there are 6654 <em>Leishmania major</em> protein-coding genes that
+lack <em>Plasmodium falciparum</em> orthologues.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="chapter9.html#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this practical, you will have learnt to use the following R
+functions:</p>
+<ol class="arabic simple">
+<li>useMart() to select a database to query (in the biomaRt package)</li>
+<li>useDataset() to select a data set in a database to query (in the biomaRt package)</li>
+<li>listDatasets() to get a list of all data sets in a database (in the biomaRt package)</li>
+<li>listAttributes() to get a list of all features of a data set (in the biomaRt package)</li>
+<li>getBM() to make a query on a database (in the biomaRt package)</li>
+<li>merge() to merge R list objects that contain some named elements in common</li>
+</ol>
+</div>
+<div class="section" id="links-and-further-reading">
+<h2>Links and Further Reading<a class="headerlink" href="chapter9.html#links-and-further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Some links are included here for further reading.</p>
+<p>For background reading on comparative genomics, it is recommended
+to read Chapter 8 of
+<em>Introduction to Computational Genomics: a case studies approach</em>
+by Cristianini and Hahn (Cambridge University Press;
+<a class="reference external" href="http://www.computational-genomics.net/book/">www.computational-genomics.net/book/</a>).</p>
+<p>For more information and examples on using the biomaRt R package, see
+the <a class="reference external" href="http://www.bioconductor.org/packages/release/bioc/html/biomaRt.html">biomaRt package website</a>.</p>
+<p>For a more in-depth introduction to R, a good online tutorial is
+available on the &#8220;Kickstarting R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/contrib/Lemon-kickstart/">cran.r-project.org/doc/contrib/Lemon-kickstart</a>.</p>
+<p>There is another nice (slightly more in-depth) tutorial to R
+available on the &#8220;Introduction to R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/manuals/R-intro.html">cran.r-project.org/doc/manuals/R-intro.html</a>.</p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="chapter9.html#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>Many of the ideas for the examples and exercises for this practical
+were inspired by the Matlab case study on <em>Chlamydia</em>
+(<a href="chapter9.html#id2"><span class="problematic" id="id3">`http://www.computational-genomics.net/case\_studies/chlamydia\_demo.html &lt;http://www.computational-genomics.net/case\_studies/chlamydia\_demo.html&gt;`_</span></a>)
+from the website that accompanies the book
+<em>Introduction to Computational Genomics: a case studies approach</em>
+by Cristianini and Hahn (Cambridge University Press;
+<a class="reference external" href="http://www.computational-genomics.net/book/">www.computational-genomics.net/book/</a>).</p>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="chapter9.html#contact" title="Permalink to this headline">¶</a></h2>
+<p>I will be grateful if you will send me (<a class="reference external" href="http://www.sanger.ac.uk/research/projects/parasitegenomics/">Avril Coghlan</a>) corrections or suggestions for improvements to
+my email address <a class="reference external" href="mailto:alc&#37;&#52;&#48;sanger&#46;ac&#46;uk">alc<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="chapter9.html#license" title="Permalink to this headline">¶</a></h2>
+<p>The content in this book is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="chapter9.html#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Answer the following questions, using the R package. For each
+question, please record your answer, and what you typed into R to
+get this answer.</p>
+<p>Model answers to the exercises are given in
+<a class="reference external" href="chapter_answers.html#comparative-genomics">Answers to the exercises on Comparative Genomics</a>.</p>
+<dl class="docutils">
+<dt>Q1. How many <em>Mycobacterium ulcerans</em> genes are there in the current version of the Ensembl Bacteria database?</dt>
+<dd>Note: the bacterium <em>Mycobacterium ulcerans</em> causes <a class="reference external" href="http://www.who.int/buruli/en/">Buruli ulcer</a>, which is classified by the WHO as a neglected tropical disease.</dd>
+</dl>
+<p>Q2. How many of the <em>Mycobacterium ulcerans</em> Ensembl genes are protein-coding genes?</p>
+<dl class="docutils">
+<dt>Q3. How many <em>Mycobacterium ulcerans</em> protein-coding genes have <em>Mycobacterium leprae</em> orthologues?</dt>
+<dd>Note: <em>Mycobacterium leprae</em> is the bacterium that causes <a class="reference external" href="http://www.who.int/lep/en/">leprosy</a>, which is classified by the WHO as a neglected tropical disease.</dd>
+</dl>
+<p>Q4. How many of the*Mycobacterium ulcerans* protein-coding genes have one-to-one orthologues in <em>Mycobacterium leprae</em>?</p>
+<p>Q5. How many <em>Mycobacterium ulcerans</em> genes have Pfam domains?</p>
+<p>Q6. What are the top 5 most common Pfam domains in <em>Mycobacterium ulcerans</em> genes?</p>
+<p>Q7. How many copies of each of the top 5 domains found in Q6 are there in the <em>Mycobacterium ulcerans</em> protein set?</p>
+<p>Q8. How many of copies are there in the <em>Mycobacterium lepraae</em> protein set, of each of the top 5 <em>Mycobacterium ulcerans</em> Pfam protein domains?</p>
+<p>Q9. Are the numbers of copies of some domains different in the two species?</p>
+<p>Q10. Of the differences found in Q9, are any of the differencess statistically significant?</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="chapter10.html" title="Hidden Markov Models"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="chapter7.html" title="Computational Gene-finding"
+             >previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright Avril Coghlan, Licence: Creative Commons Attribution 3.0 License.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

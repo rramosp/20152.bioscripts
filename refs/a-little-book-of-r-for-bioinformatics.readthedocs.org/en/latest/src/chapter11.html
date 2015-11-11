@@ -1,0 +1,1120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Protein-Protein Interaction Graphs &mdash; Bioinformatics 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Bioinformatics 0.1 documentation" href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html" />
+    <link rel="prev" title="Answers to Revision Exercises" href="revisionexercises_answers.html" />
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/src/chapter11.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "a-little-book-of-r-for-bioinformatics",
+    version: "latest",
+    language: "en",
+    page: "src/chapter11",
+    builder: "sphinx",
+    theme: "sphinxdoc",
+    docroot: "/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "8cd107b180ed964fe7c8021e78ff0ab528d5ba74"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "a-little-book-of-r-for-bioinformatics";
+  var page_name = "src/chapter11";
+  var html_theme = "sphinxdoc";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+  // User Analytics Code
+  _gaq.push(['user._setAccount', 'UA-36029021-1']);
+  _gaq.push(['user._trackPageview']);
+  // End User Analytics Code
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="revisionexercises_answers.html" title="Answers to Revision Exercises"
+             accesskey="P">previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="chapter11.html#">Protein-Protein Interaction Graphs</a><ul>
+<li><a class="reference internal" href="chapter11.html#more-about-r">More about R</a></li>
+<li><a class="reference internal" href="chapter11.html#graphs-for-protein-protein-interaction-data-in-r">Graphs for protein-protein interaction data in R</a></li>
+<li><a class="reference internal" href="chapter11.html#finding-the-names-of-vertices-in-graphs-for-protein-protein-interaction-data-in-r">Finding the names of vertices in graphs for protein-protein interaction data in R</a></li>
+<li><a class="reference internal" href="chapter11.html#finding-the-names-of-proteins-that-a-particular-protein-interacts-with">Finding the names of proteins that a particular protein interacts with</a></li>
+<li><a class="reference internal" href="chapter11.html#calculating-the-degree-distribution-for-a-graph-in-r">Calculating the degree distribution for a graph in R</a></li>
+<li><a class="reference internal" href="chapter11.html#finding-connected-components-in-graphs-for-protein-protein-interaction-data-in-r">Finding connected components in graphs for protein-protein interaction data in R</a></li>
+<li><a class="reference internal" href="chapter11.html#extracting-a-subgraph-from-a-graph-in-r">Extracting a subgraph from a graph in R</a></li>
+<li><a class="reference internal" href="chapter11.html#plotting-graphs-for-protein-protein-interaction-data-in-r">Plotting graphs for protein-protein interaction data in R</a></li>
+<li><a class="reference internal" href="chapter11.html#detecting-communities-in-a-protein-protein-interaction-graph-using-r">Detecting communities in a protein-protein interaction graph using R</a></li>
+<li><a class="reference internal" href="chapter11.html#reading-in-protein-protein-interaction-data-in-r">Reading in protein-protein interaction data in R</a></li>
+<li><a class="reference internal" href="chapter11.html#creating-random-graphs-in-r">Creating random graphs in R</a></li>
+<li><a class="reference internal" href="chapter11.html#summary">Summary</a></li>
+<li><a class="reference internal" href="chapter11.html#links-and-further-reading">Links and Further Reading</a></li>
+<li><a class="reference internal" href="chapter11.html#acknowledgements">Acknowledgements</a></li>
+<li><a class="reference internal" href="chapter11.html#contact">Contact</a></li>
+<li><a class="reference internal" href="chapter11.html#license">License</a></li>
+<li><a class="reference internal" href="chapter11.html#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="revisionexercises_answers.html"
+                        title="previous chapter">Answers to Revision Exercises</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/_sources/src/chapter11.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="protein-protein-interaction-graphs">
+<h1>Protein-Protein Interaction Graphs<a class="headerlink" href="chapter11.html#protein-protein-interaction-graphs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="more-about-r">
+<h2>More about R<a class="headerlink" href="chapter11.html#more-about-r" title="Permalink to this headline">¶</a></h2>
+<p>In previous practicals you have have used the R statistics software
+for analysing many different types of data. In this practical, you
+will use R for analysing protein-protein interaction data. However,
+first we will discuss some features of R that will be useful in
+this practical.</p>
+<p>One thing that is useful to know about R is that many R packages
+come with example data sets, which can be used to familiarise
+yourself with the functions in the particular package. To list the
+data sets that come with a particular package, you can use the
+data() function in R. For example, to find the data sets that come
+with the &#8220;graph&#8221; package, type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;graph&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> data<span class="p">(</span>package<span class="o">=</span><span class="s">&quot;graph&quot;</span><span class="p">)</span>
+Data sets <span class="kr">in</span> package <span class="s">&#39;graph&#39;</span><span class="o">:</span>
+
+IMCAAttrs <span class="p">(</span>integrinMediatedCellAdhesion<span class="p">)</span>
+                               KEGG Integrin Mediated Cell Adhesion graph
+IMCAGraph <span class="p">(</span>integrinMediatedCellAdhesion<span class="p">)</span>
+                               KEGG Integrin Mediated Cell Adhesion graph
+MAPKsig                        A graph encoding parts of the MAPK signaling pathway
+MAPKsig <span class="p">(</span>defunctGraph<span class="p">)</span>         A graph encoding parts of the MAPK signaling pathway
+apopGraph                      KEGG apoptosis pathway graph
+biocRepos                      A graph representing the Bioconductor package repository
+graphExamples                  A List Of Example Graphs
+pancrCaIni                     A graph encoding parts of the pancreatic cancer initiation
+</pre></div>
+</div>
+<p>You can then load any of these data sets into R by typing, for
+example, to load the apopGraph data set:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> data<span class="p">(</span><span class="s">&quot;apopGraph&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this practical, you will also be using the table() function to
+make tables of data stored in vectors. If you have a vector
+containing numeric values, the table() function is useful for
+making a table saying how many elements in the vector have each of
+the values. For example:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> y <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">30</span><span class="p">)</span> <span class="c1"># Make a numeric vector &quot;y&quot;</span>
+<span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>y<span class="p">)</span>
+y
+<span class="m">10</span> <span class="m">20</span> <span class="m">30</span>
+ <span class="m">2</span>  <span class="m">5</span>  <span class="m">1</span>
+</pre></div>
+</div>
+<p>The results from the table() function tell us that two of the
+elements in vector <em>y</em> have values of 10, five elements have values
+of 20, and one element has a value of thirty.</p>
+<p>Another use of the table() function is to tell us how many elements
+in a vector of numbers have a particular numeric value. For
+example, if we want to know how many elements in vector <em>y</em> have a
+value of 20, we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>y <span class="o">==</span> <span class="m">20</span><span class="p">)</span>
+<span class="kc">FALSE</span>  <span class="kc">TRUE</span>
+    <span class="m">3</span>     <span class="m">5</span>
+</pre></div>
+</div>
+<p>This tells us that five elements of vector <em>y</em> have values of 20.</p>
+<p>In this practical you will be using functions from several
+different packages. It&#8217;s important to remember that sometimes
+functions in different packages have the same name. For example,
+there is a function called degree() in both the &#8220;igraph&#8221; and
+&#8220;graph&#8221; packages. Therefore, you need to specify which degree()
+function you want to use, by putting the package name, followed by
+&#8221;:&#8221;, before the name of the function. For example, to use the
+degree() function from the &#8220;graph&#8221; package, you can type
+graph::degree(), while to use the degree() function from the
+&#8220;igraph&#8221; package, you can type igraph::degree().</p>
+</div>
+<div class="section" id="graphs-for-protein-protein-interaction-data-in-r">
+<h2>Graphs for protein-protein interaction data in R<a class="headerlink" href="chapter11.html#graphs-for-protein-protein-interaction-data-in-r" title="Permalink to this headline">¶</a></h2>
+<p>Protein-protein interaction data can be described in terms of
+graphs. In this practical, we will explore a curated data set of
+protein-protein interactions, by using R packages for analysing
+and visualising graphs.</p>
+<p>We will use three main R packages that have been written for
+handling biological graphs: the &#8220;graph&#8221; package, the &#8220;RBGL&#8221;
+package, and the &#8220;Rgraphviz&#8221; package. The Rgraphviz package is part
+of the Bioconductor set of R packages, so needs to be installed as
+part of that set of package (see the Bioconductor webpage at
+<a class="reference external" href="http://www.bioconductor.org/docs/install/">www.bioconductor.org/docs/install/</a>
+for details).</p>
+<p>We will first analyse a curated data set of protein-protein
+interactions in the yeast <em>Saccharomyces cerevisiae</em> extracted from
+published papers. This data set comes from with an R package called
+&#8220;yeastExpData&#8221;, which calls the data set &#8220;litG&#8221;. This data was
+first described in a paper by Ge <em>et al</em> (2001) in
+<em>Nature Genetics</em>
+(<a class="reference external" href="http://www.nature.com/ng/journal/v29/n4/full/ng776.html">http://www.nature.com/ng/journal/v29/n4/full/ng776.html</a>).</p>
+<p>To read the litG data set into R, we first need to load the
+yeastExpData package, and then we can use the R data() function to
+read in the litG data set:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;yeastExpData&quot;</span><span class="p">)</span> <span class="c1"># Load the yeastExpData package</span>
+<span class="o">&gt;</span> data<span class="p">(</span><span class="s">&quot;litG&quot;</span><span class="p">)</span>            <span class="c1"># Read the litG data set</span>
+</pre></div>
+</div>
+<p>When you read in the litG data set using the data() function, it is
+stored as a graph in R. In this graph, the vertices (nodes) are
+proteins, and edges between vertices indicate that two proteins
+interact. There are 2885 different vertices in the graph,
+representing 2885 different proteins.</p>
+<p>You can print out the number of vertices and edges in a graph in R
+by just typing the name of the graph, for example:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> litG
+A graphNEL graph with undirected edges
+Number of Nodes <span class="o">=</span> <span class="m">2885</span>
+Number of Edges <span class="o">=</span> <span class="m">315</span>
+</pre></div>
+</div>
+<p>This tells us that the litG graph has 2885 vertices, and 315 edges.
+The 315 edges in the graph represent 315 protein-protein
+interactions between 315 pairs of proteins.</p>
+</div>
+<div class="section" id="finding-the-names-of-vertices-in-graphs-for-protein-protein-interaction-data-in-r">
+<h2>Finding the names of vertices in graphs for protein-protein interaction data in R<a class="headerlink" href="chapter11.html#finding-the-names-of-vertices-in-graphs-for-protein-protein-interaction-data-in-r" title="Permalink to this headline">¶</a></h2>
+<p>The &#8220;graph&#8221; R package contains many functions for analysing graph
+data in R. For example, the nodes() function from the graph package
+can be used to retrieve the names of the vertices (nodes) in the
+graph. For example, we can retrive the names of the vertices in the
+litG graph, and store them in a vector &#8220;mynodes&#8221;, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;graph&quot;</span><span class="p">)</span>        <span class="c1"># Load the graph package</span>
+<span class="o">&gt;</span> mynodes <span class="o">&lt;-</span> nodes<span class="p">(</span>litG<span class="p">)</span>  <span class="c1"># Retrieve the names of the vertices in the litG graph</span>
+</pre></div>
+</div>
+<p>We can then print the names of the first 10 vertices in the litG
+graph, by typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> mynodes<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>           <span class="c1"># Print the names of the first 10 vertices in the litG graph</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;YBL072C&quot;</span> <span class="s">&quot;YBL083C&quot;</span> <span class="s">&quot;YBR009C&quot;</span> <span class="s">&quot;YBR010W&quot;</span> <span class="s">&quot;YBR031W&quot;</span> <span class="s">&quot;YBR093C&quot;</span> <span class="s">&quot;YBR106W&quot;</span>
+ <span class="p">[</span><span class="m">8</span><span class="p">]</span> <span class="s">&quot;YBR118W&quot;</span> <span class="s">&quot;YBR188C&quot;</span> <span class="s">&quot;YBR191W&quot;</span>
+</pre></div>
+</div>
+<p>This gives the names of the yeast proteins corresponding to the
+first 10 vertices in the litG graph. Note that the order that the
+proteins are stored in the graph does not have any meaning; these
+10 proteins just happen to be the first 10 stored in the litG
+graph. As <em>mynodes</em> is a vector that contains one element for each
+vertex in the litG graph, the number of elements <em>mynodes</em> should
+be equal to the number of vertices in the litG graph:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>mynodes<span class="p">)</span>         <span class="c1"># Find the number of vertices in the litG graph</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2885</span>
+</pre></div>
+</div>
+<p>As expected, we find that the litG graph contains 2885 vertices,
+which represent 2885 different yeast proteins.</p>
+</div>
+<div class="section" id="finding-the-names-of-proteins-that-a-particular-protein-interacts-with">
+<h2>Finding the names of proteins that a particular protein interacts with<a class="headerlink" href="chapter11.html#finding-the-names-of-proteins-that-a-particular-protein-interacts-with" title="Permalink to this headline">¶</a></h2>
+<p>If you are particularly interested in a particular protein in a
+protein-protein interaction graph, you may want to print out the
+list of the proteins that that protein interacts with. To do this,
+you can use the adj() function in the R &#8220;graph&#8221; package. For
+example, to print out the proteins that yeast protein YBR009C
+interacts with in the litG graph, you can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> adj<span class="p">(</span>litG<span class="p">,</span> <span class="s">&quot;YBR009C&quot;</span><span class="p">)</span>
+<span class="o">$</span>YBR009C
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;YBR010W&quot;</span> <span class="s">&quot;YNL031C&quot;</span> <span class="s">&quot;YDR227W&quot;</span>
+</pre></div>
+</div>
+<p>This tells us that protein YBR009C interacts with three other
+protein in the litG graph, that is, YBR010W, YNL031C and YDR227W.</p>
+</div>
+<div class="section" id="calculating-the-degree-distribution-for-a-graph-in-r">
+<h2>Calculating the degree distribution for a graph in R<a class="headerlink" href="chapter11.html#calculating-the-degree-distribution-for-a-graph-in-r" title="Permalink to this headline">¶</a></h2>
+<p>The <em>degree</em> of a vertex (node) in a graph is the number of
+connections that it has to other vertices in the graph.</p>
+<p>The <em>degree distribution</em> for a graph is the distribution of degree
+values for all the vertices in the graph, that is, the number of
+vertices in the graph that have degrees of 0, 1, 2, 3, etc.</p>
+<p>In terms of a protein-protein interaction graph, each vertex in the
+graph represents a protein, and the degree of a particular vertex
+is the number of interactions that that protein has with other
+proteins.</p>
+<p>You can calculate the degrees of all the vertices in a graph by
+using the degree() function in the R &#8220;graph&#8221; package. The degree()
+function returns a vector containing the degrees of each of the
+vertices in the graph. Remember that there is a degree() function
+in both the &#8220;graph&#8221; and &#8220;igraph&#8221; packages, so if you have loaded
+both packages, you will need to specify that you want to use the
+degree() function in the &#8220;graph&#8221; package, by writing
+graph::degree().</p>
+<p>For example, to calculate the degrees of vertices in the litG
+graph, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> mydegrees <span class="o">&lt;-</span> graph<span class="o">::</span>degree<span class="p">(</span>litG<span class="p">)</span>
+<span class="o">&gt;</span> mydegrees <span class="c1"># Print out the values in the vector &quot;mydegrees&quot;</span>
+  YBL072C   YBL083C   YBR009C   YBR010W   YBR031W   YBR093C   YBR106W   YBR118W
+        <span class="m">0</span>         <span class="m">0</span>         <span class="m">3</span>         <span class="m">3</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">2</span>
+</pre></div>
+</div>
+<p>For example, we see from the above results that the yeast protein
+YBL072C does not interact with any other protein, while the yeast
+protein YBR118W interacts with two other yeast proteins. Only the
+first line of the results is shown, as there are 2885 vertices in
+the litG graph.</p>
+<p>You can sort the vector <em>mydegrees</em> in order of the number of
+degrees, by using the sort() function:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">sort</span><span class="p">(</span>mydegrees<span class="p">)</span>
+  YBL072C   YBL083C   YBR031W   YBR093C   YBR106W   YBR188C   YBR191W   YBR206W   YCL007C   YCL018W
+        <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>
+<span class="kc">...</span>
+  YBR198C   YDR392W   YDR448W   YBR160W   YFL039C
+        <span class="m">8</span>         <span class="m">8</span>         <span class="m">9</span>        <span class="m">10</span>        <span class="m">12</span>
+</pre></div>
+</div>
+<p>Only the first and last lines of the output are shown above. You
+can see from the last line of the output that there are some
+vertices that have high degrees. For example, the vertex
+corresponding to the protein YFL039C is 12. This means that the
+protein YFL039C interacts with 12 other proteins. Such highly
+connected proteins in a protein-protein interaction graph are
+sometimes called <em>hub proteins</em>.</p>
+<p>We can calculate the <em>degree distribution</em> for a graph by using the
+table() function to make a table of how many vertices in the graph
+have degrees of 0, 1, 2, 3, etc. For example, to calculate the
+degree distribution for the litG graph, you can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>mydegrees<span class="p">)</span>
+mydegrees
+   <span class="m">0</span>    <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>    <span class="m">5</span>    <span class="m">6</span>    <span class="m">7</span>    <span class="m">8</span>    <span class="m">9</span>   <span class="m">10</span>   <span class="m">12</span>
+<span class="m">2587</span>  <span class="m">159</span>   <span class="m">58</span>   <span class="m">38</span>   <span class="m">19</span>    <span class="m">7</span>    <span class="m">3</span>    <span class="m">7</span>    <span class="m">4</span>    <span class="m">1</span>    <span class="m">1</span>    <span class="m">1</span>
+</pre></div>
+</div>
+<p>This tells us that 2587 vertices in the litG graph are not
+connected to any other vertices, 159 vertices are connected to one
+other vertex, 58 vertices are connected to two other vertices, and
+so on. You can calculate the mean degree of the vertices using the
+mean() function in R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">mean</span><span class="p">(</span>mydegrees<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.2183709</span>
+</pre></div>
+</div>
+<p>The mean degree is only about 0.22 for the litG graph, as most of
+the proteins do not interact with any other protein.</p>
+<p>It is nice to visualise the degree distribution for a graph by
+plotting it as a histogram (using the hist() R function):</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> hist<span class="p">(</span>mydegrees<span class="p">,</span> col<span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image0" src="../_static/MB6300_P1_image5.png" /></p>
+</div>
+<div class="section" id="finding-connected-components-in-graphs-for-protein-protein-interaction-data-in-r">
+<h2>Finding connected components in graphs for protein-protein interaction data in R<a class="headerlink" href="chapter11.html#finding-connected-components-in-graphs-for-protein-protein-interaction-data-in-r" title="Permalink to this headline">¶</a></h2>
+<p>If you are analysing a very large graph, it may contain several
+subgraphs, where the vertices within each subgraph are connected to
+each other by edges, but there are no edges connecting the vertices
+in different subgraphs. In this case, the subgraphs are known as
+<em>connected components</em> (also called
+<em>maximally connected subgraphs</em>).</p>
+<p>For example, the graph below contains three connected components:</p>
+<p><a class="reference internal" href="../_static/MB6300_P1_image1.png"><img alt="image1" src="../_static/MB6300_P1_image1.png" style="width: 700px;" /></a></p>
+<p>Image source:
+<a class="reference external" href="http://en.wikipedia.org/wiki/Connected_component_(graph_theory)">http://en.wikipedia.org/wiki/Connected_component_(graph_theory)</a></p>
+<p>You can find connected components of a graph in R, by using the
+connectedComp function in the &#8220;RBGL&#8221; package. For example, to find
+connected components in the litG graph, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;RBGL&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> myconnectedcomponents <span class="o">&lt;-</span> connectedComp<span class="p">(</span>litG<span class="p">)</span>
+</pre></div>
+</div>
+<p>The commands above store the connected components in the litG graph
+in a list <em>myconnectedcomponents</em>. Each connected component is
+stored in one element of the list variable <em>myconnectedcomponents</em>.
+That is, each element of the list <em>myconnectedcomponents</em> is a
+vector containing the names of the proteins in a particular
+connected component.</p>
+<p>We can print out the yeast proteins that are the vertices of the
+first three connected components by printing out the first three
+elements in the list <em>myconnectedcomponents</em>. Remember that you
+need to use double square brackets to access the elements of a list
+variable in R:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myconnectedcomponents<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;YBL072C&quot;</span>
+<span class="o">&gt;</span> myconnectedcomponents<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;YBL083C&quot;</span>
+<span class="o">&gt;</span> myconnectedcomponents<span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;YBR009C&quot;</span> <span class="s">&quot;YBR010W&quot;</span> <span class="s">&quot;YNL030W&quot;</span> <span class="s">&quot;YNL031C&quot;</span> <span class="s">&quot;YOL139C&quot;</span> <span class="s">&quot;YAR007C&quot;</span> <span class="s">&quot;YBR073W&quot;</span>
+ <span class="p">[</span><span class="m">8</span><span class="p">]</span> <span class="s">&quot;YER095W&quot;</span> <span class="s">&quot;YJL173C&quot;</span> <span class="s">&quot;YNL312W&quot;</span> <span class="s">&quot;YBL084C&quot;</span> <span class="s">&quot;YDR146C&quot;</span> <span class="s">&quot;YLR127C&quot;</span> <span class="s">&quot;YNL172W&quot;</span>
+<span class="p">[</span><span class="m">15</span><span class="p">]</span> <span class="s">&quot;YLR134W&quot;</span> <span class="s">&quot;YMR284W&quot;</span> <span class="s">&quot;YER179W&quot;</span> <span class="s">&quot;YIL144W&quot;</span> <span class="s">&quot;YML104C&quot;</span> <span class="s">&quot;YOR191W&quot;</span> <span class="s">&quot;YDL008W&quot;</span>
+<span class="p">[</span><span class="m">22</span><span class="p">]</span> <span class="s">&quot;YDL030W&quot;</span> <span class="s">&quot;YDL042C&quot;</span> <span class="s">&quot;YDR004W&quot;</span> <span class="s">&quot;YGR162W&quot;</span> <span class="s">&quot;YMR117C&quot;</span> <span class="s">&quot;YDR386W&quot;</span> <span class="s">&quot;YDR485C&quot;</span>
+<span class="p">[</span><span class="m">29</span><span class="p">]</span> <span class="s">&quot;YDL043C&quot;</span> <span class="s">&quot;YDR118W&quot;</span> <span class="s">&quot;YMR106C&quot;</span> <span class="s">&quot;YML032C&quot;</span> <span class="s">&quot;YDR076W&quot;</span> <span class="s">&quot;YDR180W&quot;</span> <span class="s">&quot;YDL013W&quot;</span>
+<span class="p">[</span><span class="m">36</span><span class="p">]</span> <span class="s">&quot;YDR227W&quot;</span>
+</pre></div>
+</div>
+<p>That is, the first two connected components only contain one
+protein each. These two proteins must not have interactions with
+any of the other yeast proteins in the litG graph. The third
+connected component contains 36 proteins. These 36 proteins are not
+necessarily all connected to each other, but each of the 36
+proteins must be connected to at least one of the other 35 proteins
+in the connected component. Note that the connected components are
+not stored in the list <em>myconnectedcomponents</em> in any particular
+order; these just happen to be the first three connected components
+stored in the list.</p>
+<p>To find the total number of connected components in the litG graph,
+we can just find the length of the list <em>myconnectedcomponents</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">length</span><span class="p">(</span>myconnectedcomponents<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2642</span>
+</pre></div>
+</div>
+<p>That is, there are 2642 different connected components in the litG
+graph. These are 2642 subgraphs of the graph, where there are edges
+between the vertices within a subgraph, but no edges between the
+2642 subgraphs.</p>
+<p>It is interesting to know what is the largest connected component
+in a graph. How can we calculate this for the litG graph? Well,
+each element of the litG graph contains a vector storing the
+proteins in a particular connected component, and the length of
+this vector is the number of proteins in that connected component.
+Thus, to calculate the sizes of all connected components in the
+litG graph, we can use a &#8220;for loop&#8221; to calculate the length of each
+of the vectors in <em>myconnectedcomponents</em> in turn:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> componentsizes <span class="o">&lt;-</span> <span class="kt">numeric</span><span class="p">(</span><span class="m">2642</span><span class="p">)</span> <span class="c1"># Make a vector for storing the sizes of the 2642 connected components</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">2642</span><span class="p">)</span> <span class="p">{</span>
+   component <span class="o">&lt;-</span> myconnectedcomponents<span class="p">[[</span>i<span class="p">]]</span> <span class="c1"># Store the connected component in a vector &quot;component&quot;</span>
+   componentsize <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>component<span class="p">)</span>      <span class="c1"># Find the number of vertices in this connected component</span>
+   componentsizes<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> componentsize      <span class="c1"># Store the size of this component</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the code above, the line componentsizes &lt;- numeric(2642) makes a
+new vector <em>componentsizes</em> which has the same number of elements
+as the number of connected components in the litG graph (2642).
+This vector <em>componentsizes</em> is then used within the for loop for
+storing the size of each connected component. We can now find the
+size of the largest connected component in the litG graph by using
+the max() R function to find the largest value in the vector
+<em>componentsizes</em>:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">max</span><span class="p">(</span>componentsizes<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">88</span>
+</pre></div>
+</div>
+<p>That is, the largest connected component in the litG graph has 88
+different proteins.</p>
+<p>We can also use the table() function in R to make a table of the
+number of connected components of different sizes:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kp">table</span><span class="p">(</span>componentsizes<span class="p">)</span>
+componentsizes
+   <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>    <span class="m">5</span>    <span class="m">6</span>    <span class="m">7</span>    <span class="m">8</span>   <span class="m">12</span>   <span class="m">13</span>   <span class="m">36</span>   <span class="m">88</span>
+<span class="m">2587</span>   <span class="m">29</span>   <span class="m">10</span>    <span class="m">7</span>    <span class="m">1</span>    <span class="m">1</span>    <span class="m">2</span>    <span class="m">1</span>    <span class="m">1</span>    <span class="m">1</span>    <span class="m">1</span>    <span class="m">1</span>
+</pre></div>
+</div>
+<p>This tells us that there is just one connected component with 88
+proteins. Furthermore, we see that there are 2587 connected
+components that contain just 1 protein each. These proteins
+presumably do not have any known interactions with with any other
+protein in the litG data set.</p>
+<p>To find the connected component that a particular protein belongs to,
+you can use the findcomponent function:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> findcomponent <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>graph<span class="p">,</span>vertex<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># Function to find the connected component that contains a particular vertex</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;RBGL&quot;</span><span class="p">)</span>
+     found <span class="o">&lt;-</span> <span class="m">0</span>
+     myconnectedcomponents <span class="o">&lt;-</span> connectedComp<span class="p">(</span>graph<span class="p">)</span>
+     numconnectedcomponents <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>myconnectedcomponents<span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numconnectedcomponents<span class="p">)</span>
+     <span class="p">{</span>
+        componenti <span class="o">&lt;-</span> myconnectedcomponents<span class="p">[[</span>i<span class="p">]]</span>
+        numvertices <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>componenti<span class="p">)</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numvertices<span class="p">)</span>
+        <span class="p">{</span>
+           vertexj <span class="o">&lt;-</span> componenti<span class="p">[</span>j<span class="p">]</span>
+           <span class="kr">if</span> <span class="p">(</span>vertexj <span class="o">==</span> vertex<span class="p">)</span>
+           <span class="p">{</span>
+              found <span class="o">&lt;-</span> <span class="m">1</span>
+              <span class="kr">return</span><span class="p">(</span>componenti<span class="p">)</span>
+           <span class="p">}</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="kp">print</span><span class="p">(</span><span class="s">&quot;ERROR: did not find vertex in the graph&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>The function findcompontent() returns a vector containing the names
+of the proteins in the connected component. For example, to find
+the connected component containing the protein YBR009C, you can
+type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> mycomponent <span class="o">&lt;-</span> findcomponent<span class="p">(</span>litG<span class="p">,</span> <span class="s">&quot;YBR009C&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> mycomponent <span class="c1"># Print out the members of this connected component.</span>
+   <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;YBR009C&quot;</span> <span class="s">&quot;YBR010W&quot;</span> <span class="s">&quot;YNL030W&quot;</span> <span class="s">&quot;YNL031C&quot;</span> <span class="s">&quot;YOL139C&quot;</span> <span class="s">&quot;YAR007C&quot;</span> <span class="s">&quot;YBR073W&quot;</span> <span class="s">&quot;YER095W&quot;</span> <span class="s">&quot;YJL173C&quot;</span> <span class="s">&quot;YNL312W&quot;</span>
+  <span class="p">[</span><span class="m">11</span><span class="p">]</span> <span class="s">&quot;YBL084C&quot;</span> <span class="s">&quot;YDR146C&quot;</span> <span class="s">&quot;YLR127C&quot;</span> <span class="s">&quot;YNL172W&quot;</span> <span class="s">&quot;YLR134W&quot;</span> <span class="s">&quot;YMR284W&quot;</span> <span class="s">&quot;YER179W&quot;</span> <span class="s">&quot;YIL144W&quot;</span> <span class="s">&quot;YML104C&quot;</span> <span class="s">&quot;YOR191W&quot;</span>
+  <span class="p">[</span><span class="m">21</span><span class="p">]</span> <span class="s">&quot;YDL008W&quot;</span> <span class="s">&quot;YDL030W&quot;</span> <span class="s">&quot;YDL042C&quot;</span> <span class="s">&quot;YDR004W&quot;</span> <span class="s">&quot;YGR162W&quot;</span> <span class="s">&quot;YMR117C&quot;</span> <span class="s">&quot;YDR386W&quot;</span> <span class="s">&quot;YDR485C&quot;</span> <span class="s">&quot;YDL043C&quot;</span> <span class="s">&quot;YDR118W&quot;</span>
+  <span class="p">[</span><span class="m">31</span><span class="p">]</span> <span class="s">&quot;YMR106C&quot;</span> <span class="s">&quot;YML032C&quot;</span> <span class="s">&quot;YDR076W&quot;</span> <span class="s">&quot;YDR180W&quot;</span> <span class="s">&quot;YDL013W&quot;</span> <span class="s">&quot;YDR227W&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extracting-a-subgraph-from-a-graph-in-r">
+<h2>Extracting a subgraph from a graph in R<a class="headerlink" href="chapter11.html#extracting-a-subgraph-from-a-graph-in-r" title="Permalink to this headline">¶</a></h2>
+<p>If you want to extract a particular subgraph of a graph (that is,
+part of a graph), you can use the subGraph function in the &#8220;graph&#8221;
+package. As its arguments (inputs), the subGraph function contains
+a vector containing the vertices (nodes) in the subgraph that we&#8217;re
+interested in, and the graph that the subgraph belongs to.</p>
+<p>For example, if we want to extract the subgraph (of graph litG)
+that contains the third connected component in the vector
+<em>myconnectedcomponents</em>, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myconnectedcomponents <span class="o">&lt;-</span> connectedComp<span class="p">(</span>litG<span class="p">)</span>
+<span class="o">&gt;</span> component3 <span class="o">&lt;-</span> myconnectedcomponents<span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+<span class="o">&gt;</span> component3 <span class="c1"># Print out the proteins in connected component 3</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;YBR009C&quot;</span> <span class="s">&quot;YBR010W&quot;</span> <span class="s">&quot;YNL030W&quot;</span> <span class="s">&quot;YNL031C&quot;</span> <span class="s">&quot;YOL139C&quot;</span> <span class="s">&quot;YAR007C&quot;</span> <span class="s">&quot;YBR073W&quot;</span>
+ <span class="p">[</span><span class="m">8</span><span class="p">]</span> <span class="s">&quot;YER095W&quot;</span> <span class="s">&quot;YJL173C&quot;</span> <span class="s">&quot;YNL312W&quot;</span> <span class="s">&quot;YBL084C&quot;</span> <span class="s">&quot;YDR146C&quot;</span> <span class="s">&quot;YLR127C&quot;</span> <span class="s">&quot;YNL172W&quot;</span>
+<span class="p">[</span><span class="m">15</span><span class="p">]</span> <span class="s">&quot;YLR134W&quot;</span> <span class="s">&quot;YMR284W&quot;</span> <span class="s">&quot;YER179W&quot;</span> <span class="s">&quot;YIL144W&quot;</span> <span class="s">&quot;YML104C&quot;</span> <span class="s">&quot;YOR191W&quot;</span> <span class="s">&quot;YDL008W&quot;</span>
+<span class="p">[</span><span class="m">22</span><span class="p">]</span> <span class="s">&quot;YDL030W&quot;</span> <span class="s">&quot;YDL042C&quot;</span> <span class="s">&quot;YDR004W&quot;</span> <span class="s">&quot;YGR162W&quot;</span> <span class="s">&quot;YMR117C&quot;</span> <span class="s">&quot;YDR386W&quot;</span> <span class="s">&quot;YDR485C&quot;</span>
+<span class="p">[</span><span class="m">29</span><span class="p">]</span> <span class="s">&quot;YDL043C&quot;</span> <span class="s">&quot;YDR118W&quot;</span> <span class="s">&quot;YMR106C&quot;</span> <span class="s">&quot;YML032C&quot;</span> <span class="s">&quot;YDR076W&quot;</span> <span class="s">&quot;YDR180W&quot;</span> <span class="s">&quot;YDL013W&quot;</span>
+<span class="p">[</span><span class="m">36</span><span class="p">]</span> <span class="s">&quot;YDR227W&quot;</span>
+<span class="o">&gt;</span> mysubgraph <span class="o">&lt;-</span> subGraph<span class="p">(</span>component3<span class="p">,</span> litG<span class="p">)</span>
+<span class="o">&gt;</span> mysubgraph
+A graphNEL graph with undirected edges
+Number of Nodes <span class="o">=</span> <span class="m">36</span>
+Number of Edges <span class="o">=</span> <span class="m">48</span>
+</pre></div>
+</div>
+<p>The commands above store the subgraph corresponding to <em>component3</em>
+in a graph object <em>mysubgraph</em> that contains 36 vertices and 48
+edges.</p>
+</div>
+<div class="section" id="plotting-graphs-for-protein-protein-interaction-data-in-r">
+<h2>Plotting graphs for protein-protein interaction data in R<a class="headerlink" href="chapter11.html#plotting-graphs-for-protein-protein-interaction-data-in-r" title="Permalink to this headline">¶</a></h2>
+<p>The &#8220;Rgraphviz&#8221; R package contains useful functions for plotting
+graphs, or plotting parts of graphs (&#8220;subgraphs&#8221;).</p>
+<p>The layoutGraph and renderGraph functions in the Rgraphviz package
+can be used to make a nice plot of a subgraph. There are lots of
+options for the colours to use for plotting vertices and edges.</p>
+<p>For example, if we want to make a plot of the subgraph
+corresponding to the third connected component in the vector
+<em>myconnectedcomponents</em>, we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span><span class="s">&quot;Rgraphviz&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> mysubgraph <span class="o">&lt;-</span> subGraph<span class="p">(</span>component3<span class="p">,</span> litG<span class="p">)</span>
+<span class="o">&gt;</span> mygraphplot <span class="o">&lt;-</span> layoutGraph<span class="p">(</span>mysubgraph<span class="p">,</span> layoutType<span class="o">=</span><span class="s">&quot;neato&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> renderGraph<span class="p">(</span>mygraphplot<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image2" src="../_static/MB6300_P1_image2.png" /></p>
+<p>The plot above shows a plot of the third connected component in the
+graph litG. There are 36 vertices in this subgraph, corresponding
+to 36 different yeast proteins. The names of the proteins are shown
+in the circles that represent the vertices. The edges between
+vertices represent interactions between pairs of proteins.</p>
+</div>
+<div class="section" id="detecting-communities-in-a-protein-protein-interaction-graph-using-r">
+<h2>Detecting communities in a protein-protein interaction graph using R<a class="headerlink" href="chapter11.html#detecting-communities-in-a-protein-protein-interaction-graph-using-r" title="Permalink to this headline">¶</a></h2>
+<p>A property common to many types of graphs, including
+protein-protein interaction graphs, is <em>community structure</em>. A
+<em>community</em> is often defined as a subset of the vertices in the
+graph such that connections btween the vertices are denser than
+connections with the rest of the graph. For example, the graph in
+the picture below consists of one connected component. However,
+within that connected component, we can see three densely connected
+subgraphs; these could be said to be three different <em>communities</em>
+within the graph:</p>
+<p><img alt="image3" src="../_static/MB6300_P1_image7.png" /></p>
+<p>Image source:
+<a class="reference external" href="http://en.wikipedia.org/wiki/Community_structure">http://en.wikipedia.org/wiki/Community_structure</a></p>
+<p>In terms of protein-protein interaction networks, if there are
+several communities within a connected component (for example,
+three communities, as in the picture above), these could represent
+three different groups of proteins, where the proteins within one
+community interact much more with each other than with proteins in
+the other communities.</p>
+<p>By detecting communities within a protein-protein interaction
+graph, we can detect putative <em>protein complexes</em>, that is, groups
+of associated proteins that are probably fairly stable over time.
+In other words, protein complexes can be detected by looking for
+groups of proteins among which there are many interactions, and
+where the members of the complex have few interactions with other
+proteins that do not belong to the complex.</p>
+<p>There are lots of different methods available for detecting
+communities in a graph, and each method will give slightly
+different results. That is, the particular method used for
+detecting communities will decide how you split a connected
+component into one or more communities.</p>
+<p>The function findcommunities() below identifies communities within
+a graph (or subgraph of a graph). It requires a second function,
+findcommunities2(), which is also below:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> findcommunities <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>mygraph<span class="p">,</span>minsize<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># Function to find network communities in a graph</span>
+     <span class="c1"># Load up the igraph library:</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;igraph&quot;</span><span class="p">)</span>
+     <span class="c1"># Set the counter for the number of communities:</span>
+     cnt <span class="o">&lt;-</span> <span class="m">0</span>
+     <span class="c1"># First find the connected components in the graph:</span>
+     myconnectedcomponents <span class="o">&lt;-</span> connectedComp<span class="p">(</span>mygraph<span class="p">)</span>
+     <span class="c1"># For each connected component, find the communities within that connected component:</span>
+     numconnectedcomponents <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>myconnectedcomponents<span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numconnectedcomponents<span class="p">)</span>
+     <span class="p">{</span>
+        component <span class="o">&lt;-</span> myconnectedcomponents<span class="p">[[</span>i<span class="p">]]</span>
+        <span class="c1"># Find the number of nodes in this connected component:</span>
+        numnodes <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>component<span class="p">)</span>
+        <span class="kr">if</span> <span class="p">(</span>numnodes <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># We can only find communities if there is more than one node</span>
+        <span class="p">{</span>
+           mysubgraph <span class="o">&lt;-</span> subGraph<span class="p">(</span>component<span class="p">,</span> mygraph<span class="p">)</span>
+           <span class="c1"># Find the communities within this connected component:</span>
+           <span class="c1"># print(component)</span>
+           myvector <span class="o">&lt;-</span> <span class="kt">vector</span><span class="p">()</span>
+           mylist <span class="o">&lt;-</span> findcommunities2<span class="p">(</span>mysubgraph<span class="p">,</span>cnt<span class="p">,</span><span class="s">&quot;FALSE&quot;</span><span class="p">,</span>myvector<span class="p">,</span>minsize<span class="p">)</span>
+           cnt <span class="o">&lt;-</span> mylist<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+           myvector <span class="o">&lt;-</span> mylist<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;There were&quot;</span><span class="p">,</span>cnt<span class="p">,</span><span class="s">&quot;communities in the input graph&quot;</span><span class="p">))</span>
+  <span class="p">}</span>
+<span class="o">&gt;</span> findcommunities2 <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>mygraph<span class="p">,</span>cnt<span class="p">,</span>plot<span class="p">,</span>myvector<span class="p">,</span>minsize<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># Function to find network communities in a connected component of a graph</span>
+     <span class="c1"># Find the number of nodes in the input graph</span>
+     nodes <span class="o">&lt;-</span> nodes<span class="p">(</span>mygraph<span class="p">)</span>
+     numnodes <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>nodes<span class="p">)</span>
+     <span class="c1"># Record the vertex number for each vertex name</span>
+     myvector <span class="o">&lt;-</span> <span class="kt">vector</span><span class="p">()</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numnodes<span class="p">)</span>
+     <span class="p">{</span>
+        node <span class="o">&lt;-</span> nodes<span class="p">[</span>i<span class="p">]</span> <span class="c1"># &quot;node&quot; is the vertex name, i is the vertex number</span>
+        myvector<span class="p">[</span><span class="sb">`node`</span><span class="p">]</span> <span class="o">&lt;-</span> i  <span class="c1"># Add named element to myvector</span>
+     <span class="p">}</span>
+     <span class="c1"># Create a graph in the &quot;igraph&quot; library format, with numnodes nodes:</span>
+     newgraph <span class="o">&lt;-</span> graph.empty<span class="p">(</span>n<span class="o">=</span>numnodes<span class="p">,</span>directed<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+     <span class="c1"># First record which edges we have seen already in the &quot;mymatrix&quot; matrix,</span>
+     <span class="c1"># so that we don&#39;t add any edge twice:</span>
+     mymatrix <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span>nrow<span class="o">=</span>numnodes<span class="p">,</span>ncol<span class="o">=</span>numnodes<span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numnodes<span class="p">)</span>
+     <span class="p">{</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numnodes<span class="p">)</span>
+        <span class="p">{</span>
+           mymatrix<span class="p">[</span>i<span class="p">,</span>j<span class="p">]</span> <span class="o">=</span> <span class="m">0</span>
+           mymatrix<span class="p">[</span>j<span class="p">,</span>i<span class="p">]</span> <span class="o">=</span> <span class="m">0</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="c1"># Now add edges to the graph &quot;newgraph&quot;:</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numnodes<span class="p">)</span>
+     <span class="p">{</span>
+        node <span class="o">&lt;-</span> nodes<span class="p">[</span>i<span class="p">]</span> <span class="c1"># &quot;node&quot; is the vertex name, i is the vertex number</span>
+        <span class="c1"># Find the nodes that this node is joined to:</span>
+        neighbours <span class="o">&lt;-</span> adj<span class="p">(</span>mygraph<span class="p">,</span> node<span class="p">)</span>
+        neighbours <span class="o">&lt;-</span> neighbours<span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># Get the list of neighbours</span>
+        numneighbours <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>neighbours<span class="p">)</span>
+        <span class="kr">if</span> <span class="p">(</span>numneighbours <span class="o">&gt;=</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># If this node &quot;node&quot; has some edges to other nodes</span>
+        <span class="p">{</span>
+           <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numneighbours<span class="p">)</span>
+           <span class="p">{</span>
+              neighbour <span class="o">&lt;-</span> neighbours<span class="p">[</span>j<span class="p">]</span>
+              <span class="c1"># Get the vertex number</span>
+              neighbourindex <span class="o">&lt;-</span> myvector<span class="p">[</span>neighbour<span class="p">]</span>
+              neighbourindex <span class="o">&lt;-</span> neighbourindex<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+              <span class="c1"># Add a node in the new graph &quot;newgraph&quot; between vertices i and neighbourindex</span>
+              <span class="c1"># In graph &quot;newgraph&quot;, the vertices are counted from 0 upwards.</span>
+              indexi <span class="o">&lt;-</span> i
+              indexj <span class="o">&lt;-</span> neighbourindex
+              <span class="c1"># If we have not seen this edge already:</span>
+              <span class="kr">if</span> <span class="p">(</span>mymatrix<span class="p">[</span>indexi<span class="p">,</span>indexj<span class="p">]</span> <span class="o">==</span> <span class="m">0</span> <span class="o">&amp;&amp;</span> mymatrix<span class="p">[</span>indexj<span class="p">,</span>indexi<span class="p">]</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
+              <span class="p">{</span>
+                 mymatrix<span class="p">[</span>indexi<span class="p">,</span>indexj<span class="p">]</span> <span class="o">&lt;-</span> <span class="m">1</span>
+                 mymatrix<span class="p">[</span>indexj<span class="p">,</span>indexi<span class="p">]</span> <span class="o">&lt;-</span> <span class="m">1</span>
+                 <span class="c1"># Add edges to the graph &quot;newgraph&quot;</span>
+                 newgraph <span class="o">&lt;-</span> add.edges<span class="p">(</span>newgraph<span class="p">,</span> <span class="kt">c</span><span class="p">(</span>i<span class="p">,</span> neighbourindex<span class="p">))</span>
+              <span class="p">}</span>
+           <span class="p">}</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="c1"># Set the names of the vertices in graph &quot;newgraph&quot;:</span>
+     newgraph <span class="o">&lt;-</span> set.vertex.attribute<span class="p">(</span>newgraph<span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> value<span class="o">=</span>nodes<span class="p">)</span>
+     <span class="c1"># Now find communities in the graph:</span>
+     communities <span class="o">&lt;-</span> spinglass.community<span class="p">(</span>newgraph<span class="p">)</span>
+     <span class="c1"># Find how many communities there are:</span>
+     sizecommunities <span class="o">&lt;-</span> communities<span class="o">$</span>csize
+     numcommunities <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>sizecommunities<span class="p">)</span>
+     <span class="c1"># Find which vertices belong to which communities:</span>
+     membership <span class="o">&lt;-</span> communities<span class="o">$</span>membership
+     <span class="c1"># Get the names of vertices in the graph &quot;newgraph&quot;:</span>
+     vertexnames <span class="o">&lt;-</span> get.vertex.attribute<span class="p">(</span>newgraph<span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">)</span>
+     <span class="c1"># Print out the vertices belonging to each community:</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numcommunities<span class="p">)</span>
+     <span class="p">{</span>
+        cnt <span class="o">&lt;-</span> cnt <span class="o">+</span> <span class="m">1</span>
+        nummembers <span class="o">&lt;-</span> <span class="m">0</span>
+        printout <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span><span class="s">&quot;Community&quot;</span><span class="p">,</span>cnt<span class="p">,</span><span class="s">&quot;:&quot;</span><span class="p">)</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>membership<span class="p">))</span>
+        <span class="p">{</span>
+           community <span class="o">&lt;-</span> membership<span class="p">[</span>j<span class="p">]</span>
+           <span class="kr">if</span> <span class="p">(</span>community <span class="o">==</span> i<span class="p">)</span> <span class="c1"># If vertex j belongs to the ith community</span>
+           <span class="p">{</span>
+              vertexname <span class="o">&lt;-</span> vertexnames<span class="p">[</span>j<span class="p">]</span>
+              <span class="kr">if</span> <span class="p">(</span>plot <span class="o">==</span> <span class="kc">FALSE</span><span class="p">)</span>
+              <span class="p">{</span>
+                 nummembers <span class="o">&lt;-</span> nummembers <span class="o">+</span> <span class="m">1</span>
+                 <span class="c1"># Print out the vertices belonging to the community</span>
+                 printout <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>printout<span class="p">,</span>vertexname<span class="p">)</span>
+              <span class="p">}</span>
+              <span class="kp">else</span>
+              <span class="p">{</span>
+                 <span class="c1"># Colour in the vertices belonging to the community</span>
+                 myvector<span class="p">[</span><span class="sb">`vertexname`</span><span class="p">]</span> <span class="o">&lt;-</span> cnt
+              <span class="p">}</span>
+           <span class="p">}</span>
+         <span class="p">}</span>
+         <span class="kr">if</span> <span class="p">(</span>plot <span class="o">==</span> <span class="kc">FALSE</span> <span class="o">&amp;&amp;</span> nummembers <span class="o">&gt;=</span> minsize<span class="p">)</span>
+         <span class="p">{</span>
+            <span class="kp">print</span><span class="p">(</span>printout<span class="p">)</span>
+         <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="kr">return</span><span class="p">(</span><span class="kt">list</span><span class="p">(</span>cnt<span class="p">,</span>myvector<span class="p">))</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<p>The function
+findcommunities() uses the function spinglass.community() from the
+&#8220;igraph&#8221; package to identify communities in a graph or subgraph. As
+its arguments (inputs), the findcommunities() function takes the
+graph/subgraph that we want to find communities in, and the minimum
+number of vertices that a community must have to be reported.</p>
+<p>For example, to find communities within the subgraph corresponding
+to the third connected component of the litG graph, we can type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> mysubgraph <span class="o">&lt;-</span> subGraph<span class="p">(</span>component3<span class="p">,</span> litG<span class="p">)</span>
+<span class="o">&gt;</span> findcommunities<span class="p">(</span>mysubgraph<span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;Community 1 : YML104C YOR191W YDL030W YDR485C YDL013W&quot;</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;Community 2 : YBR073W YDR146C YLR134W YER179W YIL144W&quot;</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;Community 3 : YOL139C YGR162W YMR117C YDR386W YDL043C YDR180W&quot;</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;Community 4 : YBL084C YLR127C YNL172W YDL008W YDR118W&quot;</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;Community 5 : YAR007C YER095W YJL173C YNL312W YDR004W YML032C YDR076W&quot;</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;Community 6 : YBR009C YBR010W YNL030W YNL031C YMR284W YDL042C YMR106C YDR227W&quot;</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;There were 6 communities in the input graph&quot;</span>
+</pre></div>
+</div>
+<p>This tells us that there are six different communities in the
+subgraph corresponding to the third connected component of the litG
+graph.</p>
+<p>Note that if you run findcommunities() again and again on the same
+input graph, it might find slightly different sets of communities
+each time. This is because it uses a random number generator in the
+method that it uses for identifying communities, and the random
+number used will be different each time you run the
+findcommunities() function, which means that you will get slightly
+different answers each time. The answers should be very similar,
+however, but you might see a small difference, for example, a large
+community might be split into two smaller communities.</p>
+<p>You can make a plot of the communities in a graph or subgraph by
+using the plotcommunities() function:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> plotcommunities <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>mygraph<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># Function to plot network communities in a graph</span>
+     <span class="c1"># Load the &quot;igraph&quot; package:</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;igraph&quot;</span><span class="p">)</span>
+     <span class="c1"># Make a plot of the graph</span>
+     graphplot <span class="o">&lt;-</span> layoutGraph<span class="p">(</span>mygraph<span class="p">,</span> layoutType<span class="o">=</span><span class="s">&quot;neato&quot;</span><span class="p">)</span>
+     renderGraph<span class="p">(</span>graphplot<span class="p">)</span>
+     <span class="c1"># Get the names of the nodes in the graph:</span>
+     vertices <span class="o">&lt;-</span> nodes<span class="p">(</span>mygraph<span class="p">)</span>
+     numvertices <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>vertices<span class="p">)</span>
+     <span class="c1"># Now record the colour of each vertex in a vector &quot;myvector&quot;:</span>
+     myvector <span class="o">&lt;-</span> <span class="kt">vector</span><span class="p">()</span>
+     colour <span class="o">&lt;-</span> <span class="s">&quot;red&quot;</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numvertices<span class="p">)</span>
+     <span class="p">{</span>
+        vertex <span class="o">&lt;-</span> vertices<span class="p">[</span>i<span class="p">]</span>
+        myvector<span class="p">[</span><span class="sb">`vertex`</span><span class="p">]</span> <span class="o">&lt;-</span> colour   <span class="c1"># Add named element to myvector</span>
+     <span class="p">}</span>
+     <span class="c1"># Set the counter for the number of communities:</span>
+     cnt <span class="o">&lt;-</span> <span class="m">0</span>
+     <span class="c1"># First find the connected components in the graph:</span>
+     myconnectedcomponents <span class="o">&lt;-</span> connectedComp<span class="p">(</span>mygraph<span class="p">)</span>
+     <span class="c1"># For each connected component, find the communities within that connected component:</span>
+     numconnectedcomponents <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>myconnectedcomponents<span class="p">)</span>
+     <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numconnectedcomponents<span class="p">)</span>
+     <span class="p">{</span>
+        component <span class="o">&lt;-</span> myconnectedcomponents<span class="p">[[</span>i<span class="p">]]</span>
+        <span class="c1"># Find the number of nodes in this connected component:</span>
+        numnodes <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>component<span class="p">)</span>
+        <span class="kr">if</span> <span class="p">(</span>numnodes <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># We can only find communities if there is more than one node</span>
+        <span class="p">{</span>
+           mysubgraph <span class="o">&lt;-</span> subGraph<span class="p">(</span>component<span class="p">,</span> mygraph<span class="p">)</span>
+           <span class="c1"># Find the communities within this connected component:</span>
+           mylist <span class="o">&lt;-</span> findcommunities2<span class="p">(</span>mysubgraph<span class="p">,</span>cnt<span class="p">,</span><span class="s">&quot;TRUE&quot;</span><span class="p">,</span>myvector<span class="p">,</span><span class="m">0</span><span class="p">)</span>
+           cnt <span class="o">&lt;-</span> mylist<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+           myvector <span class="o">&lt;-</span> mylist<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="c1"># Get a set of cnt colours, where cnt is equal to the number of communities found:</span>
+      mycolours <span class="o">&lt;-</span> rainbow<span class="p">(</span>cnt<span class="p">)</span>
+      <span class="c1"># Set the colour of the vertices, so that vertices in each community are of the same colour,</span>
+      <span class="c1"># and vertices in different communities are different colours:</span>
+      myvector2 <span class="o">&lt;-</span> <span class="kt">vector</span><span class="p">()</span>
+      <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numvertices<span class="p">)</span>
+      <span class="p">{</span>
+         vertex <span class="o">&lt;-</span> vertices<span class="p">[</span>i<span class="p">]</span>
+         community <span class="o">&lt;-</span> myvector<span class="p">[</span>vertex<span class="p">]</span>
+         mycolour <span class="o">&lt;-</span> mycolours<span class="p">[</span>community<span class="p">]</span>
+         myvector2<span class="p">[</span><span class="sb">`vertex`</span><span class="p">]</span> <span class="o">&lt;-</span> mycolour
+     <span class="p">}</span>
+     nodeRenderInfo<span class="p">(</span>graphplot<span class="p">)</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>fill<span class="o">=</span>myvector2<span class="p">)</span>
+     renderGraph<span class="p">(</span>graphplot<span class="p">)</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>For example, to make a plot of the communities in the third
+connected component of the litG graph using the plotcommunities()
+function, you need to type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> mysubgraph <span class="o">&lt;-</span> subGraph<span class="p">(</span>component3<span class="p">,</span> litG<span class="p">)</span>
+<span class="o">&gt;</span> plotcommunities<span class="p">(</span>mysubgraph<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image4" src="../_static/MB6300_P1_image8.png" /></p>
+<p>In the graph above, the six communities in the third connected
+component of the litG graph are coloured with six different
+colours.</p>
+</div>
+<div class="section" id="reading-in-protein-protein-interaction-data-in-r">
+<h2>Reading in protein-protein interaction data in R<a class="headerlink" href="chapter11.html#reading-in-protein-protein-interaction-data-in-r" title="Permalink to this headline">¶</a></h2>
+<p>In the above example, you looked at the litG data set of
+protein-protein interactions, which is a data set that comes with
+the &#8220;yeastExpData&#8221; R package. But what if you want to look at a
+data set of protein-protein interactions that does not come from
+R?</p>
+<p>It is common to store data on protein-protein interactions in a
+text file with two columns, where each line of the file contains a
+pair of proteins that interact with each other. For example, such a
+file may look like this: YKL166C YIL033C
+YCR002C YHR107C
+YCR002C YJR076C
+YCR002C YLR314C
+YJR076C YHR107C
+This indicates that there are 5 protein-protein interactions,
+between protein YKL166C and protein YIL033C, between YCR002C and
+YHR107C, between YCR002C and YJR076C, between YCR002C and YLR314C,
+and between YJR076C and YHR107C.</p>
+<p>The function makeproteingraph() makes a graph based on an input file of
+protein-protein interactions, where the first two columns of the input file
+indiciate the pairs of proteins that interact:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> makeproteingraph <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>myfile<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># Function to make a graph based on protein-protein interaction data in an input file</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;graph&quot;</span><span class="p">)</span>
+     mytable <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="kp">file</span><span class="p">(</span>myfile<span class="p">))</span> <span class="c1"># Store the data in a data frame</span>
+     proteins1 <span class="o">&lt;-</span> mytable<span class="o">$</span>V1
+     proteins2 <span class="o">&lt;-</span> mytable<span class="o">$</span>V2
+     protnames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">levels</span><span class="p">(</span>proteins1<span class="p">),</span><span class="kp">levels</span><span class="p">(</span>proteins2<span class="p">))</span>
+     <span class="c1"># Find out how many pairs of proteins there are</span>
+     numpairs <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>proteins1<span class="p">)</span>
+     <span class="c1"># Find the unique protein names:</span>
+     uniquenames <span class="o">&lt;-</span>  <span class="kp">unique</span><span class="p">(</span>protnames<span class="p">)</span>
+     <span class="c1"># Make a graph for these proteins with no edges:</span>
+     mygraph <span class="o">&lt;-</span> new<span class="p">(</span><span class="s">&quot;graphNEL&quot;</span><span class="p">,</span> nodes <span class="o">=</span> uniquenames<span class="p">)</span>
+     <span class="c1"># Add edges to the graph:</span>
+     <span class="c1"># See http://rss.acs.unt.edu/Rdoc/library/graph/doc/graph.pdf for more examples</span>
+     weights <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span>numpairs<span class="p">)</span>
+     mygraph2 <span class="o">&lt;-</span> addEdge<span class="p">(</span><span class="kp">as.vector</span><span class="p">(</span>proteins1<span class="p">),</span><span class="kp">as.vector</span><span class="p">(</span>proteins2<span class="p">),</span>mygraph<span class="p">,</span>weights<span class="p">)</span>
+     <span class="kr">return</span><span class="p">(</span>mygraph2<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>For example, the example file
+<a class="reference external" href="http://www.maths.tcd.ie/~avrillee/littlebookofr/ExampleInteractionData">http://www.maths.tcd.ie/~avrillee/littlebookofr/ExampleInteractionData</a>
+contains the five pairs of interacting proteins listed above. You
+can read it in and make a graph for these interacting proteins by
+typing:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> thegraph <span class="o">&lt;-</span> makeproteingraph<span class="p">(</span><span class="s">&quot;http://www.maths.tcd.ie/~avrillee/littlebookofr/ExampleInteractionData&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can then make a plot of this graph as before:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> mygraphplot <span class="o">&lt;-</span> layoutGraph<span class="p">(</span>thegraph<span class="p">,</span> layoutType<span class="o">=</span><span class="s">&quot;neato&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> renderGraph<span class="p">(</span>mygraphplot<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image5" src="../_static/MB6300_P1_image4.png" /></p>
+</div>
+<div class="section" id="creating-random-graphs-in-r">
+<h2>Creating random graphs in R<a class="headerlink" href="chapter11.html#creating-random-graphs-in-r" title="Permalink to this headline">¶</a></h2>
+<p>A <em>random graph</em> is a graph that is generated by a random process,
+where you start off with a certain number of vertices (nodes), and
+edges are added by randomly choosing pairs of vertices and making
+an edge between the two members of each of those pairs of vertices.
+(This is known as the <em>Erdös-Renyi</em> model for random graphs). In a
+random graph, vertices with lots of connections are equally likely
+as vertices with very few connections. That is, if you calculate
+the average degree of the vertices in a random graph, you will find
+that the degrees of most of the vertices in the graph is near to
+the average.</p>
+<p>It is often useful and interesting to compare the properties of
+biological graphs to random graphs. In order to do this, you need
+to be able to generate some random graphs. The function
+makerandomgraph() in R makes a random graph with a
+certain number of edges:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> makerandomgraph <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>numvertices<span class="p">,</span>numedges<span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1"># Function to make a random graph</span>
+     <span class="kn">require</span><span class="p">(</span><span class="s">&quot;graph&quot;</span><span class="p">)</span>
+     <span class="c1"># Make a vector with the names of the vertices</span>
+     mynames <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span><span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span>numvertices<span class="p">),</span><span class="kp">toString</span><span class="p">)</span>
+     myrandomgraph <span class="o">&lt;-</span> randomEGraph<span class="p">(</span>mynames<span class="p">,</span> edges <span class="o">=</span> numedges<span class="p">)</span>
+     <span class="kr">return</span><span class="p">(</span>myrandomgraph<span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>This function takes as its argument (input)
+the number of vertices and edges that you want the random graph to
+have to have. For example, to create a random graph that has 15
+vertices and 43 edges, we type:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myrandomgraph <span class="o">&lt;-</span> makerandomgraph<span class="p">(</span><span class="m">15</span><span class="p">,</span> <span class="m">43</span><span class="p">)</span>
+<span class="o">&gt;</span> myrandomgraph <span class="c1"># Print out the number of vertices and edges in the graph</span>
+A graphNEL graph with undirected edges
+Number of Nodes <span class="o">=</span> <span class="m">15</span>
+Number of Edges <span class="o">=</span> <span class="m">43</span>
+</pre></div>
+</div>
+<p>In the R code above, we tell R to give the vertices the labels 1 to
+15. We can of course plot the random graph:</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="o">&gt;</span> myrandomgraphplot <span class="o">&lt;-</span> layoutGraph<span class="p">(</span>myrandomgraph<span class="p">,</span> layoutType<span class="o">=</span><span class="s">&quot;neato&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> renderGraph<span class="p">(</span>myrandomgraphplot<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image6" src="../_static/MB6300_P1_image6.png" /></p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="chapter11.html#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this practical, you will have learnt to use the following R
+functions:</p>
+<ol class="arabic simple">
+<li>data() to load a data set that comes with a package into R</li>
+<li>table() for making a table of the data in a vector, or finding
+out how many elements in a vector have a particular value</li>
+<li>sort() for sorting a vector</li>
+</ol>
+<p>All of these functions belong to the standard installation of R.</p>
+<p>You have also learnt the following R functions that belong to the
+additional R packages:</p>
+<ol class="arabic simple">
+<li>nodes() from the &#8220;graph&#8221; package for getting a list of the names
+of vertices in a graph</li>
+<li>adj() from the &#8220;graph&#8221; package for getting a list of the
+vertices that a particular vertex is connected to in a graph</li>
+<li>degree() from the &#8220;graph&#8221; package for calculating the degree of
+each of the vertices in a graph</li>
+<li>connectedComp() from the &#8220;RBGL&#8221; package for identifying
+connected components in a graph</li>
+<li>subGraph() from the &#8220;graph&#8221; package for extracting a subgraph
+from a graph</li>
+<li>layoutGraph() and renderGraph() from the &#8220;Rgraphviz&#8221; package for
+plotting a graph or subgraph</li>
+</ol>
+</div>
+<div class="section" id="links-and-further-reading">
+<h2>Links and Further Reading<a class="headerlink" href="chapter11.html#links-and-further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Some links are included here for further reading.</p>
+<p>For background reading on graphs and protein-protein interaction
+graphs, it is recommended to read Chapters 1, 2 and 4 of
+<em>Principles of Computational Cell Biology: from protein complexes to cellular networks</em>
+by Volkhard Helms (Wiley-VCH;
+<a class="reference external" href="http://www.wiley-vch.de/publish/en/books/bySubjectLS00/ISBN3-527-31555-1">http://www.wiley-vch.de/publish/en/books/bySubjectLS00/ISBN3-527-31555-1</a>).</p>
+<p>For a more in-depth introduction to R, a good online tutorial is
+available on the &#8220;Kickstarting R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/contrib/Lemon-kickstart/">cran.r-project.org/doc/contrib/Lemon-kickstart</a>.</p>
+<p>There is also a useful introduction to R in Appendix A (&#8220;A Brief
+Introduction to R&#8221;) of the book
+<em>Computational genome analysis: an introduction</em> by Deonier, Tavaré
+and Waterman (Springer).</p>
+<p>There is another nice (slightly more in-depth) tutorial to R
+available on the &#8220;Introduction to R&#8221; website,
+<a class="reference external" href="http://cran.r-project.org/doc/manuals/R-intro.html">cran.r-project.org/doc/manuals/R-intro.html</a>.</p>
+<p>For more in-depth information and more examples on using the
+&#8220;graph&#8221; package for analysing graphs, look at the &#8220;graph&#8221; package
+documentation,
+<a class="reference external" href="http://www.cran.r-project.org/web/packages/graph/index.html">www.cran.r-project.org/web/packages/graph/index.html</a>.</p>
+<p>More information and examples on using the &#8220;RBGL&#8221; package is
+available in the RBGL documentation at
+<a class="reference external" href="http://www.cran.r-project.org/web/packages/RBGL/index.html">www.cran.r-project.org/web/packages/RBGL/index.html</a>.</p>
+<p>More information and examples on using the &#8220;Rgraphviz&#8221; package is
+available in the Rgraphviz documentation at
+<a class="reference external" href="http://www.bioconductor.org/packages/release/bioc/html/Rgraphviz.html">www.bioconductor.org/packages/release/bioc/html/Rgraphviz.html</a>.</p>
+<p>More information and examples on using the &#8220;igraph&#8221; package is
+available in the &#8220;igraph&#8221; documentation at
+<a class="reference external" href="http://www.cran.r-project.org/web/packages/igraph/index.html">www.cran.r-project.org/web/packages/igraph/index.html</a>.</p>
+<p>There are also very useful chapters on &#8220;Using Graphs for
+Interactome Data&#8221; and &#8220;Graph Layout&#8221; in the book
+<em>Bioconductor Case Studies</em> by Florian Hahne, Wolfgang Huber,
+Robert Gentleman and Seth Falcon
+(<a class="reference external" href="http://www.bioconductor.org/pub/biocases/">http://www.bioconductor.org/pub/biocases/</a>).</p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="chapter11.html#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>Many of the ideas for the examples and exercises for this practical
+were inspired by the book
+<em>Principles of Computational Cell Biology: from protein complexes to cellular networks</em>
+by Volkhard Helms (Wiley-VCH;
+<a class="reference external" href="http://www.wiley-vch.de/publish/en/books/bySubjectLS00/ISBN3-527-31555-1">http://www.wiley-vch.de/publish/en/books/bySubjectLS00/ISBN3-527-31555-1</a>).</p>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="chapter11.html#contact" title="Permalink to this headline">¶</a></h2>
+<p>I will be grateful if you will send me (<a class="reference external" href="http://www.sanger.ac.uk/research/projects/parasitegenomics/">Avril Coghlan</a>) corrections or suggestions for improvements to
+my email address <a class="reference external" href="mailto:alc&#37;&#52;&#48;sanger&#46;ac&#46;uk">alc<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="chapter11.html#license" title="Permalink to this headline">¶</a></h2>
+<p>The content in this book is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="chapter11.html#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Answer the following questions, using the R package. For each
+question, please record your answer, and what you typed into R to
+get this answer.</p>
+<dl class="docutils">
+<dt>Q1. de Lichtenberg <em>et al</em> identified protein-protein complexes in the yeast <em>Saccharomyces cerevisiae</em> that form during the yeast cell cycle. Their data set of pairs of interacting proteins is available for download at the website <a class="reference external" href="http://www.cbs.dtu.dk/databases/cellcycle/yeast_complexes/binary_interaction_data.txt">http://www.cbs.dtu.dk/databases/cellcycle/yeast_complexes/binary_interaction_data.txt</a>. Read this protein-protein interaction data set into R as a graph. How many vertices (proteins) and edges (protein-protein interactions) are there in the graph?</dt>
+<dd>There are about 6600 predicted genes in the <em>S. cerevisiae</em> genome.
+Is this the same as the number of vertices in the graph of de
+Lichtenberg <em>et al</em>&#8216;s data? If not, can you explain why?
+Note: the full paper by de Lichtenberg <em>et al</em> is available at
+<a class="reference external" href="http://www.sciencemag.org/content/307/5710/724.abstract">http://www.sciencemag.org/content/307/5710/724.abstract</a></dd>
+<dt>Q2. What is the minimum, maximum and mean number of interactions for the proteins in the graph of de Lichtenberg <em>et al</em>&#8216;s data?</dt>
+<dd>Can you find an example of a <em>hub protein</em>?
+Make a histogram plot of the number of interactions for the
+<em>S. cerevisiae</em> proteins in de Lichtenberg <em>et al</em>&#8216;s data set.</dd>
+<dt>Q3. Make a random graph with the same number of vertices and edges as the graph of de Lichtenberg <em>et al</em>&#8216;s data. What is the minimum, maximum and mean degree of the vertices for the random graph?</dt>
+<dd>Is there a difference in the minimum, maximum and mean degree of
+the vertices for the random graph, when compared to the graph of de
+Lichtenberg <em>et al</em>&#8216;s data?
+Compare a histogram plot of the degree distribution for the random
+graph to a histogram plot of the degree distribution for
+Lichtenberg <em>et al</em>&#8216;s data set. What do the differences tell you?</dd>
+<dt>Q4. How many connected components exist in the graph of de Lichtenberg <em>et al</em>&#8216;s data?</dt>
+<dd>How many connected components just contain 2 proteins?
+Make a plot of the largest connected component in the graph of de
+Lichtenberg <em>et al</em>&#8216;s data.</dd>
+<dt>Q5. What proteins does yeast protein YPR119W interact with, in de Lichtenberg <em>et al</em>&#8216;s data?</dt>
+<dd>Draw a picture of the connected component that yeast protein
+YPR119W belongs to. Can you see YPR119W in the picture?
+Plot the communities in this connected component. Which communities
+does YPR119W belong to?
+What protein complex(es) do you think YPR119W belongs to?
+Can you find anything about the nature of the interactions between
+YPR119W and the proteins that it interacts with? Hint: search for
+YPR119W and the proteins that it interacts with in the
+Saccharomyces Genome Database
+(<a class="reference external" href="http://www.yeastgenome.org/">www.yeastgenome.org/</a>). It may
+also be useful to look at Figure 3 in de Lichtenberg <em>et al</em>&#8216;s
+paper
+(<a class="reference external" href="http://www.sciencemag.org/content/307/5710/724.abstract">http://www.sciencemag.org/content/307/5710/724.abstract</a>).
+Can you identify the complex(es) that YPR119W belongs to in Figure
+1 of de Lichtenberg <em>et al</em>&#8216;s paper?</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="revisionexercises_answers.html" title="Answers to Revision Exercises"
+             >previous</a> |</li>
+        <li><a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html">Bioinformatics 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright Avril Coghlan, Licence: Creative Commons Attribution 3.0 License.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
